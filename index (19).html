@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Srimad Bhagavatam — Canto 1</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:           #e9c89a;
+    --bg-darker:    #deba85;
+    --bg-darkest:   #cb9356;
+    --nav-bar:      #bd8a51;
+    --maroon:       #9c2a18;
+    --maroon-dark:  #7a1e10;
+    --text:         #060302;
+    --text-mid:     #2a1508;
+    --text-muted:   #6a4520;
+    --gold:         #835627;
+    --gold-dark:    #6a4418;
+    --border:       #c8a060;
+    --border-light: #d8b878;
+    --sit-bg:       #deba85;
+    --sit-border:   #9c2a18;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body { background: #e9c89a; }
+
+  body {
+    color: var(--text);
+    font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+    font-size: 19px;
+    line-height: 1.85;
+  }
+
+  .screen { display: none; }
+  .screen.active { display: block; }
+
+  /* ══ HEADER ══ */
+  .site-header {
+    background: var(--bg-darkest);
+    border-bottom: 2px solid var(--border);
+  }
+
+  .header-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .header-om {
+    font-size: 32px;
+    color: var(--maroon);
+    line-height: 1;
+    font-family: serif;
+  }
+
+  .header-titles { flex: 1; }
+
+  .header-main {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(16px, 3.5vw, 22px);
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+  }
+
+  .header-sub {
+    font-family: 'EB Garamond', serif;
+    font-size: 15px;
+    color: var(--text-mid);
+    font-style: italic;
+    margin-top: 2px;
+  }
+
+  .header-right {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-style: italic;
+    text-align: right;
+    line-height: 1.5;
+    font-family: 'EB Garamond', serif;
+  }
+
+  /* ══ BREADCRUMB ══ */
+  .breadcrumb {
+    background: var(--bg-darker);
+    border-bottom: 1px solid var(--border);
+    padding: 7px 20px;
+  }
+
+  .breadcrumb-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    font-size: 14px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'EB Garamond', serif;
+  }
+
+  .bc-link { color: var(--maroon); cursor: pointer; font-weight: 500; }
+  .bc-link:hover { text-decoration: underline; }
+  .bc-sep { color: var(--border); }
+
+  /* ══ HOME ══ */
+  #home-body {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 36px 20px 80px;
+  }
+
+  .ornament {
+    text-align: center;
+    font-size: 26px;
+    color: var(--gold);
+    margin: 8px 0 20px;
+    line-height: 1;
+  }
+
+  .canto-title-block {
+    text-align: center;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+  }
+
+  .canto-label {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    color: var(--gold-dark);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .canto-name {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(24px, 5vw, 36px);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.25;
+  }
+
+  .canto-subtitle {
+    font-family: 'EB Garamond', serif;
+    font-size: 17px;
+    color: var(--text-mid);
+    font-style: italic;
+    margin-top: 6px;
+  }
+
+  .hr-ornament {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0 0 28px;
+  }
+
+  /* Chapter list */
+  .chapter-list { display: flex; flex-direction: column; gap: 3px; }
+
+  .chapter-item {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid var(--border-light);
+    background: var(--bg-darker);
+    transition: background 0.15s, border-color 0.15s;
+  }
+
+  .chapter-item.available { cursor: pointer; }
+
+  .chapter-item.available:hover {
+    background: var(--bg-darkest);
+    border-color: var(--border);
+  }
+
+  .chapter-num-col {
+    background: var(--bg-darkest);
+    border-right: 1px solid var(--border-light);
+    padding: 12px 14px;
+    min-width: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    color: var(--text-muted);
+    transition: background 0.15s, color 0.15s;
+    flex-shrink: 0;
+  }
+
+  .chapter-item.available:hover .chapter-num-col {
+    background: var(--maroon);
+    color: var(--bg);
+    border-right-color: var(--maroon);
+  }
+
+  .chapter-body {
+    padding: 12px 16px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .chapter-title-text {
+    font-size: 17px;
+    color: var(--maroon);
+    line-height: 1.4;
+    font-family: 'EB Garamond', serif;
+    font-weight: 500;
+  }
+
+  .chapter-item.available:hover .chapter-title-text {
+    color: var(--maroon-dark);
+  }
+
+  .chapter-meta {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 2px;
+    font-style: italic;
+  }
+
+  .chapter-arrow {
+    color: var(--maroon);
+    font-size: 22px;
+    opacity: 0;
+    transition: opacity 0.15s, transform 0.15s;
+    flex-shrink: 0;
+  }
+
+  .chapter-item.available:hover .chapter-arrow {
+    opacity: 1;
+    transform: translateX(3px);
+  }
+
+  .chapter-item.coming-soon { opacity: 0.5; }
+
+  /* ══ CHAPTER SCREEN ══ */
+  #chapter-body {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 36px 20px 80px;
+  }
+
+  .chapter-title-block {
+    text-align: center;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+  }
+
+  .chapter-num-label {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    color: var(--gold-dark);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .chapter-main-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(18px, 4vw, 28px);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  .chapter-ornament {
+    text-align: center;
+    font-size: 22px;
+    color: var(--gold);
+    margin: 10px 0 28px;
+  }
+
+  /* ── ACCORDION ── */
+  .section-block {
+    border: 1px solid var(--border-light);
+    margin-bottom: 5px;
+    background: var(--bg-darker);
+    overflow: hidden;
+  }
+
+  .section-block.open {
+    border-color: var(--border);
+    box-shadow: 0 2px 8px rgba(100,50,0,0.12);
+  }
+
+  .section-header {
+    padding: 14px 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    user-select: none;
+    border-left: 3px solid transparent;
+    transition: background 0.15s, border-left-color 0.15s;
+    background: var(--bg-darker);
+  }
+
+  .section-header:hover {
+    background: var(--bg-darkest);
+    border-left-color: var(--maroon);
+  }
+
+  .section-block.open .section-header {
+    background: var(--bg-darkest);
+    border-left-color: var(--maroon);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .section-header-left { flex: 1; min-width: 0; }
+
+  .section-num {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    color: var(--gold-dark);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+
+  .section-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--maroon);
+    line-height: 1.3;
+    font-family: 'EB Garamond', serif;
+  }
+
+  .section-texts {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 2px;
+    font-family: 'EB Garamond', serif;
+  }
+
+  .section-chevron {
+    color: var(--maroon);
+    font-size: 22px;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .section-block.open .section-chevron { transform: rotate(180deg); }
+
+  /* SECTION BODY — full width */
+  .section-body {
+    display: none;
+    width: 100%;
+    background: var(--bg);
+    padding: 30px 26px 26px;
+    border-left: 3px solid var(--maroon);
+    animation: fadeIn 0.25s ease;
+  }
+
+  .section-block.open .section-body { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── CONTENT ── */
+  .section-body p {
+    font-size: 19px;
+    line-height: 1.85;
+    color: var(--text);
+    margin-bottom: 18px;
+    text-align: justify;
+    font-family: 'EB Garamond', serif;
+  }
+
+  .section-body p:last-child { margin-bottom: 0; }
+
+  .sub-heading {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    color: var(--maroon);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 24px 0 10px;
+    font-weight: 600;
+  }
+
+  .sub-heading:first-child { margin-top: 0; }
+
+  .quote-block {
+    border-left: 3px solid var(--gold);
+    padding: 12px 20px;
+    margin: 18px 0;
+    background: var(--bg-darker);
+  }
+
+  .quote-block p {
+    font-style: italic !important;
+    color: var(--text-mid) !important;
+    font-size: 18px !important;
+    margin-bottom: 0 !important;
+    text-align: left !important;
+  }
+
+  .sit-with-this {
+    margin-top: 26px;
+    padding: 18px 22px;
+    background: var(--sit-bg);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--maroon);
+  }
+
+  .sit-title {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    color: var(--maroon);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .sit-with-this p {
+    font-style: italic !important;
+    color: var(--text-mid) !important;
+    font-size: 18px !important;
+    line-height: 1.8 !important;
+    margin-bottom: 0 !important;
+    text-align: left !important;
+  }
+
+  em     { font-style: italic; }
+  strong { font-weight: 700; }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--bg-darker);
+    border-top: 1px solid var(--border);
+    padding: 18px 20px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-muted);
+    font-style: italic;
+    font-family: 'EB Garamond', serif;
+  }
+
+  ::-webkit-scrollbar { width: 7px; }
+  ::-webkit-scrollbar-track { background: var(--bg-darker); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  @media (max-width: 480px) {
+    #home-body, #chapter-body { padding: 24px 14px 60px; }
+    .section-body { padding: 22px 14px 20px; }
+    .header-right { display: none; }
+    body { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+<div id="app">
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-om">ॐ</div>
+    <div class="header-titles">
+      <div class="header-main">Śrīmad Bhāgavatam</div>
+      <div class="header-sub">Canto 1 — Creation · Study Guide</div>
+    </div>
+    <div class="header-right">Translation &amp; Purports by<br>Śrīla Prabhupāda</div>
+  </div>
+</header>
+
+<!-- ══ HOME ══ -->
+<div id="home" class="screen active">
+  <div class="breadcrumb">
+    <div class="breadcrumb-inner">
+      Śrīmad Bhāgavatam <span class="bc-sep">›</span> Canto 1
+    </div>
+  </div>
+  <div id="home-body">
+    <div class="canto-title-block">
+      <div class="canto-label">Canto 1</div>
+      <div class="canto-name">Creation</div>
+      <div class="canto-subtitle">Śrīmad Bhāgavatam · Canto One</div>
+    </div>
+    <div class="ornament">❧ ✦ ❧</div>
+    <hr class="hr-ornament">
+    <div class="chapter-list" id="chapterGrid"></div>
+  </div>
+  <footer class="site-footer">Hare Kṛṣṇa &nbsp;·&nbsp; For the sincere seeker</footer>
+</div>
+
+<!-- ══ CHAPTER ══ -->
+<div id="chapter" class="screen">
+  <div class="breadcrumb">
+    <div class="breadcrumb-inner">
+      <span class="bc-link" onclick="goHome()">Śrīmad Bhāgavatam</span>
+      <span class="bc-sep">›</span>
+      <span class="bc-link" onclick="goHome()">Canto 1</span>
+      <span class="bc-sep">›</span>
+      <span id="breadcrumb-chapter"></span>
+    </div>
+  </div>
+  <div id="chapter-body">
+    <div class="chapter-title-block">
+      <div class="chapter-num-label" id="chapterNum"></div>
+      <div class="chapter-main-title" id="chapterTitle"></div>
+    </div>
+    <div class="chapter-ornament">❧ ✦ ❧</div>
+    <div id="sectionsContainer"></div>
+  </div>
+  <footer class="site-footer">Hare Kṛṣṇa &nbsp;·&nbsp; For the sincere seeker</footer>
+</div>
+
+</div>
+
+<script>
+const chapters = [
+  {
+    num: 1, title: "Questions by the Sages", available: true,
+    sections: [
+      { title: "The Opening Prayer", texts: "Text 1", content: `
+        <p>The Bhāgavatam does not simply begin — it <strong>bows down first</strong>. The very first verse is a prayer to Kṛṣṇa. Vyāsadeva, the author, offers his respectful obeisances before writing a single word. That itself is a teaching — before we receive this knowledge, we bow.</p>
+        <p class="sub-heading">What does Vyāsadeva say about Kṛṣṇa?</p>
+        <p>Kṛṣṇa is the <em>cause of all causes</em> — not just the creator of this universe, but the very source behind all creation, all maintenance, and all destruction. Nothing exists independently of Him. He is directly and indirectly conscious of everything — nothing is hidden from Him. He is completely independent — there is no cause behind Him. He simply <em>is</em>.</p>
+        <p>He first gave Vedic knowledge to Brahmā — so even the first and greatest created being received his wisdom as a gift from Kṛṣṇa. His Māyā is so powerful that even great sages and demigods are bewildered by it — like mistaking a mirage for real water. And yet — Kṛṣṇa Himself lives in a <em>transcendental abode</em> completely untouched by all of this. The whole creation, with all its drama, is like a dream. He is the eternal reality behind it.</p>
+        <p>This single verse is like the entire Bhāgavatam in seed form. Everything that follows is an expansion of what is said here.</p>
+        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>Kṛṣṇa is described as the cause behind everything — including the illusion that makes unreal things seem real. Does that land for you, or does it raise any questions?</p></div>
+      `},
+      { title: "What is the Bhāgavatam?", texts: "Texts 2–3", content: `
+        <p>Before the story even begins, Vyāsadeva tells us exactly what kind of book this is — and it makes some extraordinary claims.</p>
+        <p class="sub-heading">Text 2</p>
+        <p>This book <strong>completely rejects</strong> all religion done for material reasons — rituals for wealth, health, heaven, good harvest. It deals only with the <em>highest truth</em> — accessible to those who are <strong>pure in heart</strong>. Not necessarily learned. Pure in heart. That highest truth uproots the <em>three miseries</em> — from our own mind and body, from other living beings, and from nature. And the most stunning claim — <strong>this book alone is sufficient for God realization.</strong> Simply by hearing it attentively and submissively, the Supreme Lord becomes established in your heart. Not through ritual. Through <em>hearing</em>.</p>
+        <p class="sub-heading">Text 3</p>
+        <p>The Bhāgavatam is the <em>ripest fruit of the tree of Vedic knowledge</em> — the final, most mature expression of everything. It came through the lips of Śukadeva Gosvāmī — and because of that, it became even sweeter. Like fruit made more delicious when offered with love. It is relishable even for liberated souls — people who have already gone beyond material existence still want to hear it.</p>
+        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>The text says the Bhāgavatam works through attentive and submissive hearing — not effort, not ritual, not scholarship. Just open, humble listening. Is there any part of you reading to evaluate rather than to receive?</p></div>
+      `},
+      { title: "The Setting & Who is Sūta Gosvāmī", texts: "Texts 4–8", content: `
+        <p class="sub-heading">The Place — Naimiṣāraṇya</p>
+        <p>A group of great sages have gathered in the holy forest of <em>Naimiṣāraṇya</em> for a <strong>thousand-year sacrifice</strong> — not for themselves, but entirely for the pleasure of the Lord and His devotees. Into this sacred gathering walks <strong>Sūta Gosvāmī</strong>. The sages immediately offer him an elevated seat of honor — not because of his birth, but because of what he carries inside him. <em>True honor goes to the one who carries true knowledge.</em></p>
+        <p class="sub-heading">Who is Sūta Gosvāmī?</p>
+        <p><strong>Free from vice</strong> — his character is pure. Knowledge in a pure vessel stays pure. <strong>Deeply learned</strong> — trained under proper guidance in all the scriptures. He didn't just read books. He learned at the feet of masters. And most importantly, <strong>submissive</strong> — because of his gentleness, his spiritual masters gave him everything. Every blessing, every realization flowed to him because he never made himself bigger than his teachers.</p>
+        <p>Sūta Gosvāmī is essentially a <em>transparent medium</em> — he received purely, and now he will give purely. This is the <strong>paramparā</strong> — the chain of disciplic succession. Knowledge flows from heart to heart, teacher to student, when the student is truly humble.</p>
+        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>The sages honored Sūta Gosvāmī not for his birth or status but for what he carried within him and how humbly he carried it. In your own life — who do you go to for wisdom? And do you approach them with that same quality of submission?</p></div>
+      `},
+      { title: "The Five Questions of the Sages", texts: "Texts 9–23", content: `
+        <p>The sages give context before asking. They say — look at the age we are living in. <strong>Kali Yuga.</strong> People are short-lived, quarrelsome, lazy, misguided, and constantly disturbed. There are thousands of scriptures with thousands of instructions. Nobody has the time or clarity to follow all of it. So please — <em>give us only the essence.</em></p>
+        <p class="sub-heading">The Five Questions</p>
+        <div class="quote-block"><p><strong>1.</strong> What is the <strong>highest good</strong> — the absolute and ultimate good for all people? <em>(Text 9)</em></p></div>
+        <div class="quote-block"><p><strong>2.</strong> What is the <strong>essence of all scriptures</strong>? Since there are so many and people cannot follow all of them — what is the single essential teaching? <em>(Text 11)</em></p></div>
+        <div class="quote-block"><p><strong>3.</strong> <strong>Why did the Lord appear as Kṛṣṇa</strong>, son of Vasudeva and Devakī? What was the purpose of that specific incarnation? <em>(Text 12)</em></p></div>
+        <div class="quote-block"><p><strong>4.</strong> What are <strong>His various incarnations and their pastimes</strong>, as taught by the previous ācāryas? <em>(Texts 13, 17, 18)</em></p></div>
+        <div class="quote-block"><p><strong>5.</strong> <strong>Now that Kṛṣṇa has departed</strong>, to whom have the religious principles gone for shelter? Where does dharma reside now? <em>(Text 23)</em></p></div>
+        <p>Together these five questions form a complete map. The entire Bhāgavatam — all 12 Cantos — is essentially Sūta Gosvāmī's answer to these five questions.</p>
+        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>Out of these five questions — which one feels most alive and personal to you right now? Which question, if answered deeply, would most change how you live or how you practice?</p></div>
+      `}
+    ]
+  },
+  {
+    num: 2, title: "Divinity and Divine Service", available: true,
+    sections: [
+      { title: "The Opening Obeisances", texts: "Texts 1–4", content: `
+        <p>Before Sūta Gosvāmī speaks a single word of answer, he does two things — he <em>appreciates the questions</em> and then he <em>bows down</em>.</p>
+        <p><strong>Text 1</strong> — Sūta Gosvāmī was <em>fully satisfied</em> by the questions of the sages. A true teacher doesn't just tolerate questions — he is <em>nourished</em> by them. Good questions from sincere hearts actually please a devotee.</p>
+        <p><strong>Text 2</strong> is deeply moving. He offers obeisances to his teacher <strong>Śukadeva Gosvāmī</strong>. When Śukadeva left home as a young man to take sannyāsa, his father Vyāsadeva cried out in grief. Śukadeva didn't even turn back — so absorbed in the divine that worldly ties had no hold on him. The only response came from the <em>trees</em> — moved by the separation, they echoed the father's call.</p>
+        <p><strong>Text 3</strong> — Śukadeva spoke the Bhāgavatam not for the learned or the liberated — but out of <strong>great compassion</strong> for ordinary, struggling human beings. He spoke it after <em>personally assimilating it through experience</em>. This was not book knowledge. This was <em>lived</em> knowledge.</p>
+        <p><strong>Text 4</strong> — The formal invocation. Sūta Gosvāmī bows to Nārāyaṇa, to Nara-Nārāyaṇa Ṛṣi, to Mother Sarasvatī, and to Vyāsadeva — before opening his mouth to speak.</p>
+        <p>Three consecutive chapters begin with bowing down. The Bhāgavatam is quietly showing us how knowledge moves — always through a chain of humble, grateful hearts. <em>Nobody claims the knowledge as their own. Everyone points upward.</em></p>
+        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>Śukadeva left home so absorbed in God that even his father's cry didn't turn him back. And yet he returned — out of compassion for suffering humanity. What moves <em>you</em> to turn back toward the world? Is it obligation, love, compassion — or something else?</p></div>
+      `},
+      { title: "What is the Highest Good?", texts: "Texts 5–10", content: `
+        <p>In <strong>Text 5</strong>, Sūta Gosvāmī appreciates the questions once more. Questions about Kṛṣṇa are inherently <em>auspicious</em> — the very act of asking does good to the world.</p>
+        <p class="sub-heading">Text 6 — The Direct Answer</p>
+        <div class="quote-block"><p>The supreme occupation for all humanity is that by which one can attain loving devotional service unto the Lord — and that service must be <strong>unmotivated</strong> and <strong>uninterrupted</strong>.</p></div>
+        <p>This is the answer. Clean and complete. The highest good for every human being is <strong>Bhakti</strong>. Unmotivated — not done for any personal gain. Pure love has no agenda. Uninterrupted — not occasional, not seasonal. Constant. Like breathing.</p>
+        <p class="sub-heading">Text 7 — The Surprising Bonus</p>
+        <p>When you render devotional service to Kṛṣṇa, you <em>immediately</em> and <em>automatically</em> gain <strong>causeless knowledge</strong> and <strong>detachment from the world</strong>. We normally think — first get knowledge, then detachment, then maybe do bhakti. Sūta Gosvāmī says — <em>just do bhakti and the rest follows automatically.</em></p>
+        <p class="sub-heading">Texts 8–10</p>
+        <p>All work is useless labor if it does not provoke attraction for Kṛṣṇa. Life's desires should never be directed toward sense gratification. One should desire only a healthy life — self-preservation — since a human being is meant for <em>inquiry into the Absolute Truth</em>. The human form is rare and precious precisely because it alone can ask: <em>Who am I? What is God? What is the purpose of existence?</em></p>
+        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>Text 7 says bhakti automatically produces knowledge and detachment. Have you ever noticed that when you felt genuinely close to God, worldly things naturally felt a little less urgent? That quiet shift — that is what this verse is pointing at.</p></div>
+      `},
+      { title: "The Three Ways of Knowing the Absolute Truth", texts: "Texts 11–13", content: `
+        <p>The Absolute Truth is <strong>one</strong>. But depending on how deep you go in your realization, you experience that same reality in three ways:</p>
+        <p><strong>Brahman</strong> — the impersonal, all-pervading divine light. Like the sunshine that fills everything. The experience of the <em>jñānī</em> who dissolves the ego into the infinite.</p>
+        <p><strong>Paramātmā</strong> — the Supersoul within every heart. God not as something far away but as the <em>witness within you</em> — closer than your own breath. The experience of the <em>yogī</em> who goes deep within through meditation.</p>
+        <p><strong>Bhagavān</strong> — the Supreme Personality of Godhead. God as a <em>person</em> — with form, qualities, love, and pastimes. Kṛṣṇa. The experience of the <em>bhakta</em> who enters into a personal loving relationship with the divine.</p>
+        <div class="quote-block"><p>Brahman is like seeing the <em>sunshine</em>. Paramātmā is like seeing the <em>sun disc</em>. Bhagavān is like entering the <em>sun planet itself</em> and meeting the source of all that light personally.</p></div>
+        <p>Even for the philosopher equipped with knowledge and detachment, the final realization comes through <strong>devotional service</strong>. Jñāna and yoga are incomplete without bhakti. They can take you to Brahman and Paramātmā. But to know Bhagavān — to know Kṛṣṇa personally — <em>you must love Him.</em></p>
+        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>Most of us relate to God in one of these three ways — sometimes as a vast formless presence, sometimes as a quiet inner witness, sometimes as a personal loving God. Which of these three feels most natural and alive for you right now? Has that changed at different points in your life?</p></div>
+      `},
+      { title: "The Path: Hearing, Remembering, Worshipping", texts: "Texts 14–22", content: `
+        <p>This is the most <em>practically devotional</em> section of the chapter — describing the progressive journey of the heart through bhakti.</p>
+        <p class="sub-heading">Text 14 — The Four Practices</p>
+        <p>With one-pointed attention, one should constantly <strong>hear, glorify, remember</strong> and <strong>worship</strong> the Personality of Godhead — śravaṇam, kīrtanam, smaraṇam, arcanam. These are the actual daily life of a devotee.</p>
+        <p class="sub-heading">Text 15 — The Sword of Remembrance</p>
+        <p>All of us carry <em>karmic knots</em> — accumulated reactions that bind us and create our suffering. What cuts through them? Not rituals. Not austerity. Simply <strong>remembering Kṛṣṇa</strong> — available to everyone, at every moment, at no cost.</p>
+        <p class="sub-heading">Text 16 — Saintly Association</p>
+        <p>You cannot develop a taste for Kṛṣṇa through individual effort alone. Something happens in the presence of pure devotees that cannot happen in isolation. Their love is contagious. First you serve the devotees — then you gain the <em>taste</em>. The taste itself is a gift that comes through association.</p>
+        <p class="sub-heading">Texts 17–19 — The Cleansing of the Heart</p>
+        <p>Kṛṣṇa Himself, seated in your heart as Paramātmā, begins to <em>cleanse material desires from within</em>. You don't forcibly remove them — Kṛṣṇa does it from the inside. Loving service becomes <strong>irrevocable</strong> — a permanent fixture of the heart. And then lust and hankering simply disappear. Not by struggle. <em>They just go.</em></p>
+        <div class="quote-block"><p>Hear about Kṛṣṇa → develop taste → Kṛṣṇa cleanses your heart → loving service becomes irrevocable → lust falls away naturally → established in goodness → <strong>completely happy</strong>.</p></div>
+        <p>The Bhāgavatam's path is not suppression — it is <em>replacement</em>. When something more beautiful enters the heart, lesser things lose their grip.</p>
+        <p class="sub-heading">Texts 20–22</p>
+        <p>The <em>knot in the heart</em> is pierced — the fundamental belief that we are this body, this name, this story. That knot is the root of all suffering, pierced by the direct experience of Kṛṣṇa through bhakti. Since time immemorial, all great souls have arrived at the same place — <strong>joyful, loving service to Kṛṣṇa</strong>. Everything else eventually tires us. Bhakti never does.</p>
+        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>Think of one attachment in your life that has loosened over time — not because you fought it, but because something better quietly took its place. That loosening — however small — is bhakti working.</p></div>
+      `},
+      { title: "The Three Modes & Why Viṣṇu is Supreme", texts: "Texts 23–27", content: `
+        <p class="sub-heading">Text 23</p>
+        <p>The transcendental Lord is indirectly associated with the three modes: <strong>Brahmā</strong> — creator — carries <em>passion</em> (rajas). <strong>Śiva</strong> — destroyer — carries <em>ignorance</em> (tamas). <strong>Viṣṇu</strong> — maintainer — carries <em>goodness</em> (sattva). But Viṣṇu is not merely a god of goodness — He is the <em>Supreme Lord Himself</em>. Brahmā and Śiva are His expansions for specific cosmic functions. Only Viṣṇu can give ultimate liberation.</p>
+        <p class="sub-heading">Text 24 — The Ladder of the Three Modes</p>
+        <div class="quote-block"><p>Raw wood is <em>tamas</em>. Smoke is better — that is <em>rajas</em>. Fire is the purest — that is <em>sattva</em>. But even fire is still material. The goal is to go beyond all three modes entirely — only possible through Viṣṇu, through bhakti.</p></div>
+        <p class="sub-heading">Texts 25–27</p>
+        <p>The great sages worshipped Viṣṇu specifically because He exists <em>above the three modes</em>. People in passion and ignorance worship demigods seeking wealth, power, and progeny. There is no condemnation here — just clear observation. <em>Where your desire is, that is where your worship goes. And where your worship goes, that is what you get.</em></p>
+        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>Right now — in this season of your life — what are you truly seeking from God when you pray? Material security? Peace of mind? Liberation? Pure love? Just sit with that honestly. Knowing your true seeking is the beginning of clarity.</p></div>
+      `},
+      { title: "Kṛṣṇa is the Goal of Everything", texts: "Texts 28–34", content: `
+        <p>This final section is the grand conclusion of Chapter 2 — breathtaking in its scope.</p>
+        <p class="sub-heading">Texts 28–29 — Everything Points to Kṛṣṇa</p>
+        <div class="quote-block"><p>In the revealed scriptures, the ultimate object of knowledge is Śrī Kṛṣṇa. The purpose of sacrifice is to please Him. Yoga is for realizing Him. All fruitive activities are rewarded by Him. He is supreme knowledge. All austerities are performed to know Him. Religion is rendering loving service unto Him. <strong>He is the supreme goal of life.</strong></p></div>
+        <p>Every path — knowledge, sacrifice, yoga, karma, austerity, religion — every single path ultimately has <em>one destination</em>. Kṛṣṇa. Not different destinations for different paths. One destination. Him.</p>
+        <p class="sub-heading">Texts 30–34</p>
+        <p>The Lord created the energies of cause and effect by His own internal energy, then expanded Himself and entered into creation — always fully enlightened in His transcendental position. He pervades all things as fire permeates wood. The same Kṛṣṇa is simultaneously within you as Paramātmā, pervading everything as Brahman, and descending personally as Bhagavān. <em>Three aspects, one reality, one love.</em></p>
+        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>Everything — every path, every practice, every scripture — ultimately points to Kṛṣṇa. Does that feel like a restriction to you, or does it feel like a relief? Like finally finding out that all roads, however winding, lead home?</p></div>
+      `}
+    ]
+  },
+  { num: 3,  title: "Kṛṣṇa is the Source of All Incarnations",                    available: false },
+  { num: 4,  title: "The Appearance of Śrī Nārada",                               available: false },
+  { num: 5,  title: "Nārada's Instructions on Śrīmad-Bhāgavatam for Vyāsadeva",  available: false },
+  { num: 6,  title: "Conversation Between Nārada and Vyāsadeva",                  available: false },
+  { num: 7,  title: "The Son of Droṇa Punished",                                  available: false },
+  { num: 8,  title: "Prayers by Queen Kuntī and Parīkṣit Saved",                 available: false },
+  { num: 9,  title: "The Passing Away of Bhīṣmadeva in the Presence of Lord Kṛṣṇa", available: false },
+  { num: 10, title: "Departure of Lord Kṛṣṇa for Dvārakā",                       available: false },
+  { num: 11, title: "Lord Kṛṣṇa's Entrance into Dvārakā",                        available: false },
+  { num: 12, title: "Birth of Emperor Parīkṣit",                                  available: false },
+  { num: 13, title: "Dhṛtarāṣṭra Quits Home",                                    available: false },
+  { num: 14, title: "The Disappearance of Lord Kṛṣṇa",                           available: false },
+  { num: 15, title: "The Pāṇḍavas Retire Timely",                                available: false },
+  { num: 16, title: "How Parīkṣit Received the Age of Kali",                     available: false },
+  { num: 17, title: "Punishment and Reward of Kali",                              available: false },
+  { num: 18, title: "Mahārāja Parīkṣit Cursed by a Brāhmaṇa Boy",               available: false },
+  { num: 19, title: "The Appearance of Śukadeva Gosvāmī",                        available: false }
+];
+
+function renderHome() {
+  document.getElementById('chapterGrid').innerHTML = chapters.map(ch => `
+    <div class="chapter-item ${ch.available ? 'available' : 'coming-soon'}"
+         ${ch.available ? `onclick="openChapter(${ch.num-1})"` : ''}>
+      <div class="chapter-num-col">${ch.num}</div>
+      <div class="chapter-body">
+        <div>
+          <div class="chapter-title-text">${ch.title}</div>
+          <div class="chapter-meta">${ch.available ? ch.sections.length+' sections' : 'Coming soon'}</div>
+        </div>
+        ${ch.available ? '<div class="chapter-arrow">›</div>' : ''}
+      </div>
+    </div>
+  `).join('');
+}
+
+function openChapter(idx) {
+  const ch = chapters[idx];
+  document.getElementById('chapterNum').textContent = `Canto 1 · Chapter ${ch.num}`;
+  document.getElementById('chapterTitle').textContent = ch.title;
+  document.getElementById('breadcrumb-chapter').textContent = `Chapter ${ch.num}`;
+  document.getElementById('sectionsContainer').innerHTML = ch.sections.map((sec, i) => `
+    <div class="section-block" id="sec-${i}">
+      <div class="section-header" onclick="toggleSection(${i})">
+        <div class="section-header-left">
+          <div class="section-num">Section ${i+1}</div>
+          <div class="section-name">${sec.title}</div>
+          <div class="section-texts">${sec.texts}</div>
+        </div>
+        <div class="section-chevron">▾</div>
+      </div>
+      <div class="section-body">${sec.content}</div>
+    </div>
+  `).join('');
+  showScreen('chapter');
+  window.scrollTo(0,0);
+}
+
+function toggleSection(idx) {
+  const block = document.getElementById(`sec-${idx}`);
+  const isOpen = block.classList.contains('open');
+  document.querySelectorAll('.section-block').forEach(b => b.classList.remove('open'));
+  if (!isOpen) {
+    block.classList.add('open');
+    setTimeout(() => block.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 60);
+  }
+}
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function goHome() {
+  showScreen('home');
+  window.scrollTo(0,0);
+}
+
+renderHome();
+</script>
+</body>
+</html>
