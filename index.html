@@ -10,7 +10,6 @@
     --bg:           #e9c89a;
     --bg-darker:    #deba85;
     --bg-darkest:   #cb9356;
-    --nav-bar:      #bd8a51;
     --maroon:       #9c2a18;
     --maroon-dark:  #7a1e10;
     --text:         #060302;
@@ -25,7 +24,6 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html, body { background: #e9c89a; }
 
   body {
@@ -36,9 +34,8 @@
   }
 
   .screen { display: none; }
-  .screen.active { display: block; }
+  .screen.active { display: block; background: var(--bg); min-height: 100vh; }
 
-  /* ══ HEADER ══ */
   .site-header {
     background: var(--bg-darkest);
     border-bottom: 2px solid var(--border);
@@ -53,13 +50,7 @@
     gap: 14px;
   }
 
-  .header-om {
-    font-size: 32px;
-    color: var(--maroon);
-    line-height: 1;
-    font-family: serif;
-  }
-
+  .header-om { font-size: 20px; font-weight: 600; color: var(--maroon); line-height: 1; font-family: "Cinzel", serif; letter-spacing: 0.1em; }
   .header-titles { flex: 1; }
 
   .header-main {
@@ -88,7 +79,6 @@
     font-family: 'EB Garamond', serif;
   }
 
-  /* ══ BREADCRUMB ══ */
   .breadcrumb {
     background: var(--bg-darker);
     border-bottom: 1px solid var(--border);
@@ -110,26 +100,15 @@
   .bc-link:hover { text-decoration: underline; }
   .bc-sep { color: var(--border); }
 
-  /* ══ HOME ══ */
   #home-body {
     max-width: 780px;
     margin: 0 auto;
     padding: 36px 20px 80px;
   }
 
-  .ornament {
-    text-align: center;
-    font-size: 26px;
-    color: var(--gold);
-    margin: 8px 0 20px;
-    line-height: 1;
-  }
+  .ornament { text-align: center; font-size: 26px; color: var(--gold); margin: 8px 0 20px; line-height: 1; }
 
-  .canto-title-block {
-    text-align: center;
-    padding-bottom: 8px;
-    margin-bottom: 8px;
-  }
+  .canto-title-block { text-align: center; padding-bottom: 8px; margin-bottom: 8px; }
 
   .canto-label {
     font-family: 'Cinzel', serif;
@@ -156,13 +135,8 @@
     margin-top: 6px;
   }
 
-  .hr-ornament {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 0 0 28px;
-  }
+  .hr-ornament { border: none; border-top: 1px solid var(--border); margin: 0 0 28px; }
 
-  /* Chapter list */
   .chapter-list { display: flex; flex-direction: column; gap: 3px; }
 
   .chapter-item {
@@ -174,11 +148,7 @@
   }
 
   .chapter-item.available { cursor: pointer; }
-
-  .chapter-item.available:hover {
-    background: var(--bg-darkest);
-    border-color: var(--border);
-  }
+  .chapter-item.available:hover { background: var(--bg-darkest); border-color: var(--border); }
 
   .chapter-num-col {
     background: var(--bg-darkest);
@@ -218,16 +188,9 @@
     font-weight: 500;
   }
 
-  .chapter-item.available:hover .chapter-title-text {
-    color: var(--maroon-dark);
-  }
+  .chapter-item.available:hover .chapter-title-text { color: var(--maroon-dark); }
 
-  .chapter-meta {
-    font-size: 13px;
-    color: var(--text-muted);
-    margin-top: 2px;
-    font-style: italic;
-  }
+  .chapter-meta { font-size: 13px; color: var(--text-muted); margin-top: 2px; font-style: italic; }
 
   .chapter-arrow {
     color: var(--maroon);
@@ -237,25 +200,16 @@
     flex-shrink: 0;
   }
 
-  .chapter-item.available:hover .chapter-arrow {
-    opacity: 1;
-    transform: translateX(3px);
-  }
-
+  .chapter-item.available:hover .chapter-arrow { opacity: 1; transform: translateX(3px); }
   .chapter-item.coming-soon { opacity: 0.5; }
 
-  /* ══ CHAPTER SCREEN ══ */
   #chapter-body {
     max-width: 780px;
     margin: 0 auto;
     padding: 36px 20px 80px;
   }
 
-  .chapter-title-block {
-    text-align: center;
-    margin-bottom: 8px;
-    padding-bottom: 8px;
-  }
+  .chapter-title-block { text-align: center; margin-bottom: 8px; padding-bottom: 8px; }
 
   .chapter-num-label {
     font-family: 'Cinzel', serif;
@@ -274,14 +228,8 @@
     line-height: 1.3;
   }
 
-  .chapter-ornament {
-    text-align: center;
-    font-size: 22px;
-    color: var(--gold);
-    margin: 10px 0 28px;
-  }
+  .chapter-ornament { text-align: center; font-size: 22px; color: var(--gold); margin: 10px 0 28px; }
 
-  /* ── ACCORDION ── */
   .section-block {
     border: 1px solid var(--border-light);
     margin-bottom: 5px;
@@ -289,10 +237,7 @@
     overflow: hidden;
   }
 
-  .section-block.open {
-    border-color: var(--border);
-    box-shadow: 0 2px 8px rgba(100,50,0,0.12);
-  }
+  .section-block.open { border-color: var(--border); box-shadow: 0 2px 8px rgba(100,50,0,0.12); }
 
   .section-header {
     padding: 14px 18px;
@@ -307,17 +252,8 @@
     background: var(--bg-darker);
   }
 
-  .section-header:hover {
-    background: var(--bg-darkest);
-    border-left-color: var(--maroon);
-  }
-
-  .section-block.open .section-header {
-    background: var(--bg-darkest);
-    border-left-color: var(--maroon);
-    border-bottom: 1px solid var(--border-light);
-  }
-
+  .section-header:hover { background: var(--bg-darkest); border-left-color: var(--maroon); }
+  .section-block.open .section-header { background: var(--bg-darkest); border-left-color: var(--maroon); border-bottom: 1px solid var(--border-light); }
   .section-header-left { flex: 1; min-width: 0; }
 
   .section-num {
@@ -329,33 +265,12 @@
     margin-bottom: 3px;
   }
 
-  .section-name {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--maroon);
-    line-height: 1.3;
-    font-family: 'EB Garamond', serif;
-  }
+  .section-name { font-size: 20px; font-weight: 700; color: var(--maroon); line-height: 1.3; font-family: 'EB Garamond', serif; }
+  .section-texts { font-size: 13px; color: var(--text-muted); font-style: italic; margin-top: 2px; font-family: 'EB Garamond', serif; }
 
-  .section-texts {
-    font-size: 13px;
-    color: var(--text-muted);
-    font-style: italic;
-    margin-top: 2px;
-    font-family: 'EB Garamond', serif;
-  }
-
-  .section-chevron {
-    color: var(--maroon);
-    font-size: 22px;
-    transition: transform 0.3s ease;
-    flex-shrink: 0;
-    line-height: 1;
-  }
-
+  .section-chevron { color: var(--maroon); font-size: 22px; transition: transform 0.3s ease; flex-shrink: 0; line-height: 1; }
   .section-block.open .section-chevron { transform: rotate(180deg); }
 
-  /* SECTION BODY — full width */
   .section-body {
     display: none;
     width: 100%;
@@ -367,12 +282,8 @@
 
   .section-block.open .section-body { display: block; }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-4px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
 
-  /* ── CONTENT ── */
   .section-body p {
     font-size: 22px;
     line-height: 1.9;
@@ -396,12 +307,7 @@
 
   .sub-heading:first-child { margin-top: 0; }
 
-  .quote-block {
-    border-left: 3px solid var(--gold);
-    padding: 12px 20px;
-    margin: 18px 0;
-    background: var(--bg-darker);
-  }
+  .quote-block { border-left: 3px solid var(--gold); padding: 12px 20px; margin: 18px 0; background: var(--bg-darker); }
 
   .quote-block p {
     font-style: italic !important;
@@ -413,7 +319,6 @@
 
   .sit-with-this {
     margin-top: 26px;
-    padding: 18px 22px;
     background: var(--sit-bg);
     border: 1px solid var(--border);
     border-left: 4px solid var(--maroon);
@@ -425,8 +330,33 @@
     color: var(--maroon);
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    margin-bottom: 10px;
     font-weight: 600;
+    padding: 18px 22px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+
+  .sit-title:after {
+    content: '\25BE';
+    font-size: 14px;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .sit-with-this.open .sit-title:after {
+    transform: rotate(180deg);
+  }
+
+  .sit-body {
+    display: none;
+    padding: 0 22px 18px;
+  }
+
+  .sit-with-this.open .sit-body {
+    display: block;
   }
 
   .sit-with-this p {
@@ -438,10 +368,9 @@
     text-align: left !important;
   }
 
-  em     { font-style: italic; }
+  em { font-style: italic; }
   strong { font-weight: 700; }
 
-  /* ── FOOTER ── */
   .site-footer {
     background: var(--bg-darker);
     border-top: 1px solid var(--border);
@@ -470,43 +399,41 @@
 
 <header class="site-header">
   <div class="header-inner">
-    <div class="header-om">ॐ</div>
+    <div class="header-om">Om</div>
     <div class="header-titles">
-      <div class="header-main">Śrīmad Bhāgavatam</div>
-      <div class="header-sub">Canto 1 — Creation · Study Guide</div>
+      <div class="header-main">Srimad Bhagavatam</div>
+      <div class="header-sub">Canto 1 &mdash; Creation &middot; Study Guide</div>
     </div>
-    <div class="header-right">Translation &amp; Purports by<br>Śrīla Prabhupāda</div>
+    <div class="header-right">Translation &amp; Purports by<br>Srila Prabhupada</div>
   </div>
 </header>
 
-<!-- ══ HOME ══ -->
 <div id="home" class="screen active">
   <div class="breadcrumb">
     <div class="breadcrumb-inner">
-      Śrīmad Bhāgavatam <span class="bc-sep">›</span> Canto 1
+      Srimad Bhagavatam <span class="bc-sep">&rsaquo;</span> Canto 1
     </div>
   </div>
   <div id="home-body">
     <div class="canto-title-block">
       <div class="canto-label">Canto 1</div>
       <div class="canto-name">Creation</div>
-      <div class="canto-subtitle">Śrīmad Bhāgavatam · Canto One</div>
+      <div class="canto-subtitle">Srimad Bhagavatam &middot; Canto One</div>
     </div>
-    <div class="ornament">❧ ✦ ❧</div>
+    <div class="ornament">* * *</div>
     <hr class="hr-ornament">
     <div class="chapter-list" id="chapterGrid"></div>
   </div>
-  <footer class="site-footer">Hare Kṛṣṇa &nbsp;·&nbsp; For the sincere seeker</footer>
+  <footer class="site-footer">Hare Krsna &nbsp;&middot;&nbsp; For the sincere seeker</footer>
 </div>
 
-<!-- ══ CHAPTER ══ -->
 <div id="chapter" class="screen">
   <div class="breadcrumb">
     <div class="breadcrumb-inner">
-      <span class="bc-link" onclick="goHome()">Śrīmad Bhāgavatam</span>
-      <span class="bc-sep">›</span>
+      <span class="bc-link" onclick="goHome()">Srimad Bhagavatam</span>
+      <span class="bc-sep">&rsaquo;</span>
       <span class="bc-link" onclick="goHome()">Canto 1</span>
-      <span class="bc-sep">›</span>
+      <span class="bc-sep">&rsaquo;</span>
       <span id="breadcrumb-chapter"></span>
     </div>
   </div>
@@ -515,10 +442,10 @@
       <div class="chapter-num-label" id="chapterNum"></div>
       <div class="chapter-main-title" id="chapterTitle"></div>
     </div>
-    <div class="chapter-ornament">❧ ✦ ❧</div>
+    <div class="chapter-ornament">* * *</div>
     <div id="sectionsContainer"></div>
   </div>
-  <footer class="site-footer">Hare Kṛṣṇa &nbsp;·&nbsp; For the sincere seeker</footer>
+  <footer class="site-footer">Hare Krsna &nbsp;&middot;&nbsp; For the sincere seeker</footer>
 </div>
 
 </div>
@@ -529,328 +456,541 @@ const chapters = [
     num: 1, title: "Questions by the Sages", available: true,
     sections: [
       { title: "The Opening Prayer", texts: "Text 1", content: `
-        <p>The Bhāgavatam does not simply begin — it <strong>bows down first</strong>. The very first verse is a prayer to Kṛṣṇa. Vyāsadeva, the author, offers his respectful obeisances before writing a single word. That itself is a teaching — before we receive this knowledge, we bow.</p>
-        <p class="sub-heading">What does Vyāsadeva say about Kṛṣṇa?</p>
-        <p>Kṛṣṇa is the <em>cause of all causes</em> — not just the creator of this universe, but the very source behind all creation, all maintenance, and all destruction. Nothing exists independently of Him. He is directly and indirectly conscious of everything — nothing is hidden from Him. He is completely independent — there is no cause behind Him. He simply <em>is</em>.</p>
-        <p>He first gave Vedic knowledge to Brahmā — so even the first and greatest created being received his wisdom as a gift from Kṛṣṇa. His Māyā is so powerful that even great sages and demigods are bewildered by it — like mistaking a mirage for real water. And yet — Kṛṣṇa Himself lives in a <em>transcendental abode</em> completely untouched by all of this. The whole creation, with all its drama, is like a dream. He is the eternal reality behind it.</p>
-        <p>This single verse is like the entire Bhāgavatam in seed form. Everything that follows is an expansion of what is said here.</p>
-        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>Kṛṣṇa is described as the cause behind everything — including the illusion that makes unreal things seem real. Does that land for you, or does it raise any questions?</p></div>
+        <p>The Bhagavatam does not simply begin &mdash; it <strong>bows down first</strong>. The very first verse is a prayer to Krsna. Vyasadeva, the author, offers his respectful obeisances before writing a single word. That itself is a teaching &mdash; before we receive this knowledge, we bow.</p>
+        <p class="sub-heading">What does Vyasadeva say about Krsna?</p>
+        <p>Krsna is the <em>cause of all causes</em> &mdash; not just the creator of this universe, but the very source behind all creation, all maintenance, and all destruction. Nothing exists independently of Him. He is directly and indirectly conscious of everything &mdash; nothing is hidden from Him. He is completely independent &mdash; there is no cause behind Him. He simply <em>is</em>.</p>
+        <p>He first gave Vedic knowledge to Brahma &mdash; so even the first and greatest created being received his wisdom as a gift from Krsna. His Maya is so powerful that even great sages and demigods are bewildered by it &mdash; like mistaking a mirage for real water. And yet &mdash; Krsna Himself lives in a <em>transcendental abode</em> completely untouched by all of this. The whole creation, with all its drama, is like a dream. He is the eternal reality behind it.</p>
+        <p>This single verse is like the entire Bhagavatam in seed form. Everything that follows is an expansion of what is said here.</p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Krsna is described as the cause behind everything &mdash; including the illusion that makes unreal things seem real. Does that land for you, or does it raise any questions?</p></div>
       `},
-      { title: "What is the Bhāgavatam?", texts: "Texts 2–3", content: `
-        <p>Before the story even begins, Vyāsadeva tells us exactly what kind of book this is — and it makes some extraordinary claims.</p>
+      { title: "What is the Bhagavatam?", texts: "Texts 2&ndash;3", content: `
+        <p>Before the story even begins, Vyasadeva tells us exactly what kind of book this is &mdash; and it makes some extraordinary claims.</p>
         <p class="sub-heading">Text 2</p>
-        <p>This book <strong>completely rejects</strong> all religion done for material reasons — rituals for wealth, health, heaven, good harvest. It deals only with the <em>highest truth</em> — accessible to those who are <strong>pure in heart</strong>. Not necessarily learned. Pure in heart. That highest truth uproots the <em>three miseries</em> — from our own mind and body, from other living beings, and from nature. And the most stunning claim — <strong>this book alone is sufficient for God realization.</strong> Simply by hearing it attentively and submissively, the Supreme Lord becomes established in your heart. Not through ritual. Through <em>hearing</em>.</p>
+        <p>This book <strong>completely rejects</strong> all religion done for material reasons &mdash; rituals for wealth, health, heaven, good harvest. It deals only with the <em>highest truth</em> &mdash; accessible to those who are <strong>pure in heart</strong>. Not necessarily learned. Pure in heart. That highest truth uproots the <em>three miseries</em> &mdash; from our own mind and body, from other living beings, and from nature. And the most stunning claim &mdash; <strong>this book alone is sufficient for God realization.</strong> Simply by hearing it attentively and submissively, the Supreme Lord becomes established in your heart. Not through ritual. Through <em>hearing</em>.</p>
         <p class="sub-heading">Text 3</p>
-        <p>The Bhāgavatam is the <em>ripest fruit of the tree of Vedic knowledge</em> — the final, most mature expression of everything. It came through the lips of Śukadeva Gosvāmī — and because of that, it became even sweeter. Like fruit made more delicious when offered with love. It is relishable even for liberated souls — people who have already gone beyond material existence still want to hear it.</p>
-        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>The text says the Bhāgavatam works through attentive and submissive hearing — not effort, not ritual, not scholarship. Just open, humble listening. Is there any part of you reading to evaluate rather than to receive?</p></div>
+        <p>The Bhagavatam is the <em>ripest fruit of the tree of Vedic knowledge</em> &mdash; the final, most mature expression of everything. It came through the lips of Sukadeva Gosvami &mdash; and because of that, it became even sweeter. Like fruit made more delicious when offered with love. It is relishable even for liberated souls &mdash; people who have already gone beyond material existence still want to hear it.</p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>The text says the Bhagavatam works through attentive and submissive hearing &mdash; not effort, not ritual, not scholarship. Just open, humble listening. Is there any part of you reading to evaluate rather than to receive?</p></div>
       `},
-      { title: "The Setting & Who is Sūta Gosvāmī", texts: "Texts 4–8", content: `
-        <p class="sub-heading">The Place — Naimiṣāraṇya</p>
-        <p>A group of great sages have gathered in the holy forest of <em>Naimiṣāraṇya</em> for a <strong>thousand-year sacrifice</strong> — not for themselves, but entirely for the pleasure of the Lord and His devotees. Into this sacred gathering walks <strong>Sūta Gosvāmī</strong>. The sages immediately offer him an elevated seat of honor — not because of his birth, but because of what he carries inside him. <em>True honor goes to the one who carries true knowledge.</em></p>
-        <p class="sub-heading">Who is Sūta Gosvāmī?</p>
-        <p><strong>Free from vice</strong> — his character is pure. Knowledge in a pure vessel stays pure. <strong>Deeply learned</strong> — trained under proper guidance in all the scriptures. He didn't just read books. He learned at the feet of masters. And most importantly, <strong>submissive</strong> — because of his gentleness, his spiritual masters gave him everything. Every blessing, every realization flowed to him because he never made himself bigger than his teachers.</p>
-        <p>Sūta Gosvāmī is essentially a <em>transparent medium</em> — he received purely, and now he will give purely. This is the <strong>paramparā</strong> — the chain of disciplic succession. Knowledge flows from heart to heart, teacher to student, when the student is truly humble.</p>
-        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>The sages honored Sūta Gosvāmī not for his birth or status but for what he carried within him and how humbly he carried it. In your own life — who do you go to for wisdom? And do you approach them with that same quality of submission?</p></div>
+      { title: "The Setting & Who is Suta Gosvami", texts: "Texts 4&ndash;8", content: `
+        <p class="sub-heading">The Place &mdash; Naimisaranya</p>
+        <p>A group of great sages have gathered in the holy forest of <em>Naimisaranya</em> for a <strong>thousand-year sacrifice</strong> &mdash; not for themselves, but entirely for the pleasure of the Lord and His devotees. Into this sacred gathering walks <strong>Suta Gosvami</strong>. The sages immediately offer him an elevated seat of honor &mdash; not because of his birth, but because of what he carries inside him. <em>True honor goes to the one who carries true knowledge.</em></p>
+        <p class="sub-heading">Who is Suta Gosvami?</p>
+        <p><strong>Free from vice</strong> &mdash; his character is pure. Knowledge in a pure vessel stays pure. <strong>Deeply learned</strong> &mdash; trained under proper guidance in all the scriptures. He did not just read books. He learned at the feet of masters. And most importantly, <strong>submissive</strong> &mdash; because of his gentleness, his spiritual masters gave him everything. Every blessing, every realization flowed to him because he never made himself bigger than his teachers.</p>
+        <p>Suta Gosvami is essentially a <em>transparent medium</em> &mdash; he received purely, and now he will give purely. This is the <strong>prampara</strong> &mdash; the chain of disciplic succession. Knowledge flows from heart to heart, teacher to student, when the student is truly humble.</p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>The sages honored Suta Gosvami not for his birth or status but for what he carried within him and how humbly he carried it. In your own life &mdash; who do you go to for wisdom? And do you approach them with that same quality of submission?</p></div>
       `},
-      { title: "The Five Questions of the Sages", texts: "Texts 9–23", content: `
-        <p>The sages give context before asking. They say — look at the age we are living in. <strong>Kali Yuga.</strong> People are short-lived, quarrelsome, lazy, misguided, and constantly disturbed. There are thousands of scriptures with thousands of instructions. Nobody has the time or clarity to follow all of it. So please — <em>give us only the essence.</em></p>
+      { title: "The Five Questions of the Sages", texts: "Texts 9&ndash;23", content: `
+        <p>The sages give context before asking. They say &mdash; look at the age we are living in. <strong>Kali Yuga.</strong> People are short-lived, quarrelsome, lazy, misguided, and constantly disturbed. There are thousands of scriptures with thousands of instructions. Nobody has the time or clarity to follow all of it. So please &mdash; <em>give us only the essence.</em></p>
         <p class="sub-heading">The Five Questions</p>
-        <div class="quote-block"><p><strong>1.</strong> What is the <strong>highest good</strong> — the absolute and ultimate good for all people? <em>(Text 9)</em></p></div>
-        <div class="quote-block"><p><strong>2.</strong> What is the <strong>essence of all scriptures</strong>? Since there are so many and people cannot follow all of them — what is the single essential teaching? <em>(Text 11)</em></p></div>
-        <div class="quote-block"><p><strong>3.</strong> <strong>Why did the Lord appear as Kṛṣṇa</strong>, son of Vasudeva and Devakī? What was the purpose of that specific incarnation? <em>(Text 12)</em></p></div>
-        <div class="quote-block"><p><strong>4.</strong> What are <strong>His various incarnations and their pastimes</strong>, as taught by the previous ācāryas? <em>(Texts 13, 17, 18)</em></p></div>
-        <div class="quote-block"><p><strong>5.</strong> <strong>Now that Kṛṣṇa has departed</strong>, to whom have the religious principles gone for shelter? Where does dharma reside now? <em>(Text 23)</em></p></div>
-        <p>Together these five questions form a complete map. The entire Bhāgavatam — all 12 Cantos — is essentially Sūta Gosvāmī's answer to these five questions.</p>
-        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>Out of these five questions — which one feels most alive and personal to you right now? Which question, if answered deeply, would most change how you live or how you practice?</p></div>
+        <div class="quote-block"><p><strong>1.</strong> What is the <strong>highest good</strong> &mdash; the absolute and ultimate good for all people? <em>(Text 9)</em></p></div>
+        <div class="quote-block"><p><strong>2.</strong> What is the <strong>essence of all scriptures</strong>? Since there are so many and people cannot follow all of them &mdash; what is the single essential teaching? <em>(Text 11)</em></p></div>
+        <div class="quote-block"><p><strong>3.</strong> <strong>Why did the Lord appear as Krsna</strong>, son of Vasudeva and Devaki? What was the purpose of that specific incarnation? <em>(Text 12)</em></p></div>
+        <div class="quote-block"><p><strong>4.</strong> What are <strong>His various incarnations and their pastimes</strong>, as taught by the previous acaryas? <em>(Texts 13, 17, 18)</em></p></div>
+        <div class="quote-block"><p><strong>5.</strong> <strong>Now that Krsna has departed</strong>, to whom have the religious principles gone for shelter? Where does dharma reside now? <em>(Text 23)</em></p></div>
+        <p>Together these five questions form a complete map. The entire Bhagavatam &mdash; all 12 Cantos &mdash; is essentially Suta Gosvami's answer to these five questions.</p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Out of these five questions &mdash; which one feels most alive and personal to you right now? Which question, if answered deeply, would most change how you live or how you practice?</p></div>
       `}
     ]
   },
   {
     num: 2, title: "Divinity and Divine Service", available: true,
     sections: [
-      { title: "The Opening Obeisances", texts: "Texts 1–4", content: `
-        <p>Before Sūta Gosvāmī speaks a single word of answer, he does two things — he <em>appreciates the questions</em> and then he <em>bows down</em>.</p>
-        <p><strong>Text 1</strong> — Sūta Gosvāmī was <em>fully satisfied</em> by the questions of the sages. A true teacher doesn't just tolerate questions — he is <em>nourished</em> by them. Good questions from sincere hearts actually please a devotee.</p>
-        <p><strong>Text 2</strong> is deeply moving. He offers obeisances to his teacher <strong>Śukadeva Gosvāmī</strong>. When Śukadeva left home as a young man to take sannyāsa, his father Vyāsadeva cried out in grief. Śukadeva didn't even turn back — so absorbed in the divine that worldly ties had no hold on him. The only response came from the <em>trees</em> — moved by the separation, they echoed the father's call.</p>
-        <p><strong>Text 3</strong> — Śukadeva spoke the Bhāgavatam not for the learned or the liberated — but out of <strong>great compassion</strong> for ordinary, struggling human beings. He spoke it after <em>personally assimilating it through experience</em>. This was not book knowledge. This was <em>lived</em> knowledge.</p>
-        <p><strong>Text 4</strong> — The formal invocation. Sūta Gosvāmī bows to Nārāyaṇa, to Nara-Nārāyaṇa Ṛṣi, to Mother Sarasvatī, and to Vyāsadeva — before opening his mouth to speak.</p>
-        <p>Three consecutive chapters begin with bowing down. The Bhāgavatam is quietly showing us how knowledge moves — always through a chain of humble, grateful hearts. <em>Nobody claims the knowledge as their own. Everyone points upward.</em></p>
-        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>Śukadeva left home so absorbed in God that even his father's cry didn't turn him back. And yet he returned — out of compassion for suffering humanity. What moves <em>you</em> to turn back toward the world? Is it obligation, love, compassion — or something else?</p></div>
+      { title: "The Opening Obeisances", texts: "Texts 1&ndash;4", content: `
+        <p>Before Suta Gosvami speaks a single word of answer, he does two things &mdash; he <em>appreciates the questions</em> and then he <em>bows down</em>.</p>
+        <p><strong>Text 1</strong> &mdash; Suta Gosvami was <em>fully satisfied</em> by the questions of the sages. A true teacher does not just tolerate questions &mdash; he is <em>nourished</em> by them. Good questions from sincere hearts actually please a devotee.</p>
+        <p><strong>Text 2</strong> is deeply moving. He offers obeisances to his teacher <strong>Sukadeva Gosvami</strong>. When Sukadeva left home as a young man to take sannyasa, his father Vyasadeva cried out in grief. Sukadeva did not even turn back &mdash; so absorbed in the divine that worldly ties had no hold on him. The only response came from the <em>trees</em> &mdash; moved by the separation, they echoed the father's call.</p>
+        <p><strong>Text 3</strong> &mdash; Sukadeva spoke the Bhagavatam not for the learned or the liberated &mdash; but out of <strong>great compassion</strong> for ordinary, struggling human beings. He spoke it after <em>personally assimilating it through experience</em>. This was not book knowledge. This was <em>lived</em> knowledge.</p>
+        <p><strong>Text 4</strong> &mdash; The formal invocation. Suta Gosvami bows to Narayana, to Nara-Narayana Rsi, to Mother Sarasватi, and to Vyasadeva &mdash; before opening his mouth to speak.</p>
+        <p>Three consecutive chapters begin with bowing down. The Bhagavatam is quietly showing us how knowledge moves &mdash; always through a chain of humble, grateful hearts. <em>Nobody claims the knowledge as their own. Everyone points upward.</em></p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Sukadeva left home so absorbed in God that even his father's cry did not turn him back. And yet he returned &mdash; out of compassion for suffering humanity. What moves <em>you</em> to turn back toward the world? Is it obligation, love, compassion &mdash; or something else?</p></div>
       `},
-      { title: "What is the Highest Good?", texts: "Texts 5–10", content: `
-        <p>In <strong>Text 5</strong>, Sūta Gosvāmī appreciates the questions once more. Questions about Kṛṣṇa are inherently <em>auspicious</em> — the very act of asking does good to the world.</p>
-        <p class="sub-heading">Text 6 — The Direct Answer</p>
-        <div class="quote-block"><p>The supreme occupation for all humanity is that by which one can attain loving devotional service unto the Lord — and that service must be <strong>unmotivated</strong> and <strong>uninterrupted</strong>.</p></div>
-        <p>This is the answer. Clean and complete. The highest good for every human being is <strong>Bhakti</strong>. Unmotivated — not done for any personal gain. Pure love has no agenda. Uninterrupted — not occasional, not seasonal. Constant. Like breathing.</p>
-        <p class="sub-heading">Text 7 — The Surprising Bonus</p>
-        <p>When you render devotional service to Kṛṣṇa, you <em>immediately</em> and <em>automatically</em> gain <strong>causeless knowledge</strong> and <strong>detachment from the world</strong>. We normally think — first get knowledge, then detachment, then maybe do bhakti. Sūta Gosvāmī says — <em>just do bhakti and the rest follows automatically.</em></p>
-        <p class="sub-heading">Texts 8–10</p>
-        <p>All work is useless labor if it does not provoke attraction for Kṛṣṇa. Life's desires should never be directed toward sense gratification. One should desire only a healthy life — self-preservation — since a human being is meant for <em>inquiry into the Absolute Truth</em>. The human form is rare and precious precisely because it alone can ask: <em>Who am I? What is God? What is the purpose of existence?</em></p>
-        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>Text 7 says bhakti automatically produces knowledge and detachment. Have you ever noticed that when you felt genuinely close to God, worldly things naturally felt a little less urgent? That quiet shift — that is what this verse is pointing at.</p></div>
+      { title: "What is the Highest Good?", texts: "Texts 5&ndash;10", content: `
+        <p>In <strong>Text 5</strong>, Suta Gosvami appreciates the questions once more. Questions about Krsna are inherently <em>auspicious</em> &mdash; the very act of asking does good to the world.</p>
+        <p class="sub-heading">Text 6 &mdash; The Direct Answer</p>
+        <div class="quote-block"><p>The supreme occupation for all humanity is that by which one can attain loving devotional service unto the Lord &mdash; and that service must be <strong>unmotivated</strong> and <strong>uninterrupted</strong>.</p></div>
+        <p>This is the answer. Clean and complete. The highest good for every human being is <strong>Bhakti</strong>. Unmotivated &mdash; not done for any personal gain. Pure love has no agenda. Uninterrupted &mdash; not occasional, not seasonal. Constant. Like breathing.</p>
+        <p class="sub-heading">Text 7 &mdash; The Surprising Bonus</p>
+        <p>When you render devotional service to Krsna, you <em>immediately</em> and <em>automatically</em> gain <strong>causeless knowledge</strong> and <strong>detachment from the world</strong>. We normally think &mdash; first get knowledge, then detachment, then maybe do bhakti. Suta Gosvami says &mdash; <em>just do bhakti and the rest follows automatically.</em></p>
+        <p class="sub-heading">Texts 8&ndash;10</p>
+        <p>All work is useless labor if it does not provoke attraction for Krsna. Life's desires should never be directed toward sense gratification. One should desire only a healthy life &mdash; self-preservation &mdash; since a human being is meant for <em>inquiry into the Absolute Truth</em>. The human form is rare and precious precisely because it alone can ask: <em>Who am I? What is God? What is the purpose of existence?</em></p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Text 7 says bhakti automatically produces knowledge and detachment. Have you ever noticed that when you felt genuinely close to God, worldly things naturally felt a little less urgent? That quiet shift &mdash; that is what this verse is pointing at.</p></div>
       `},
-      { title: "The Three Ways of Knowing the Absolute Truth", texts: "Texts 11–13", content: `
+      { title: "The Three Ways of Knowing the Absolute Truth", texts: "Texts 11&ndash;13", content: `
         <p>The Absolute Truth is <strong>one</strong>. But depending on how deep you go in your realization, you experience that same reality in three ways:</p>
-        <p><strong>Brahman</strong> — the impersonal, all-pervading divine light. Like the sunshine that fills everything. The experience of the <em>jñānī</em> who dissolves the ego into the infinite.</p>
-        <p><strong>Paramātmā</strong> — the Supersoul within every heart. God not as something far away but as the <em>witness within you</em> — closer than your own breath. The experience of the <em>yogī</em> who goes deep within through meditation.</p>
-        <p><strong>Bhagavān</strong> — the Supreme Personality of Godhead. God as a <em>person</em> — with form, qualities, love, and pastimes. Kṛṣṇa. The experience of the <em>bhakta</em> who enters into a personal loving relationship with the divine.</p>
-        <div class="quote-block"><p>Brahman is like seeing the <em>sunshine</em>. Paramātmā is like seeing the <em>sun disc</em>. Bhagavān is like entering the <em>sun planet itself</em> and meeting the source of all that light personally.</p></div>
-        <p>Even for the philosopher equipped with knowledge and detachment, the final realization comes through <strong>devotional service</strong>. Jñāna and yoga are incomplete without bhakti. They can take you to Brahman and Paramātmā. But to know Bhagavān — to know Kṛṣṇa personally — <em>you must love Him.</em></p>
-        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>Most of us relate to God in one of these three ways — sometimes as a vast formless presence, sometimes as a quiet inner witness, sometimes as a personal loving God. Which of these three feels most natural and alive for you right now? Has that changed at different points in your life?</p></div>
+        <p><strong>Brahman</strong> &mdash; the impersonal, all-pervading divine light. Like the sunshine that fills everything. The experience of the <em>jnani</em> who dissolves the ego into the infinite.</p>
+        <p><strong>Paramatma</strong> &mdash; the Supersoul within every heart. God not as something far away but as the <em>witness within you</em> &mdash; closer than your own breath. The experience of the <em>yogi</em> who goes deep within through meditation.</p>
+        <p><strong>Bhagavan</strong> &mdash; the Supreme Personality of Godhead. God as a <em>person</em> &mdash; with form, qualities, love, and pastimes. Krsna. The experience of the <em>bhakta</em> who enters into a personal loving relationship with the divine.</p>
+        <div class="quote-block"><p>Brahman is like seeing the <em>sunshine</em>. Paramatma is like seeing the <em>sun disc</em>. Bhagavan is like entering the <em>sun planet itself</em> and meeting the source of all that light personally.</p></div>
+        <p>Even for the philosopher equipped with knowledge and detachment, the final realization comes through <strong>devotional service</strong>. Jnana and yoga are incomplete without bhakti. They can take you to Brahman and Paramatma. But to know Bhagavan &mdash; to know Krsna personally &mdash; <em>you must love Him.</em></p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Most of us relate to God in one of these three ways &mdash; sometimes as a vast formless presence, sometimes as a quiet inner witness, sometimes as a personal loving God. Which of these three feels most natural and alive for you right now? Has that changed at different points in your life?</p></div>
       `},
-      { title: "The Path: Hearing, Remembering, Worshipping", texts: "Texts 14–22", content: `
-        <p>This is the most <em>practically devotional</em> section of the chapter — describing the progressive journey of the heart through bhakti.</p>
-        <p class="sub-heading">Text 14 — The Four Practices</p>
-        <p>With one-pointed attention, one should constantly <strong>hear, glorify, remember</strong> and <strong>worship</strong> the Personality of Godhead — śravaṇam, kīrtanam, smaraṇam, arcanam. These are the actual daily life of a devotee.</p>
-        <p class="sub-heading">Text 15 — The Sword of Remembrance</p>
-        <p>All of us carry <em>karmic knots</em> — accumulated reactions that bind us and create our suffering. What cuts through them? Not rituals. Not austerity. Simply <strong>remembering Kṛṣṇa</strong> — available to everyone, at every moment, at no cost.</p>
-        <p class="sub-heading">Text 16 — Saintly Association</p>
-        <p>You cannot develop a taste for Kṛṣṇa through individual effort alone. Something happens in the presence of pure devotees that cannot happen in isolation. Their love is contagious. First you serve the devotees — then you gain the <em>taste</em>. The taste itself is a gift that comes through association.</p>
-        <p class="sub-heading">Texts 17–19 — The Cleansing of the Heart</p>
-        <p>Kṛṣṇa Himself, seated in your heart as Paramātmā, begins to <em>cleanse material desires from within</em>. You don't forcibly remove them — Kṛṣṇa does it from the inside. Loving service becomes <strong>irrevocable</strong> — a permanent fixture of the heart. And then lust and hankering simply disappear. Not by struggle. <em>They just go.</em></p>
-        <div class="quote-block"><p>Hear about Kṛṣṇa → develop taste → Kṛṣṇa cleanses your heart → loving service becomes irrevocable → lust falls away naturally → established in goodness → <strong>completely happy</strong>.</p></div>
-        <p>The Bhāgavatam's path is not suppression — it is <em>replacement</em>. When something more beautiful enters the heart, lesser things lose their grip.</p>
-        <p class="sub-heading">Texts 20–22</p>
-        <p>The <em>knot in the heart</em> is pierced — the fundamental belief that we are this body, this name, this story. That knot is the root of all suffering, pierced by the direct experience of Kṛṣṇa through bhakti. Since time immemorial, all great souls have arrived at the same place — <strong>joyful, loving service to Kṛṣṇa</strong>. Everything else eventually tires us. Bhakti never does.</p>
-        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>Think of one attachment in your life that has loosened over time — not because you fought it, but because something better quietly took its place. That loosening — however small — is bhakti working.</p></div>
+      { title: "The Path: Hearing, Remembering, Worshipping", texts: "Texts 14&ndash;22", content: `
+        <p>This is the most <em>practically devotional</em> section of the chapter &mdash; describing the progressive journey of the heart through bhakti.</p>
+        <p class="sub-heading">Text 14 &mdash; The Four Practices</p>
+        <p>With one-pointed attention, one should constantly <strong>hear, glorify, remember</strong> and <strong>worship</strong> the Personality of Godhead &mdash; sravaam, kirtanam, smaranam, arcanam. These are the actual daily life of a devotee.</p>
+        <p class="sub-heading">Text 15 &mdash; The Sword of Remembrance</p>
+        <p>All of us carry <em>karmic knots</em> &mdash; accumulated reactions that bind us and create our suffering. What cuts through them? Not rituals. Not austerity. Simply <strong>remembering Krsna</strong> &mdash; available to everyone, at every moment, at no cost.</p>
+        <p class="sub-heading">Text 16 &mdash; Saintly Association</p>
+        <p>You cannot develop a taste for Krsna through individual effort alone. Something happens in the presence of pure devotees that cannot happen in isolation. Their love is contagious. First you serve the devotees &mdash; then you gain the <em>taste</em>. The taste itself is a gift that comes through association.</p>
+        <p class="sub-heading">Texts 17&ndash;19 &mdash; The Cleansing of the Heart</p>
+        <p>Krsna Himself, seated in your heart as Paramatma, begins to <em>cleanse material desires from within</em>. You do not forcibly remove them &mdash; Krsna does it from the inside. Loving service becomes <strong>irrevocable</strong> &mdash; a permanent fixture of the heart. And then lust and hankering simply disappear. Not by struggle. <em>They just go.</em></p>
+        <div class="quote-block"><p>Hear about Krsna &rarr; develop taste &rarr; Krsna cleanses your heart &rarr; loving service becomes irrevocable &rarr; lust falls away naturally &rarr; established in goodness &rarr; <strong>completely happy</strong>.</p></div>
+        <p>The Bhagavatam's path is not suppression &mdash; it is <em>replacement</em>. When something more beautiful enters the heart, lesser things lose their grip.</p>
+        <p class="sub-heading">Texts 20&ndash;22</p>
+        <p>The <em>knot in the heart</em> is pierced &mdash; the fundamental belief that we are this body, this name, this story. That knot is the root of all suffering, pierced by the direct experience of Krsna through bhakti. Since time immemorial, all great souls have arrived at the same place &mdash; <strong>joyful, loving service to Krsna</strong>. Everything else eventually tires us. Bhakti never does.</p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Think of one attachment in your life that has loosened over time &mdash; not because you fought it, but because something better quietly took its place. That loosening &mdash; however small &mdash; is bhakti working.</p></div>
       `},
-      { title: "The Three Modes & Why Viṣṇu is Supreme", texts: "Texts 23–27", content: `
+      { title: "The Three Modes & Why Visnu is Supreme", texts: "Texts 23&ndash;27", content: `
         <p class="sub-heading">Text 23</p>
-        <p>The transcendental Lord is indirectly associated with the three modes: <strong>Brahmā</strong> — creator — carries <em>passion</em> (rajas). <strong>Śiva</strong> — destroyer — carries <em>ignorance</em> (tamas). <strong>Viṣṇu</strong> — maintainer — carries <em>goodness</em> (sattva). But Viṣṇu is not merely a god of goodness — He is the <em>Supreme Lord Himself</em>. Brahmā and Śiva are His expansions for specific cosmic functions. Only Viṣṇu can give ultimate liberation.</p>
-        <p class="sub-heading">Text 24 — The Ladder of the Three Modes</p>
-        <div class="quote-block"><p>Raw wood is <em>tamas</em>. Smoke is better — that is <em>rajas</em>. Fire is the purest — that is <em>sattva</em>. But even fire is still material. The goal is to go beyond all three modes entirely — only possible through Viṣṇu, through bhakti.</p></div>
-        <p class="sub-heading">Texts 25–27</p>
-        <p>The great sages worshipped Viṣṇu specifically because He exists <em>above the three modes</em>. People in passion and ignorance worship demigods seeking wealth, power, and progeny. There is no condemnation here — just clear observation. <em>Where your desire is, that is where your worship goes. And where your worship goes, that is what you get.</em></p>
-        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>Right now — in this season of your life — what are you truly seeking from God when you pray? Material security? Peace of mind? Liberation? Pure love? Just sit with that honestly. Knowing your true seeking is the beginning of clarity.</p></div>
+        <p>The transcendental Lord is indirectly associated with the three modes: <strong>Brahma</strong> &mdash; creator &mdash; carries <em>passion</em> (rajas). <strong>Siva</strong> &mdash; destroyer &mdash; carries <em>ignorance</em> (tamas). <strong>Visnu</strong> &mdash; maintainer &mdash; carries <em>goodness</em> (sattva). But Visnu is not merely a god of goodness &mdash; He is the <em>Supreme Lord Himself</em>. Brahma and Siva are His expansions for specific cosmic functions. Only Visnu can give ultimate liberation.</p>
+        <p class="sub-heading">Text 24 &mdash; The Ladder of the Three Modes</p>
+        <div class="quote-block"><p>Raw wood is <em>tamas</em>. Smoke is better &mdash; that is <em>rajas</em>. Fire is the purest &mdash; that is <em>sattva</em>. But even fire is still material. The goal is to go beyond all three modes entirely &mdash; only possible through Visnu, through bhakti.</p></div>
+        <p class="sub-heading">Texts 25&ndash;27</p>
+        <p>The great sages worshipped Visnu specifically because He exists <em>above the three modes</em>. People in passion and ignorance worship demigods seeking wealth, power, and progeny. There is no condemnation here &mdash; just clear observation. <em>Where your desire is, that is where your worship goes. And where your worship goes, that is what you get.</em></p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Right now &mdash; in this season of your life &mdash; what are you truly seeking from God when you pray? Material security? Peace of mind? Liberation? Pure love? Just sit with that honestly. Knowing your true seeking is the beginning of clarity.</p></div>
       `},
-      { title: "Kṛṣṇa is the Goal of Everything", texts: "Texts 28–34", content: `
-        <p>This final section is the grand conclusion of Chapter 2 — breathtaking in its scope.</p>
-        <p class="sub-heading">Texts 28–29 — Everything Points to Kṛṣṇa</p>
-        <div class="quote-block"><p>In the revealed scriptures, the ultimate object of knowledge is Śrī Kṛṣṇa. The purpose of sacrifice is to please Him. Yoga is for realizing Him. All fruitive activities are rewarded by Him. He is supreme knowledge. All austerities are performed to know Him. Religion is rendering loving service unto Him. <strong>He is the supreme goal of life.</strong></p></div>
-        <p>Every path — knowledge, sacrifice, yoga, karma, austerity, religion — every single path ultimately has <em>one destination</em>. Kṛṣṇa. Not different destinations for different paths. One destination. Him.</p>
-        <p class="sub-heading">Texts 30–34</p>
-        <p>The Lord created the energies of cause and effect by His own internal energy, then expanded Himself and entered into creation — always fully enlightened in His transcendental position. He pervades all things as fire permeates wood. The same Kṛṣṇa is simultaneously within you as Paramātmā, pervading everything as Brahman, and descending personally as Bhagavān. <em>Three aspects, one reality, one love.</em></p>
-        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>Everything — every path, every practice, every scripture — ultimately points to Kṛṣṇa. Does that feel like a restriction to you, or does it feel like a relief? Like finally finding out that all roads, however winding, lead home?</p></div>
+      { title: "Krsna is the Goal of Everything", texts: "Texts 28&ndash;34", content: `
+        <p>This final section is the grand conclusion of Chapter 2 &mdash; breathtaking in its scope.</p>
+        <p class="sub-heading">Texts 28&ndash;29 &mdash; Everything Points to Krsna</p>
+        <div class="quote-block"><p>In the revealed scriptures, the ultimate object of knowledge is Sri Krsna. The purpose of sacrifice is to please Him. Yoga is for realizing Him. All fruitive activities are rewarded by Him. He is supreme knowledge. All austerities are performed to know Him. Religion is rendering loving service unto Him. <strong>He is the supreme goal of life.</strong></p></div>
+        <p>Every path &mdash; knowledge, sacrifice, yoga, karma, austerity, religion &mdash; every single path ultimately has <em>one destination</em>. Krsna. Not different destinations for different paths. One destination. Him.</p>
+        <p class="sub-heading">Texts 30&ndash;34</p>
+        <p>The Lord created the energies of cause and effect by His own internal energy, then expanded Himself and entered into creation &mdash; always fully enlightened in His transcendental position. He pervades all things as fire permeates wood. The same Krsna is simultaneously within you as Paramatma, pervading everything as Brahman, and descending personally as Bhagavan. <em>Three aspects, one reality, one love.</em></p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Everything &mdash; every path, every practice, every scripture &mdash; ultimately points to Krsna. Does that feel like a restriction to you, or does it feel like a relief? Like finally finding out that all roads, however winding, lead home?</p></div>
       `}
     ]
   },
   {
-    num: 3, title: "Kṛṣṇa is the Source of All Incarnations", available: true,
+    num: 3, title: "Krsna is the Source of All Incarnations", available: true,
     sections: [
-      { title: "The Puruṣa — The Original Form", texts: "Texts 1–5", content: `
-        <p>At the end of Chapter 2, we learned that Kṛṣṇa is the goal of everything — the source behind all creation. Now Chapter 3 opens by showing us <em>how</em> that creation actually happens. And it begins with one of the most breathtaking images in all of scripture.</p>
-        <p class="sub-heading">Text 1 — The First Expansion</p>
-        <p>Before anything exists — before planets, before time, before even the ingredients of the universe — the Lord expands Himself into what is called the <strong>puruṣa</strong> form. Think of this as the Lord taking on a cosmic body specifically for the purpose of creation. From this one expansion, all the sixteen basic ingredients of material existence come into being. The entire universe begins here — not from chance, not from chaos, but from a <em>conscious, deliberate expansion of the Lord Himself.</em></p>
-        <p class="sub-heading">Text 2 — The Lotus and Brahmā</p>
-        <p>A part of this puruṣa form lies down within the waters of the universe. From His navel, a lotus stem sprouts upward. And from the flower of that lotus, <strong>Brahmā</strong> — the master engineer of the universe — comes into existence. This is the image you see in so many ancient paintings and carvings — Viṣṇu reclining on the cosmic ocean, with Brahmā emerging from His navel on a lotus. It is not mythology. It is a description of how consciousness gives rise to creation.</p>
-        <p class="sub-heading">Text 3 — Eternally Spiritual</p>
-        <p>All the planetary systems of the universe rest upon the body of this puruṣa. And yet — He has <em>nothing to do</em> with the created material ingredients. His body is not material. It is eternally spiritual. He enters into creation without being affected by it — the way sunlight enters a room without becoming the room.</p>
-        <p class="sub-heading">Text 4 — The Vision of the Devotees</p>
-        <p>This verse is deeply moving. It says that <strong>devotees with their perfect eyes</strong> can see the transcendental form of the puruṣa — with thousands of legs, arms, faces, heads, eyes, noses — all extraordinary, all decorated and glowing. Why thousands? Because He is <em>all-pervading</em> — present in every direction, in every being, in every corner of existence. This is the vision of a realized soul seeing the Lord as the very fabric of all existence. And only devotees can see this. Not philosophers. Not scientists. <em>Devotees.</em></p>
-        <p class="sub-heading">Text 5 — The Seed of All Incarnations</p>
-        <p>This puruṣa form is described as the <strong>indestructible seed</strong> of all the incarnations that will follow. From particles and portions of this form, different living entities come into being — demigods, human beings, and all others. And from this same source, all the avatāras of the Lord will descend into the universe age after age.</p>
-        <p><em>If Kṛṣṇa is the sun, the puruṣa is the sunlight that fills the universe. And all the incarnations that follow are like individual rays — each one distinct, each one carrying the full warmth and light of the source.</em></p>
-        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>Text 4 says devotees can see with <em>perfect eyes</em> — eyes purified by devotion — what ordinary vision cannot perceive. What does it mean to you that seeing God is not a matter of intelligence or scholarship but of <em>love</em>? Does that feel like good news — or does it raise something in you?</p></div>
+      { title: "The Purusa &mdash; The Original Form", texts: "Texts 1&ndash;5", content: `
+        <p>At the end of Chapter 2, we learned that Krsna is the goal of everything &mdash; the source behind all creation. Now Chapter 3 opens by showing us <em>how</em> that creation actually happens. And it begins with one of the most breathtaking images in all of scripture.</p>
+        <p class="sub-heading">Text 1 &mdash; The First Expansion</p>
+        <p>Before anything exists &mdash; before planets, before time, before even the ingredients of the universe &mdash; the Lord expands Himself into what is called the <strong>purusa</strong> form. Think of this as the Lord taking on a cosmic body specifically for the purpose of creation. From this one expansion, all the sixteen basic ingredients of material existence come into being. The entire universe begins here &mdash; not from chance, not from chaos, but from a <em>conscious, deliberate expansion of the Lord Himself.</em></p>
+        <p class="sub-heading">Text 2 &mdash; The Lotus and Brahma</p>
+        <p>A part of this purusa form lies down within the waters of the universe. From His navel, a lotus stem sprouts upward. And from the flower of that lotus, <strong>Brahma</strong> &mdash; the master engineer of the universe &mdash; comes into existence. This is the image you see in so many ancient paintings and carvings &mdash; Visnu reclining on the cosmic ocean, with Brahma emerging from His navel on a lotus. It is not mythology. It is a description of how consciousness gives rise to creation.</p>
+        <p class="sub-heading">Text 3 &mdash; Eternally Spiritual</p>
+        <p>All the planetary systems of the universe rest upon the body of this purusa. And yet &mdash; He has <em>nothing to do</em> with the created material ingredients. His body is not material. It is eternally spiritual. He enters into creation without being affected by it &mdash; the way sunlight enters a room without becoming the room.</p>
+        <p class="sub-heading">Text 4 &mdash; The Vision of the Devotees</p>
+        <p>This verse is deeply moving. It says that <strong>devotees with their perfect eyes</strong> can see the transcendental form of the purusa &mdash; with thousands of legs, arms, faces, heads, eyes, noses &mdash; all extraordinary, all decorated and glowing. Why thousands? Because He is <em>all-pervading</em> &mdash; present in every direction, in every being, in every corner of existence. This is the vision of a realized soul seeing the Lord as the very fabric of all existence. And only devotees can see this. Not philosophers. Not scientists. <em>Devotees.</em></p>
+        <p class="sub-heading">Text 5 &mdash; The Seed of All Incarnations</p>
+        <p>This purusa form is described as the <strong>indestructible seed</strong> of all the incarnations that will follow. From particles and portions of this form, different living entities come into being &mdash; demigods, human beings, and all others. And from this same source, all the avataras of the Lord will descend into the universe age after age.</p>
+        <p><em>If Krsna is the sun, the purusa is the sunlight that fills the universe. And all the incarnations that follow are like individual rays &mdash; each one distinct, each one carrying the full warmth and light of the source.</em></p>
+        <div class="sit-with-this" id="sit-ch3-s1"><div class="sit-title" onclick="toggleSit('sit-ch3-s1')">&#127 Sit With This</div><div class="sit-body"><p>This is one of the most radical statements in the entire Bhagavatam. The verse says that devotees &mdash; with their <em>perfect eyes</em> &mdash; see what scholars, philosophers, scientists and even great yogis cannot see. Not because devotees are more intelligent. Not because they have studied more. But because their eyes have been purified by <em>love</em>.</p>
+        <p>We live in a world that tells us knowledge comes through the mind &mdash; through analysis, study, logic, experiment. The greater your intellect, the more you can know. And the Bhagavatam quietly overturns this entirely. It says &mdash; the highest reality cannot be <em>thought</em> into visibility. It can only be <em>loved</em> into visibility.</p>
+        <p>Think of what this means in human terms. When you love someone deeply &mdash; really deeply &mdash; you begin to see them in a way that strangers cannot. You notice the particular way they hesitate before speaking something true. You understand what they mean even when their words say something else. <strong>Love gives you eyes that knowledge alone cannot give.</strong> The same principle applies to God &mdash; but infinitely more so.</p>
+        <p>This is why the Bhagavatam says Brahman can be understood through knowledge, Paramatma through yoga, but Bhagavan &mdash; the personal Lord &mdash; can only be known through bhakti. Because to know a <em>person</em>, not a principle or a force but a <em>person</em>, you must enter into relationship. And relationship requires love.</p>
+        <p>And here is the most intimate part of this teaching &mdash; it means God is not more accessible to the brilliant than to the simple. Not more accessible to the scholar than to the farmer who weeps during kirtan. Not more accessible to the monk than to the grandmother who lights a lamp every morning with her whole heart. <strong>Love is the great equalizer. The door to God is not opened by the key of intelligence. It is opened by the key of love. And that key is available to everyone.</strong></p>
+        <p><em>Does that feel like good news &mdash; or does it raise something in you?</em></p></div></div>
       `},
-      { title: "The 22 Incarnations", texts: "Texts 6–25", content: `
-        <p>Now begins one of the most extraordinary passages in the entire Bhāgavatam — a sweeping vision of the Lord descending into the universe again and again, age after age, in form after form, each time for a specific purpose. Each incarnation is like a different facet of the same infinite diamond.</p>
-        <p class="sub-heading">The Kumāras (Text 6)</p>
-        <p>Four young celibate boys, sons of Brahmā, who chose renunciation from birth and underwent severe austerities for realization of the Absolute Truth. The Lord descends first not as a warrior or a king, but as <em>seekers</em> — showing that the search for truth itself is divine.</p>
-        <p class="sub-heading">The Boar — Varāha (Text 7)</p>
-        <p>The earth had been dragged to the bottom of the cosmic ocean by a demon. The Lord took the form of a massive boar, dived into the depths, lifted the earth on His tusks and restored it. What a tender image — the Lord carrying the entire earth, delicately balanced. He who holds up the universe does so with <em>love</em>, not force.</p>
-        <p class="sub-heading">Nārada (Text 8)</p>
-        <p>The great sage among the demigods. He traveled the three worlds singing the Lord's glories, collecting the essence of the Vedas dealing with devotional service. This incarnation is not a fighter or a creator — He is a <em>singer</em>. A wandering devotee. The Lord descends as pure bhakti personified.</p>
-        <p class="sub-heading">Nara-Nārāyaṇa (Text 9)</p>
-        <p>Twin sons of King Dharma, who undertook severe and exemplary penances to control the senses. The Lord descends here to show that even He performs austerity — not because He needs to, but to set an example for all seeking souls.</p>
+      { title: "The 22 Incarnations", texts: "Texts 6&ndash;25", content: `
+        <p>Now begins one of the most extraordinary passages in the entire Bhagavatam &mdash; a sweeping vision of the Lord descending into the universe again and again, age after age, in form after form, each time for a specific purpose. Each incarnation is like a different facet of the same infinite diamond.</p>
+        <p class="sub-heading">The Kumaras (Text 6)</p>
+        <p>Four young celibate boys, sons of Brahma, who chose renunciation from birth and underwent severe austerities for realization of the Absolute Truth. The Lord descends first not as a warrior or a king, but as <em>seekers</em> &mdash; showing that the search for truth itself is divine.</p>
+        <p class="sub-heading">The Boar &mdash; Varaha (Text 7)</p>
+        <p>The earth had been dragged to the bottom of the cosmic ocean by a demon. The Lord took the form of a massive boar, dived into the depths, lifted the earth on His tusks and restored it. He who holds up the universe does so with <em>love</em>, not force.</p>
+        <p class="sub-heading">Narada (Text 8)</p>
+        <p>The great sage among the demigods. He traveled the three worlds singing the Lord's glories, collecting the essence of the Vedas dealing with devotional service. This incarnation is not a fighter or a creator &mdash; He is a <em>singer</em>. A wandering devotee. The Lord descends as pure bhakti personified.</p>
+        <p class="sub-heading">Nara-Narayana (Text 9)</p>
+        <p>Twin sons of King Dharma, who undertook severe and exemplary penances to control the senses. The Lord descends here to show that even He performs austerity &mdash; not because He needs to, but to set an example for all seeking souls.</p>
         <p class="sub-heading">Lord Kapila (Text 10)</p>
-        <p>The foremost among perfected beings, who gave the world the philosophy of Sāṅkhya — the deep analysis of the elements of creation and the nature of the self. In course of time this knowledge had been lost. The Lord descends simply to restore it.</p>
-        <p class="sub-heading">Dattātreya (Text 11)</p>
-        <p>Son of the sage Atri, born from the womb of the devoted Anasūyā who prayed for an incarnation. He spoke on transcendence to Alarka, Prahlāda and others. The Lord descends here in response to a mother's pure prayer — born out of devotion itself.</p>
-        <p class="sub-heading">Yajña (Text 12)</p>
-        <p>The Lord descends to maintain cosmic order during the transition between Manus — the vast cycles of time that govern the universe. He controls entire epochs, assisted by His own son Yāma. Even time itself is managed by His loving attention.</p>
-        <p class="sub-heading">King Ṛṣabha (Text 13)</p>
-        <p>He showed the path of perfection — complete sense control, honored by all orders of life. He walked the earth as a king who had renounced everything, demonstrating through His very life that true royalty is mastery of the self.</p>
-        <p class="sub-heading">King Pṛthu (Text 14)</p>
-        <p>Prayed for by sages, He appeared as a king who cultivated the earth to yield its produce. Because of Him the earth became beautiful and abundant. The Lord descends here simply to <em>feed His children</em>.</p>
-        <p class="sub-heading">The Fish — Matsya (Text 15)</p>
-        <p>When the whole world was deep within water, the Lord became a fish and protected Vaivasvata Manu, keeping him safe on a boat. The greatest of all beings becomes a small fish — to save one devotee. This is the nature of divine love.</p>
-        <p class="sub-heading">The Tortoise — Kūrma (Text 16)</p>
-        <p>When the gods and demons churned the cosmic ocean, the churning rod — the great mountain Mandarācala — began to sink. The Lord became a tortoise and held the mountain on His back. The weight of the entire universe — and He bears it without complaint.</p>
-        <p class="sub-heading">Dhanvantari and Mohinī (Text 17)</p>
-        <p>In the twelfth incarnation the Lord appeared as <strong>Dhanvantari</strong>, the divine physician, bearer of the nectar of immortality. In the thirteenth He appeared as <strong>Mohinī</strong> — a beautiful woman — to bewilder the demons and ensure the nectar reached the demigods. The Lord uses beauty itself as an instrument of divine purpose.</p>
-        <p class="sub-heading">Nṛsiṁha (Text 18)</p>
-        <p>Half-man, half-lion. He tore apart the body of the atheist Hiraṇyakaśipu with His nails. But do not see this as violence alone. Hiraṇyakaśipu had tormented his own son Prahlāda — a pure devotee — mercilessly. The Lord descended in a form that could not be categorized as man or animal, indoors or outdoors, day or night — because the demon had obtained a boon protecting him from all conventional harm. <em>Love for His devotee made the Lord find a way where there seemed to be none.</em></p>
-        <p class="sub-heading">Vāmana (Text 19)</p>
-        <p>A dwarf brāhmaṇa who visited the arena of King Bali's great sacrifice. Though at heart willing to reclaim the three worlds, He simply asked for three steps of land. When Bali agreed, those three steps covered the entire universe. The Lord who contains everything presents Himself as a small child asking for almost nothing — and receives everything. What beautiful humility in the divine.</p>
-        <p class="sub-heading">Paraśurāma (Text 20)</p>
-        <p>He annihilated the administrative class twenty-one times, angry at their rebellion against the brāhmaṇas. When power forgets its sacred duty to protect the wise and the innocent, the Lord Himself comes to correct it.</p>
-        <p class="sub-heading">Vyāsadeva (Text 21)</p>
-        <p>He appeared in the womb of Satyavatī through the sage Parāśara, and divided the one Veda into several branches and sub-branches. Seeing that people in general were less intelligent, He made the divine knowledge more accessible. The greatest literary gift in human history — given out of compassion.</p>
-        <p class="sub-heading">Lord Rāma (Text 22)</p>
-        <p>He controlled the Indian Ocean and killed the atheist Rāvaṇa. But more than the feat — the Lord chose to live as a human being, accepting every limitation, every sorrow, every exile — to show us that even within the constraints of human life, <em>perfect righteousness is possible.</em></p>
-        <p class="sub-heading">Balarāma and Kṛṣṇa (Text 23)</p>
-        <p>Together They appeared in the Yadu dynasty and removed the burden of the world. These are the most intimate, the most personal of all the incarnations. Not distant cosmic forces — but friends, brothers, lovers of the soul.</p>
+        <p>The foremost among perfected beings, who gave the world the philosophy of Sankhya. In course of time this knowledge had been lost. The Lord descends simply to restore it.</p>
+        <p class="sub-heading">Dattatreya (Text 11)</p>
+        <p>Son of the sage Atri, born from the womb of the devoted Anasuya who prayed for an incarnation. The Lord descends here in response to a mother's pure prayer &mdash; born out of devotion itself.</p>
+        <p class="sub-heading">Yajna (Text 12)</p>
+        <p>The Lord descends to maintain cosmic order during the transition between Manus. Even time itself is managed by His loving attention.</p>
+        <p class="sub-heading">King Rsabha (Text 13)</p>
+        <p>He showed the path of perfection &mdash; complete sense control, honored by all orders of life. He walked the earth as a king who had renounced everything, demonstrating that true royalty is mastery of the self.</p>
+        <p class="sub-heading">King Prthu (Text 14)</p>
+        <p>Prayed for by sages, He appeared as a king who cultivated the earth to yield its produce. The Lord descends here simply to <em>feed His children</em>.</p>
+        <p class="sub-heading">The Fish &mdash; Matsya (Text 15)</p>
+        <p>When the whole world was deep within water, the Lord became a fish and protected Vaivasvata Manu, keeping him safe on a boat. The greatest of all beings becomes a small fish &mdash; to save one devotee. This is the nature of divine love.</p>
+        <p class="sub-heading">The Tortoise &mdash; Kurma (Text 16)</p>
+        <p>When the gods and demons churned the cosmic ocean, the churning rod began to sink. The Lord became a tortoise and held the mountain on His back. The weight of the entire universe &mdash; and He bears it without complaint.</p>
+        <p class="sub-heading">Dhanvantari and Mohini (Text 17)</p>
+        <p>In the twelfth incarnation the Lord appeared as <strong>Dhanvantari</strong>, the divine physician. In the thirteenth He appeared as <strong>Mohini</strong> &mdash; a beautiful woman &mdash; to bewilder the demons and ensure the nectar reached the demigods. The Lord uses beauty itself as an instrument of divine purpose.</p>
+        <p class="sub-heading">Nrsima (Text 18)</p>
+        <p>Half-man, half-lion. He tore apart the body of the atheist Hiranyakasipu with His nails. Love for His devotee Prahllada made the Lord find a way where there seemed to be none.</p>
+        <p class="sub-heading">Vamana (Text 19)</p>
+        <p>A dwarf brahmana who asked King Bali for only three steps of land. When Bali agreed, those three steps covered the entire universe. What beautiful humility in the divine.</p>
+        <p class="sub-heading">Parasurama (Text 20)</p>
+        <p>He annihilated the administrative class twenty-one times. When power forgets its sacred duty to protect the wise and the innocent, the Lord Himself comes to correct it.</p>
+        <p class="sub-heading">Vyasadeva (Text 21)</p>
+        <p>He divided the one Veda into several branches and sub-branches. Seeing that people in general were less intelligent, He made the divine knowledge more accessible. The greatest literary gift in human history &mdash; given out of compassion.</p>
+        <p class="sub-heading">Lord Rama (Text 22)</p>
+        <p>He controlled the Indian Ocean and killed the atheist Ravana. The Lord chose to live as a human being, accepting every limitation, every sorrow, every exile &mdash; to show us that even within the constraints of human life, <em>perfect righteousness is possible.</em></p>
+        <p class="sub-heading">Balarama and Krsna (Text 23)</p>
+        <p>Together They appeared in the Yadu dynasty and removed the burden of the world. These are the most intimate, the most personal of all the incarnations. Not distant cosmic forces &mdash; but friends, brothers, lovers of the soul.</p>
         <p class="sub-heading">Lord Buddha (Text 24)</p>
-        <p>At the beginning of Kali-yuga, He will appear to bewilder those who are envious of the faithful. A compassionate deception — to draw away from animal sacrifice those who were misusing Vedic religion for cruelty.</p>
+        <p>At the beginning of Kali-yuga, He will appear to bewilder those who are envious of the faithful. A compassionate deception &mdash; to draw away from animal sacrifice those who were misusing Vedic religion for cruelty.</p>
         <p class="sub-heading">Kalki (Text 25)</p>
         <p>At the conjunction of two yugas, when almost all rulers of the earth have become plunderers, the Lord will descend on a white horse and restore righteousness. He has not yet come. <strong>But He is coming.</strong></p>
-        <p><em>Step back for a moment and feel the sweep of this. From the beginning of creation to its very end — through every age, every civilization, every cosmic cycle — the Lord is never absent. He appears wherever He is needed, in whatever form love requires. As a fish. As a tortoise. As a wandering sage. As a child. As a warrior. As a poet. As a friend. This is not mythology. This is a love story told on a cosmic scale.</em></p>
-        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>Out of all these twenty-two incarnations — which one moves you most deeply right now? Not the most impressive or the most famous. But the one that feels most <em>personal</em> — as if the Lord descended specifically for someone like you.</p></div>
+        <p><em>From the beginning of creation to its very end &mdash; through every age, every civilization, every cosmic cycle &mdash; the Lord is never absent. He appears wherever He is needed, in whatever form love requires. This is not mythology. This is a love story told on a cosmic scale.</em></p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Out of all these twenty-two incarnations &mdash; which one moves you most deeply right now? Not the most impressive or the most famous. But the one that feels most <em>personal</em> &mdash; as if the Lord descended specifically for someone like you.</p></div>
       `},
-      { title: "Kṛṣṇa is the Source of All", texts: "Texts 26–29", content: `
-        <p>After this magnificent parade of incarnations, Sūta Gosvāmī pauses and makes four statements that are the philosophical crown of the chapter.</p>
-        <p class="sub-heading">Text 26 — Innumerable Incarnations</p>
+      { title: "Krsna is the Source of All", texts: "Texts 26&ndash;29", content: `
+        <p>After this magnificent parade of incarnations, Suta Gosvami pauses and makes four statements that are the philosophical crown of the chapter.</p>
+        <p class="sub-heading">Text 26 &mdash; Innumerable Incarnations</p>
         <div class="quote-block"><p>The incarnations of the Lord are innumerable, like rivulets flowing from inexhaustible sources of water.</p></div>
-        <p>What we have just heard — twenty-two incarnations — is not a complete list. It is simply a glimpse. The Lord's descents are without limit, flowing endlessly from an inexhaustible source. Every age, every planet, every need — He responds. The ocean of divine compassion never runs dry.</p>
-        <p class="sub-heading">Text 27 — The Great Beings are His Portions</p>
-        <p>All the ṛṣis, Manus, demigods — all the great and powerful beings of the universe — are themselves plenary portions or portions of the plenary portions of the Lord. Even the greatest beings in existence are simply rays from His light. Nothing in creation is truly independent of Him.</p>
-        <p class="sub-heading">Text 28 — Kṛṣṇa is the Original</p>
-        <div class="quote-block"><p>All of the above-mentioned incarnations are either plenary portions or portions of the plenary portions of the Lord, but Lord Śrī Kṛṣṇa is the original Personality of Godhead.</p></div>
-        <p>All incarnations are real. All are divine. All are worthy of the deepest reverence. But they all flow <em>from</em> Kṛṣṇa — as rivers flow from the ocean. He is not one incarnation among many. He is the source from which all others emerge. And they all appear whenever atheism disturbs the world — to protect the faithful, to restore balance, to bring the lost ones home.</p>
-        <p class="sub-heading">Text 29 — The Power of Simply Hearing</p>
-        <p>Whoever carefully recites the mysterious appearances of the Lord, with devotion in the morning and in the evening, gets relief from all miseries of life. Notice — it says <em>recites with devotion</em>. Not analyzes. Not debates. Simply recites — morning and evening — with love. The stories of the Lord's incarnations are not history lessons. <strong>They are medicine.</strong></p>
-        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>Text 28 says Kṛṣṇa is the <em>original</em> — and all others flow from Him. Does knowing that all the great beings, all the divine powers, all the incarnations are ultimately one connected family flowing from one source — does that make the divine feel closer to you or more distant?</p></div>
+        <p>What we have just heard &mdash; twenty-two incarnations &mdash; is not a complete list. It is simply a glimpse. The Lord's descents are without limit, flowing endlessly from an inexhaustible source. Every age, every planet, every need &mdash; He responds. The ocean of divine compassion never runs dry.</p>
+        <p class="sub-heading">Text 27 &mdash; The Great Beings are His Portions</p>
+        <p>All the rsis, Manus, demigods &mdash; all the great and powerful beings of the universe &mdash; are themselves plenary portions or portions of the plenary portions of the Lord. Even the greatest beings in existence are simply rays from His light. Nothing in creation is truly independent of Him.</p>
+        <p class="sub-heading">Text 28 &mdash; Krsna is the Original</p>
+        <div class="quote-block"><p>All of the above-mentioned incarnations are either plenary portions or portions of the plenary portions of the Lord, but Lord Sri Krsna is the original Personality of Godhead.</p></div>
+        <p>All incarnations are real. All are divine. All are worthy of the deepest reverence. But they all flow <em>from</em> Krsna &mdash; as rivers flow from the ocean. He is not one incarnation among many. He is the source from which all others emerge.</p>
+        <p class="sub-heading">Text 29 &mdash; The Power of Simply Hearing</p>
+        <p>Whoever carefully recites the mysterious appearances of the Lord, with devotion in the morning and in the evening, gets relief from all miseries of life. The stories of the Lord's incarnations are not history lessons. <strong>They are medicine.</strong></p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Text 28 says Krsna is the <em>original</em> &mdash; and all others flow from Him. Does knowing that all the great beings, all the divine powers, all the incarnations are ultimately one connected family flowing from one source &mdash; does that make the divine feel closer to you or more distant?</p></div>
       `},
-      { title: "Beyond All Material Forms", texts: "Texts 30–39", content: `
-        <p>Now the chapter shifts into deeper philosophical waters. Having described the Lord's many forms, Sūta Gosvāmī addresses a profound question — what is the nature of <em>form</em> itself? And how can we truly <em>know</em> the Lord?</p>
-        <p class="sub-heading">Texts 30–32 — The Illusion of Material Form</p>
-        <p>The great cosmic form — the virāṭ-rūpa — that idea of the Lord having a universal body made of mountains, oceans and planets? That is described here as <strong>imaginary</strong>. It is not false exactly — but it is a <em>concession</em> made for less intelligent or beginning seekers who cannot yet conceive of the formless spiritual reality.</p>
-        <p>A beautiful analogy — clouds are carried by air, but foolish people say the sky is cloudy and the air is dirty. In the same way, we superimpose material qualities on the spiritual self. We mistake the cloud for the sky. Beyond the gross form is a subtle form — unseen, unheard, unmanifest. And beyond even that is the true spiritual self — which must exist, because otherwise how could there be repeated births?</p>
-        <p class="sub-heading">Text 33 — The Moment of Liberation</p>
+      { title: "Beyond All Material Forms", texts: "Texts 30&ndash;39", content: `
+        <p>Now the chapter shifts into deeper philosophical waters. Having described the Lord's many forms, Suta Gosvami addresses a profound question &mdash; what is the nature of <em>form</em> itself? And how can we truly <em>know</em> the Lord?</p>
+        <p class="sub-heading">Texts 30&ndash;32 &mdash; The Illusion of Material Form</p>
+        <p>The great cosmic form &mdash; the virat-rupa &mdash; that idea of the Lord having a universal body made of mountains, oceans and planets? That is described here as <strong>imaginary</strong>. It is not false exactly &mdash; but it is a <em>concession</em> made for less intelligent or beginning seekers. Beyond the gross form is a subtle form &mdash; unseen, unheard, unmanifest. And beyond even that is the true spiritual self.</p>
+        <p class="sub-heading">Text 33 &mdash; The Moment of Liberation</p>
         <div class="quote-block"><p>Whenever a person experiences, by self-realization, that both the gross and subtle bodies have nothing to do with the pure self, at that time he sees himself as well as the Lord.</p></div>
-        <p>Self-realization and God-realization happen <em>together</em>. When you truly see what you are not — when the identification with the body and mind falls away — you simultaneously see what you truly are <em>and</em> you see the Lord. They are not two separate discoveries. They are one.</p>
-        <p class="sub-heading">Text 34 — The Grace of the Lord</p>
-        <p>When the illusory energy subsides — and this can only happen by the <em>grace of the Lord</em> — the living entity becomes enriched with knowledge and enlightened with self-realization. This is a critical point — the dissolution of illusion is not an achievement of the individual soul alone. It requires grace. It requires the Lord's <em>active participation</em> in our liberation.</p>
-        <p class="sub-heading">Texts 35–37 — The Lord Beyond Comprehension</p>
-        <p>The Lord's births and activities are undiscoverable even in the Vedic literatures. He is fully omnipotent, master of all senses, creator, maintainer and annihilator — and yet <em>least affected</em> by any of it. He is within every living being. Always independent. The foolish with a poor fund of knowledge cannot know the transcendental nature of the Lord's forms, names and activities. They see Him playing like an actor in a drama and mistake the performance for ordinary.</p>
-        <p class="sub-heading">Text 38 — The Only Way to Know Him</p>
-        <div class="quote-block"><p>Only those who render unreserved, uninterrupted, favorable service unto the lotus feet of Lord Kṛṣṇa can know the creator of the universe in His full glory, power and transcendence.</p></div>
-        <p>Not scholars. Not meditators. Not ritualists. Only those who serve His lotus feet — <em>unreservedly</em>, <em>uninterruptedly</em>, <em>favorably</em> — can know Him fully. The path to knowing Bhagavān is bhakti. There is no other way.</p>
-        <p class="sub-heading">Text 39 — The Guarantee</p>
-        <p>For those who make sincere inquiry about the Lord, the guarantee is extraordinary — <strong>transcendental ecstatic love</strong> unto the Personality of Godhead and <strong>cent-percent immunity</strong> from the dreadful repetition of birth and death. This is the promise the Bhāgavatam makes. Not as a hope. As a fact.</p>
-        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>Text 38 says only <em>unreserved, uninterrupted, favorable</em> service can give full knowledge of the Lord. Sit with the word <em>unreserved</em> for a moment. Is there any part of yourself that you have not yet offered — that you are still holding back from the Lord? Not with guilt — just with honest, gentle awareness.</p></div>
+        <p>Self-realization and God-realization happen <em>together</em>. When you truly see what you are not &mdash; when the identification with the body and mind falls away &mdash; you simultaneously see what you truly are <em>and</em> you see the Lord. They are not two separate discoveries. They are one.</p>
+        <p class="sub-heading">Text 34 &mdash; The Grace of the Lord</p>
+        <p>When the illusory energy subsides &mdash; and this can only happen by the <em>grace of the Lord</em> &mdash; the living entity becomes enriched with knowledge and enlightened with self-realization. The dissolution of illusion requires grace. It requires the Lord's <em>active participation</em> in our liberation.</p>
+        <p class="sub-heading">Text 38 &mdash; The Only Way to Know Him</p>
+        <div class="quote-block"><p>Only those who render unreserved, uninterrupted, favorable service unto the lotus feet of Lord Krsna can know the creator of the universe in His full glory, power and transcendence.</p></div>
+        <p>Not scholars. Not meditators. Not ritualists. Only those who serve His lotus feet &mdash; <em>unreservedly</em>, <em>uninterruptedly</em>, <em>favorably</em> &mdash; can know Him fully. The path to knowing Bhagavan is bhakti. There is no other way.</p>
+        <p class="sub-heading">Text 39 &mdash; The Guarantee</p>
+        <p>For those who make sincere inquiry about the Lord, the guarantee is extraordinary &mdash; <strong>transcendental ecstatic love</strong> unto the Personality of Godhead and <strong>cent-percent immunity</strong> from the dreadful repetition of birth and death. This is the promise the Bhagavatam makes. Not as a hope. As a fact.</p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Text 38 says only <em>unreserved, uninterrupted, favorable</em> service can give full knowledge of the Lord. Sit with the word <em>unreserved</em> for a moment. Is there any part of yourself that you have not yet offered &mdash; that you are still holding back from the Lord? Not with guilt &mdash; just with honest, gentle awareness.</p></div>
       `},
-      { title: "The Glory of the Bhāgavatam", texts: "Texts 40–44", content: `
-        <p>The chapter ends not with philosophy but with something deeply personal — a declaration of love for this scripture itself, and the answer to the <strong>sixth and final question</strong> the sages asked in Chapter 1.</p>
-        <p class="sub-heading">Text 40 — The Literary Incarnation of God</p>
-        <div class="quote-block"><p>This Śrīmad-Bhāgavatam is the literary incarnation of God, and it is compiled by Śrīla Vyāsadeva, the incarnation of God.</p></div>
-        <p>We have just heard about twenty-two incarnations of the Lord in the universe. And now we are told — the Bhāgavatam itself is an incarnation. Not a book <em>about</em> the Lord. An actual <em>descent</em> of the Lord in the form of sound, of knowledge, of grace. Every page is sacred. Every verse is alive. To read this with devotion is to be in the presence of God Himself.</p>
-        <p class="sub-heading">Texts 41–42 — The Sacred Chain</p>
-        <p>Vyāsadeva extracted the cream of all Vedic literatures and delivered it to his son Śukadeva — the most respected among the self-realized. And Śukadeva in turn delivered it to Emperor Parīkṣit — sitting on the banks of the Ganges, surrounded by sages, awaiting death without food or drink. The greatest scripture was spoken to a man preparing to die. And received by him as the greatest gift. This is the <strong>paramparā</strong> — the sacred chain of transmission. Not just of information but of <em>realization</em>. Of love. Of living experience.</p>
-        <p class="sub-heading">Text 43 — The Answer to Question 6</p>
-        <p>Remember the sixth question the sages asked in Chapter 1 — <em>where did dharma, religion and knowledge go after Kṛṣṇa departed?</em> Here is the answer:</p>
-        <div class="quote-block"><p>This Bhāgavata Purāṇa is as brilliant as the sun, and it has arisen just after the departure of Lord Kṛṣṇa to His own abode, accompanied by religion, knowledge, etc. Persons who have lost their vision due to the dense darkness of ignorance in the Age of Kali shall get light from this Purāṇa.</p></div>
-        <p>When Kṛṣṇa left, He did not leave us in darkness. He left us this. The Bhāgavatam is the <em>sun of the age of Kali</em>. Religion, knowledge, devotion — all of it went into this book when the Lord departed. To read it is to be in His company. To hear it is to receive His grace. <strong>The Lord never truly left. He simply changed His form.</strong></p>
-        <p class="sub-heading">Text 44 — Sūta Gosvāmī's Personal Declaration</p>
-        <p>The chapter ends with something deeply touching. Sūta Gosvāmī speaks in the first person — not what I memorized, not what I studied, but <em>as I have realized it</em>. This is the spirit in which the Bhāgavatam is meant to be transmitted — not as information transferred from one mind to another, but as realization flowing from one heart to another.</p>
-        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>Text 43 says the Bhāgavatam arose as a sun when Kṛṣṇa departed — carrying within it all of religion, all of knowledge, all of devotion. You are reading this Bhāgavatam right now. In this very study. Does it feel like sunlight entering a dark room — even a little? Even faintly? That feeling — however subtle — is the Bhāgavatam doing exactly what it promised.</p></div>
+      { title: "The Glory of the Bhagavatam", texts: "Texts 40&ndash;44", content: `
+        <p>The chapter ends not with philosophy but with something deeply personal &mdash; a declaration of love for this scripture itself, and the answer to the <strong>sixth and final question</strong> the sages asked in Chapter 1.</p>
+        <p class="sub-heading">Text 40 &mdash; The Literary Incarnation of God</p>
+        <div class="quote-block"><p>This Srimad-Bhagavatam is the literary incarnation of God, and it is compiled by Srila Vyasadeva, the incarnation of God.</p></div>
+        <p>We have just heard about twenty-two incarnations of the Lord in the universe. And now we are told &mdash; the Bhagavatam itself is an incarnation. Not a book <em>about</em> the Lord. An actual <em>descent</em> of the Lord in the form of sound, of knowledge, of grace. Every page is sacred. Every verse is alive. To read this with devotion is to be in the presence of God Himself.</p>
+        <p class="sub-heading">Texts 41&ndash;42 &mdash; The Sacred Chain</p>
+        <p>Vyasadeva extracted the cream of all Vedic literatures and delivered it to his son Sukadeva &mdash; the most respected among the self-realized. And Sukadeva in turn delivered it to Emperor Pariksit &mdash; sitting on the banks of the Ganges, awaiting death without food or drink. The greatest scripture was spoken to a man preparing to die. And received by him as the greatest gift. This is the <strong>prampara</strong> &mdash; not just of information but of <em>realization</em>. Of love. Of living experience.</p>
+        <p class="sub-heading">Text 43 &mdash; The Answer to Question 6</p>
+        <div class="quote-block"><p>This Bhagavata Purana is as brilliant as the sun, and it has arisen just after the departure of Lord Krsna to His own abode. Persons who have lost their vision due to the dense darkness of ignorance in the Age of Kali shall get light from this Purana.</p></div>
+        <p>When Krsna left, He did not leave us in darkness. He left us this. The Bhagavatam is the <em>sun of the age of Kali</em>. <strong>The Lord never truly left. He simply changed His form.</strong></p>
+        <p class="sub-heading">Text 44 &mdash; Suta Gosvami's Personal Declaration</p>
+        <p>The chapter ends with something deeply touching. Suta Gosvami speaks in the first person &mdash; not what I memorized, not what I studied, but <em>as I have realized it</em>. This is the spirit in which the Bhagavatam is meant to be transmitted &mdash; not as information transferred from one mind to another, but as realization flowing from one heart to another.</p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Text 43 says the Bhagavatam arose as a sun when Krsna departed. You are reading this Bhagavatam right now. In this very study. Does it feel like sunlight entering a dark room &mdash; even a little? Even faintly? That feeling &mdash; however subtle &mdash; is the Bhagavatam doing exactly what it promised.</p></div>
       `}
     ]
   },
   {
-    num: 4, title: "The Appearance of Śrī Nārada", available: true,
+    num: 4, title: "The Appearance of Sri Narada", available: true,
     sections: [
-      { title: "The Sages Ask New Questions", texts: "Texts 1–13", content: `
-        <p>We are still in Naimiṣāraṇya. Chapters 1, 2 and 3 were Sūta Gosvāmī answering the six questions of the sages. Now something shifts. The sages have heard the answers — and rather than being satisfied, they are <em>more</em> hungry. More curious. More eager. This is the nature of Kṛṣṇa-kathā — it does not quench thirst, it deepens it.</p>
-        <p>Śaunaka Muni — the elderly, learned leader of all the ṛṣis — rises and addresses Sūta Gosvāmī with deep appreciation. He calls him the most fortunate and respected of all who can speak and recite. And then he asks a whole new set of questions — not about the philosophy this time, but about the <em>history</em> of the Bhāgavatam itself. How did this great scripture come to be? Where did Vyāsadeva get his inspiration? And who are these extraordinary personalities — Śukadeva Gosvāmī and Mahārāja Parīkṣit — through whom it was transmitted?</p>
-        <p class="sub-heading">Text 3 — Where did the Bhāgavatam begin?</p>
-        <p>The sages ask three things — in what period, at what place, and why was the Bhāgavatam first begun? And what inspired Vyāsadeva to compile it? Behind every great scripture there is a great story. The sages want to know that story.</p>
-        <p class="sub-heading">Texts 4–5 — Who is Śukadeva Gosvāmī?</p>
-        <p>Here we get our first close look at the extraordinary being who will narrate the entire Bhāgavatam — Śukadeva Gosvāmī, the son of Vyāsadeva. He was a great devotee — an equibalanced monist — whose mind was always concentrated in pure awareness. He was so absorbed in the divine that he appeared to the outside world like an ignorant person. Completely unexposed — walking through life like a madman, dumb and retarded to those who could not see what he truly was.</p>
-        <p>And then Text 5 gives us one of the most stunning and delicate images in the entire Bhāgavatam. When Śukadeva passed by a pool where beautiful young women were bathing, they did not cover themselves. But when his father Vyāsadeva followed behind, they immediately covered themselves. The ladies replied — <em>your son looks at us with the same pure vision with which he sees everything. He makes no distinction between male and female. But you still make such distinctions.</em></p>
-        <p>Śukadeva was so completely absorbed in the self that the distinctions the material world makes simply did not register. He saw only the pure soul everywhere. This is not indifference. This is the deepest form of respect — seeing the divine in every being without exception.</p>
-        <p class="sub-heading">Texts 6–8 — How was Śukadeva recognized?</p>
-        <p>Text 8 gives us a beautiful detail — Śukadeva Gosvāmī was accustomed to staying at the door of a householder only <em>as long as it takes to milk a cow</em>. Such a brief visit. And he did this not for food or rest — but simply to <strong>sanctify the residence</strong>. The pure devotee purifies every place he enters, simply by his presence, even for a few moments.</p>
-        <p class="sub-heading">Texts 9–12 — Who is Mahārāja Parīkṣit?</p>
-        <p>The sages ask about the emperor who sat on the banks of the Ganges to fast until death and received the Bhāgavatam. He was a great emperor — possessing all opulences, increasing the prestige of the entire Pāṇḍu dynasty. Even his enemies would bow down at his feet. Why would such a man give everything up?</p>
-        <p>And then Text 12 asks the most moving question of all — <em>those who are devoted to the cause of the Personality of Godhead live only for the welfare, development and happiness of others. So even though Parīkṣit was free from attachment, how could he give up his mortal body, which was the shelter for others?</em> They are not asking why he died. They are asking — how could a man whose very existence was a shelter for others bear to leave? The devotee's life is not his own. It belongs to those he serves.</p>
-        <p class="sub-heading">Text 13 — The Sages' Confidence</p>
-        <p>The sages conclude with a beautiful expression of faith — <em>we know that you are expert in the meaning of all subjects, and thus you can clearly explain the answers.</em> They are not demanding. They are trusting. And this trust itself creates the atmosphere in which knowledge can flow.</p>
-        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>The ladies at the pool said Śukadeva looked at them without making any distinction — he saw only the pure soul. Is there anyone in your life whom you find it difficult to see as a pure soul — beyond their gender, their role, their history? What would it mean to even glimpse them the way Śukadeva saw?</p></div>
+      { title: "The Sages Ask New Questions", texts: "Texts 1&ndash;13", content: `
+        <p>We are still in Naimisaranya. Chapters 1, 2 and 3 were Suta Gosvami answering the six questions of the sages. Now something shifts. The sages have heard the answers &mdash; and rather than being satisfied, they are <em>more</em> hungry. More curious. More eager. This is the nature of Krsna-katha &mdash; it does not quench thirst, it deepens it.</p>
+        <p>Saunaka Muni &mdash; the elderly, learned leader of all the rsis &mdash; rises and addresses Suta Gosvami with deep appreciation. He calls him the most fortunate and respected of all who can speak and recite. And then he asks a whole new set of questions &mdash; not about the philosophy this time, but about the <em>history</em> of the Bhagavatam itself.</p>
+        <p class="sub-heading">Text 3 &mdash; Where did the Bhagavatam begin?</p>
+        <p>The sages ask &mdash; in what period, at what place, and why was the Bhagavatam first begun? And what inspired Vyasadeva to compile it? Behind every great scripture there is a great story. The sages want to know that story.</p>
+        <p class="sub-heading">Texts 4&ndash;5 &mdash; Who is Sukadeva Gosvami?</p>
+        <p>Here we get our first close look at the extraordinary being who will narrate the entire Bhagavatam &mdash; Sukadeva Gosvami, the son of Vyasadeva. He was a great devotee &mdash; an equibalanced monist &mdash; whose mind was always concentrated in pure awareness. He was so absorbed in the divine that he appeared to the outside world like an ignorant person.</p>
+        <p>And then Text 5 gives us one of the most stunning and delicate images in the entire Bhagavatam. When Sukadeva passed by a pool where beautiful young women were bathing, they did not cover themselves. But when his father Vyasadeva followed behind, they immediately covered themselves. The ladies replied &mdash; <em>your son looks at us with the same pure vision with which he sees everything. He makes no distinction between male and female. But you still make such distinctions.</em></p>
+        <p>Sukadeva was so completely absorbed in the self that the distinctions the material world makes simply did not register. He saw only the pure soul everywhere. This is not indifference. This is the deepest form of respect &mdash; seeing the divine in every being without exception.</p>
+        <p class="sub-heading">Texts 6&ndash;8 &mdash; How was Sukadeva recognized?</p>
+        <p>Text 8 gives us a beautiful detail &mdash; Sukadeva Gosvami was accustomed to staying at the door of a householder only <em>as long as it takes to milk a cow</em>. Such a brief visit. And he did this not for food or rest &mdash; but simply to <strong>sanctify the residence</strong>. The pure devotee purifies every place he enters, simply by his presence, even for a few moments.</p>
+        <p class="sub-heading">Texts 9&ndash;12 &mdash; Who is Maharaja Pariksit?</p>
+        <p>The sages ask about the emperor who sat on the banks of the Ganges to fast until death and received the Bhagavatam. He was a great emperor &mdash; possessing all opulences, increasing the prestige of the entire Pandu dynasty. Even his enemies would bow down at his feet. Why would such a man give everything up?</p>
+        <p>And then Text 12 asks the most moving question of all &mdash; <em>those who are devoted to the cause of the Personality of Godhead live only for the welfare, development and happiness of others. So even though Pariksit was free from attachment, how could he give up his mortal body, which was the shelter for others?</em> The devotee's life is not his own. It belongs to those he serves.</p>
+        <p class="sub-heading">Text 13 &mdash; The Sages' Confidence</p>
+        <p>The sages conclude with a beautiful expression of faith &mdash; <em>we know that you are expert in the meaning of all subjects, and thus you can clearly explain the answers.</em> They are not demanding. They are trusting. And this trust itself creates the atmosphere in which knowledge can flow.</p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>The ladies at the pool said Sukadeva looked at them without making any distinction &mdash; he saw only the pure soul. Is there anyone in your life whom you find it difficult to see as a pure soul &mdash; beyond their gender, their role, their history? What would it mean to even glimpse them the way Sukadeva saw?</p></div>
       `},
-      { title: "Vyāsadeva Divides the Vedas", texts: "Texts 14–25", content: `
-        <p>Sūta Gosvāmī now begins to answer. And he starts not with Parīkṣit or Śukadeva — but much earlier. He goes back to the very source — to Vyāsadeva himself, and the story of why the Bhāgavatam was written at all.</p>
-        <p class="sub-heading">Text 14 — The Birth of Vyāsadeva</p>
-        <p>Vyāsadeva was born at the overlap of the second and third millenniums — the junction between Dvāpara and Kali-yuga. His very birth was at a turning point in cosmic time — as if the universe itself arranged for this extraordinary soul to appear precisely when he would be most needed.</p>
-        <p class="sub-heading">Text 15 — The Morning Meditation</p>
-        <p>One morning, after his ablutions in the waters of the Sarasvatī river, Vyāsadeva sat alone to concentrate. This simple detail — <em>he sat alone to concentrate</em> — is the beginning of everything. All great knowledge begins with stillness. With the willingness to sit quietly and look deeply at what is true.</p>
-        <p class="sub-heading">Texts 16–18 — Seeing the Darkness Ahead</p>
-        <p>Through his transcendental vision, Vyāsadeva saw the deterioration ahead — that the people of Kali-yuga would be reduced in their duration of life, would be impatient and would lack goodness. But notice — his response is not despair or anger. It is <em>contemplation for the welfare of men in all statuses and orders of life.</em> He sees darkness coming and immediately asks — what can I do? How can I help? This is the mood of a true teacher. A true servant of humanity.</p>
-        <p class="sub-heading">Text 19 — Dividing the One Veda</p>
-        <p>To make the Vedic knowledge accessible to the people of Kali-yuga, he divided the one original Veda into four. Not to diminish the Vedas. But out of compassion — to bring the light closer to those whose eyes were growing weaker.</p>
-        <p class="sub-heading">Text 20 — The Fifth Veda</p>
-        <p>And the historical facts and authentic stories — the Purāṇas — he made into a separate fifth Veda. This is a profound statement. <strong>Stories are not entertainment. They are Veda.</strong> They carry the same sacred knowledge as the mantras — but in a form the heart can receive directly, without years of scholarly training.</p>
-        <p class="sub-heading">Texts 21–23 — The Great Professors</p>
-        <p>Different sages were entrusted with different Vedas — Paila Ṛṣi with the Ṛg Veda, Jaimini with the Sāma Veda, Vaiśampāyana with the Yajur Veda, Sumantu Muni with the Atharva Veda, and Sūta Gosvāmī's own father Romaharṣaṇa with the Purāṇas. Each in turn taught their disciples, who taught theirs — and so the great river of Vedic knowledge branched out into countless streams.</p>
-        <p class="sub-heading">Texts 24–25 — The Mahābhārata</p>
-        <p>Out of compassion for those who could not access the complex Vedic knowledge — women, laborers, and others — Vyāsadeva compiled the great historical narration called the Mahābhārata. His motive is stated clearly — <em>he thought it wise that this would enable men to achieve the ultimate goal of life.</em> Every great work of Vyāsadeva flows from this one spring — <strong>compassion</strong>. The desire for every human being to reach the highest.</p>
-        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>Vyāsadeva divided and simplified the Vedas not because the knowledge was less important — but because the people needed it more accessible. He met humanity where they were. Is there knowledge or wisdom you carry that you have perhaps kept too complex or too private — that could be simplified and offered more freely to those around you?</p></div>
+      { title: "Vyasadeva Divides the Vedas", texts: "Texts 14&ndash;25", content: `
+        <p>Suta Gosvami now begins to answer. And he starts not with Pariksit or Sukadeva &mdash; but much earlier. He goes back to the very source &mdash; to Vyasadeva himself, and the story of why the Bhagavatam was written at all.</p>
+        <p class="sub-heading">Text 14 &mdash; The Birth of Vyasadeva</p>
+        <p>Vyasadeva was born at the overlap of the second and third millenniums &mdash; the junction between Dvapara and Kali-yuga. His very birth was at a turning point in cosmic time &mdash; as if the universe itself arranged for this extraordinary soul to appear precisely when he would be most needed.</p>
+        <p class="sub-heading">Text 15 &mdash; The Morning Meditation</p>
+        <p>One morning, after his ablutions in the waters of the Sarasvati river, Vyasadeva sat alone to concentrate. This simple detail &mdash; <em>he sat alone to concentrate</em> &mdash; is the beginning of everything. All great knowledge begins with stillness. With the willingness to sit quietly and look deeply at what is true.</p>
+        <p class="sub-heading">Texts 16&ndash;18 &mdash; Seeing the Darkness Ahead</p>
+        <p>Through his transcendental vision, Vyasadeva saw the deterioration ahead &mdash; that the people of Kali-yuga would be reduced in their duration of life, would be impatient and would lack goodness. But notice &mdash; his response is not despair or anger. It is <em>contemplation for the welfare of men in all statuses and orders of life.</em> He sees darkness coming and immediately asks &mdash; what can I do? How can I help? This is the mood of a true teacher.</p>
+        <p class="sub-heading">Text 19 &mdash; Dividing the One Veda</p>
+        <p>To make the Vedic knowledge accessible to the people of Kali-yuga, he divided the one original Veda into four. Not to diminish the Vedas. But out of compassion &mdash; to bring the light closer to those whose eyes were growing weaker.</p>
+        <p class="sub-heading">Text 20 &mdash; The Fifth Veda</p>
+        <p>And the historical facts and authentic stories &mdash; the Puranas &mdash; he made into a separate fifth Veda. This is a profound statement. <strong>Stories are not entertainment. They are Veda.</strong> They carry the same sacred knowledge as the mantras &mdash; but in a form the heart can receive directly, without years of scholarly training.</p>
+        <p class="sub-heading">Texts 21&ndash;23 &mdash; The Great Professors</p>
+        <p>Different sages were entrusted with different Vedas &mdash; Paila Rsi with the Rg Veda, Jaimini with the Sama Veda, Vaisampayana with the Yajur Veda, Sumantu Muni with the Atharva Veda, and Suta Gosvami's own father Romaharsana with the Puranas. Each in turn taught their disciples &mdash; and so the great river of Vedic knowledge branched out into countless streams.</p>
+        <p class="sub-heading">Texts 24&ndash;25 &mdash; The Mahabharata</p>
+        <p>Out of compassion for those who could not access the complex Vedic knowledge &mdash; women, laborers, and others &mdash; Vyasadeva compiled the great historical narration called the Mahabharata. His motive is stated clearly &mdash; <em>he thought it wise that this would enable men to achieve the ultimate goal of life.</em> Every great work of Vyasadeva flows from this one spring &mdash; <strong>compassion</strong>.</p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Vyasadeva divided and simplified the Vedas not because the knowledge was less important &mdash; but because the people needed it more accessible. He met humanity where they were. Is there knowledge or wisdom you carry that you have perhaps kept too complex or too private &mdash; that could be simplified and offered more freely to those around you?</p></div>
       `},
-      { title: "Vyāsadeva's Dissatisfaction", texts: "Texts 26–31", content: `
-        <p>Now we come to the heart of this chapter — and one of the most psychologically profound passages in the entire Bhāgavatam. Vyāsadeva has done everything right. He has compiled the Vedas. He has written the Mahābhārata. He has worked tirelessly for the welfare of all humanity. And yet — something is wrong.</p>
-        <p class="sub-heading">Text 26 — The Inexplicable Emptiness</p>
+      { title: "Vyasadeva's Dissatisfaction", texts: "Texts 26&ndash;31", content: `
+        <p>Now we come to the heart of this chapter &mdash; and one of the most psychologically profound passages in the entire Bhagavatam. Vyasadeva has done everything right. He has compiled the Vedas. He has written the Mahabharata. He has worked tirelessly for the welfare of all humanity. And yet &mdash; something is wrong.</p>
+        <p class="sub-heading">Text 26 &mdash; The Inexplicable Emptiness</p>
         <div class="quote-block"><p>Still his mind was not satisfied, although he engaged himself in working for the total welfare of all people.</p></div>
-        <p>Just sit with this for a moment. Here is the greatest literary genius in the history of the universe. He has produced works that will guide millions of souls across millennia. And he is not satisfied. His heart is empty. This is not false modesty. This is a real and honest crisis. And it is deeply relatable — how many of us have achieved things we worked hard for, helped others, been productive and useful — and still felt that something essential was missing?</p>
-        <p class="sub-heading">Text 27 — He Reflects on the Cause</p>
-        <p>Because Vyāsadeva knew the essence of religion, he immediately turned inward. He did not distract himself or produce more works. He <em>sat and reflected</em>. He looked honestly at what was wrong. This capacity for honest self-reflection — even for the greatest sage — is itself a form of spiritual practice.</p>
-        <p class="sub-heading">Texts 28–30 — Taking Stock</p>
-        <p>Vyāsadeva reviews what he has done — strict disciplinary vows, worship of the Vedas and spiritual masters, the Mahābhārata. All of it was done properly. All of it was for others. And yet —</p>
+        <p>Just sit with this for a moment. Here is the greatest literary genius in the history of the universe. He has produced works that will guide millions of souls across millennia. And he is not satisfied. His heart is empty. This is deeply relatable &mdash; how many of us have achieved things we worked hard for, helped others, been productive and useful &mdash; and still felt that something essential was missing?</p>
+        <p class="sub-heading">Text 27 &mdash; He Reflects on the Cause</p>
+        <p>Because Vyasadeva knew the essence of religion, he immediately turned inward. He did not distract himself or produce more works. He <em>sat and reflected</em>. He looked honestly at what was wrong. This capacity for honest self-reflection &mdash; even for the greatest sage &mdash; is itself a form of spiritual practice.</p>
+        <p class="sub-heading">Texts 28&ndash;30 &mdash; Taking Stock</p>
         <div class="quote-block"><p>I am feeling incomplete, though I myself am fully equipped with everything required by the Vedas.</p></div>
-        <p>This is the confession of a soul who has done everything externally correct and still feels internally hollow. This feeling — this <em>sacred dissatisfaction</em> — is one of the most important experiences on the spiritual path. It is the soul's way of saying — you have not yet given me what I truly need.</p>
-        <p class="sub-heading">Text 31 — The Clue</p>
+        <p>This is the confession of a soul who has done everything externally correct and still feels internally hollow. This feeling &mdash; this <em>sacred dissatisfaction</em> &mdash; is one of the most important experiences on the spiritual path. It is the soul's way of saying &mdash; you have not yet given me what I truly need.</p>
+        <p class="sub-heading">Text 31 &mdash; The Clue</p>
         <div class="quote-block"><p>This may be because I did not specifically point out the devotional service of the Lord, which is dear both to perfect beings and to the infallible Lord.</p></div>
-        <p>This is the moment of realization. All his vast work was wonderful. But he had not yet directly, specifically, abundantly described the <em>devotional loving service to Kṛṣṇa</em>. He had given people the path but not the destination in its full sweetness. He had given them the map but not the love that makes the journey worth taking. <strong>The Bhāgavatam was born from this moment of sacred emptiness.</strong></p>
-        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>Vyāsadeva had done everything right — and still felt incomplete. He realized the missing ingredient was not more knowledge or more effort, but the direct glorification of the Lord's devotional service. Have you ever experienced that kind of sacred dissatisfaction — where everything looks good from the outside but something inside feels unfulfilled? What does your heart tell you is the missing ingredient?</p></div>
+        <p>This is the moment of realization. He had not yet directly, specifically, abundantly described the <em>devotional loving service to Krsna</em>. He had given people the path but not the destination in its full sweetness. He had given them the map but not the love that makes the journey worth taking. <strong>The Bhagavatam was born from this moment of sacred emptiness.</strong></p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Vyasadeva had done everything right &mdash; and still felt incomplete. He realized the missing ingredient was not more knowledge or more effort, but the direct glorification of the Lord's devotional service. Have you ever experienced that kind of sacred dissatisfaction &mdash; where everything looks good from the outside but something inside feels unfulfilled? What does your heart tell you is the missing ingredient?</p></div>
       `},
-      { title: "Nārada Arrives", texts: "Texts 32–33", content: `
+      { title: "Narada Arrives", texts: "Texts 32&ndash;33", content: `
         <p>The chapter ends with two verses that feel like the sunrise after a long night.</p>
-        <p class="sub-heading">Text 32 — Perfect Timing</p>
-        <div class="quote-block"><p>Nārada reached the cottage of Kṛṣṇa-dvaipāyana Vyāsa on the banks of the Sarasvatī just as Vyāsadeva was regretting his defects.</p></div>
-        <p>The words <em>just as</em> are everything here. Not before. Not after. But <em>exactly</em> when Vyāsadeva had reached the depths of his honest self-examination. This is how the Lord works through His devotees — He sends the right teacher at exactly the right moment. When the student is truly ready — truly empty, truly honest — the teacher appears.</p>
-        <p>Nārada did not arrive when Vyāsadeva was busy and satisfied. He arrived when Vyāsadeva was sitting quietly with his incompleteness. <em>The divine always enters through the open wound, not through the armoured fortress.</em></p>
-        <p class="sub-heading">Text 33 — The Reception</p>
-        <p>Śrī Vyāsadeva got up respectfully and worshiped him, giving him veneration equal to that given to Brahmājī, the creator. Even the greatest sage in the world rises and bows when the devotee of the Lord arrives. Nārada carries something Vyāsadeva does not yet have in full measure — the direct, living, personal experience of <em>devotional love for Kṛṣṇa</em>. And Vyāsadeva knows it. So he bows. This is the paramparā in its most human and beautiful form — one great soul recognizing what another great soul carries, and humbling himself to receive it.</p>
-        <div class="sit-with-this"><div class="sit-title">🪷 Sit With This</div><p>Nārada arrived <em>just as</em> Vyāsadeva was sitting with his incompleteness and regret. The teacher came not when Vyāsadeva was busy and productive — but when he was still, honest and empty. In your own life — are you giving yourself enough of those quiet, honest moments of sitting with incompleteness? Or are you always too busy producing, achieving, moving? The divine enters through stillness.</p></div>
+        <p class="sub-heading">Text 32 &mdash; Perfect Timing</p>
+        <div class="quote-block"><p>Narada reached the cottage of Krsna-dvaipayana Vyasa on the banks of the Sarasvati just as Vyasadeva was regretting his defects.</p></div>
+        <p>The words <em>just as</em> are everything here. Not before. Not after. But <em>exactly</em> when Vyasadeva had reached the depths of his honest self-examination. This is how the Lord works through His devotees &mdash; He sends the right teacher at exactly the right moment. When the student is truly ready &mdash; truly empty, truly honest &mdash; the teacher appears.</p>
+        <p>Narada did not arrive when Vyasadeva was busy and satisfied. He arrived when Vyasadeva was sitting quietly with his incompleteness. <em>The divine always enters through the open wound, not through the armoured fortress.</em></p>
+        <p class="sub-heading">Text 33 &mdash; The Reception</p>
+        <p>Sri Vyasadeva got up respectfully and worshiped him, giving him veneration equal to that given to Brahmaji, the creator. Even the greatest sage in the world rises and bows when the devotee of the Lord arrives. Narada carries something Vyasadeva does not yet have in full measure &mdash; the direct, living, personal experience of <em>devotional love for Krsna</em>. And Vyasadeva knows it. So he bows. This is the prampara in its most human and beautiful form &mdash; one great soul recognizing what another great soul carries, and humbling himself to receive it.</p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Narada arrived <em>just as</em> Vyasadeva was sitting with his incompleteness and regret. The teacher came not when Vyasadeva was busy and productive &mdash; but when he was still, honest and empty. In your own life &mdash; are you giving yourself enough of those quiet, honest moments of sitting with incompleteness? Or are you always too busy producing, achieving, moving? The divine enters through stillness.</p></div>
       `}
     ]
   },
-  { num: 5,  title: "Nārada's Instructions on Śrīmad-Bhāgavatam for Vyāsadeva",  available: false },
-  { num: 6,  title: "Conversation Between Nārada and Vyāsadeva",                  available: false },
-  { num: 7,  title: "The Son of Droṇa Punished",                                  available: false },
-  { num: 8,  title: "Prayers by Queen Kuntī and Parīkṣit Saved",                 available: false },
-  { num: 9,  title: "The Passing Away of Bhīṣmadeva in the Presence of Lord Kṛṣṇa", available: false },
-  { num: 10, title: "Departure of Lord Kṛṣṇa for Dvārakā",                       available: false },
-  { num: 11, title: "Lord Kṛṣṇa's Entrance into Dvārakā",                        available: false },
-  { num: 12, title: "Birth of Emperor Parīkṣit",                                  available: false },
-  { num: 13, title: "Dhṛtarāṣṭra Quits Home",                                    available: false },
-  { num: 14, title: "The Disappearance of Lord Kṛṣṇa",                           available: false },
-  { num: 15, title: "The Pāṇḍavas Retire Timely",                                available: false },
-  { num: 16, title: "How Parīkṣit Received the Age of Kali",                     available: false },
-  { num: 17, title: "Punishment and Reward of Kali",                              available: false },
-  { num: 18, title: "Mahārāja Parīkṣit Cursed by a Brāhmaṇa Boy",               available: false },
-  { num: 19, title: "The Appearance of Śukadeva Gosvāmī",                        available: false }
+  {
+    num: 5, title: "Narada's Instructions on Srimad-Bhagavatam for Vyasadeva", available: true,
+    sections: [
+      { title: "Narada's Diagnosis &mdash; What is Missing", texts: "Texts 1&ndash;16", content: `
+        <p>The chapter opens with a beautiful image &mdash; Narada is <em>comfortably seated and apparently smiling</em>. Not solemn, not lecturing. Smiling. He knows exactly what is wrong with Vyasadeva. And he knows that what is wrong is also what is most <em>right</em> &mdash; because this emptiness, this divine discontent, is the very thing that will produce the Bhagavatam. So he smiles.</p>
+        <p class="sub-heading">Text 2 &mdash; The Opening Question</p>
+        <p>Narada's first words to Vyasadeva are not a lecture. They are a question &mdash; <em>are you satisfied by identifying with the body or the mind as objects of self-realization?</em> This is a surgeon's question. It goes straight to the root. He is not asking &mdash; did you do enough work? Did you write enough books? He is asking &mdash; where have you been looking for fulfillment? Are you, for all your greatness, still looking in the wrong place?</p>
+        <p class="sub-heading">Texts 3&ndash;4 &mdash; Narada Acknowledges Vyasadeva's Greatness</p>
+        <p>Before the diagnosis, Narada is careful to honor what Vyasadeva has done. The Mahabharata is acknowledged as a great and wonderful work. The impersonal Brahman has been delineated. The philosophical foundations are in place. This is not the work of a small person. And yet &mdash; <em>why should you be despondent, thinking that you are undone?</em> Narada sees through the surface. He does not dismiss the emptiness. He takes it completely seriously. Because he knows &mdash; this feeling is the most important thing Vyasadeva has ever experienced.</p>
+        <p class="sub-heading">Texts 5&ndash;7 &mdash; Vyasadeva Surrenders to Narada</p>
+        <p>Vyasadeva's response is extraordinary in its honesty. He says &mdash; <em>all you have said about me is perfectly correct. Despite all this, I am not pacified.</em> He does not defend himself. He does not explain away the emptiness. He simply confirms it and asks for help. Then he glorifies Narada &mdash; you are like the sun, traveling everywhere. You are like the air, penetrating the internal region of everyone. <em>Please find out the deficiency in me.</em></p>
+        <p>This is one of the most moving moments in the Bhagavatam. The greatest scholar in the history of the universe, sitting before a wandering sage who owns nothing but a vina &mdash; and asking with complete humility &mdash; <strong>find the deficiency in me.</strong> True greatness is always this &mdash; the willingness to be honestly seen.</p>
+        <p class="sub-heading">Texts 8&ndash;9 &mdash; The Diagnosis</p>
+        <div class="quote-block"><p>You have not actually broadcast the sublime and spotless glories of the Personality of Godhead. That philosophy which does not satisfy the transcendental senses of the Lord is considered worthless.</p></div>
+        <p>This is the diagnosis. Not wrong philosophy. Not incorrect commentary. Not insufficient effort. One thing only &mdash; he has not specifically, directly, abundantly glorified the <em>personal</em> Lord. He has described Brahman and dharma but has not poured himself into the direct glorification of Krsna &mdash; His name, His form, His qualities, His pastimes, His love. And without that &mdash; everything else, however correct and elaborate, leaves the heart empty.</p>
+        <p class="sub-heading">Texts 10&ndash;11 &mdash; Two Kinds of Literature</p>
+        <p>Narada makes one of the most famous distinctions in the entire Bhagavatam. Literature that does not describe the glories of the Lord &mdash; however beautifully written, however philosophically sophisticated &mdash; is like a pilgrimage place for crows. Crows are not discriminating. They eat anything. But the pure swans &mdash; the great souls &mdash; do not find nourishment there.</p>
+        <p>But literature full of the transcendental glories of the Lord's name, form, qualities and pastimes &mdash; <em>even if imperfectly composed</em> &mdash; causes a revolution in the lives of misdirected civilization. Notice &mdash; <strong>even if imperfectly composed.</strong> The Lord's glories, spoken with love and sincerity, carry power regardless of literary polish. And the most perfectly crafted philosophy, without that love at its centre, leaves the heart cold.</p>
+        <p class="sub-heading">Texts 12&ndash;16 &mdash; The Deeper Diagnosis</p>
+        <p>Narada goes even further. Even knowledge of self-realization &mdash; even liberation itself &mdash; <em>does not look well if devoid of a conception of the Infallible God.</em> Even moksha &mdash; the highest goal of Vedantic philosophy &mdash; is insufficient without Bhagavan at its centre. And the remedy? Those who are attached to material happiness need to be shown the ways of transcendental realization <em>through descriptions of the transcendental activities of the Supreme Lord</em> &mdash; which naturally draws the heart away from lesser pleasures.</p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Narada says that even perfect knowledge &mdash; even liberation &mdash; does not look well without a living relationship with the personal God at its centre. Have you ever experienced knowledge without love &mdash; information without transformation? And have you ever experienced even a small moment of genuine love for the divine that did something to you that no amount of reading could? What was the difference?</p></div>
+      `},
+      { title: "The Guarantee of Bhakti", texts: "Texts 17&ndash;22", content: `
+        <p>Having delivered the diagnosis, Narada now makes a series of extraordinary statements about the nature of devotional service &mdash; statements so bold they need to be sat with slowly.</p>
+        <p class="sub-heading">Text 17 &mdash; The Safety Net of Bhakti</p>
+        <div class="quote-block"><p>One who has forsaken his material occupations to engage in the devotional service of the Lord may sometimes fall down while in an immature stage, yet there is no danger of his being unsuccessful. On the other hand, a nondevotee, though fully engaged in occupational duties, does not gain anything.</p></div>
+        <p>This verse turns our conventional understanding completely upside down. We normally think &mdash; if you are careful, disciplined and do not fall down, you will succeed. Narada says &mdash; a devotee who falls is still safe. And a non-devotee who never falls gains nothing. Why? Because the <em>direction of travel</em> is what matters &mdash; not the stumbles along the way. A person walking toward the sun, however slowly, however many times they trip &mdash; is still walking toward the sun.</p>
+        <p class="sub-heading">Text 18 &mdash; Seek What Cannot Be Found by Wandering</p>
+        <p>From Brahmaloka &mdash; the highest heaven &mdash; to Patala &mdash; the deepest underworld &mdash; there is not a single place in material existence where you can find what the soul truly seeks. And happiness from sense enjoyment? That comes automatically in the course of time &mdash; just as misery comes automatically without being sought. So why spend your entire life chasing what will come anyway &mdash; and missing what can never be found by searching materially?</p>
+        <p class="sub-heading">Text 19 &mdash; Once You Have Tasted</p>
+        <div class="quote-block"><p>A person who has once relished the taste of the lotus feet of the Lord can do nothing but remember that ecstasy again and again.</p></div>
+        <p>Once you have truly tasted &mdash; even for a moment &mdash; the sweetness of genuine devotion, genuine closeness to Krsna &mdash; that taste does not leave you. It becomes the reference point by which everything else is measured. And everything else is found wanting. The fallen devotee is not the same as someone who never tasted. He carries the memory of something real. And that memory pulls him back. <em>The Lord does not abandon those who have once loved Him &mdash; even imperfectly.</em></p>
+        <p class="sub-heading">Texts 20&ndash;22 &mdash; The Conclusion of All Knowledge</p>
+        <p>All knowledge, all austerity, all Vedic study, all sacrifice, all charity <em>culminates</em> in the transcendental descriptions of the Lord. Not in ritual. Not in philosophy. Not in liberation. In <strong>singing His glories</strong>. In telling His stories. This is where all paths end.</p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Text 19 says &mdash; a person who has once relished the taste of the Lord's lotus feet can do nothing but remember that ecstasy again and again. Have you ever had even a glimpse &mdash; however brief &mdash; of something genuinely divine? A moment of prayer that felt real. A kirtan that broke something open. A moment of pure stillness where something beyond you was unmistakably present. That memory &mdash; however old, however faint &mdash; is not nothing. That is the taste Narada is speaking of. And it never fully leaves.</p></div>
+      `},
+      { title: "Narada's Own Story &mdash; The Previous Life", texts: "Texts 23&ndash;31", content: `
+        <p>Now Narada does something extraordinary. Having given Vyasadeva the philosophical diagnosis and prescription, he does not simply leave it there. He becomes vulnerable. He tells his own story. <em>This is how it happened for me.</em> The greatest sage of the demigods &mdash; sitting with Vyasadeva and saying &mdash; let me tell you where I came from.</p>
+        <p class="sub-heading">Text 23 &mdash; The Humble Beginning</p>
+        <p>In his previous life Narada was born as the son of a maidservant. Not a brahmin. Not a king. Not even a free person. He had nothing &mdash; no status, no education, no spiritual lineage. But his mother happened to serve brahmin sages who had gathered during the four months of the rainy season. And Narada, as a small boy, served them.</p>
+        <p class="sub-heading">Text 24 &mdash; The Qualities That Made Him Ready</p>
+        <p>Notice what Narada says about himself as a boy. He was self-controlled &mdash; not attached to sports and play. He was not naughty. He did not speak more than required. A quiet child. A still child. Somehow already, without any instruction, conserving his energy &mdash; not scattering it in all directions. This stillness &mdash; this natural inclination toward interiority &mdash; is what made him receptive when the moment came. The saints did not choose him because he was brilliant. They chose him because he was <strong>genuinely humble and genuinely present.</strong></p>
+        <p class="sub-heading">Text 25 &mdash; The Remnants of Food</p>
+        <div class="quote-block"><p>Once only, by their permission, I took the remnants of their food, and by so doing all my sins were at once eradicated. Thus being engaged, I became purified in heart.</p></div>
+        <p>This is the turning point. The remnants of food left by pure devotees &mdash; prasadam &mdash; carried a spiritual charge that purified the young Narada's heart in a single encounter. All his accumulated karma &mdash; eradicated. Not through years of austerity. Not through scholarship. Through one meal taken in the right spirit from the right hands. This is the power of sadhu-sanga &mdash; association with genuine devotees. It does not work gradually through information. <em>It works immediately through transmission.</em></p>
+        <p class="sub-heading">Texts 26&ndash;29 &mdash; The Growth of Taste</p>
+        <p>Narada heard the sages describe the activities of Lord Krsna. And his taste for hearing <em>increased at every step</em>. Step by step. Not all at once. Gradually &mdash; but steadily &mdash; like a fire that has found good fuel. He listened for two seasons and as the flow of devotional service began, <strong>the coverings of passion and ignorance vanished.</strong> Every faculty &mdash; physical, mental, emotional &mdash; oriented toward the same point.</p>
+        <p class="sub-heading">Text 30 &mdash; The Most Confidential Knowledge</p>
+        <div class="quote-block"><p>As they were leaving, those bhakti-vedantas, who are very kind to poor-hearted souls, instructed me in that most confidential subject which is instructed by the Personality of Godhead Himself.</p></div>
+        <p>As they were <em>leaving.</em> The teachers were departing. The association was ending. And in that final moment &mdash; moved by compassion for this humble, sincere, pure-hearted boy &mdash; they gave him the most precious thing they had. Transmitted in a moment of parting, by people moved by pure compassion, to a boy who had made himself completely worthy through complete humility.</p>
+        <p class="sub-heading">Text 31 &mdash; What the Knowledge Did</p>
+        <p>By that confidential knowledge, Narada could understand clearly the influence of the energy of Lord Sri Krsna. And by knowing that &mdash; <em>one can return to Him and personally meet Him.</em> Not just understand about the Lord. Not just liberation. <strong>Personal meeting. The soul coming home to its beloved.</strong></p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Narada was the son of a maidservant &mdash; the lowest possible social position. He had no spiritual pedigree, no formal education, no powerful family. What he had was stillness, humility, genuine service, and an open heart. And that was enough. Is there any part of you that believes your background, your past, your mistakes, your lack of formal spiritual training &mdash; disqualifies you from the deepest experience of God? Narada's story is the Bhagavatam's direct answer to that belief.</p></div>
+      `},
+      { title: "The Prescription &mdash; Dedicate Everything to the Lord", texts: "Texts 32&ndash;40", content: `
+        <p>Having told his own story, Narada now returns to Vyasadeva with the full prescription. Having diagnosed the disease, having shared his own journey of healing, he now tells Vyasadeva exactly what to do.</p>
+        <p class="sub-heading">Text 32 &mdash; The Best Remedial Measure</p>
+        <div class="quote-block"><p>The best remedial measure for removing all troubles and miseries is to dedicate one's activities to the service of the Supreme Lord Personality of Godhead.</p></div>
+        <p>Not a particular trouble. Not a specific misery. <em>All troubles and miseries.</em> Every form of suffering that exists in the material world has one root &mdash; separation from Krsna. And therefore one remedy &mdash; return to Krsna. Not as a philosophical position. As a living dedication of every activity.</p>
+        <p class="sub-heading">Text 33 &mdash; The Homeopathic Principle</p>
+        <p>Narada gives a beautiful analogy &mdash; <em>does not a thing, applied therapeutically, cure a disease which was caused by that very same thing?</em> We are in material existence because we wanted to act for our own purposes. The remedy? Act &mdash; but for Krsna. Use the same faculty of action that bound you &mdash; but now redirect it toward the Lord. <strong>The chains become wings. The very thing that imprisoned you becomes the means of your liberation.</strong></p>
+        <p class="sub-heading">Texts 34&ndash;36 &mdash; Karma Yoga as Bhakti</p>
+        <p>Whatever activities you are already doing &mdash; do them for the Lord. You do not need to abandon the world. You need to <em>reorient</em> it. When every action is offered to Krsna, those very actions that were creating karma become instead the destroyer of karma. The tree of material work is cut at the root. And while performing duties according to the Lord's order, you <em>constantly remember Him &mdash; His names and His qualities.</em> Action becomes meditation. Work becomes worship. Life becomes prayer.</p>
+        <p class="sub-heading">Text 37 &mdash; The Chanting</p>
+        <p>Narada breaks into glorification in the middle of his instructions &mdash; <em>Let us all chant the glories of Vasudeva.</em> He cannot help it. This is the nature of a pure devotee &mdash; philosophy flows naturally into song, instruction flows naturally into worship. The chanting is not separate from the teaching. <strong>It is the teaching.</strong></p>
+        <p class="sub-heading">Texts 38&ndash;39 &mdash; Narada's Own Transformation</p>
+        <p>By the Supreme Lord Krsna, Narada was endowed &mdash; first with transcendental knowledge, then with spiritual opulences, then with His <em>intimate loving service</em>. Notice the order. Knowledge comes first. Then opulences. But the crown, the final gift, the deepest blessing &mdash; is intimate loving service. Not power. Not liberation. <strong>Intimacy with the Lord.</strong></p>
+        <p class="sub-heading">Text 40 &mdash; The Final Instruction</p>
+        <div class="quote-block"><p>Please, therefore, describe the almighty Lord's activities which you have learned by your vast knowledge of the Vedas, for that will satisfy the hankerings of great learned men and at the same time mitigate the miseries of the masses of common people who are always suffering from material pangs. Indeed, there is no other way to get out of such miseries.</p></div>
+        <p>No other way. Not philosophy. Not ritual. Not austerity. Not even liberation through knowledge. <em>This</em> &mdash; the direct, loving, beautiful description of the Lord's activities &mdash; is the one medicine that works for everyone. For the greatest scholar and for the simplest soul. This is why Vyasadeva will write the Bhagavatam. Not as an academic exercise. But because Narada &mdash; out of pure compassion &mdash; showed him what was missing. And Vyasadeva, in his great humility, listened.</p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Text 40 says the description of the Lord's activities satisfies the hankerings of great learned men <em>and</em> mitigates the miseries of the common people. Both ends of humanity &mdash; the highest and the most ordinary &mdash; find what they need in the same place. You are reading the Bhagavatam right now. Which one are you seeking &mdash; satisfaction of your deepest questions, or relief from your suffering? Or perhaps &mdash; both at the same time? And is it possible that both have the same answer?</p></div>
+      `}
+    ]
+  },
+  {
+    num: 6, title: "Conversation Between Narada and Vyasadeva", available: true,
+    sections: [
+      { title: "Vyasadeva's Questions", texts: "Texts 1&ndash;4", content: `
+        <p>Chapter 5 ended with Narada finishing the story of his previous life. And Vyasadeva, who has been listening with rapt attention, now wants to know more. He asks three questions &mdash; and each one is more beautiful than the last.</p>
+        <p class="sub-heading">Text 2 &mdash; What Did You Do After?</p>
+        <p>What did you do after the sages departed? You had received this extraordinary knowledge &mdash; and then were left alone. A young boy. A maidservant's son. What happened next?</p>
+        <p class="sub-heading">Text 3 &mdash; How Did You Pass Your Life?</p>
+        <p>How did you pass your life after initiation? And how did you attain this body &mdash; the spiritual body you now carry &mdash; having given up the old material one?</p>
+        <p class="sub-heading">Text 4 &mdash; How Does Transcendental Memory Survive Time?</p>
+        <p>And this is the most philosophically profound question of all &mdash; <em>time annihilates everything in due course. So how is it that this subject matter &mdash; which happened prior to this day of Brahma &mdash; is still fresh in your memory, undisturbed by time?</em></p>
+        <p>Vyasadeva is asking about the nature of transcendental memory itself. We know from experience that time erodes everything &mdash; memories fade, civilizations fall, even mountains eventually crumble. And yet Narada remembers with perfect freshness events that happened billions of years ago. Narada will answer this question not directly but through the telling itself &mdash; because the story he is about to share <em>is</em> the answer. Transcendental experience, once genuinely had, is not stored in the material brain. It is registered in the soul itself. <strong>And the soul is untouched by time.</strong></p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Vyasadeva asks &mdash; how is it that transcendental memory remains fresh and undisturbed while all material memories fade? Think of a moment in your own life that felt genuinely sacred &mdash; a moment of real prayer, real love, real presence. Notice that it may be clearer in your memory than hundreds of ordinary days that surrounded it. Why? What is it about certain moments that makes them resist the erosion of time?</p></div>
+      `},
+      { title: "After the Sages Left &mdash; The Journey North", texts: "Texts 5&ndash;15", content: `
+        <p class="sub-heading">Texts 5&ndash;10 &mdash; The Death of the Mother</p>
+        <p>The sages depart. And Narada &mdash; still a young boy of five &mdash; is left with only his mother. She was a simple maidservant, not independent. But she loved him completely. And that love was the one thread tying him to material existence.</p>
+        <p>One night she went out to milk a cow in the dark. And a serpent bit her on the leg. Narada says something that stops the breath &mdash; <em>I took this as the special mercy of the Lord, who always desires benediction for His devotees.</em> He did not experience it as tragedy. He experienced it as grace. The Lord sometimes removes the last attachment that holds a devotee in place. And in her passing, the Lord was not being cruel. He was being &mdash; in the deepest sense &mdash; <strong>kind.</strong> With no mother, no home, no possessions &mdash; Narada started for the north. Alone. Five years old. And completely free.</p>
+        <p class="sub-heading">Texts 11&ndash;14 &mdash; The Journey Through the World</p>
+        <p>Narada travels through metropolises and towns, villages and animal farms, mines and agricultural lands, valleys and flower gardens. Through lotus-filled lakes decorated with bewildered bees and singing birds. Then through rushes and bamboo and caves. Through deep, dark and dangerously fearful forests &mdash; the play yards of snakes, owls and jackals.</p>
+        <p>The world is described in all its contrasts &mdash; its beauty and its terror. And Narada walks through all of it. Alone. Unattached. Not clinging to the beautiful, not fleeing from the fearful. Just walking. <em>This is what inner freedom looks like from the outside &mdash; a person moving through the world without being defined by any of it.</em></p>
+        <p class="sub-heading">Text 15 &mdash; Sitting Under the Banyan Tree</p>
+        <p>And then &mdash; under the shadow of a banyan tree in an uninhabited forest &mdash; he sat down to meditate. Not in an ashram. Not in a temple. Alone in the wilderness, using what the liberated souls had taught him. He turned his mind inward &mdash; toward the Supersoul situated within. This is the culmination of everything Narada had been given &mdash; the prasadam, the hearing, the association, the confidential knowledge. All of it had been preparation for this moment. <strong>Sitting alone under a banyan tree, a young boy with nothing &mdash; turning entirely within.</strong></p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Narada walked through the most beautiful and most terrifying places in the world &mdash; and was moved by none of them. He was not suppressing his feelings. He was simply free. The beauty did not snag him. The terror did not stop him. Is there anything in your life right now &mdash; beautiful or frightening &mdash; that has snagged your attention so completely that you cannot move freely? Not with judgment &mdash; just with honest observation.</p></div>
+      `},
+      { title: "The Vision of Krsna", texts: "Texts 16&ndash;20", content: `
+        <p>This is the heart of the chapter &mdash; and one of the most extraordinary passages in the entire Bhagavatam.</p>
+        <p class="sub-heading">Text 16 &mdash; The Appearance</p>
+        <div class="quote-block"><p>As soon as I began to meditate upon the lotus feet of the Personality of Godhead with my mind transformed in transcendental love, tears rolled down my eyes, and without delay the Personality of Godhead, Sri Krsna, appeared on the lotus of my heart.</p></div>
+        <p>Read that again slowly. <em>As soon as. Without delay.</em> Not after years of meditation. Not after lifetimes of austerity. As soon as the mind was transformed in transcendental love &mdash; Krsna appeared. Instantly. This is the confirmation of everything Chapter 3 told us &mdash; that God is not seen through the sharpness of the intellect but through the purity of love. The moment love became the medium of meditation &mdash; the Lord was there.</p>
+        <p class="sub-heading">Text 17 &mdash; The Ocean of Ecstasy</p>
+        <p>Every part of my body became separately enlivened. And then &mdash; <em>being absorbed in an ocean of ecstasy, I could not see both myself and the Lord.</em> The ecstasy was so total &mdash; that the normal subject-object distinction collapsed. There was no longer a Narada who was seeing Krsna. There was simply seeing. Simply being. The boundary between the devotee and the Lord dissolved in the flood of love. This is the highest experience &mdash; the <em>personal</em> merging of bhakti &mdash; where the lover and the beloved are so flooded with love that distinctions temporarily dissolve, and yet both remain themselves.</p>
+        <p class="sub-heading">Text 18 &mdash; The Loss</p>
+        <p>And then &mdash; the form was gone. The vision passed. And Narada &mdash; who had just been in an ocean of ecstasy &mdash; suddenly found himself back in an ordinary forest, under an ordinary banyan tree. And the loss was unbearable. Because he had known something real. And now it was gone.</p>
+        <p class="sub-heading">Text 19 &mdash; The Desperate Search</p>
+        <p>He tried to find it again. He concentrated, tried to recreate the conditions &mdash; and found nothing. This is so honestly human. The mystic experience comes. And then it goes. No amount of effort can bring it back by force. But notice what Narada does not do. He does not conclude that it was an illusion. He does not give up. He simply sits with the grief &mdash; honestly, completely &mdash; in the place where he last experienced the Lord.</p>
+        <p class="sub-heading">Text 20 &mdash; The Lord Speaks</p>
+        <p><em>Seeing my attempts in that lonely place, the Personality of Godhead spoke to me with gravity and pleasing words, just to mitigate my grief.</em> The Lord saw him. Not from a distance. From within. He was watching Narada's desperate search &mdash; and He was moved. And He spoke.</p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Narada had the most extraordinary spiritual experience of his life &mdash; and then it was taken away. And he sat in the grief of that loss honestly, without pretending it was fine, without giving up. Have you ever had a period of spiritual dryness &mdash; a time when what was once alive in your practice felt suddenly absent? How did you respond to that dryness? Did you push harder? Give up? Or were you able to simply sit with it, like Narada under the banyan tree?</p></div>
+      `},
+      { title: "The Lord Speaks to Narada", texts: "Texts 21&ndash;25", content: `
+        <p>This is one of the most intimate moments in all of scripture &mdash; the Lord speaking directly to a grieving soul in a lonely forest. Not in a grand assembly. Not from a cosmic throne. From within &mdash; in gravity and pleasing words &mdash; just to mitigate his grief.</p>
+        <p class="sub-heading">Text 21 &mdash; The Hard Truth</p>
+        <div class="quote-block"><p>I regret that during this lifetime you will not be able to see Me anymore. Those who are incomplete in service and who are not completely free from all material taints can hardly see Me.</p></div>
+        <p>This could feel crushing. But it is not meant cruelly. The Lord is explaining, not punishing. And notice &mdash; the Lord says <em>I regret.</em> He does not say you have failed. He says &mdash; <strong>I regret.</strong> There is divine sorrow in this separation. The Lord misses His devotee as much as the devotee misses the Lord.</p>
+        <p class="sub-heading">Text 22 &mdash; Why the Vision Was Given and Then Withdrawn</p>
+        <div class="quote-block"><p>You have only once seen My person, and this is just to increase your desire for Me, because the more you hanker for Me, the more you will be freed from all material desires.</p></div>
+        <p>The Lord appeared &mdash; and then disappeared &mdash; deliberately. Not to tease but to deepen. Because a soul that has glimpsed the Lord and lost the vision will burn with longing. And that longing &mdash; that holy hunger &mdash; burns away material desire faster than any austerity. <em>The absence of the Lord, when it comes after a genuine meeting, is itself a form of grace.</em> It creates a vacuum that only Krsna can fill.</p>
+        <p class="sub-heading">Text 23 &mdash; The Promise</p>
+        <div class="quote-block"><p>By service of the Absolute Truth, even for a few days, a devotee attains firm and fixed intelligence in Me. Consequently he goes on to become My associate in the transcendental world.</p></div>
+        <p><em>Even for a few days.</em> Narada had only two seasons with the sages. A few months. And yet that was enough &mdash; in combination with sincerity, humility and complete surrender. The Lord does not measure by time. <strong>He measures by the quality of the love.</strong></p>
+        <p class="sub-heading">Text 24 &mdash; The Eternal Memory</p>
+        <div class="quote-block"><p>Intelligence engaged in My devotion cannot be thwarted at any time. Even at the time of creation, as well as at the time of annihilation, your remembrance will continue by My mercy.</p></div>
+        <p>Here is the answer to Vyasadeva's question from Text 4 &mdash; how does transcendental memory survive the annihilation of time? Because it is held not in the material brain but in the Lord's own mercy. <strong>What the Lord touches with His grace cannot be erased &mdash; not by time, not by death, not by the dissolution of universes.</strong></p>
+        <p class="sub-heading">Text 25 &mdash; Silence</p>
+        <p>The Lord spoke &mdash; and then fell silent. And Narada bowed. Not in defeat. In gratitude. The conversation was complete. The grief had been addressed. The promise had been given. And now there was nothing left to do but bow.</p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>The Lord tells Narada &mdash; I withdrew My vision to increase your desire for Me. Because the more you hanker for Me, the more you will be freed from all material desires. Has the longing for something sacred &mdash; even when it felt like loss &mdash; ever purified you? Have you ever found that the ache of spiritual hunger did more for your inner life than periods of satisfaction and comfort?</p></div>
+      `},
+      { title: "Liberation and the New Body", texts: "Texts 26&ndash;38", content: `
+        <p>The conversation with the Lord is over. And now Narada simply lives. He takes what he has been given and does with it the only natural thing &mdash; he chants.</p>
+        <p class="sub-heading">Text 26 &mdash; The Chanting Life</p>
+        <div class="quote-block"><p>Thus I began chanting the holy name and fame of the Lord by repeated recitation, ignoring all the formalities of the material world. So doing, I traveled all over the earth, fully satisfied, humble and unenvious.</p></div>
+        <p>Three words that define the liberated life &mdash; <em>fully satisfied, humble and unenvious.</em> Not achieving. Not accumulating. Not competing. Traveling. Chanting. Satisfied. Humble. Unenvious. This is the portrait of a free soul. Not someone who has everything. Someone who <strong>needs nothing</strong> &mdash; who has found the one thing that satisfies completely and simply gives himself to it.</p>
+        <p class="sub-heading">Text 27 &mdash; Death Without Fear</p>
+        <p>Death came &mdash; <em>as lightning and illumination occur simultaneously.</em> Not as a slow deterioration, not as a fearful ending &mdash; but as a flash of light. Because for a person with no attachments, no material taints, no fear &mdash; death is not a wall. <strong>It is a door.</strong></p>
+        <p class="sub-heading">Texts 28&ndash;30 &mdash; The New Body and the Cosmic Cycle</p>
+        <p>Having been awarded a transcendental body befitting an associate of the Personality of Godhead, Narada quit the body made of five material elements &mdash; and all karma stopped. The account was closed. At the end of the cosmic millennium Narada entered into the Lord along with Brahma. And 4,300,000,000 solar years later &mdash; when Brahma awoke to create again &mdash; Narada appeared from the transcendental body of the Lord. He has been doing this across unimaginable cycles of cosmic time. Entering and emerging. Each time with the same devotion, the same vina, the same mission.</p>
+        <p class="sub-heading">Texts 31&ndash;34 &mdash; The Eternal Wandering</p>
+        <p>Since then Narada travels everywhere without restriction, fixed in unbroken devotional service, constantly singing. And Text 33 gives us one of the most beautiful statements in the chapter:</p>
+        <div class="quote-block"><p>The Supreme Lord Sri Krsna, whose glories and activities are pleasing to hear, at once appears on the seat of my heart, as if called for, as soon as I begin to chant His holy activities.</p></div>
+        <p>What Narada could not sustain through sitting meditation as a young boy &mdash; he now has permanently. Every time he chants &mdash; Krsna appears. Not occasionally. Not when the conditions are perfect. <em>Every time. As if the Lord has been waiting for exactly this sound to come home to.</em></p>
+        <p class="sub-heading">Texts 35&ndash;38 &mdash; The Final Words and Departure</p>
+        <p>For those who are anxious and full of material desire, the constant chanting of the Lord's activities is the most suitable boat to cross the ocean of nescience. Even yoga and sense restraint cannot give the complete satisfaction that devotional service gives. Because yoga addresses the symptoms. Only bhakti addresses the root &mdash; the longing of the soul for its source.</p>
+        <p>Narada rises, vibrates his vina, and departs &mdash; to wander at his free will. Suta Gosvami closes with a benediction &mdash; <em>all glory and success to Srila Narada Muni because he glorifies the activities of the Personality of Godhead, and so doing he himself takes pleasure and also enlivens all the distressed souls of the universe.</em> The greatest among the sages &mdash; is a musician. Who walks. And sings. And asks nothing in return.</p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Text 33 says &mdash; as soon as Narada begins to chant the Lord's activities, Krsna appears on the seat of his heart, as if called for. Not after years of effort. As soon as the chanting begins. Is there a practice in your life &mdash; a name, a prayer, a song, a verse &mdash; that when you return to it, even after long absence, something in you quietly comes alive again? That is your vina. That is your Narada-gift. The Lord has given every devotee their own instrument. The question is only &mdash; how often do you play it?</p></div>
+      `}
+    ]
+  },
+  {
+    num: 7, title: "The Son of Drona Punished", available: true,
+    sections: [
+      { title: "Vyasadeva's Vision and the Bhagavatam is Taught", texts: "Texts 1&ndash;11", content: `
+        <p>The chapter opens with a question from Saunaka Rsi &mdash; after Narada departed, what did Vyasadeva do? This bridges us from the intimate philosophical conversations of Chapters 5 and 6 back to the unfolding of the story.</p>
+        <p class="sub-heading">Texts 2&ndash;3 &mdash; The Ashrama on the Sarasvati</p>
+        <p>On the western bank of the Sarasvati river &mdash; the river intimately connected with the Vedas &mdash; there was a cottage for meditation at Shamyaprasa. And there, surrounded by berry trees, Vyasadeva sat in his own ashrama, touched water for purification, and sat down to meditate. The greatest literary genius in the universe &mdash; sitting in a forest cottage surrounded by berry trees and stillness. No grand ceremony. Just a man, a cottage, a river and silence.</p>
+        <p class="sub-heading">Text 4 &mdash; The Vision</p>
+        <div class="quote-block"><p>Thus he fixed his mind, perfectly engaging it by linking it in devotional service &mdash; bhakti-yoga &mdash; without any tinge of materialism, and thus he saw the Absolute Personality of Godhead along with His external energy, which was under full control.</p></div>
+        <p>This is the fruit of everything Narada taught him. The diagnosis has been received. The prescription has been understood. And now Vyasadeva acts on it &mdash; not by writing immediately, but by first sitting and <em>seeing</em>. He links his mind in bhakti-yoga and the Lord becomes visible. He sees the personal Lord <em>and</em> the material world as His controlled energy. Both together. The full reality.</p>
+        <p class="sub-heading">Texts 5&ndash;6 &mdash; Why the Living Entity Suffers</p>
+        <p>The living entity is transcendental &mdash; by nature beyond the three modes of material nature. But due to the external energy, he <em>thinks of himself as a material product</em> and undergoes the reactions of material miseries. This is the core diagnosis of the entire Bhagavatam. You are not the body. You are not the mind. You are the pure spiritual self. But you have forgotten this. And in that forgetting &mdash; in that misidentification &mdash; all suffering arises. And the remedy? Bhakti-yoga. <strong>Directly.</strong></p>
+        <p class="sub-heading">Text 7 &mdash; The Power of the Bhagavatam</p>
+        <div class="quote-block"><p>Simply by giving aural reception to this Vedic literature, the feeling for loving devotional service to Lord Krsna sprouts up at once to extinguish the fire of lamentation, illusion and fearfulness.</p></div>
+        <p>Three fires &mdash; lamentation, illusion and fearfulness. Regret for the past. Confusion about the present. Anxiety about the future. Simply by <em>hearing</em> this literature &mdash; not studying it intellectually, not memorizing it &mdash; these three fires are extinguished.</p>
+        <p class="sub-heading">Texts 8&ndash;11 &mdash; Why Would a Liberated Soul Study the Bhagavatam?</p>
+        <p>Vyasadeva compiled the Bhagavatam and taught it to his son Sukadeva Gosvami &mdash; who was already self-realized. Saunaka asks &mdash; why would a liberated soul take the trouble to study this? And Suta Gosvami's answer is the famous Atmarama verse:</p>
+        <div class="quote-block"><p>All different varieties of atmaramas &mdash; those who take pleasure in the spirit self &mdash; though freed from all kinds of material bondage, desire to render unalloyed devotional service unto the Personality of Godhead. This means that the Lord possesses transcendental qualities and therefore can attract everyone &mdash; including liberated souls.</p></div>
+        <p>Even those who have achieved liberation are drawn back to Krsna. Not because they still have material desires. But because Krsna is so beautiful that even freedom cannot satisfy the soul as deeply as love for Him. <strong>Liberation is not the highest destination. Love is.</strong></p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Text 10 says that even liberated souls &mdash; those completely free from all material bondage &mdash; desire to render devotional service to the Lord. Liberation is not enough. The soul wants to <em>love</em>. Have you ever noticed that even in moments of great peace, great contentment, even moments of feeling genuinely free &mdash; there is still a pull toward something more? Not more pleasure, not more achievement &mdash; but more <em>love</em>? That pull is what this verse is describing.</p></div>
+      `},
+      { title: "The Story Begins &mdash; Asvatthama's Crime", texts: "Texts 12&ndash;21", content: `
+        <p>And now the narrative begins. We are dropped straight into the aftermath of the Kurukshetra war &mdash; fire, grief, betrayal and the most terrible act of the chapter.</p>
+        <p class="sub-heading">Texts 13&ndash;14 &mdash; The Heinous Act</p>
+        <p>The war is over. Duryodhana lies dying, his spine shattered by Bhima's club. And at this moment &mdash; in the darkness, with everything lost &mdash; Asvatthama enters the Pandava camp at night, finds the five sleeping sons of Draupadi and beheads them. He brings the heads to the dying Duryodhana as a trophy, thinking to please his master.</p>
+        <p>But even Duryodhana &mdash; who had fought the Pandavas his entire life &mdash; was horrified. He disapproved of the heinous act and was not pleased in the least. This detail is quietly devastating. <em>Even the enemy of the Pandavas recognized that killing sleeping children was monstrous.</em> There are lines that dharma draws even in the midst of war. And Asvatthama had crossed every one of them.</p>
+        <p class="sub-heading">Texts 15&ndash;17 &mdash; Draupadi's Grief and Arjuna's Promise</p>
+        <p>Draupadi began to cry in distress with eyes full of tears. Arjuna, trying to pacify her, made a promise &mdash; I will bring you the head of that brahmana. He was giving the only comfort warrior tradition knew how to give &mdash; the promise of justice. And having made it, he armed himself and went in pursuit.</p>
+        <p class="sub-heading">Texts 18&ndash;21 &mdash; The Brahmastra</p>
+        <p>Asvatthama, seeing Arjuna coming in pursuit, fled in panic. And when he realized there was no escape, he invoked the brahmastra &mdash; the nuclear weapon of the ancient world. But with one terrible difference: <strong>he did not know how to withdraw such weapons.</strong> He released a weapon he could not recall. Out of fear. Without the knowledge or the right to use it responsibly. And a glaring light spread in all directions so fierce that even Arjuna thought his own life was in danger.</p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Asvatthama released a weapon he could not recall &mdash; out of panic, without knowledge, without responsibility for the consequences. Power without wisdom. Action without understanding. Fear driving decisions that affect everyone. Is there anything in your own life &mdash; an action taken in panic, a word spoken in fear &mdash; that once released could not be taken back? What does this story say about the relationship between fear and the harm we cause?</p></div>
+      `},
+      { title: "Arjuna's Prayers and Krsna's Guidance", texts: "Texts 22&ndash;32", content: `
+        <p>Faced with the blinding light of the brahmastra, Arjuna turns immediately to Krsna. And what follows is one of the most beautiful expressions of surrender in the entire Bhagavatam.</p>
+        <p class="sub-heading">Texts 22&ndash;25 &mdash; Arjuna's Prayer</p>
+        <p>Arjuna's prayer is not a request for a military solution. It begins with recognition &mdash; <em>O my Lord Sri Krsna, You are the almighty Personality of Godhead. There is no limit to Your different energies. Therefore only You are competent to instill fearlessness in the hearts of Your devotees. Everyone in the flames of material miseries can find the path of liberation in You only.</em></p>
+        <p>In the middle of a battlefield emergency &mdash; with a nuclear weapon blazing in all directions &mdash; Arjuna stops to recognize who Krsna is. Not just his charioteer. Not just his friend. The original Personality of Godhead who descends to remove the burden of the world. <em>This is what it means to have Krsna as your charioteer. In every moment of crisis &mdash; the first instinct is not strategy. It is surrender. It is recognition. It is love.</em></p>
+        <p class="sub-heading">Texts 27&ndash;32 &mdash; Krsna's Guidance and Arjuna's Mercy</p>
+        <p>Krsna explains calmly what has happened and gives the solution. Arjuna counteracts with his own brahmastra. The two weapons meet &mdash; and for a moment the universe itself is threatened. The combined heat scorched all three worlds. And then &mdash; Arjuna retracted both weapons. As Lord Sri Krsna desired. Not because he could not fight. Because the Lord's desire was for mercy and for the world to continue. And Arjuna, fully surrendered, acted in alignment with that desire.</p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>In the middle of a crisis &mdash; with a weapon blazing in all directions &mdash; Arjuna's first instinct was to turn to Krsna and recognize who He was. Not to strategize first. To surrender first. When you are in crisis &mdash; when something is blazing in your life and threatening everything &mdash; what is your first instinct? To fix it? To run? To fight? Or to turn, first, to something larger than yourself?</p></div>
+      `},
+      { title: "The Debate &mdash; Should Asvatthama be Killed?", texts: "Texts 33&ndash;52", content: `
+        <p>Arjuna captures Asvatthama and brings him bound like an animal to Draupadi. And now one of the most extraordinary moral debates in the Bhagavatam unfolds.</p>
+        <p class="sub-heading">Texts 42&ndash;48 &mdash; Draupadi's Mercy</p>
+        <p>The woman whose sons were murdered. The woman who wept with eyes full of tears. When Draupadi sees Asvatthama &mdash; bound, humiliated, defeated &mdash; she shows him <em>due respects as a brahmana.</em> She says &mdash; release him. He is a brahmana. Our spiritual master. She reminds Arjuna that it was by Dronacharya's mercy that he learned the art of warfare. She says &mdash; do not make Dronacharya's wife cry as I am crying. She need not lose her son too.</p>
+        <p>This is one of the most breathtaking moments in the Bhagavatam. <strong>The victim pleading for mercy for her oppressor.</strong> The grieving mother protecting the man who killed her children &mdash; not from weakness, not from indifference &mdash; but from a greatness of soul that transcends personal suffering.</p>
+        <p class="sub-heading">Texts 49&ndash;51 &mdash; The Assembly Divided</p>
+        <p>Yudhisthira fully supported Draupadi's words. Nakula, Sahadeva, Satyaki, Arjuna, Krsna, the ladies &mdash; all agreed. But Bhima disagreed angrily &mdash; recommending killing this culprit who had murdered sleeping children. Bhima was not wrong in his outrage. He was simply operating from a different principle &mdash; pure justice, without the modulation of mercy.</p>
+        <p class="sub-heading">Text 52 &mdash; Krsna Smiles</p>
+        <p>After hearing the words of Bhima and Draupadi and all the others &mdash; Krsna looked at His dear friend Arjuna's face. And He began to speak <em>as if smiling.</em> The Lord holding the entire complexity of dharma &mdash; justice and mercy, promise and principle, brahmana honor and warrior duty &mdash; and smiling. Because He knows how to hold it all. Because He is never flustered by complexity. He simply &mdash; <strong>smiles.</strong></p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Draupadi &mdash; the woman whose sons were killed &mdash; pleaded for the life of their killer. Not from weakness but from a greatness of soul that recognized something larger than her own grief. Is there any situation in your life where you are holding on to a justified grievance &mdash; where the anger is real, the hurt is real, the wrong was real &mdash; but where your own deepest nature is quietly asking you to find a response larger than the injury?</p></div>
+      `},
+      { title: "Krsna's Verdict and the Punishment", texts: "Texts 53&ndash;58", content: `
+        <p class="sub-heading">Texts 53&ndash;54 &mdash; Krsna's Brilliant Solution</p>
+        <div class="quote-block"><p>A friend of a brahmana is not to be killed. But if he is an aggressor he must be killed. All these rulings are in the scriptures. You have to fulfill your promise to your wife, and you must also act to the satisfaction of Bhimasena and Me.</p></div>
+        <p>In one statement Krsna holds every competing obligation simultaneously. Arjuna's promise to Draupadi. The scriptural prohibition against killing a brahmana. Bhima's demand for justice. The Lord's own will. All of it &mdash; held together. The solution that satisfies all of them is implied but not stated. And a true friend understands.</p>
+        <p class="sub-heading">Text 55 &mdash; Arjuna Understands</p>
+        <p><em>Just then Arjuna could understand the motive of the Lord by His equivocal orders.</em> Not through analysis. Through intimacy. Through the kind of understanding that only comes in a deep friendship where one person can read the other's meaning beyond the words. Arjuna understood &mdash; and with his sword, he severed both hair and the jewel from Asvatthama's head.</p>
+        <p class="sub-heading">Texts 56&ndash;57 &mdash; The Punishment</p>
+        <p>The cutting of hair, the removal of his jewel &mdash; the source of his power &mdash; and being driven out of the camp. Not death, but social death. Not killing the body but destroying the honor. The punishment was perfect &mdash; <strong>just enough, and not more.</strong> The promise was kept. The dharma was upheld. The brahmana order was protected. And justice was served.</p>
+        <p class="sub-heading">Text 58 &mdash; The Grief Continues</p>
+        <p>And after all of this &mdash; the pursuit, the capture, the debate, the verdict, the punishment &mdash; the Pandavas and Draupadi performed the proper rituals for their dead. The sons were still gone. The grief was still real. Justice had been done. But the grief remained. And the Bhagavatam does not pretend otherwise. <em>Life continues. Grief and dharma coexist. This is the human condition.</em></p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Krsna's solution satisfied every competing obligation at once &mdash; justice, mercy, promise, dharma and His own will &mdash; all simultaneously. He did not choose one at the expense of another. He found the answer that honored all of them. Is there a situation in your life right now where you feel pulled between two genuine obligations &mdash; where honoring one seems to require betraying another? What would it mean to trust that, like Krsna, there exists a solution that satisfies both?</p></div>
+      `}
+    ]
+  },
+  { num: 8,  title: "Prayers by Queen Kunti and Pariksit Saved", available: false },
+  { num: 9,  title: "The Passing Away of Bhismadeva in the Presence of Lord Krsna", available: false },
+  { num: 10, title: "Departure of Lord Krsna for Dvaraka", available: false },
+  { num: 11, title: "Lord Krsna's Entrance into Dvaraka",  available: false },
+  { num: 12, title: "Birth of Emperor Pariksit",                  available: false },
+  { num: 13, title: "Dhrtarastra Quits Home",              available: false },
+  { num: 14, title: "The Disappearance of Lord Krsna",          available: false },
+  { num: 15, title: "The Pandavas Retire Timely",               available: false },
+  { num: 16, title: "How Pariksit Received the Age of Kali",      available: false },
+  { num: 17, title: "Punishment and Reward of Kali",                    available: false },
+  { num: 18, title: "Maharaja Pariksit Cursed by a Brahmana Boy", available: false },
+  { num: 19, title: "The Appearance of Sukadeva Gosvami",         available: false }
 ];
 
 function renderHome() {
-  document.getElementById('chapterGrid').innerHTML = chapters.map(ch => `
-    <div class="chapter-item ${ch.available ? 'available' : 'coming-soon'}"
-         ${ch.available ? `onclick="openChapter(${ch.num-1})"` : ''}>
-      <div class="chapter-num-col">${ch.num}</div>
-      <div class="chapter-body">
-        <div>
-          <div class="chapter-title-text">${ch.title}</div>
-          <div class="chapter-meta">${ch.available ? ch.sections.length+' sections' : 'Coming soon'}</div>
-        </div>
-        ${ch.available ? '<div class="chapter-arrow">›</div>' : ''}
-      </div>
-    </div>
-  `).join('');
+  document.getElementById('chapterGrid').innerHTML = chapters.map(function(ch) {
+    var onclick = ch.available ? 'onclick="openChapter(' + (ch.num-1) + ')"' : '';
+    var arrow = ch.available ? '<div class="chapter-arrow">&#8250;</div>' : '';
+    var meta = ch.available ? ch.sections.length + ' sections' : 'Coming soon';
+    return '<div class="chapter-item ' + (ch.available ? 'available' : 'coming-soon') + '" ' + onclick + '>' +
+      '<div class="chapter-num-col">' + ch.num + '</div>' +
+      '<div class="chapter-body"><div>' +
+      '<div class="chapter-title-text">' + ch.title + '</div>' +
+      '<div class="chapter-meta">' + meta + '</div>' +
+      '</div>' + arrow + '</div></div>';
+  }).join('');
 }
 
 function openChapter(idx) {
   const ch = chapters[idx];
-  document.getElementById('chapterNum').textContent = `Canto 1 · Chapter ${ch.num}`;
+  document.getElementById('chapterNum').textContent = 'Canto 1 \u00b7 Chapter ' + ch.num;
   document.getElementById('chapterTitle').textContent = ch.title;
-  document.getElementById('breadcrumb-chapter').textContent = `Chapter ${ch.num}`;
+  document.getElementById('breadcrumb-chapter').textContent = 'Chapter ' + ch.num;
   document.getElementById('sectionsContainer').innerHTML = ch.sections.map((sec, i) => `
     <div class="section-block" id="sec-${i}">
       <div class="section-header" onclick="toggleSection(${i})">
@@ -859,17 +999,17 @@ function openChapter(idx) {
           <div class="section-name">${sec.title}</div>
           <div class="section-texts">${sec.texts}</div>
         </div>
-        <div class="section-chevron">▾</div>
+        <div class="section-chevron">&#9660;</div>
       </div>
       <div class="section-body">${sec.content}</div>
     </div>
   `).join('');
   showScreen('chapter');
-  window.scrollTo(0,0);
+  window.scrollTo(0, 0);
 }
 
 function toggleSection(idx) {
-  const block = document.getElementById(`sec-${idx}`);
+  const block = document.getElementById('sec-' + idx);
   const isOpen = block.classList.contains('open');
   document.querySelectorAll('.section-block').forEach(b => b.classList.remove('open'));
   if (!isOpen) {
@@ -883,9 +1023,14 @@ function showScreen(id) {
   document.getElementById(id).classList.add('active');
 }
 
+function toggleSit(id) {
+  const el = document.getElementById(id);
+  if (el) el.classList.toggle('open');
+}
+
 function goHome() {
   showScreen('home');
-  window.scrollTo(0,0);
+  window.scrollTo(0, 0);
 }
 
 renderHome();
