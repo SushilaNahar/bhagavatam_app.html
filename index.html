@@ -203,6 +203,63 @@
   .chapter-item.available:hover .chapter-arrow { opacity: 1; transform: translateX(3px); }
   .chapter-item.coming-soon { opacity: 0.5; }
 
+  .chapter-item.architecture {
+    background: var(--bg-darkest);
+    border: 1px solid var(--border);
+    cursor: pointer;
+  }
+
+  .chapter-item.architecture:hover {
+    background: var(--maroon);
+    border-color: var(--maroon-dark);
+  }
+
+  .chapter-item.architecture .chapter-num-col {
+    background: var(--maroon);
+    color: var(--bg);
+    border-right-color: var(--maroon-dark);
+    font-size: 10px;
+    letter-spacing: 0.05em;
+  }
+
+  .chapter-item.architecture:hover .chapter-num-col {
+    background: var(--maroon-dark);
+  }
+
+  .chapter-item.architecture .chapter-title-text {
+    color: var(--text);
+    font-size: 18px;
+  }
+
+  .chapter-item.architecture:hover .chapter-title-text {
+    color: var(--bg);
+  }
+
+  .chapter-item.architecture .chapter-meta {
+    color: var(--text-muted);
+  }
+
+  .chapter-item.architecture:hover .chapter-meta {
+    color: var(--bg-darker);
+  }
+
+  .chapter-item.architecture:hover .chapter-arrow {
+    opacity: 1;
+    color: var(--bg);
+    transform: translateX(3px);
+  }
+
+  .chapter-divider {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    color: var(--gold-dark);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 14px 4px 8px;
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 4px;
+  }
+
   #chapter-body {
     max-width: 780px;
     margin: 0 auto;
@@ -450,7 +507,171 @@
 
 </div>
 
+<!-- ARCHITECTURE SCREEN -->
+<div id="architecture" class="screen">
+  <div class="breadcrumb">
+    <div class="breadcrumb-inner">
+      <span class="bc-link" onclick="goHome()">Srimad Bhagavatam</span>
+      <span class="bc-sep">&rsaquo;</span>
+      <span class="bc-link" onclick="goHome()">Canto 1</span>
+      <span class="bc-sep">&rsaquo;</span>
+      <span>The Architecture</span>
+    </div>
+  </div>
+  <div id="architecture-body" style="max-width:780px;margin:0 auto;padding:36px 20px 80px;">
+    <div class="chapter-title-block">
+      <div class="chapter-num-label">Reader's Guide</div>
+      <div class="chapter-main-title">The Architecture of Canto 1</div>
+    </div>
+    <div class="chapter-ornament">* * *</div>
+    <div id="architectureContent"></div>
+  </div>
+  <footer class="site-footer">Hare Krsna &nbsp;&middot;&nbsp; For the sincere seeker</footer>
+</div>
+
 <script>
+const archContent = `
+  <div style="background:#deba85;border-left:4px solid #9c2a18;padding:20px 24px;margin-bottom:28px;font-size:19px;line-height:1.85;color:#2a1508;font-style:italic;">
+    Canto 1 appears at first to jump from one topic to something entirely unrelated &mdash; from cosmic philosophy to a battlefield, from a wandering sage to a dying king. But nothing is accidental. Every chapter is a stone placed precisely where it must be. Once you see the architecture, the whole of Canto 1 reveals itself as one of the most elegantly constructed narratives in all of literature.
+  </div>
+
+  <div class="section-block">
+    <div class="section-header" style="cursor:default;">
+      <div class="section-num">Section 1</div>
+      <div class="section-name">The Overall Design &mdash; Two Preludes</div>
+      <div class="section-texts">Chapters 1 through 19</div>
+    </div>
+    <div class="section-body" style="display:block;">
+      <p>The Bhagavatam describes Canto 1 as having two distinct movements &mdash; two Preludes. Each is organized around questions and answers. Together they build the foundation upon which all twelve Cantos rest.</p>
+      <p class="sub-heading">Prelude Part A &mdash; Chapters 1 to 3</p>
+      <p>Chapter 1 establishes six questions from the sages. Chapters 2 and 3 answer them systematically. What is the highest good? &mdash; Bhakti. What is the essence of all scriptures? &mdash; Devotional service. What are the lila avatars? &mdash; All 22 incarnations in Chapter 3. Where did dharma go after Krsna left? &mdash; The Bhagavatam itself is where dharma took shelter. Chapters 1 to 3 are one complete unit. Question &mdash; answer. Question &mdash; answer. Clean, complete and self-contained.</p>
+      <p class="sub-heading">Prelude Part B &mdash; Chapters 4 to 19</p>
+      <p>In Chapter 4 the sages ask four entirely new questions. These drive the entire rest of Canto 1 all the way to Chapter 19. <strong>Question 1</strong> &mdash; Why was the Bhagavatam compiled? This takes six chapters to answer &mdash; Chapters 4 through the opening of Chapter 7. <strong>Question 2</strong> &mdash; What are the birth and activities of Pariksit? This takes Chapters 7 through 17 to answer. <strong>Questions 3 and 4</strong> &mdash; Why did Pariksit sit on the Ganges, and how did he meet Sukadeva? &mdash; Chapters 18 and 19. And with Sukadeva's arrival and Pariksit's question at the very end of Chapter 19 &mdash; <strong>the Bhagavatam proper begins. Canto 2 starts.</strong></p>
+      <p class="sub-heading">The Deeper Thread</p>
+      <p>What looks like a shift from philosophy to narrative is the Bhagavatam moving from <em>why</em> to <em>how</em>. First it tells you why bhakti is the answer. Then it shows you bhakti in action &mdash; in Kunti's prayers, in Draupadi's mercy, in Arjuna's surrender, in Bhishma's meditation at the moment of death. The philosophy becomes embodied in the story. There is also a zoom structure &mdash; from the most vast and cosmic scale down to one frightened woman running toward a chariot, down to one king sitting in grief on the Ganges bank. <em>The Bhagavatam keeps zooming in. From the cosmic to the personal. From the universal to the intimate. Because that is the direction of bhakti &mdash; always moving toward the specific and beloved.</em></p>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-header" style="cursor:default;">
+      <div class="section-num">Section 2</div>
+      <div class="section-name">Chapter by Chapter &mdash; The Thread</div>
+      <div class="section-texts">Chapters 6 through 18</div>
+    </div>
+    <div class="section-body" style="display:block;">
+
+      <div style="margin:20px 0;padding:14px 18px;background:var(--bg-darker);border-left:3px solid var(--gold);">
+        <div style="font-family:Cinzel,serif;font-size:10px;color:var(--gold-dark);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:6px;">The Connection</div>
+        <div style="font-size:17px;font-weight:700;color:var(--gold-dark);font-family:EB Garamond,serif;margin-bottom:8px;">Chapter 6 &rarr; Chapter 7</div>
+        <p>Narada finishes his story and departs. Chapter 7 opens with the natural question &mdash; what did Vyasadeva do after Narada left? He meditates, has the vision, compiles the Bhagavatam and teaches it to Sukadeva. The prescription has been acted upon. But then Suta Gosvami says &mdash; and now I will tell you the story of Pariksit, the king who received it. To tell Pariksit's story he begins at the end of the Kurukshetra war &mdash; because that is where Pariksit's story begins, in the womb of Uttara. <strong>Chapter 7 is simultaneously the conclusion of the Vyasadeva-Narada thread and the opening of the Pariksit thread.</strong></p>
+      </div>
+
+      <div style="margin:20px 0;padding:14px 18px;background:var(--bg-darker);border-left:3px solid var(--gold);">
+        <div style="font-family:Cinzel,serif;font-size:10px;color:var(--gold-dark);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:6px;">The Connection</div>
+        <div style="font-size:17px;font-weight:700;color:var(--gold-dark);font-family:EB Garamond,serif;margin-bottom:8px;">Chapter 7 &rarr; Chapter 8</div>
+        <p>Chapter 7 ends with the Pandavas performing rituals for their dead. Chapter 8 picks up exactly there &mdash; they go to the Ganges. Krsna is present. And then Krsna prepares to leave. This departure is the trigger for everything that follows &mdash; once Krsna leaves, the age of Kali begins. Everything from Chapter 8 onwards is set against the backdrop of His approaching departure. Kunti's prayers arise because He is leaving. <em>Her anguish is the anguish of separation.</em></p>
+      </div>
+
+      <div style="margin:20px 0;padding:14px 18px;background:var(--bg-darker);border-left:3px solid var(--gold);">
+        <div style="font-family:Cinzel,serif;font-size:10px;color:var(--gold-dark);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:6px;">The Connection</div>
+        <div style="font-size:17px;font-weight:700;color:var(--gold-dark);font-family:EB Garamond,serif;margin-bottom:8px;">Chapter 8 &rarr; Chapter 9</div>
+        <p>Chapter 8 ends with Yudhisthira drowning in guilt, unable to be consoled by any philosophical argument. Krsna takes him to Bhishmadeva &mdash; the greatest soul of the age, lying on a bed of arrows, waiting to die. The thread is &mdash; you are grieving and cannot be consoled by words alone. Go and sit with a dying saint and hear from him. Chapter 9 is entirely Bhishmadeva's final teaching and his passing, merging into the Lord with full concentration at the moment of death.</p>
+      </div>
+
+      <div style="margin:20px 0;padding:14px 18px;background:var(--bg-darker);border-left:3px solid var(--gold);">
+        <div style="font-family:Cinzel,serif;font-size:10px;color:var(--gold-dark);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:6px;">The Connection</div>
+        <div style="font-size:17px;font-weight:700;color:var(--gold-dark);font-family:EB Garamond,serif;margin-bottom:8px;">Chapter 9 &rarr; Chapter 10</div>
+        <p>Bhishmadeva has departed. The grief has been addressed. Now Krsna's departure can no longer be delayed. Chapter 10 begins with Krsna finally leaving Hastinapura for Dvaraka &mdash; the formal departure that Kunti prayed against in Chapter 8. The entire city comes out. Women stand on rooftops and speak about His glories as He passes. <em>After the grief is addressed, the cosmic clock begins again. Krsna goes home.</em></p>
+      </div>
+
+      <div style="margin:20px 0;padding:14px 18px;background:var(--bg-darker);border-left:3px solid var(--gold);">
+        <div style="font-family:Cinzel,serif;font-size:10px;color:var(--gold-dark);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:6px;">The Connection</div>
+        <div style="font-size:17px;font-weight:700;color:var(--gold-dark);font-family:EB Garamond,serif;margin-bottom:8px;">Chapter 10 &rarr; Chapter 11</div>
+        <p>Chapter 10 is the departure and the road. Chapter 11 is the arrival &mdash; His conch sounding as He approaches, the whole city of Dvaraka erupting in celebration. These are one continuous journey split across two chapters. Within Chapter 11 we see Dvaraka in all its beauty &mdash; the queens, the mothers, the citizens all receiving Him. <strong>The more beloved this home is shown to be, the more weight His eventual disappearance will carry.</strong></p>
+      </div>
+
+      <div style="margin:20px 0;padding:14px 18px;background:var(--bg-darker);border-left:3px solid var(--gold);">
+        <div style="font-family:Cinzel,serif;font-size:10px;color:var(--gold-dark);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:6px;">The Connection</div>
+        <div style="font-size:17px;font-weight:700;color:var(--gold-dark);font-family:EB Garamond,serif;margin-bottom:8px;">Chapter 11 &rarr; Chapter 12</div>
+        <p>The thread appears to jump &mdash; from Krsna's joyful reception in Dvaraka to Pariksit's birth in Hastinapura. But Saunaka Rsi interrupts and reminds Suta Gosvami &mdash; wait, you were telling us about Pariksit. You got sidetracked. <em>The Bhagavatam itself acknowledges the digression with a smile.</em> Chapter 12 returns to Hastinapura and describes Pariksit's actual birth &mdash; the embryo saved from Asvatthama's weapon is now a child.</p>
+      </div>
+
+      <div style="margin:20px 0;padding:14px 18px;background:var(--bg-darker);border-left:3px solid var(--gold);">
+        <div style="font-family:Cinzel,serif;font-size:10px;color:var(--gold-dark);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:6px;">The Connection</div>
+        <div style="font-size:17px;font-weight:700;color:var(--gold-dark);font-family:EB Garamond,serif;margin-bottom:8px;">Chapter 12 &rarr; Chapter 13</div>
+        <p>Chapter 12 ends with Pariksit growing up and the kingdom established. The heir exists. Now the older generation must step aside. Chapter 13 begins with Vidura returning from pilgrimage with one mission &mdash; to speak truth to Dhritarastra. Your time is running out. Leave. Now. The thread is the generational shift. Pariksit has been born. The torch is being prepared for passing. <strong>But before it can be passed, the old order must gracefully exit.</strong></p>
+      </div>
+
+      <div style="margin:20px 0;padding:14px 18px;background:var(--bg-darker);border-left:3px solid var(--gold);">
+        <div style="font-family:Cinzel,serif;font-size:10px;color:var(--gold-dark);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:6px;">The Connection</div>
+        <div style="font-size:17px;font-weight:700;color:var(--gold-dark);font-family:EB Garamond,serif;margin-bottom:8px;">Chapter 13 &rarr; Chapter 14</div>
+        <p>Chapter 13 ends with Dhritarastra and Gandhari departing for the Himalayas. Narada tells Yudhisthira &mdash; wait, the Lord is still present on earth. But Chapter 14 begins with that time ending. Arjuna has gone to Dvaraka. Months pass. He does not return. Yudhisthira begins to see ominous signs everywhere. He suspects what he cannot yet confirm &mdash; that Krsna has departed. <em>Chapter 13 said: wait, the Lord is still here. Chapter 14 says: but perhaps He is no longer here.</em></p>
+      </div>
+
+      <div style="margin:20px 0;padding:14px 18px;background:var(--bg-darker);border-left:3px solid var(--gold);">
+        <div style="font-family:Cinzel,serif;font-size:10px;color:var(--gold-dark);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:6px;">The Connection</div>
+        <div style="font-size:17px;font-weight:700;color:var(--gold-dark);font-family:EB Garamond,serif;margin-bottom:8px;">Chapter 14 &rarr; Chapter 15</div>
+        <p>Chapter 14 ends with Yudhisthira asking Arjuna directly &mdash; have we lost Krsna? Arjuna's face confirms it before he speaks. Chapter 15 is Arjuna's testimony &mdash; how without Krsna he could not even protect Krsna's own widowed queens from ordinary cowherd men. But then Arjuna refocuses on the Lord's instructions from the Gita. His grief transforms. And once Arjuna accepts Krsna's departure and turns inward &mdash; the Pandavas know that their time in the world is also over. <strong>The thread is &mdash; how does a devotee respond when the Lord physically leaves? By holding His instructions in the heart. By living what He taught.</strong></p>
+      </div>
+
+      <div style="margin:20px 0;padding:14px 18px;background:var(--bg-darker);border-left:3px solid var(--gold);">
+        <div style="font-family:Cinzel,serif;font-size:10px;color:var(--gold-dark);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:6px;">The Connection</div>
+        <div style="font-size:17px;font-weight:700;color:var(--gold-dark);font-family:EB Garamond,serif;margin-bottom:8px;">Chapter 15 &rarr; Chapter 16</div>
+        <p>Chapter 15 ends with Yudhisthira enthroning Pariksit and the Pandavas beginning their final journey north toward liberation. With all the elders gone and Krsna gone &mdash; Pariksit is now the sole guardian of the world. And Kali, who had been waiting, now enters. Chapter 16 begins Pariksit's reign. And one day he encounters Kali personified &mdash; abusing Dharma and the Earth in the absence of Krsna's protective presence. <em>The thread is the succession of guardians. Pariksit must now hold the line alone.</em></p>
+      </div>
+
+      <div style="margin:20px 0;padding:14px 18px;background:var(--bg-darker);border-left:3px solid var(--gold);">
+        <div style="font-family:Cinzel,serif;font-size:10px;color:var(--gold-dark);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:6px;">The Connection</div>
+        <div style="font-size:17px;font-weight:700;color:var(--gold-dark);font-family:EB Garamond,serif;margin-bottom:8px;">Chapter 16 &rarr; Chapter 17</div>
+        <p>Chapter 16 ends mid-scene &mdash; the Earth and Dharma speaking to each other, lamenting Krsna's departure. Chapter 17 continues directly from there &mdash; Pariksit arrives, confronts Kali, and decides what to do with him. These two chapters are one continuous episode split purely for length. The thread is unbroken &mdash; Pariksit's first great act as king, establishing where Kali may and may not live.</p>
+      </div>
+
+      <div style="margin:20px 0;padding:14px 18px;background:var(--bg-darker);border-left:3px solid var(--gold);">
+        <div style="font-family:Cinzel,serif;font-size:10px;color:var(--gold-dark);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:6px;">The Connection</div>
+        <div style="font-size:17px;font-weight:700;color:var(--gold-dark);font-family:EB Garamond,serif;margin-bottom:8px;">Chapter 17 &rarr; Chapter 18</div>
+        <p>Chapter 17 ends with Pariksit's glorious rule established. Kali has been contained. Everything seems settled. And then Chapter 18 begins with one afternoon &mdash; a tired king's moment of anger in a forest, a dead snake placed around a sage's neck. <strong>This is the pivot of the entire canto.</strong> From this single moment &mdash; the most human and understandable of reactions &mdash; everything that follows flows. The curse. The Ganges. Sukadeva. The Bhagavatam. The thread connecting 17 and 18 is dharma under pressure. Chapter 17 shows Pariksit in his best moment. Chapter 18 shows him in his most human moment. And the Bhagavatam is saying &mdash; even this will be used by the Lord to produce the greatest spiritual event of the age.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-header" style="cursor:default;">
+      <div class="section-num">Section 3</div>
+      <div class="section-name">The Single Thread Running Through All of It</div>
+      <div class="section-texts">Chapters 6 to 18 as one movement</div>
+    </div>
+    <div class="section-body" style="display:block;">
+      <div style="margin:0 0 20px;padding:16px 20px;background:var(--bg-darkest);border:1px solid var(--border);font-style:italic;font-size:19px;color:var(--text-mid);">The Lord is leaving. And everything that follows is the world learning to live &mdash; and ultimately to transcend &mdash; His physical absence.</div>
+      <p>Narada departs in Chapter 6. Krsna departs from Hastinapura in Chapters 10 and 11. Bhishma departs in Chapter 9. Dhritarastra departs in Chapter 13. The Pandavas depart in Chapter 15. Krsna departs the earth entirely between Chapters 14 and 15. And each departure creates a vacuum &mdash; and each vacuum is filled either by grief, by wisdom, by karma, or by the Lord's own arrangement.</p>
+      <p>The Bhagavatam is showing us how a world that has lost direct contact with the divine reorganizes itself. How the torch passes. How dharma is maintained. How even the cursing of a great king in a moment of exhaustion and anger is &mdash; in the hands of the Lord &mdash; the very instrument through which the highest spiritual teaching will reach the world.</p>
+    </div>
+  </div>
+
+  <div class="section-block">
+    <div class="section-header" style="cursor:default;">
+      <div class="section-num">Section 4</div>
+      <div class="section-name">Chapter 19 &mdash; The Arrow Lands</div>
+      <div class="section-texts">The hinge of the entire Bhagavatam</div>
+    </div>
+    <div class="section-body" style="display:block;">
+      <p class="sub-heading">Chapter 18 &rarr; Chapter 19</p>
+      <p>Chapter 18 ends with the curse. Chapter 19 opens with Pariksit hearing the news. And most people would respond to a death sentence with terror. Pariksit does none of these things. He says:</p>
+      <div class="quote-block"><p>I consider this to be the special mercy of the Lord. Due to my being too much attached to family life, the Lord, in order to save me, has appeared before me in such a way that only out of fear I will detach myself from the world.</p></div>
+      <p>He receives his death sentence as grace. The insulted sage. The angry son. The hasty curse. None of it was an accident. <strong>The Lord arranged for Pariksit to receive advance notice of his own death &mdash; seven days &mdash; precisely enough time to sit on the banks of the Ganges and receive the entire Bhagavatam.</strong></p>
+      <p class="sub-heading">The Gathering</p>
+      <p>Having accepted the curse as grace, Pariksit renounces his kingdom and goes to the banks of the Ganges to fast until death. And the moment he sits &mdash; as if by divine arrangement &mdash; all the great sages of the universe begin to arrive. Atri, Cyavana, Vishvamitra, Parasara, Vyasa, Narada. All of them. From every corner of the universe. Gathering at the Ganges. As if they had all received the same silent summons. And then Sukadeva arrives &mdash; wandering freely, appearing like a madman to ordinary eyes. But when he arrives, every sage in the assembly rises to receive him. The moon among stars.</p>
+      <p class="sub-heading">The Question That Unlocks Everything</p>
+      <div class="quote-block"><p>Please, after proper deliberation, tell me of the unalloyed duty of everyone in all circumstances &mdash; and specifically of those who are just about to die.</p></div>
+      <p>Everything in Canto 1 &mdash; all eighteen preceding chapters &mdash; was preparation for this one question from this one man at this one moment. He is not asking as a philosopher. He is asking as a man with seven days to live. And that urgency &mdash; that mortality pressing against every word &mdash; is what gives the question its power.</p>
+      <p class="sub-heading">The Arrow and the Target</p>
+      <p>Imagine Canto 1 as an archer drawing a bow. Chapter 1 is the archer picking up the bow. Chapters 2 and 3 are the first draw. Chapters 4 through 6 are loading the arrow. Chapters 7 through 17 are the full draw &mdash; tension building across eleven chapters. Chapter 18 is the release. And Chapter 19 is the arrow in flight &mdash; landing precisely, perfectly, exactly where it was always meant to land. On the banks of the Ganges. In the heart of a dying king. With all the sages of the universe as witnesses.</p>
+      <p>Nothing in those nineteen chapters was wasted. Not one verse. Not one seemingly unrelated episode. The Bhagavatam was building, with infinite patience and precision, toward this single moment of a man on the banks of the Ganges asking &mdash;</p>
+      <div style="margin:20px 0;padding:16px 20px;background:var(--bg-darkest);border:1px solid var(--border);font-style:italic;font-size:19px;color:var(--text-mid);text-align:center;">What should I do with the time I have left?</div>
+      <p>And in that question &mdash; every human being who has ever lived recognizes themselves. <em>Pariksit sat on the banks of the Ganges with seven days to live. And in those seven days he heard the entire Bhagavatam. Nineteen chapters were the preparation. The next eleven Cantos are the answer. And the question &mdash; what should I do with the time I have? &mdash; is always, in every age, the right question to be asking.</em></p>
+    </div>
+  </div>
+`;
 const chapters = [
   {
     num: 1, title: "Questions by the Sages", available: true,
@@ -1051,7 +1272,15 @@ const chapters = [
 ];
 
 function renderHome() {
-  document.getElementById('chapterGrid').innerHTML = chapters.map(function(ch) {
+  var archEntry = '<div class="chapter-item architecture" onclick="openArchitecture()">' +
+    '<div class="chapter-num-col">Guide</div>' +
+    '<div class="chapter-body"><div>' +
+    '<div class="chapter-title-text">The Architecture of Canto 1</div>' +
+    '<div class="chapter-meta">How the story flows &mdash; and why</div>' +
+    '</div><div class="chapter-arrow">&#8250;</div></div></div>' +
+    '<div class="chapter-divider">Chapters</div>';
+
+  document.getElementById('chapterGrid').innerHTML = archEntry + chapters.map(function(ch) {
     var onclick = ch.available ? 'onclick="openChapter(' + (ch.num-1) + ')"' : '';
     var arrow = ch.available ? '<div class="chapter-arrow">&#8250;</div>' : '';
     var meta = ch.available ? ch.sections.length + ' sections' : 'Coming soon';
@@ -1104,6 +1333,12 @@ function showScreen(id) {
 function toggleSit(id) {
   const el = document.getElementById(id);
   if (el) el.classList.toggle('open');
+}
+
+function openArchitecture() {
+  document.getElementById('architectureContent').innerHTML = archContent;
+  showScreen('architecture');
+  window.scrollTo(0, 0);
 }
 
 function goHome() {
