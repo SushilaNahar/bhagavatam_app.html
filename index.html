@@ -291,7 +291,6 @@
     border: 1px solid var(--border-light);
     margin-bottom: 5px;
     background: var(--bg-darker);
-    overflow: hidden;
   }
 
   .section-block.open { border-color: var(--border); box-shadow: 0 2px 8px rgba(100,50,0,0.12); }
@@ -320,6 +319,16 @@
     letter-spacing: 0.16em;
     text-transform: uppercase;
     margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sap-indicator {
+    font-family: 'EB Garamond', serif;
+    font-size: 12px;
+    font-style: italic;
+    color: var(--gold);
+    letter-spacing: 0.04em;
   }
 
   .section-name { font-size: 20px; font-weight: 700; color: var(--maroon); line-height: 1.3; font-family: 'EB Garamond', serif; }
@@ -449,6 +458,157 @@
     .header-right { display: none; }
     body { font-size: 20px; }
   }
+
+  /* ── SAP TOGGLE ──────────────────────────────── */
+  .sap-toggle-wrap {
+    margin-top: 22px;
+    border: 1px solid var(--border);
+    background: var(--bg-darkest);
+  }
+  .sap-toggle-header {
+    padding: 14px 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    user-select: none;
+    background: var(--bg-darkest);
+    border-left: 3px solid var(--gold-dark);
+    transition: background 0.15s;
+  }
+  .sap-toggle-header:hover { background: var(--bg-darker); }
+  .sap-toggle-left { display: flex; flex-direction: column; gap: 2px; }
+  .sap-toggle-label {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    color: var(--gold-dark);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .sap-toggle-title {
+    font-family: 'EB Garamond', serif !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: var(--text) !important;
+    line-height: 1.2 !important;
+  }
+  .sap-toggle-sub {
+    font-family: 'EB Garamond', serif !important;
+    font-size: 16px !important;
+    font-style: italic !important;
+    color: var(--text-muted) !important;
+  }
+  .sap-toggle-chevron {
+    font-size: 14px;
+    color: var(--gold-dark);
+    transition: transform 0.25s;
+    flex-shrink: 0;
+  }
+  .sap-toggle-body {
+    display: none;
+    border-top: 1px solid var(--border);
+  }
+  .sap-toggle-wrap.open .sap-toggle-body { display: block; }
+  .sap-toggle-wrap.open .sap-toggle-chevron { transform: rotate(180deg); }
+
+  /* ── SAP BLOCKS ──────────────────────────────── */
+  .sap-layer { background: var(--bg-darkest); }
+  .sap-block { border-top: 1px solid var(--border-light); }
+  .sap-block:first-child { border-top: none; }
+  .sap-block-header {
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--bg-darkest);
+    border-left: 4px solid var(--maroon);
+  }
+  .sap-block-header.abhideya { border-left-color: var(--gold); }
+  .sap-block-header.prayojana { border-left-color: var(--gold-dark); }
+  .sap-pill {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 3px 8px;
+    background: var(--maroon);
+    color: var(--bg);
+    flex-shrink: 0;
+  }
+  .sap-pill.abhideya { background: var(--gold); }
+  .sap-pill.prayojana { background: var(--gold-dark); }
+  .sap-block-title { display: flex; flex-direction: column; }
+  .sap-concept {
+    font-family: 'Cinzel', serif !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: var(--maroon) !important;
+    line-height: 1.2 !important;
+  }
+  .sap-concept.abhideya { color: var(--gold-dark) !important; }
+  .sap-concept.prayojana { color: var(--gold-dark) !important; }
+  .sap-tagline {
+    font-family: 'EB Garamond', serif !important;
+    font-size: 15px !important;
+    font-style: italic !important;
+    color: var(--text-muted) !important;
+    margin-top: 1px !important;
+  }
+  .sap-block-body {
+    padding: 18px 20px;
+    background: var(--bg-darker);
+    border-left: 4px solid var(--maroon);
+  }
+  .sap-block-body.abhideya { border-left-color: var(--gold); background: var(--bg); }
+  .sap-block-body.prayojana { border-left-color: var(--gold-dark); background: var(--bg-darkest); }
+  .sap-block-body p {
+    font-size: 22px !important;
+    line-height: 1.9 !important;
+    color: var(--text) !important;
+    margin-bottom: 16px !important;
+    text-align: justify !important;
+    font-family: 'EB Garamond', serif !important;
+  }
+  .sap-block-body p:last-child { margin-bottom: 0 !important; }
+  .sap-key-insight {
+    margin: 12px 0 0;
+    padding: 11px 16px;
+    background: var(--bg-darkest);
+    border: 1px solid var(--border);
+  }
+  .sap-key-insight p {
+    font-size: 20px !important;
+    font-style: italic !important;
+    color: var(--text-mid) !important;
+    text-align: center !important;
+    margin-bottom: 0 !important;
+  }
+  .sap-practice {
+    margin: 13px 0 0;
+    padding: 12px 16px;
+    background: var(--bg-darkest);
+    border-left: 3px solid var(--gold);
+  }
+  .sap-practice-label {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    color: var(--gold-dark);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .sap-practice p {
+    font-size: 20px !important;
+    font-style: italic !important;
+    color: var(--text-mid) !important;
+    text-align: left !important;
+    margin-bottom: 0 !important;
+  }
+
 </style>
 </head>
 <body>
@@ -530,6 +690,411 @@
 </div>
 
 <script>
+
+const sapContent = {
+  1: {
+    0: `<div class="sap-block">
+  <div class="sap-block-header">
+    <span class="sap-pill">Sambandha</span>
+    <div class="sap-block-title">
+      <span class="sap-concept">The Relationship</span>
+      <span class="sap-tagline">You are not a random being in a random universe</span>
+    </div>
+  </div>
+  <div class="sap-block-body">
+    <p>The very first verse of the Bhagavatam establishes the complete map of existence in a single sentence. The Supreme Absolute Truth &mdash; from whom creation, maintenance and annihilation proceed &mdash; is self-luminous, fully cognizant, and imparted Vedic knowledge directly into the heart of Brahma at the beginning of creation.</p>
+    <p>You are a conscious soul in a creation that flows from a conscious Source &mdash; and that Source is not distant or indifferent. <strong>He is the origin of all knowing. Your own capacity to understand flows from Him.</strong> This is the relationship the Bhagavatam begins by establishing. Everything else follows from it.</p>
+    <div class="sap-key-insight"><p>The Source imparted knowledge into the heart of the first created being. He still imparts it into every heart that turns toward Him with sincerity.</p></div>
+  </div>
+</div>
+<div class="sap-block">
+  <div class="sap-block-header abhideya">
+    <span class="sap-pill abhideya">Abhideya</span>
+    <div class="sap-block-title">
+      <span class="sap-concept abhideya">The Practice</span>
+      <span class="sap-tagline">Bow before you begin</span>
+    </div>
+  </div>
+  <div class="sap-block-body abhideya">
+    <p>The verse opens with <em>om namo bhagavate vasudevaya</em> &mdash; the salutation that is both practice and doorway. The physical act of bowing &mdash; namah &mdash; is not merely ceremonial. It is the practice of lowering the ego sufficiently to allow something larger to enter. Before you can receive the Bhagavatam, you must create the space to receive it. That space is made by bowing.</p>
+    <div class="sap-practice">
+      <div class="sap-practice-label">&#9670; Today's Practice</div>
+      <p>Before reading a single verse today, chant <em>om namo bhagavate vasudevaya</em> three times. Not as a formality. As a genuine act of lowering &mdash; of saying: I do not already know what this text will show me. I come empty. I come open.</p>
+    </div>
+  </div>
+</div>
+<div class="sap-block">
+  <div class="sap-block-header prayojana">
+    <span class="sap-pill prayojana">Prayojana</span>
+    <div class="sap-block-title">
+      <span class="sap-concept prayojana">The Fruit</span>
+      <span class="sap-tagline">Resting in the source</span>
+    </div>
+  </div>
+  <div class="sap-block-body prayojana">
+    <p>The fruit the first verse promises is <em>satyam param dhimahi</em> &mdash; meditation upon the Supreme Absolute Truth. Not information about it. Not arguments for it. Meditation upon it. The fruit of this entire Bhagavatam is not more knowledge. It is a different quality of being. A being that rests in the Absolute Truth the way a river rests in the ocean. Not striving. Not grasping. Simply present in the source from which it came.</p>
+  </div>
+</div>`,
+    1: `<div class="sap-block">
+  <div class="sap-block-header">
+    <span class="sap-pill">Sambandha</span>
+    <div class="sap-block-title">
+      <span class="sap-concept">The Relationship</span>
+      <span class="sap-tagline">You are not reading about the Lord — you are in His presence</span>
+    </div>
+  </div>
+  <div class="sap-block-body">
+    <p>These verses establish the Bhagavatam's identity &mdash; it is the literary incarnation of the Lord, the ripened fruit of the wish-fulfilling tree of Vedic literature. The Bhagavatam is understood in the Vaishnava tradition as a living presence &mdash; as genuinely the Lord in the form of sound.</p>
+    <p>The relationship this section establishes is between the reader and the text itself. <strong>You are not reading about the Lord. You are in the presence of the Lord.</strong> Every verse you read with genuine attention is a direct encounter &mdash; not a description of an encounter. The text and the person it describes are non-different.</p>
+    <div class="sap-key-insight"><p>The Bhagavatam calls itself the ripened fruit &mdash; sweet, ready, needing no further preparation. It is already complete. The only question is whether you are ready to taste it.</p></div>
+  </div>
+</div>
+<div class="sap-block">
+  <div class="sap-block-header abhideya">
+    <span class="sap-pill abhideya">Abhideya</span>
+    <div class="sap-block-title">
+      <span class="sap-concept abhideya">The Practice</span>
+      <span class="sap-tagline">Taste, do not analyze</span>
+    </div>
+  </div>
+  <div class="sap-block-body abhideya">
+    <p>The Bhagavatam describes itself as a ripened fruit that has fallen from the tree &mdash; sweet, ready to be tasted, needing no further cooking or preparation. Most of us approach a text by trying to extract meaning from it &mdash; we work at it, we analyze, we cross-reference. This text asks for something different. It asks to be tasted.</p>
+    <div class="sap-practice">
+      <div class="sap-practice-label">&#9670; Today's Practice</div>
+      <p>Read one verse today as if tasting something sweet. Not examining the chemistry of sweetness. Simply tasting. Let the words enter without immediately reaching for their meaning. Give the verse thirty seconds of simple presence before the analysis begins.</p>
+    </div>
+  </div>
+</div>
+<div class="sap-block">
+  <div class="sap-block-header prayojana">
+    <span class="sap-pill prayojana">Prayojana</span>
+    <div class="sap-block-title">
+      <span class="sap-concept prayojana">The Fruit</span>
+      <span class="sap-tagline">Attraction that grows rather than diminishes</span>
+    </div>
+  </div>
+  <div class="sap-block-body prayojana">
+    <p>The fruit is described as something that enlivens even the liberated soul. Even Sukadeva Gosvami &mdash; already free from all material desire &mdash; was drawn to the Bhagavatam. The fruit of this text is not liberation from something. It is <em>attraction toward</em> something. And that attraction grows rather than diminishes with time. This is how you know genuine spiritual nourishment from its substitute &mdash; genuine nourishment increases your hunger for the source rather than satisfying it with a lesser substitute.</p>
+  </div>
+</div>`,
+    2: `<div class="sap-block">
+  <div class="sap-block-header">
+    <span class="sap-pill">Sambandha</span>
+    <div class="sap-block-title">
+      <span class="sap-concept">The Relationship</span>
+      <span class="sap-tagline">You are held by a living chain of souls</span>
+    </div>
+  </div>
+  <div class="sap-block-body">
+    <p>This section establishes the chain of transmission &mdash; Krsna to Brahma, Brahma to Narada, Narada to Vyasadeva, Vyasadeva to Sukadeva, Sukadeva to the assembled sages through Suta Gosvami. This chain is not administrative. It is the living nervous system through which the knowledge moves.</p>
+    <p>The relationship here is the relationship of parampara &mdash; the disciplic succession. <strong>You are not receiving this knowledge from a book. You are receiving it from a living chain of souls who received it before you.</strong> The quality of your reception depends in part on your awareness of that chain &mdash; your gratitude toward it, your reverence for it, your sense of being held by it.</p>
+    <div class="sap-key-insight"><p>Suta Gosvami does not say &mdash; I have understood this. He says &mdash; I have received this. The posture of reception is the foundation of all genuine learning.</p></div>
+  </div>
+</div>
+<div class="sap-block">
+  <div class="sap-block-header abhideya">
+    <span class="sap-pill abhideya">Abhideya</span>
+    <div class="sap-block-title">
+      <span class="sap-concept abhideya">The Practice</span>
+      <span class="sap-tagline">Study through relationship, not in isolation</span>
+    </div>
+  </div>
+  <div class="sap-block-body abhideya">
+    <p>Suta Gosvami says of himself &mdash; I have received this knowledge from Sukadeva Gosvami. He does not say &mdash; I have studied this, I have analyzed this, I have understood this on my own. He says &mdash; <em>I received this.</em> The practice this section points toward is reception through relationship.</p>
+    <div class="sap-practice">
+      <div class="sap-practice-label">&#9670; Today's Practice</div>
+      <p>Before you study today, bring to mind your spiritual master &mdash; the teacher through whom this knowledge is most alive for you. Acknowledge that what you are about to receive came through them, and through the chain behind them, all the way back to Krsna. Let that acknowledgment change the quality of your reading.</p>
+    </div>
+  </div>
+</div>
+<div class="sap-block">
+  <div class="sap-block-header prayojana">
+    <span class="sap-pill prayojana">Prayojana</span>
+    <div class="sap-block-title">
+      <span class="sap-concept prayojana">The Fruit</span>
+      <span class="sap-tagline">Love as a conductor of knowledge</span>
+    </div>
+  </div>
+  <div class="sap-block-body prayojana">
+    <p>The fruit of studying in the context of parampara is that the knowledge carries a charge it cannot carry when received in isolation. The same verse read in the context of a living relationship with a teacher produces a different quality of understanding than the same verse read alone as a scholarly exercise. This is not mysticism. It is the simple truth that <em>love is a conductor.</em> Knowledge passes more freely through love than through intellect alone.</p>
+  </div>
+</div>`,
+    3: `<div class="sap-block">
+  <div class="sap-block-header">
+    <span class="sap-pill">Sambandha</span>
+    <div class="sap-block-title">
+      <span class="sap-concept">The Relationship</span>
+      <span class="sap-tagline">The right question contains its own answer</span>
+    </div>
+  </div>
+  <div class="sap-block-body">
+    <p>The sages ask the most important question ever asked &mdash; what is the highest good for all people in all circumstances, especially at the moment of death? This question establishes the relationship between every human being and their own mortality. The sages are not asking this academically. They are asking it as people who know that time is limited and that the quality of their understanding will determine the quality of their leaving.</p>
+    <p>The relationship this section reveals is the relationship between the soul and death &mdash; and the Bhagavatam's consistent answer that <strong>death is not the enemy of a life well lived. It is its culmination.</strong> The entire text that follows is the answer to this one question asked by these sages on this afternoon in a forest.</p>
+    <div class="sap-key-insight"><p>You are one of those sages. The question they asked is your question. The answer being given is your answer. The forest of Naimisharanya is wherever you are reading this.</p></div>
+  </div>
+</div>
+<div class="sap-block">
+  <div class="sap-block-header abhideya">
+    <span class="sap-pill abhideya">Abhideya</span>
+    <div class="sap-block-title">
+      <span class="sap-concept abhideya">The Practice</span>
+      <span class="sap-tagline">Create the conditions for genuine reception</span>
+    </div>
+  </div>
+  <div class="sap-block-body abhideya">
+    <p>The sages chose Naimisharanya deliberately &mdash; an auspicious place, an auspicious time, the right teacher, the right question. They created the conditions for genuine reception. The practice here is intentionality. Not perfect conditions &mdash; Pariksit received the entire Bhagavatam under a death sentence on the banks of a river. But <em>intentional</em> conditions.</p>
+    <div class="sap-practice">
+      <div class="sap-practice-label">&#9670; Today's Practice</div>
+      <p>Before you begin study today, ask yourself &mdash; am I creating the conditions for genuine reception? A specific time. A specific place. A specific intention. The act of choosing to study &mdash; at this time, in this place, with this question &mdash; is itself a form of the sages' bow.</p>
+    </div>
+  </div>
+</div>
+<div class="sap-block">
+  <div class="sap-block-header prayojana">
+    <span class="sap-pill prayojana">Prayojana</span>
+    <div class="sap-block-title">
+      <span class="sap-concept prayojana">The Fruit</span>
+      <span class="sap-tagline">Genuine inquiry produces genuine wisdom</span>
+    </div>
+  </div>
+  <div class="sap-block-body prayojana">
+    <p>The fruit of asking the right question is the right answer. The sages' question &mdash; what is the highest good for all people in all circumstances &mdash; receives in the chapters that follow one of the most complete answers in the history of human thought. But the answer only arrives because the question was asked with complete sincerity, in the right setting, to the right person. <em>Genuine inquiry produces genuine wisdom. And genuine wisdom, the Bhagavatam says, enlivens all the distressed souls of the universe &mdash; beginning with you.</em></p>
+  </div>
+</div>`,
+  },
+  2: {
+    0: `<div class="sap-block"><div class="sap-block-header"><span class="sap-pill">Sambandha</span><div class="sap-block-title"><span class="sap-concept">The Relationship</span><span class="sap-tagline">Before speaking of God, bow to the teacher</span></div></div><div class="sap-block-body"><p>Chapter 2 opens with Suta Gosvami offering obeisances to his own spiritual masters before answering the sages. He does not begin with the answer. He begins with the bow. The relationship this section establishes is between the student and the teacher &mdash; and through the teacher, to the Lord.</p><p>Genuine knowledge of the Absolute Truth flows downward through persons who embody it &mdash; not upward through independent intellectual effort. <strong>Before you can transmit what you have received, you must acknowledge from whom you received it.</strong> This acknowledgment is not formality. It is what keeps the channel open.</p><div class="sap-key-insight"><p>Gratitude to the teacher is not separate from the teaching. It is the first line of the teaching. It is what makes everything that follows possible.</p></div></div></div><div class="sap-block"><div class="sap-block-header abhideya"><span class="sap-pill abhideya">Abhideya</span><div class="sap-block-title"><span class="sap-concept abhideya">The Practice</span><span class="sap-tagline">Begin every session with a genuine obeisance</span></div></div><div class="sap-block-body abhideya"><p>Suta Gosvami's opening obeisances are not a preamble to the real content. They are themselves the first content. The practice this section points toward is making the opening bow genuine rather than mechanical &mdash; a real act of gratitude and recognition before the study begins.</p><div class="sap-practice"><div class="sap-practice-label">&#9670; Today's Practice</div><p>Before reading today, offer a genuine obeisance to your spiritual master &mdash; not as a ritual but as an honest acknowledgment: everything I am about to receive came through you and through those who came before you. Let that acknowledgment be in your heart before the first word is read.</p></div></div></div><div class="sap-block"><div class="sap-block-header prayojana"><span class="sap-pill prayojana">Prayojana</span><div class="sap-block-title"><span class="sap-concept prayojana">The Fruit</span><span class="sap-tagline">Humility as the beginning of wisdom</span></div></div><div class="sap-block-body prayojana"><p>The fruit of beginning with a genuine bow is that the ego, having been lowered at the start, stays lower throughout the study. Knowledge received in humility goes deeper than knowledge received in the posture of the expert. An open vessel receives. A sealed one does not.</p></div></div>`,
+    1: `<div class="sap-block"><div class="sap-block-header"><span class="sap-pill">Sambandha</span><div class="sap-block-title"><span class="sap-concept">The Relationship</span><span class="sap-tagline">Bhakti is not one path among many &mdash; it is the destination</span></div></div><div class="sap-block-body"><p>This section contains the Bhagavatam's central declaration &mdash; the highest good for all people in all circumstances is loving devotional service to the Lord, heard in the association of pure devotees. Not karma. Not jnana. Not yoga. Bhakti. And specifically &mdash; bhakti that is unmotivated and uninterrupted.</p><p>The soul is not accidentally devotional &mdash; it is constitutionally devotional. <strong>Bhakti is not something the soul learns to do. It is what the soul is, when freed from material conditioning.</strong> The highest good is not an achievement. It is a restoration.</p><div class="sap-key-insight"><p>Unmotivated means not for any result, not even liberation. Uninterrupted means not occasional, not when convenient. This is the standard &mdash; not to produce guilt, but to clarify the direction.</p></div></div></div><div class="sap-block"><div class="sap-block-header abhideya"><span class="sap-pill abhideya">Abhideya</span><div class="sap-block-title"><span class="sap-concept abhideya">The Practice</span><span class="sap-tagline">Check the motivation behind the practice</span></div></div><div class="sap-block-body abhideya"><p>The Bhagavatam specifies that the highest bhakti is unmotivated &mdash; ahaituky apratihata. Most of us begin spiritual practice with some motivation. This is not wrong. It is human. But the invitation is to begin noticing when the motivation is present and to gently, over time, release it.</p><div class="sap-practice"><div class="sap-practice-label">&#9670; Today's Practice</div><p>Before your chanting today, ask yourself honestly &mdash; what am I chanting for? Peace? Habit? Obligation? Love? There is no wrong answer. But noticing the motivation is itself the practice. Over time the noticing becomes a gentle releasing &mdash; until the chanting is simply for the sake of the name itself.</p></div></div></div><div class="sap-block"><div class="sap-block-header prayojana"><span class="sap-pill prayojana">Prayojana</span><div class="sap-block-title"><span class="sap-concept prayojana">The Fruit</span><span class="sap-tagline">The satisfaction that satisfies the self</span></div></div><div class="sap-block-body prayojana"><p>The fruit the Bhagavatam promises for unmotivated, uninterrupted bhakti is atmarama &mdash; satisfaction of the self. Not the satisfaction of the senses. Not the satisfaction of the mind. The satisfaction of the soul itself &mdash; the deepest satisfaction that no material experience can produce and no material loss can take away. <em>The satisfaction that, once tasted, makes everything else secondary.</em></p></div></div>`,
+    2: `<div class="sap-block"><div class="sap-block-header"><span class="sap-pill">Sambandha</span><div class="sap-block-title"><span class="sap-concept">The Relationship</span><span class="sap-tagline">The Absolute Truth has three aspects &mdash; all real, all incomplete alone</span></div></div><div class="sap-block-body"><p>This section introduces the Bhagavatam's most important philosophical teaching &mdash; the Absolute Truth is one reality known in three ways: as Brahman (the all-pervading impersonal light), as Paramatma (the Supersoul in every heart), and as Bhagavan (the Supreme Personality of Godhead). Like the sun seen as light, as the orb itself, and as the source of all warmth &mdash; all three are real but each alone is incomplete.</p><p><strong>Brahman realization is real but partial. Paramatma realization is deeper but still partial. Bhagavan realization &mdash; knowing the Absolute Truth as a person, in relationship &mdash; is complete.</strong> The Bhagavatam is the text of complete knowledge.</p><div class="sap-key-insight"><p>You do not graduate from Brahman to Bhagavan by achieving more. You graduate by receiving more &mdash; by allowing the relationship to deepen from the cosmic to the personal.</p></div></div></div><div class="sap-block"><div class="sap-block-header abhideya"><span class="sap-pill abhideya">Abhideya</span><div class="sap-block-title"><span class="sap-concept abhideya">The Practice</span><span class="sap-tagline">Move from the general to the personal</span></div></div><div class="sap-block-body abhideya"><p>Most spiritual seekers begin with Brahman &mdash; the sense of something vast and all-pervading. This is genuine. The practice of this section is to allow that general sense of the sacred to become more specific &mdash; to allow the all-pervading presence to acquire a face, a name, a relationship.</p><div class="sap-practice"><div class="sap-practice-label">&#9670; Today's Practice</div><p>In your chanting today, allow the name to be personal. Not Hare Krsna as a cosmic vibration &mdash; but Hare Krsna as a call to a specific person whom you know, however partially, and who knows you completely. Notice the difference when the name is addressed to a person rather than broadcast into the universe.</p></div></div></div><div class="sap-block"><div class="sap-block-header prayojana"><span class="sap-pill prayojana">Prayojana</span><div class="sap-block-title"><span class="sap-concept prayojana">The Fruit</span><span class="sap-tagline">From impersonal peace to personal love</span></div></div><div class="sap-block-body prayojana"><p>The fruit of progressing from Brahman to Bhagavan realization is not the abandonment of peace &mdash; it is the completion of peace. The stillness of Brahman realization is real. But it is the stillness of an empty room. The stillness of Bhagavan realization is the stillness of a room with a beloved presence in it. <em>Both are still. But one is full and one is empty.</em></p></div></div>`,
+    3: `<div class="sap-block"><div class="sap-block-header"><span class="sap-pill">Sambandha</span><div class="sap-block-title"><span class="sap-concept">The Relationship</span><span class="sap-tagline">Hearing is the primary relationship with the Lord in this age</span></div></div><div class="sap-block-body"><p>This section describes the path in its most practical form &mdash; hearing, remembering and worshipping. And it makes an extraordinary promise: the Lord, who lives in the heart of every devotee, cleanses the heart of all material desire simply through the process of hearing His glories in the association of pure devotees.</p><p><strong>Hearing is not preparation for devotion. Hearing is devotion.</strong> When the ear receives the Lord's glories with genuine attention &mdash; the Lord Himself, living in that very heart, does the cleaning. We are not asked to purify ourselves and then come to Him. We are asked to hear, and He purifies us in the process.</p><div class="sap-key-insight"><p>The Lord cleans the heart from the inside. The devotee opens the door through hearing. The Lord does the work we cannot do ourselves, in response to the one simple act of genuinely listening.</p></div></div></div><div class="sap-block"><div class="sap-block-header abhideya"><span class="sap-pill abhideya">Abhideya</span><div class="sap-block-title"><span class="sap-concept abhideya">The Practice</span><span class="sap-tagline">Listen as if the Lord is speaking directly to you</span></div></div><div class="sap-block-body abhideya"><p>The Bhagavatam says the Lord appears in the mind of the devotee who hears with attention and devotion. The practice here is active, attentive, devotional reception &mdash; the kind of listening that creates genuine space for the Lord to enter.</p><div class="sap-practice"><div class="sap-practice-label">&#9670; Today's Practice</div><p>Read one section of the Bhagavatam today as if the words are being spoken directly to you &mdash; not to Yudhisthira, not to the sages at Naimisharanya, not to some general audience. To you. In your specific situation. At this specific moment in your life. Notice which verse, read this way, lands differently.</p></div></div></div><div class="sap-block"><div class="sap-block-header prayojana"><span class="sap-pill prayojana">Prayojana</span><div class="sap-block-title"><span class="sap-concept prayojana">The Fruit</span><span class="sap-tagline">A cleaner heart, not through effort but through love</span></div></div><div class="sap-block-body prayojana"><p>The fruit of this practice is the gradual purification of the heart &mdash; not through suppression of desire, not through austerity, but through the Lord's own action in response to genuine hearing. The heart becomes cleaner not because we have worked at it but because we have invited the one who cleans it. <em>Genuine hearing of the Lord's glories is sufficient. Not supplementary. Sufficient.</em></p></div></div>`,
+    4: `<div class="sap-block"><div class="sap-block-header"><span class="sap-pill">Sambandha</span><div class="sap-block-title"><span class="sap-concept">The Relationship</span><span class="sap-tagline">The three modes are rungs on a ladder, not obstacles</span></div></div><div class="sap-block-body"><p>This section explains why Vishnu &mdash; the mode of goodness &mdash; is the gateway beyond all three modes. The modes of passion and ignorance produce attachment and suffering. The mode of goodness produces knowledge and peace. But even goodness is a mode &mdash; a quality of material nature. The relationship with the Lord that the Bhagavatam describes transcends all three modes entirely.</p><p><strong>The modes are not enemies to be defeated. They are conditions to be understood and transcended through goodness, which points beyond itself toward the Lord.</strong> Cultivating goodness is not the goal. It is the preparation that makes the goal accessible.</p><div class="sap-key-insight"><p>The mode of goodness is the last rung before freedom. Not freedom itself. But without it, freedom is unreachable. Honour the rung without mistaking it for the destination.</p></div></div></div><div class="sap-block"><div class="sap-block-header abhideya"><span class="sap-pill abhideya">Abhideya</span><div class="sap-block-title"><span class="sap-concept abhideya">The Practice</span><span class="sap-tagline">Cultivate the conditions for goodness consciously</span></div></div><div class="sap-block-body abhideya"><p>If goodness is the gateway, the practice is to consciously cultivate the conditions that produce and sustain it &mdash; not as an end in itself, but as the soil in which devotion can take root. This means attending to the basics: sleep, food, company, morning practice, the quality of information you allow into your mind.</p><div class="sap-practice"><div class="sap-practice-label">&#9670; Today's Practice</div><p>Look honestly at one area of your daily life where passion or ignorance dominates &mdash; perhaps the quality of information you consume, the company you keep, the food you eat, the hours you sleep. Identify one small, specific adjustment toward goodness that you could make today. Not a revolution. One adjustment. Consistently applied, it changes the quality of everything else.</p></div></div></div><div class="sap-block"><div class="sap-block-header prayojana"><span class="sap-pill prayojana">Prayojana</span><div class="sap-block-title"><span class="sap-concept prayojana">The Fruit</span><span class="sap-tagline">Clarity as the precondition for love</span></div></div><div class="sap-block-body prayojana"><p>The fruit of cultivating goodness is not goodness itself &mdash; it is the clarity of mind through which the Lord can be perceived and loved. A mind in passion cannot sustain genuine devotion. A mind in ignorance cannot receive genuine knowledge. A mind in goodness becomes, over time, a clean mirror &mdash; and in that clean mirror, the reflection of the Lord becomes visible. <em>Goodness is not the fruit. It is the polishing of the mirror through which the fruit is seen.</em></p></div></div>`,
+    5: `<div class="sap-block"><div class="sap-block-header"><span class="sap-pill">Sambandha</span><div class="sap-block-title"><span class="sap-concept">The Relationship</span><span class="sap-tagline">Krsna is the source from which everything flows and returns</span></div></div><div class="sap-block-body"><p>The final section of Chapter 2 closes with the declaration that Krsna is the goal of all the Vedas, all austerity, all sacrifice, all yoga. This is not a claim at the end of an argument. It is the revelation that was being built toward from the very first verse.</p><p><strong>Krsna is not one destination among many. He is the source from which all destinations emerge and to which all genuine paths eventually return.</strong> Every legitimate spiritual practice &mdash; wherever it begins, whatever its form &mdash; is moving toward the same source. The Bhagavatam simply makes the path direct.</p><div class="sap-key-insight"><p>The entire universe &mdash; every form of dharma, every act of genuine love, every moment of true understanding &mdash; is Krsna expressing Himself. To know this is to see the sacred in everything. To live from this is to be free.</p></div></div></div><div class="sap-block"><div class="sap-block-header abhideya"><span class="sap-pill abhideya">Abhideya</span><div class="sap-block-title"><span class="sap-concept abhideya">The Practice</span><span class="sap-tagline">See Krsna as the goal of your entire life, not just your practice</span></div></div><div class="sap-block-body abhideya"><p>The Bhagavatam says Krsna is the goal of all the Vedas, all austerity, all sacrifice, all yoga. This means He is also the goal of your work, your relationships, your family, your service. Not just your morning practice. Everything. The practice here is the gradual expansion of the devotional frame until it includes all of life.</p><div class="sap-practice"><div class="sap-practice-label">&#9670; Today's Practice</div><p>Identify one activity today that feels completely separate from your devotional life &mdash; work, a conversation, a routine task. Ask yourself: how would I do this differently if I genuinely understood that Krsna is the goal of this too? Let the answer, however small, change something about how you approach that activity today.</p></div></div></div><div class="sap-block"><div class="sap-block-header prayojana"><span class="sap-pill prayojana">Prayojana</span><div class="sap-block-title"><span class="sap-concept prayojana">The Fruit</span><span class="sap-tagline">A life without division</span></div></div><div class="sap-block-body prayojana"><p>The fruit of genuinely receiving this section is the dissolution of the division between sacred and ordinary. When Krsna is truly understood as the source and goal of everything, the boundary between the devotional hours and the rest of the day begins to dissolve. <em>A life without division is not a life of constant religious performance. It is a life in which Krsna is the ground from which every moment grows &mdash; including the most ordinary ones.</em></p></div></div>`,
+  },
+  3: {
+    0: `<div class="sap-block"><div class="sap-block-header"><span class="sap-pill">Sambandha</span><div class="sap-block-title"><span class="sap-concept">The Relationship</span><span class="sap-tagline">Creation flows from a personal source &mdash; and so do you</span></div></div><div class="sap-block-body"><p>This section describes the Maha-Vishnu lying in the Causal Ocean, the universes issuing from His pores with each breath, the Garbhodakashayi Vishnu entering each universe, Brahma emerging from the lotus of His navel. The Sambandha here is cosmic and intimate simultaneously &mdash; you did not arrive here by accident. You emerged from the breath of a conscious, personal Source who creates not mechanically but from within Himself.</p><p><strong>The relationship is this: you are a part of the Lord &mdash; not a product of material nature that accidentally acquired consciousness, but a conscious being who temporarily imagines himself to be material.</strong> This single shift in self-understanding &mdash; from product to part &mdash; is the foundation of all Vedic philosophy.</p><div class="sap-key-insight"><p>The universe breathes in and out of the Lord like pores in skin. You are inside that breath. You have always been inside that breath. The question is only whether you know it.</p></div></div></div><div class="sap-block"><div class="sap-block-header abhideya"><span class="sap-pill abhideya">Abhideya</span><div class="sap-block-title"><span class="sap-concept abhideya">The Practice</span><span class="sap-tagline">Meditate on your origin, not your conditioning</span></div></div><div class="sap-block-body abhideya"><p>We habitually identify ourselves through our conditioning &mdash; our family, our history, our achievements, our failures, our nationality, our body. The practice this section invites is the deliberate, daily act of returning to a deeper identity &mdash; the identity of a conscious part of the Lord, temporarily housed in a material form, on the way back to the source.</p><div class="sap-practice"><div class="sap-practice-label">&#9670; Today's Practice</div><p>At the beginning of your chanting today, before the first mantra, take one breath and hold this thought: I am not this body. I am not this mind. I am a conscious part of the Lord &mdash; and I am chanting His name. Not as an affirmation to be believed by force. As a question to be held with genuine curiosity: what would this round be like if this were actually true?</p></div></div></div><div class="sap-block"><div class="sap-block-header prayojana"><span class="sap-pill prayojana">Prayojana</span><div class="sap-block-title"><span class="sap-concept prayojana">The Fruit</span><span class="sap-tagline">Freedom from the tyranny of the small self</span></div></div><div class="sap-block-body prayojana"><p>The fruit of genuinely knowing your origin &mdash; of holding it not as philosophy but as lived recognition &mdash; is freedom from the tyranny of the small self. The small self is anxious because it believes it is alone, limited and temporary. The soul that knows itself as a part of the Lord is none of these things. It is connected, unlimited in potential and eternal. <em>Not as a consoling belief. As the simple truth of what you actually are.</em></p></div></div>`,
+    1: `<div class="sap-block"><div class="sap-block-header"><span class="sap-pill">Sambandha</span><div class="sap-block-title"><span class="sap-concept">The Relationship</span><span class="sap-tagline">The Lord descends precisely when and where He is needed</span></div></div><div class="sap-block-body"><p>This section lists twenty-two incarnations of the Lord &mdash; each one appearing at a specific time, in a specific form, for a specific purpose. This is not random divine activity. It is the Lord's systematic, loving, completely attentive engagement with every era, every need, every creature in every condition of existence.</p><p>The Sambandha here is the relationship between the Lord's freedom and His care. He is completely free &mdash; He needs nothing, requires nothing, is affected by nothing. And yet <strong>He descends. Again and again. In form after form. Because the relationship He has with every living being is not theoretical. It is active, responsive and unconditional.</strong> He comes when He is needed. Always.</p><div class="sap-key-insight"><p>Twenty-two incarnations listed in this chapter. Countless others across all time and all universes. And the Bhagavatam says &mdash; as the rivers flow continuously to the ocean, so His incarnations flow continuously into creation. He never stops coming.</p></div></div></div><div class="sap-block"><div class="sap-block-header abhideya"><span class="sap-pill abhideya">Abhideya</span><div class="sap-block-title"><span class="sap-concept abhideya">The Practice</span><span class="sap-tagline">Recognize the Lord's hand in what is happening right now</span></div></div><div class="sap-block-body abhideya"><p>The Lord descends when dharma declines, when the burden becomes too great, when the living beings need something only He can provide. The practice this section points toward is developing the habit of recognizing the Lord's active engagement in your present circumstances &mdash; not just in the distant past of the incarnations, but right now.</p><div class="sap-practice"><div class="sap-practice-label">&#9670; Today's Practice</div><p>Look at your current circumstances &mdash; including the difficult ones &mdash; and ask: if the Lord descends precisely when and where He is needed, and if He is the Supersoul in my heart who is fully aware of my situation, what might He be doing in this specific difficulty? Not a forced positive reframe. A genuine inquiry into the possibility that what feels like absence might be a form of presence.</p></div></div></div><div class="sap-block"><div class="sap-block-header prayojana"><span class="sap-pill prayojana">Prayojana</span><div class="sap-block-title"><span class="sap-concept prayojana">The Fruit</span><span class="sap-tagline">Trust that grows from evidence</span></div></div><div class="sap-block-body prayojana"><p>The fruit of meditating on the Lord's twenty-two incarnations &mdash; of really sitting with the evidence of how consistently, creatively and lovingly He has engaged with creation across all time &mdash; is a trust that grows from evidence rather than wishful thinking. You are not being asked to believe blindly that the Lord will take care of things. You are being shown, incarnation by incarnation, <em>the track record of a Source who has never abandoned His creation and never will.</em></p></div></div>`,
+    2: `<div class="sap-block"><div class="sap-block-header"><span class="sap-pill">Sambandha</span><div class="sap-block-title"><span class="sap-concept">The Relationship</span><span class="sap-tagline">Krsna is not the highest among many &mdash; He is the source of all</span></div></div><div class="sap-block-body"><p>This section makes the Bhagavatam's most radical philosophical claim &mdash; ete camsa-kalah pumsah krsnah tu bhagavan svayam. All the other incarnations are expansions or parts or portions. Krsna is Bhagavan Himself &mdash; the original, the complete, the source from which all others flow.</p><p>The relationship this section establishes is between the part and the whole. Every expansion of the Lord &mdash; every avatar, every form, every manifestation &mdash; is real and complete in itself. And <strong>Krsna is the source from which they all come. Not greater than them in the way a king is greater than his ministers. Greater in the way the sun is greater than the light that fills a room &mdash; the room is genuinely lit, but the source is elsewhere.</strong></p><div class="sap-key-insight"><p>To know Krsna is to know the source of all divinity. Every experience of the sacred &mdash; in any form, through any tradition &mdash; is an experience of something that flows from Him.</p></div></div></div><div class="sap-block"><div class="sap-block-header abhideya"><span class="sap-pill abhideya">Abhideya</span><div class="sap-block-title"><span class="sap-concept abhideya">The Practice</span><span class="sap-tagline">Let Krsna be the organizing center</span></div></div><div class="sap-block-body abhideya"><p>When Krsna is understood as svayam Bhagavan &mdash; the original Personality of Godhead &mdash; He becomes the organizing center around which all other spiritual knowledge arranges itself. Not by excluding other traditions or other forms of the Lord, but by providing the deepest and most complete context for understanding them all.</p><div class="sap-practice"><div class="sap-practice-label">&#9670; Today's Practice</div><p>In your chanting today, chant to Krsna as the source &mdash; not as one name among many, but as the original from whom all names and all forms flow. Feel the difference between chanting to an avatar and chanting to the source of all avatars. Even one round chanted with this awareness is a different quality of practice.</p></div></div></div><div class="sap-block"><div class="sap-block-header prayojana"><span class="sap-pill prayojana">Prayojana</span><div class="sap-block-title"><span class="sap-concept prayojana">The Fruit</span><span class="sap-tagline">All roads converge</span></div></div><div class="sap-block-body prayojana"><p>The fruit of understanding Krsna as svayam Bhagavan is not sectarianism but its opposite. When you understand Him as the source of all divinity, every genuine experience of the sacred &mdash; in any tradition, through any form &mdash; becomes evidence of the same Lord. <em>All roads do not become the same road. But they all converge at the same source. And knowing the source makes every part of the journey more clearly seen.</em></p></div></div>`,
+    3: `<div class="sap-block"><div class="sap-block-header"><span class="sap-pill">Sambandha</span><div class="sap-block-title"><span class="sap-concept">The Relationship</span><span class="sap-tagline">The Lord is beyond material categories &mdash; and yet knowable through love</span></div></div><div class="sap-block-body"><p>This section describes the Lord as beyond the material modes, beyond the three gunas, beyond the categories of time and space &mdash; and simultaneously as the very basis from which all material existence emerges. He transcends the world He creates. He is not affected by the qualities of the nature He sustains. And yet &mdash; He enters the world, takes forms within it, responds to devotees within it.</p><p>The Sambandha here is one of the deepest in the entire Bhagavatam &mdash; <strong>the Lord is simultaneously beyond everything and intimately present within everything. Transcendent and immanent. Utterly unknowable by material means. And yet completely known through love.</strong> This paradox is not a philosophical problem to be solved. It is the actual nature of the relationship.</p><div class="sap-key-insight"><p>He cannot be grasped by the sharpest intellect. He can be known by the simplest heart. This is not anti-intellectual. It is the precise description of how He works &mdash; through love, not through logic.</p></div></div></div><div class="sap-block"><div class="sap-block-header abhideya"><span class="sap-pill abhideya">Abhideya</span><div class="sap-block-title"><span class="sap-concept abhideya">The Practice</span><span class="sap-tagline">Stop trying to grasp &mdash; start trying to love</span></div></div><div class="sap-block-body abhideya"><p>The practice this section points toward is a specific and challenging one &mdash; the willingness to release the grasping quality of the spiritual search and replace it with the open quality of love. Most of us approach spiritual practice with a grasping energy &mdash; we want to understand, to achieve, to arrive. This section says: that grasping energy cannot reach the Lord. Only love can.</p><div class="sap-practice"><div class="sap-practice-label">&#9670; Today's Practice</div><p>In one round of chanting today, deliberately release the effort to achieve anything. Release the effort to concentrate, to be pure, to be undistracted, to be good. Simply chant. With whatever quality of attention is natural. With whatever love is genuinely present &mdash; even if it feels like very little. Let that small, genuine, effortless love be the entire offering. See what happens.</p></div></div></div><div class="sap-block"><div class="sap-block-header prayojana"><span class="sap-pill prayojana">Prayojana</span><div class="sap-block-title"><span class="sap-concept prayojana">The Fruit</span><span class="sap-tagline">The rest that comes from stopping the search</span></div></div><div class="sap-block-body prayojana"><p>The fruit of releasing the grasping quality of the spiritual search is a profound rest &mdash; the rest of a soul that has stopped trying to achieve what can only be received. The Lord who is beyond all material categories is simultaneously present in every heart, waiting to be recognized rather than grasped. <em>When the seeking stops, the finding can begin. Not because seeking is wrong &mdash; but because at some point, you must put down the torch and simply stand in the light that was already there.</em></p></div></div>`,
+    4: `<div class="sap-block"><div class="sap-block-header"><span class="sap-pill">Sambandha</span><div class="sap-block-title"><span class="sap-concept">The Relationship</span><span class="sap-tagline">The Bhagavatam is dharma itself, in its most pure form</span></div></div><div class="sap-block-body"><p>The chapter closes with the declaration that the Bhagavatam is the ripened fruit of the wish-fulfilling tree of the Vedas &mdash; and that dharma, having been embodied in the Lord Himself during His earthly pastimes, has now taken shelter in this text after His departure. This is an extraordinary claim. The Bhagavatam is not merely a scripture. It is the living repository of everything that was present when the Lord walked the earth.</p><p>The Sambandha this section establishes is between the reader and dharma itself &mdash; <strong>when you read the Bhagavatam with genuine attention and love, you are in contact with the same dharma that Bhishmadeva embodied on his bed of arrows, that Kunti expressed in her prayers, that Pariksit received on the banks of the Ganges. You are inside the same living tradition.</strong></p><div class="sap-key-insight"><p>Dharma did not die when Krsna left. It took shelter in the Bhagavatam. Every time you open this text, you are giving dharma a home in your heart.</p></div></div></div><div class="sap-block"><div class="sap-block-header abhideya"><span class="sap-pill abhideya">Abhideya</span><div class="sap-block-title"><span class="sap-concept abhideya">The Practice</span><span class="sap-tagline">Treat the text as a living presence, not a historical document</span></div></div><div class="sap-block-body abhideya"><p>The practice this final section of Chapter 3 points toward is a shift in how you relate to the Bhagavatam itself. Not as a historical record of events that happened long ago to other people. But as a living presence &mdash; the dharma that took shelter in these pages after the Lord's departure, waiting to be recognized and received by whoever approaches with genuine love and sincere inquiry.</p><div class="sap-practice"><div class="sap-practice-label">&#9670; Today's Practice</div><p>Before you close the Bhagavatam today, offer it a deliberate act of reverence &mdash; not as a formality but as a genuine acknowledgment: this text contains something alive. Something that was present when Krsna walked the earth. Something that has been transmitted, person to person, across thousands of years, and has arrived here, in your hands, today. Let that recognition change how carefully you hold it.</p></div></div></div><div class="sap-block"><div class="sap-block-header prayojana"><span class="sap-pill prayojana">Prayojana</span><div class="sap-block-title"><span class="sap-concept prayojana">The Fruit</span><span class="sap-tagline">The Bhagavatam becomes your companion, not your textbook</span></div></div><div class="sap-block-body prayojana"><p>The fruit of approaching the Bhagavatam as a living presence is that it becomes your companion rather than your textbook. A textbook is studied and then put aside. A companion travels with you &mdash; is consulted in difficulty, returned to in grief, celebrated with in joy. The Bhagavatam was given to us precisely for the age we live in &mdash; the age in which the Lord is not physically present. <em>It is His substitute presence. His voice. His face. His hand in yours on the difficult road. Treat it accordingly.</em></p></div></div>`,
+  },
+  9: {
+    0: `
+<div class="sap-block">
+  <div class="sap-block-header">
+    <span class="sap-pill">Sambandha</span>
+    <div class="sap-block-title">
+      <span class="sap-concept">The Relationship</span>
+      <span class="sap-tagline">The devotee does not die alone</span>
+    </div>
+  </div>
+  <div class="sap-block-body">
+    <p>This section establishes who Bhishmadeva is in relation to Krsna. The greatest elder of the age, in the presence of the Supreme Personality of Godhead who has come personally to witness his departure. The entire universe has gathered to honor this relationship.</p>
+    <p>The teaching here is this: <strong>the devotee who remains unflinching in service throughout a lifetime does not die alone.</strong> The Lord comes. In person. And the universe bears witness. This is the nature of the relationship between the Supreme Source and the individual soul who chooses, through every difficulty, to remain oriented toward that Source.</p>
+    <div class="sap-key-insight"><p>You are not a soul who will one day face death alone. You are a soul in a relationship with a Source who has promised to be present at the final moment &mdash; if you remain unflinching in that relationship.</p></div>
+  </div>
+</div>
+<div class="sap-block">
+  <div class="sap-block-header abhideya">
+    <span class="sap-pill abhideya">Abhideya</span>
+    <div class="sap-block-title">
+      <span class="sap-concept abhideya">The Practice</span>
+      <span class="sap-tagline">Show up. Without an agenda.</span>
+    </div>
+  </div>
+  <div class="sap-block-body abhideya">
+    <p>Notice what Krsna does in this section. He does not come with solutions. He does not come with philosophy. He simply comes. He sits. He is present. He allows His presence to be the offering. The practice this section points toward is conscious presence with those who are suffering or ending.</p>
+    <div class="sap-practice">
+      <div class="sap-practice-label">&#9670; Today's Practice</div>
+      <p>Think of one person in your life who is aging, ill, suffering or near an ending. Ask yourself honestly &mdash; am I present with them? Or am I managing them, fixing them, avoiding them? The practice of this section is simply to show up. As Krsna showed up. Without an agenda. With full presence.</p>
+    </div>
+  </div>
+</div>
+<div class="sap-block">
+  <div class="sap-block-header prayojana">
+    <span class="sap-pill prayojana">Prayojana</span>
+    <div class="sap-block-title">
+      <span class="sap-concept prayojana">The Fruit</span>
+      <span class="sap-tagline">A different relationship with impermanence</span>
+    </div>
+  </div>
+  <div class="sap-block-body prayojana">
+    <p>When you practice this quality of presence &mdash; with others and eventually with yourself &mdash; something in the relationship with death itself changes. Death stops being the enemy that must be defeated or denied. It becomes what it actually is &mdash; a transition point. A doorway. Something that can be witnessed with dignity and even with love.</p>
+  </div>
+</div>`,
+    1: `
+<div class="sap-block">
+  <div class="sap-block-header">
+    <span class="sap-pill">Sambandha</span>
+    <div class="sap-block-title">
+      <span class="sap-concept">The Relationship</span>
+      <span class="sap-tagline">Trust survives incomprehension</span>
+    </div>
+  </div>
+  <div class="sap-block-body">
+    <p>Bhishmadeva says clearly: no one can know the plan of the Lord. Even great philosophers are bewildered. And yet the Lord exists. The relationship exists. The devotee is protected. The plan is real. The incomprehensibility of the plan does not negate the relationship. It deepens it. Because a relationship that only works when you understand everything is not a relationship &mdash; it is a transaction. <strong>Real relationship survives incomprehension. Real trust extends into the unknown.</strong></p>
+    <div class="sap-key-insight"><p>You are in a relationship with a Source whose plan exceeds your understanding &mdash; and that is not a defect in the relationship. It is the nature of it.</p></div>
+  </div>
+</div>
+<div class="sap-block">
+  <div class="sap-block-header abhideya">
+    <span class="sap-pill abhideya">Abhideya</span>
+    <div class="sap-block-title">
+      <span class="sap-concept abhideya">The Practice</span>
+      <span class="sap-tagline">Serve within the incomprehensible</span>
+    </div>
+  </div>
+  <div class="sap-block-body abhideya">
+    <p>Bhishmadeva's instruction is precise: accept the inconceivable plan and serve within it. Not understanding first, then serving. Serving as the path toward understanding. The grief of Yudhisthira is not resolved by philosophy. It is resolved by being given a task &mdash; take care of those who are now helpless. The task does not explain the grief. It gives the grief somewhere to go.</p>
+    <div class="sap-practice">
+      <div class="sap-practice-label">&#9670; Today's Practice</div>
+      <p>Identify one situation in your life right now that you cannot understand &mdash; a loss, a difficulty, a direction that makes no sense. Do not try to understand it today. Instead ask: what is the service available to me within this situation, regardless of whether I understand it? And do that service. Even a small act of it. Today.</p>
+    </div>
+  </div>
+</div>
+<div class="sap-block">
+  <div class="sap-block-header prayojana">
+    <span class="sap-pill prayojana">Prayojana</span>
+    <div class="sap-block-title">
+      <span class="sap-concept prayojana">The Fruit</span>
+      <span class="sap-tagline">Equanimity that does not require answers</span>
+    </div>
+  </div>
+  <div class="sap-block-body prayojana">
+    <p>The fruit of serving within the incomprehensible is genuine equanimity &mdash; not the false equanimity of someone who has suppressed their feelings, but the equanimity of someone who has discovered that service does not require understanding as a prerequisite. The hands can be engaged even when the mind is confused. And when the hands are engaged &mdash; the confusion, over time, becomes less urgent. Not because it has been solved. Because something more important has been found.</p>
+  </div>
+</div>`,
+    2: `
+<div class="sap-block">
+  <div class="sap-block-header">
+    <span class="sap-pill">Sambandha</span>
+    <div class="sap-block-title">
+      <span class="sap-concept">The Relationship</span>
+      <span class="sap-tagline">The teacher gives without reserve</span>
+    </div>
+  </div>
+  <div class="sap-block-body">
+    <p>Bhishmadeva is dying. His body is in extraordinary pain. His life is ebbing away. And he teaches. Not because he has to. But because the relationship with his students demands everything he has left to give. This is the model of the teacher-student relationship in the Vaishnava tradition &mdash; <strong>the teacher gives everything, withholds nothing, and considers the act of giving itself to be the highest form of service to the Lord.</strong></p>
+    <div class="sap-key-insight"><p>The relationship between teacher and student is not a transaction of information. It is a complete offering &mdash; of everything the teacher has, to everything the student needs, without reservation.</p></div>
+  </div>
+</div>
+<div class="sap-block">
+  <div class="sap-block-header abhideya">
+    <span class="sap-pill abhideya">Abhideya</span>
+    <div class="sap-block-title">
+      <span class="sap-concept abhideya">The Practice</span>
+      <span class="sap-tagline">Give before you feel ready</span>
+    </div>
+  </div>
+  <div class="sap-block-body abhideya">
+    <p>The practice here is the practice of giving before you feel ready. Of sharing wisdom, love, service and presence before the perfect moment arrives &mdash; because Bhishmadeva's example shows that even on a bed of arrows, with life ebbing away, the perfect moment for giving is this moment.</p>
+    <div class="sap-practice">
+      <div class="sap-practice-label">&#9670; Today's Practice</div>
+      <p>Identify something you have been withholding &mdash; a piece of wisdom you have not shared, a kindness you have not offered, a conversation you have been postponing. Do it today. Not because the conditions are perfect. Because Bhishmadeva taught from a bed of arrows and considered it the most natural thing in the world.</p>
+    </div>
+  </div>
+</div>
+<div class="sap-block">
+  <div class="sap-block-header prayojana">
+    <span class="sap-pill prayojana">Prayojana</span>
+    <div class="sap-block-title">
+      <span class="sap-concept prayojana">The Fruit</span>
+      <span class="sap-tagline">The dissolution of scarcity</span>
+    </div>
+  </div>
+  <div class="sap-block-body prayojana">
+    <p>The fruit of unconditional giving is the dissolution of the fear of scarcity. Most of us withhold because we are afraid of being depleted. Bhishmadeva's example shows that the opposite is true. The more completely a great soul gives, the more completely they are filled &mdash; until the final giving, which is the giving of the self into the Lord, leaves nothing behind except the Lord Himself.</p>
+  </div>
+</div>`,
+    3: `
+<div class="sap-block">
+  <div class="sap-block-header">
+    <span class="sap-pill">Sambandha</span>
+    <div class="sap-block-title">
+      <span class="sap-concept">The Relationship</span>
+      <span class="sap-tagline">The relationship with Krsna is not one-dimensional</span>
+    </div>
+  </div>
+  <div class="sap-block-body">
+    <p>Bhishmadeva's ten meditations reveal the full spectrum of how a soul can be in relationship with Krsna. As the object of beauty. As the opponent on the battlefield. As the source of the Bhagavad Gita. As the breaker of His own promise, running with the chariot wheel. As the servant holding the horse's rope. As the beloved of the gopis. As the one worshipped by all. As the all-pervading presence in every heart.</p>
+    <p><strong>The depth of the relationship is measured by how many dimensions of it you have genuinely lived.</strong> Bhishmadeva had lived them all. And at the moment of death, he draws on every single one.</p>
+    <div class="sap-key-insight"><p>The relationship with Krsna is as large as your life. Every experience you bring into it becomes part of your meditation. Nothing is wasted.</p></div>
+  </div>
+</div>
+<div class="sap-block">
+  <div class="sap-block-header abhideya">
+    <span class="sap-pill abhideya">Abhideya</span>
+    <div class="sap-block-title">
+      <span class="sap-concept abhideya">The Practice</span>
+      <span class="sap-tagline">Build your own catalogue of divine encounters</span>
+    </div>
+  </div>
+  <div class="sap-block-body abhideya">
+    <p>The practice this section points toward is building your own personal catalogue of genuine encounters with the divine. Not borrowed meditations. Not standard visualizations from a book. Your own. The moment a prayer was unmistakably answered. The verse that suddenly meant something new. The round of japa where something opened. The conversation with your spiritual master where something shifted.</p>
+    <div class="sap-practice">
+      <div class="sap-practice-label">&#9670; Today's Practice</div>
+      <p>Right now, identify one specific moment in your life &mdash; however small &mdash; where the Lord's presence was unmistakably real to you. Write it down in one sentence. This is the beginning of your ten meditations. Bring it into your chanting tomorrow morning &mdash; not as distraction, but as the specific, personal material from which your meditation is made.</p>
+    </div>
+  </div>
+</div>
+<div class="sap-block">
+  <div class="sap-block-header prayojana">
+    <span class="sap-pill prayojana">Prayojana</span>
+    <div class="sap-block-title">
+      <span class="sap-concept prayojana">The Fruit</span>
+      <span class="sap-tagline">The dissolution of duality</span>
+    </div>
+  </div>
+  <div class="sap-block-body prayojana">
+    <p>The fruit of this practice is what Bhishmadeva describes in the tenth meditation &mdash; the dissolution of duality. When you have accumulated enough genuine personal encounters with the Lord, the gap between the specific beloved form and the universal all-pervading presence begins to close. You find the universal in the specific. <em>You find Krsna everywhere &mdash; because you have genuinely found Him somewhere. And the somewhere becomes the doorway to everywhere.</em></p>
+  </div>
+</div>`,
+    4: `
+<div class="sap-block">
+  <div class="sap-block-header">
+    <span class="sap-pill">Sambandha</span>
+    <div class="sap-block-title">
+      <span class="sap-concept">The Relationship</span>
+      <span class="sap-tagline">The relationship survives death</span>
+    </div>
+  </div>
+  <div class="sap-block-body">
+    <p>The final section reveals the ultimate nature of the relationship between the soul and the Supreme &mdash; the merging. Mind, speech, sight and actions &mdash; all four faculties merged into Krsna simultaneously. All at once. Like rivers flowing into the ocean. But this merging is the personal merging of bhakti &mdash; where the lover enters the beloved so completely that the two become one without either ceasing to exist.</p>
+    <p><strong>The relationship does not end at death. It survives death. It survives the dissolution of universes. It is, in the deepest sense, the only thing that is permanent.</strong></p>
+    <div class="sap-key-insight"><p>Everything in your life will end. Your relationship with Krsna, genuinely cultivated, will not. This is not a consolation. It is the most important fact about your existence.</p></div>
+  </div>
+</div>
+<div class="sap-block">
+  <div class="sap-block-header abhideya">
+    <span class="sap-pill abhideya">Abhideya</span>
+    <div class="sap-block-title">
+      <span class="sap-concept abhideya">The Practice</span>
+      <span class="sap-tagline">Every round of japa is a rehearsal</span>
+    </div>
+  </div>
+  <div class="sap-block-body abhideya">
+    <p>The practice this section points toward is the practice of daily merging &mdash; the small, daily rehearsal of what Bhishmadeva did completely at the moment of death. Investing the thinking, feeling and willing in Krsna completely, for the duration of one round of chanting. This is what japa is. It is a daily rehearsal of the moment of death. Every round where this happens genuinely &mdash; even for a moment &mdash; is a round that has fulfilled its purpose.</p>
+    <div class="sap-practice">
+      <div class="sap-practice-label">&#9670; Today's Practice</div>
+      <p>Before your next round of japa, hold this intention: <em>Let me now invest my thinking, feeling and willing in the all-powerful Lord Sri Krsna.</em> Not as a technique. As a genuine offering of all three faculties into the name. See what happens.</p>
+    </div>
+  </div>
+</div>
+<div class="sap-block">
+  <div class="sap-block-header prayojana">
+    <span class="sap-pill prayojana">Prayojana</span>
+    <div class="sap-block-title">
+      <span class="sap-concept prayojana">The Fruit</span>
+      <span class="sap-tagline">Silence like birds at the end of the day</span>
+    </div>
+  </div>
+  <div class="sap-block-body prayojana">
+    <p>The fruit is described in Text 44 &mdash; the silence like birds at the end of the day. Not grief. Not loss. Completion. The recognition that something has been fully lived, fully given and fully released. Not the dramatic liberation of a sudden cosmic event, but the quiet, complete, deeply satisfying sense of a life that has fulfilled its purpose.</p>
+    <p><em>The birds go silent. Not because something has been taken. Because the day is complete.</em></p>
+  </div>
+</div>`,
+  }
+};
+
 const archContent = `
   <div style="background:#deba85;border-left:4px solid #9c2a18;padding:20px 24px;margin-bottom:28px;font-size:19px;line-height:1.85;color:#2a1508;font-style:italic;">
     Canto 1 appears at first to jump from one topic to something entirely unrelated &mdash; from cosmic philosophy to a battlefield, from a wandering sage to a dying king. But nothing is accidental. Every chapter is a stone placed precisely where it must be. Once you see the architecture, the whole of Canto 1 reveals itself as one of the most elegantly constructed narratives in all of literature.
@@ -1739,9 +2304,171 @@ const chapters = [
       `}
     ]
   },
-  { num: 17, title: "Punishment and Reward of Kali",                    available: false },
-  { num: 18, title: "Maharaja Pariksit Cursed by a Brahmana Boy", available: false },
-  { num: 19, title: "The Appearance of Sukadeva Gosvami",         available: false }
+  { num: 17, title: "Punishment and Reward of Kali", available: true,
+    sections: [
+      { title: "Pariksit Confronts Kali", texts: "Texts 1&ndash;16", content: `
+        <p>Chapter 16 ended with Pariksit arriving at the bank of the Sarasvati River while the Earth and Dharma were in mid-conversation about Krsna's departure and their grief. Chapter 17 opens with what he finds when he arrives.</p>
+        <p class="sub-heading">Texts 1&ndash;3 &mdash; The Scene</p>
+        <p>A lower-caste sudra, dressed like a king, is beating a cow and a bull with a club as if they had no owner. The bull is white as a lotus flower, standing on one leg, trembling and terrified. The cow is poor and calfless, her legs being beaten, tears in her eyes, hankering after some grass in the field. This is not merely a description of cruelty to animals. It is a tableau of the age of Kali in its essential form &mdash; the powerful disguised as legitimate authority, attacking the most sacred and the most helpless, in a place where the king cannot see. The bull is Dharma. The cow is the Earth. The theory of Chapter 16 has become the reality of Chapter 17.</p>
+        <p class="sub-heading">Texts 4&ndash;6 &mdash; Pariksit Speaks</p>
+        <p>Pariksit, well equipped with arrows and bow, speaks with a voice like thunder. He names what he sees instantly:</p>
+        <div class="quote-block"><p>You rogue, do you dare beat an innocent cow because Lord Krsna and Arjuna, the carrier of the Gandiva bow, are out of sight? Since you are beating the innocent in a secluded place, you are considered a culprit and therefore deserve to be killed.</p></div>
+        <p>Kali has timed his attack precisely &mdash; he waited until Krsna was gone and Arjuna had departed. He calculated the absence of protection and moved into that absence immediately. <strong>This is how irreligion always works &mdash; not frontally, but in the shadows created by the withdrawal of the sacred.</strong> Pariksit sees this instantly. Names it instantly. And moves to act instantly.</p>
+        <p class="sub-heading">Texts 7&ndash;9 &mdash; He Addresses the Bull</p>
+        <div class="quote-block"><p>O son of Surabhi, you need lament no longer now. There is no need to fear this low-class sudra. And, O mother cow, as long as I am living as the ruler and subduer of all envious men, there is no cause for you to cry. Everything will be good for you.</p></div>
+        <p>The same person. The same moment. Fearsome to the aggressor, tender to the victim. <strong>This is the ideal of Ksatriya dharma &mdash; the discernment of when force is needed and when tenderness is needed, and the capacity to move between them without losing either quality.</strong></p>
+        <p class="sub-heading">Texts 10&ndash;16 &mdash; The Duty of the King</p>
+        <p>The prime duty of the king is to subdue first the sufferings of those who suffer. And the extraordinary declaration:</p>
+        <div class="quote-block"><p>Whoever causes offenseless living beings to suffer must fear me anywhere and everywhere in the world. An upstart living being who commits offenses by torturing those who are offenseless shall be directly uprooted by me, even though he be a denizen of heaven with armor and decorations.</p></div>
+        <p>Even a denizen of heaven. Even someone dressed as a king. Rank and appearance are irrelevant. Only dharma is relevant. And dharma, in this moment, is standing on one leg and trembling.</p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Kali waited until Krsna was gone and Arjuna had departed before attacking. He calculated the absence of protection and moved into that absence immediately. This is how irreligion always works &mdash; not frontally, but in the shadows created by the withdrawal of the sacred. Where in your life right now is something being attacked precisely because the protecting presence seems absent? And what would it mean to be Pariksit in that situation &mdash; to arrive, to see clearly, to speak with thunder and then with tenderness?</p></div>
+      `},
+      { title: "Dharma Speaks &mdash; The Mystery of Suffering", texts: "Texts 17&ndash;21", content: `
+        <p class="sub-heading">Text 17 &mdash; The Acknowledgment</p>
+        <p>Dharma &mdash; in the form of the bull &mdash; begins by honoring Pariksit, connecting him explicitly to his lineage. Even Lord Krsna performed duties as a messenger out of His captivation by the devotional qualities of the Pandavas. This acknowledgment is not flattery. It is the recognition of a soul who knows exactly who he is speaking to.</p>
+        <p class="sub-heading">Texts 18&ndash;20 &mdash; The Mystery</p>
+        <div class="quote-block"><p>O greatest among human beings, it is very difficult to ascertain the particular miscreant who has caused our sufferings, because we are bewildered by all the different opinions of theoretical philosophers.</p></div>
+        <p>Different philosophers say different things. Some say the self is responsible. Some say superhuman powers. Some say activity. The gross materialists say nature. And some say it cannot be ascertained by argumentation, nor known by imagination, nor expressed by words. And then &mdash; extraordinarily &mdash; Dharma says: <em>judge for yourself by thinking over all this with your own intelligence.</em> <strong>The Bhagavatam does not offer a simple mechanical explanation for suffering. It acknowledges the mystery &mdash; and trusts the devotee's intelligence to navigate that mystery.</strong></p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Dharma himself says &mdash; I do not know who caused my suffering. The philosophers disagree. Judge for yourself. The Bhagavatam does not always give simple answers. Sometimes it honors the genuine mystery of why things happen as they do &mdash; and trusts the devotee to sit with that mystery without demanding a resolution. Is there a suffering in your life where you have been demanding a clear answer about why &mdash; and where simply acknowledging the mystery might itself be a form of peace?</p></div>
+      `},
+      { title: "Pariksit's Wisdom &mdash; Recognizing Dharma", texts: "Texts 22&ndash;27", content: `
+        <p class="sub-heading">Texts 22&ndash;23 &mdash; The Recognition</p>
+        <p>Pariksit's answer to philosophical complexity is not another philosophical argument. It is a recognition &mdash; he sees through the form and identifies the bull as Dharma itself. And then the conclusion:</p>
+        <div class="quote-block"><p>Thus it is concluded that the Lord's energies are inconceivable. No one can estimate them by mental speculation or by word jugglery.</p></div>
+        <p>The answer to all philosophical complexity about suffering is finally this &mdash; <em>the Lord's energies are inconceivable.</em> Not as an evasion. As the actual truth. The causes and conditions of material existence are so complex that the appropriate response is not more analysis but more surrender.</p>
+        <p class="sub-heading">Texts 24&ndash;27 &mdash; The Diagnosis of the Age</p>
+        <p>In the age of Satya, Dharma's four legs were established by the four principles of austerity, cleanliness, mercy and truthfulness. Three of those legs are now broken &mdash; broken by pride, lust and intoxication. Only truthfulness remains. And Kali &mdash; flourishing by deceit &mdash; is even now trying to destroy that last leg. The Earth, once marked with the footprints of the Lord's lotus feet, is now ruled and enjoyed by lower-class men who pose as rulers. The diagnosis is complete. The cause is clear. And Pariksit reaches for his sword.</p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Pariksit's answer to philosophical complexity was recognition &mdash; seeing what was actually there beneath the apparent form. He did not argue his way to clarity. He simply saw. Is there a situation in your life right now that you have been trying to think your way through &mdash; and where what is actually needed is not more thinking but clearer seeing? What would you recognize if you stopped analyzing and simply looked?</p></div>
+      `},
+      { title: "Kali Surrendered and Stationed", texts: "Texts 28&ndash;42", content: `
+        <p class="sub-heading">Texts 28&ndash;30 &mdash; The Surrender and the Smile</p>
+        <p>Pariksit takes up his sharp sword to kill Kali. And Kali &mdash; understanding the King is willing to kill him &mdash; at once abandons the dress of a king and completely surrenders, bowing his head. And Pariksit &mdash; fully capable, fully justified &mdash; did not kill the poor surrendered Kali, but <strong>smiled compassionately, for he was kind to the poor.</strong> This smile is one of the most significant moments in the chapter. Force is used precisely and only where necessary, and the moment surrender is offered, the force is withdrawn.</p>
+        <p class="sub-heading">Texts 31&ndash;37 &mdash; The Negotiation</p>
+        <p>But mercy does not mean permissiveness. Pariksit speaks with absolute clarity:</p>
+        <div class="quote-block"><p>Since you have surrendered yourself with folded hands you need not fear for your life. But you cannot remain in my kingdom, for you are the friend of irreligion.</p></div>
+        <p>He assigns Kali to specific places &mdash; where gambling, drinking, prostitution and animal slaughter are performed. And then also to places where there is gold &mdash; because wherever there is gold there is also falsity, intoxication, lust, envy and enmity.</p>
+        <p class="sub-heading">Texts 38&ndash;42 &mdash; The Warning and the Restoration</p>
+        <p>Whoever desires progressive well-being &mdash; <em>especially kings, religionists, public leaders, brahmanas and sannyasis</em> &mdash; should never come in contact with these four irreligious principles. The warning is specifically for those in positions of responsibility and spiritual authority. And then &mdash; the King reestablished the lost legs of the personality of religion and sufficiently improved the condition of the earth. <strong>Pariksit does not create a utopia. He creates the conditions in which dharma can function.</strong></p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Pariksit did not kill Kali when Kali surrendered. He smiled compassionately and assigned him to specific places where he could exist but not dominate. You cannot kill the tendencies of the age &mdash; they live in the world and in yourself. But you can contain them. Where in your own life have you been allowing Kali &mdash; greed, deceit, intoxication, quarrel &mdash; to live in places where he should not be? What would it mean to assign him, clearly and firmly, to his permitted places &mdash; and nowhere else?</p></div>
+      `},
+      { title: "The Reign Continues", texts: "Texts 43&ndash;45", content: `
+        <p>The chapter closes by framing Pariksit's entire reign in its larger context. He inherited a tradition &mdash; a lineage of kings who governed by dharma, who honored the Lord, who protected the helpless and punished the aggressor. Every act of compassion toward the surrendered Kali and every act of protection toward the trembling bull reflects the same consciousness that produced Kunti's prayers and Bhishmadeva's meditations and Yudhisthira's anguished justice.</p>
+        <p>And then the Bhagavatam closes the circle with breathtaking elegance. The chapter ends by reminding us where we are &mdash; in Naimisharanya, where the sages are gathered for a great sacrifice. That sacrifice is possible because Pariksit's reign has created the conditions in which it can take place. The dharma that Pariksit restored by confronting Kali is what made this gathering possible. And this gathering is what is transmitting the Bhagavatam to us, across thousands of years, to this page, to this moment. <em>Everything is connected. Pariksit's encounter with a limping bull on the bank of a river is what made it possible for you to be reading this right now.</em></p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Everything is connected. Pariksit's encounter with a limping bull &mdash; his smile of compassion, his containment of Kali, his restoration of dharma's three lost legs &mdash; created the conditions in which the Bhagavatam could be transmitted across thousands of years to this moment. Your practice today &mdash; however small, however imperfect &mdash; is part of the same chain. What does it mean to hold your practice with that sense of responsibility &mdash; not as something done for personal benefit alone, but as a link in a chain that extends far beyond you in both directions?</p></div>
+      `}
+    ]
+  },
+  { num: 18, title: "Maharaja Pariksit Cursed by a Brahmana Boy", available: true,
+    sections: [
+      { title: "The Frame &mdash; Pariksit's Protection and Surrender", texts: "Texts 1&ndash;10", content: `
+        <p>Chapter 18 opens differently from all the chapters before it. Rather than moving the story forward, it pauses &mdash; pulling back to give us a compressed portrait of Pariksit's entire life before the central event of the chapter unfolds.</p>
+        <p class="sub-heading">Texts 1&ndash;4 &mdash; Three Moments of Grace</p>
+        <p>Three specific moments from Pariksit's life are named. First &mdash; though struck by the weapon of Asvatthama in his mother's womb, he could not be burned. The Lord protected him before he was born. Before he had done anything, before he had surrendered, before he had any spiritual qualification &mdash; the Lord protected the embryo. Second &mdash; he was neither afraid nor overwhelmed by the snake-bird that was to bite him, because he was consciously surrendered to the Lord. The death sentence he would receive in this very chapter would not produce terror &mdash; because genuine surrender removes the specific fear of death that haunts every ordinary life. Third &mdash; after leaving all his associates, the King surrendered himself as a disciple to Sukadeva Gosvami and gave up his material body on the bank of the Ganges. Three moments. Before birth, before death, and at the moment of death itself. The Lord's protection spans the entire arc.</p>
+        <div class="quote-block"><p>Those who have dedicated their lives to the transcendental topics of the Personality of Godhead, and who are constantly engaged in remembering the lotus feet of the Lord, do not run the risk of having misconceptions even at the last moment of their lives.</p></div>
+        <p><strong>The habit of turning toward the Lord &mdash; practiced thousands of times through a lifetime &mdash; will naturally assert itself at the final moment. The habit becomes the grace.</strong></p>
+        <p class="sub-heading">Texts 5&ndash;8 &mdash; Pariksit the Realist</p>
+        <p>Maharaja Pariksit was a realist, like the bees who only accept the essence of a flower. He understood that Kali had been contained &mdash; assigned to his permitted places &mdash; and that for those who were self-controlled there was nothing to fear. He did not rage against the age. He navigated it with clear eyes and steady practice.</p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>The Lord protected Pariksit in the womb &mdash; before he had done anything, before he had any spiritual qualification. Protection preceded merit. Grace preceded earning. You did not earn your way into this birth, into this tradition, into the hands of your spiritual master. These were given. Before you deserved them. What does it mean to receive that &mdash; not with guilt about whether you are worthy, but with the simple, full gratitude of someone who recognizes they have been protected from before they were born?</p></div>
+      `},
+      { title: "The Sages' Praise &mdash; The Nectar of Hearing", texts: "Texts 11&ndash;23", content: `
+        <p class="sub-heading">Texts 11&ndash;15 &mdash; The Sages Respond</p>
+        <p>The sages at Naimisharanya respond with extraordinary warmth and honesty &mdash; we have just begun the performance of this sacrificial fire, without certainty of its result due to the many imperfections in our action. Our bodies have become black from the smoke. But we are factually pleased by the nectar of the lotus feet of the Personality of Godhead, Govinda, which you are distributing. The sacrifice is imperfect. The performers are covered in smoke. And yet &mdash; through the hearing of Krsna-katha &mdash; they are experiencing something the sacrifice itself cannot produce.</p>
+        <p class="sub-heading">Text 13 &mdash; The Most Extraordinary Verse</p>
+        <div class="quote-block"><p>The value of a moment's association with the devotee of the Lord cannot even be compared to the attainment of heavenly planets or liberation from matter, and what to speak of worldly benedictions in the form of material prosperity, which are for those who are meant for death.</p></div>
+        <p>A moment. Of genuine association with a devotee. Cannot be compared to heaven. Cannot be compared to liberation. <strong>Not because the people involved are extraordinary &mdash; but because the Lord is present wherever genuine devotion is present. And a moment in that presence does not leave the heart empty.</strong></p>
+        <p class="sub-heading">Texts 18&ndash;23 &mdash; Suta Gosvami Responds</p>
+        <p>Suta Gosvami responds with characteristic humility, then offers the most beautiful description of his own limitations:</p>
+        <div class="quote-block"><p>As the birds fly in the sky as far as their capacity allows, so do the learned devotees describe the Lord as far as their realization allows.</p></div>
+        <p><em>I have flown as far as my wings can carry me. The sky is larger than any bird's flight. But the flight itself is genuine. And the sky &mdash; the unlimited sky of the Lord's glories &mdash; is real.</em></p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>A moment's association with a devotee of the Lord cannot be compared to the attainment of heavenly planets or liberation from matter. Think of the devotees in your life &mdash; past and present &mdash; whose association has genuinely affected you. The moments of conversation, of shared practice, of simply being near someone in whose heart Krsna was present. Can you feel, even now, the residue of those moments? That residue is not sentiment. It is the actual spiritual effect that Text 13 is describing.</p></div>
+      `},
+      { title: "The Fateful Encounter &mdash; Hunger, Thirst and the Silent Sage", texts: "Texts 24&ndash;31", content: `
+        <p class="sub-heading">Texts 24&ndash;27 &mdash; The Encounter</p>
+        <p>Once upon a time Maharaja Pariksit, while engaged in hunting in the forest, became extremely fatigued, hungry and thirsty. While searching for water, he entered the hermitage of the well-known Samika Rsi and saw the sage sitting silently with closed eyes &mdash; sense organs, breath, mind and intelligence all restrained, situated in a trance qualitatively equal with the Supreme Absolute. Covered by the skin of a stag. Long, compressed hair scattered all over him. Completely absorbed. Completely elsewhere. The King, whose palate was dry from thirst, asked him for water.</p>
+        <p class="sub-heading">Texts 28&ndash;31 &mdash; The Insult</p>
+        <p>The sage, in deep trance, could not respond. And Pariksit &mdash; the great king, the examiner, the devotee &mdash; was not received with any formal welcome. No seat. No water. No sweet addresses. No acknowledgment of any kind. And in that moment, struck by extreme hunger and thirst, by fatigue from the forest and the hunt &mdash; <strong>Pariksit directed toward the sage his anger and envy, which he had never before directed toward a brahmana.</strong></p>
+        <p>While leaving, he picked up a lifeless dead snake with his bow and angrily placed it on the shoulder of the sage. Then he returned to his palace &mdash; already arguing within himself whether the sage had been genuinely in trance or feigning it. The anger has not fully released. The great devotee acting from his conditioning rather than his realization. Not because he is fallen &mdash; but because he is human. <em>Because hunger and thirst and fatigue and feeling ignored are enough to move even the greatest among us, temporarily, away from our better nature.</em></p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Pariksit &mdash; the great king, the examiner, the devotee &mdash; was moved to anger by hunger, thirst, fatigue and feeling ignored. The anger he had never before directed at a brahmana was produced not by a great evil but by a small accumulation of physical discomfort and wounded pride. Is there a pattern in your own life where small physical discomforts or small slights produce responses disproportionate to their cause? Pariksit's moment of weakness is also a mirror. And the fact that the Bhagavatam records it honestly, without hiding it &mdash; is itself a teaching about how grace works. Even in the small, unglamorous moments.</p></div>
+      `},
+      { title: "The Curse &mdash; The Boy's Anger and the Father's Grief", texts: "Texts 32&ndash;47", content: `
+        <p class="sub-heading">Texts 32&ndash;37 &mdash; The Boy's Curse</p>
+        <p>The sage had a son who was very powerful. While playing with boys by a river, he heard of his father's distress. And then and there &mdash; still a child, still playing with his friends &mdash; his eyes red-hot with anger, he touched the water of the river and discharged the following thunderbolt of words:</p>
+        <div class="quote-block"><p>On the seventh day from today a snake-bird will bite the most wretched one of that dynasty because of his having broken the laws of etiquette by insulting my father.</p></div>
+        <p>A child. Playing by a river. Cursing the greatest king of the age to death. In the company of his playmates. <strong>This is the arrow that has been travelling since Chapter 1, when the sages asked &mdash; what is the highest good, especially at the moment of death? The arrow was loosed by a child who did not know what he was doing. And it will land in Chapter 19.</strong></p>
+        <p class="sub-heading">Texts 38&ndash;47 &mdash; The Father's Grief and Prayer</p>
+        <p>When the boy returned and saw the snake on his father's shoulder, he cried loudly. The sage gradually opened his eyes from trance, saw the dead snake, threw it aside, and heard what had happened. And the rsi did not congratulate his son. On the contrary he began to repent:</p>
+        <div class="quote-block"><p>Alas! What a great sinful act was performed by my son. He has awarded heavy punishment for an insignificant offense.</p></div>
+        <p>The emperor Pariksit is a pious king, a first-class devotee of the Personality of Godhead, a saint amongst royalty. When such a king is tired and fatigued, being stricken with hunger and thirst, he does not at all deserve to be cursed. The father carries the grief of his son's mistake. Not the anger. Not the justification. <em>The grief. He does not deny the insult. He simply sees that a punishment has been given that does not fit the offense. And he mourns it. And he prays.</em></p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>The boy's curse was issued from genuine love for his father, genuine outrage at an injustice &mdash; and genuine immaturity. He did not stop to think. He acted in the heat of the moment and set in motion consequences that would ripple across the entire remaining history of the Bhagavatam. Have you ever acted from genuine love and genuine outrage &mdash; and caused harm you did not intend? The boy meant well. The consequences were enormous. The father grieved. And Pariksit &mdash; the one who was cursed &mdash; would respond in a way that transforms the curse into the greatest grace.</p></div>
+      `},
+      { title: "The Nature of the Devotee &mdash; Forbearance and Transcendence", texts: "Texts 48&ndash;50", content: `
+        <p>The chapter closes with three verses that are among the most quietly powerful in all of Canto 1.</p>
+        <p class="sub-heading">Text 48 &mdash; The Portrait of the Devotee</p>
+        <div class="quote-block"><p>The devotees of the Lord are so forbearing that even though they are defamed, cheated, cursed, disturbed, neglected or even killed, they are never inclined to avenge themselves.</p></div>
+        <p>This is not describing a passive doormat. It is describing a specific and extraordinarily advanced spiritual state &mdash; the state of someone whose identity is so completely located in the Lord that the ordinary human triggers of retaliation do not produce the ordinary human responses. <strong>Not because the devotee does not feel. But because what the devotee feels is larger than the injury. Because the Lord, who is in the heart of even the one who cheats and curses, is recognized even there.</strong> Pariksit, who will receive this curse and respond by surrendering to Sukadeva on the bank of the Ganges &mdash; is this verse in action.</p>
+        <p class="sub-heading">Texts 49&ndash;50 &mdash; The Sage's Equanimity and Transcendence</p>
+        <p>The sage did not take the insult paid by the King very seriously. He does not magnify it. He does not hold it. He simply does not take it seriously. And then the final verse &mdash; the essential teaching of the chapter:</p>
+        <div class="quote-block"><p>Generally the transcendentalists, even though engaged by others in the dualities of the material world, are not distressed. Nor do they take pleasure in worldly things, for they are transcendentally engaged.</p></div>
+        <p><em>The consciousness that is genuinely absorbed in the Lord is not available to the full force of material duality in the way that an unabsorbed consciousness is. Pain still registers. Pleasure still registers. But they do not possess the person. They pass through, the way weather passes through an open sky &mdash; real, felt, and unable to take up permanent residence.</em></p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>The devotees of the Lord are so forbearing that even though they are defamed, cheated, cursed, disturbed, neglected or even killed &mdash; they are never inclined to avenge themselves. This is not a standard you can achieve by trying. It is the natural fruit of consciousness that has genuinely located itself in the Lord. But you can practice its direction &mdash; the next time something small happens that produces the impulse to retaliate or defend or justify, you can pause. One breath. One moment of remembering who is in the heart of the one who insulted you. That pause is the beginning of the forbearance that Text 48 describes.</p></div>
+      `}
+    ]
+  },
+  { num: 19, title: "The Appearance of Sukadeva Gosvami", available: true,
+    sections: [
+      { title: "The Curse Received as Grace", texts: "Texts 1&ndash;7", content: `
+        <p>Chapter 18 ended with Samika Rsi mourning the curse that could not be undone. Chapter 19 opens with Pariksit &mdash; the one who was cursed &mdash; and what we find in him is the exact opposite of what we might expect.</p>
+        <p class="sub-heading">Texts 1&ndash;3 &mdash; The King's Repentance</p>
+        <p>While returning home, the King felt that the act he had committed against the faultless brahmana was heinous and uncivilized. He was distressed. And he thought:</p>
+        <div class="quote-block"><p>I now desire without reservation that the calamity come now, for in this way I may be freed of the sinful action and not commit such an offense again.</p></div>
+        <p>Pariksit is not defending himself. He is not explaining the circumstances &mdash; the hunger, the thirst, the fatigue. He is taking full responsibility. And more than that &mdash; he is asking for the punishment. Not to escape the consequence. To receive it completely and be done with it. <strong>This is the consciousness of someone who knows that difficulty can be grace, that consequence can be purification, that even punishment, received correctly, is the Lord's mercy moving through the world.</strong></p>
+        <p class="sub-heading">Text 4 &mdash; The News is Good News</p>
+        <p>While the King was thus repenting, he received news of his imminent death &mdash; due to the bite of a snake-bird, occasioned by the curse spoken by the sage's son. The King accepted this as good news. As good news. For it would be the cause of his indifference toward worldly things. He was told he had seven days to live. And his response was gratitude. <em>What the boy discharged in anger at a riverbank was being used by the Lord as the instrument of the highest grace.</em></p>
+        <p class="sub-heading">Texts 5&ndash;7 &mdash; The Decision</p>
+        <p>Maharaja Pariksit sat down firmly on the banks of the Ganges to concentrate his mind in Krsna consciousness, rejecting all other practices of self-realization, because transcendental loving service to Krsna is the greatest achievement, superseding all other methods. He gave charge of his kingdom to his son. He sat on a seat of straw, facing north, on the southern bank of the Ganges. <strong>A king becoming a sage in a single decision. A ruler becoming a renunciant. The examiner arriving, finally, at the only examination that truly matters &mdash; the examination of his own soul before the Lord.</strong></p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Pariksit received the news of his death and called it good news &mdash; because it would be the cause of his indifference toward worldly things. The certainty of death in seven days did for Pariksit what years of spiritual practice had not quite completed &mdash; it dissolved every remaining attachment and left him with only one question: what should I do with the time I have left? What would change in your life today if you lived with that question genuinely present?</p></div>
+      `},
+      { title: "The Gathering at the Ganges", texts: "Texts 8&ndash;21", content: `
+        <p class="sub-heading">Texts 8&ndash;11 &mdash; The Universe Responds</p>
+        <p>Word spreads. And from different parts of the universe &mdash; the greatest souls of the age begin to arrive. Atri, Cyavana, Bhrgu, Vasistha, Parasara, Visvamitra, Angira, Parashurama, Devala, Bharadvaja, Gautama, Maitreya, Dvaipayana and the great personality Narada. And many others. Because wherever a great soul sits to die consciously, in complete surrender, on the banks of the Ganges, with his mind fixed on the Lord &mdash; <strong>that place becomes the most sacred place in the universe.</strong> And the great souls of the age are drawn to it the way bees are drawn to flowers.</p>
+        <p class="sub-heading">Texts 12&ndash;16 &mdash; Pariksit Speaks</p>
+        <p>Pariksit stands before them with folded hands and tells them of his decision to fast until death. And then he says something that stops the heart:</p>
+        <div class="quote-block"><p>The Supreme Personality of Godhead has graciously overtaken me in the form of a brahmana's curse. Due to my being too much attached to family life, the Lord, in order to save me, has appeared before me in such a way that only out of fear I will detach myself from the world.</p></div>
+        <p>The brahmana's curse &mdash; which the sage mourned as a sin, which was caused by a child's impulsive anger at a riverbank &mdash; Pariksit calls the Lord's grace. And then:</p>
+        <div class="quote-block"><p>Let the snake-bird bite me at once. I only desire that you all continue singing the deeds of Lord Visnu.</p></div>
+        <p><strong>Let it bite me at once. I only desire that you continue singing. He is asking for the snake to come quickly. Because every remaining moment before the snake arrives is a moment of hearing the Lord's glories. And the hearing is what matters. The snake is secondary.</strong></p>
+        <p class="sub-heading">Text 16 &mdash; The Most Beautiful Prayer</p>
+        <div class="quote-block"><p>Again, offering obeisances unto all you brahmanas, I pray that if I should again take my birth in the material world I will have complete attachment to the unlimited Lord Krsna, association with His devotees and friendly relations with all living beings.</p></div>
+        <p>He is dying. And his prayer for his next birth is not for wealth or power. It is for: attachment to Krsna. Association with His devotees. Friendly relations with all living beings. Three things. That is all he wants. <em>This prayer can be your prayer too. Not just for the end of life. This morning. Before your first round of chanting.</em></p>
+        <p class="sub-heading">Texts 18&ndash;21 &mdash; The Universe Celebrates</p>
+        <p>All the demigods of the higher planets praise Pariksit's actions and scatter flowers over the earth. The great sages say &mdash; Very good. And they declare: We shall all wait here until the foremost devotee of the Lord, Maharaja Pariksit, returns to the supreme planet. They will wait. Not for a few hours. For seven days. The greatest sages of the universe will sit beside Pariksit on the bank of the Ganges and wait. <strong>Because a soul going home consciously, in full surrender, with the Lord's glories as the only sound &mdash; this is not an ordinary death. This is a graduation ceremony. And the universe wants to attend.</strong></p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Pariksit called the brahmana's curse the Lord's grace &mdash; because the Lord used it to save him from his remaining attachment to family life. What appeared as punishment was actually liberation. Is there a difficult circumstance in your own life &mdash; something that came as a curse, as an unwanted disruption, as loss &mdash; that might, from a slightly different angle, be seen as the Lord's arrangement to free you from an attachment you had not been able to release on your own? Not a forced positive reframe. A genuine inquiry.</p></div>
+      `},
+      { title: "The Appearance of Sukadeva Gosvami", texts: "Texts 22&ndash;31", content: `
+        <p>And now the arrow that has been building through all nineteen chapters of Canto 1 &mdash; first loosed in Chapter 1 when the sages asked what is the highest good especially at the moment of death &mdash; finds its source. The person through whom the answer will come appears.</p>
+        <p class="sub-heading">Texts 25&ndash;28 &mdash; The Description</p>
+        <p>At that moment there appeared the powerful son of Vyasadeva, who traveled over the earth disinterested and satisfied with himself. He did not manifest any symptoms of belonging to any social order or status of life. He was surrounded with women and children, and he dressed as if others had neglected him. Only sixteen years old. Eyes beautifully wide. Face very attractive. Naked, and the hue of his body reflecting that of Lord Krsna. Though he tried to cover his natural glories, the great sages present rose from their seats to honor him.</p>
+        <p>The description of Sukadeva is given with the same loving detail that earlier chapters gave to Krsna. <em>Because Sukadeva is not merely a teacher who happens to arrive. He is a soul so completely absorbed in the Lord that his very appearance produces devotion. The women and children who followed him in the forest could not explain why they followed &mdash; but they followed.</em></p>
+        <p class="sub-heading">Texts 29&ndash;31 &mdash; The Meeting</p>
+        <p>Maharaja Pariksit &mdash; Vishnurata, one who is always protected by Vishnu &mdash; bowed his head to receive the chief guest. Sukadeva took his exalted seat, surrounded by saintly sages and demigods just as the moon is surrounded by stars. The sage sat perfectly pacified, intelligent and ready to answer any question without hesitation. And Pariksit approached him, bowed before him, and politely inquired with sweet words and folded hands.</p>
+        <p>Two great souls. Meeting on the bank of the Ganges. One with seven days to live, sitting on straw, having given up everything. One who had never attached to anything, who roamed the earth like the wind. <strong>Between them &mdash; across the seven days that remain &mdash; the entire Bhagavatam will be spoken.</strong></p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>The great sages rose from their seats for a naked sixteen-year-old boy wandering without social identification. Not because of his title, his accomplishments or his dress. Because they could see what was inside. There are people in your life whose inner quality is not visible through the ordinary markers of status and achievement. The person who speaks quietly but whose words carry more weight than anyone else in the room. The one in whose presence something in you goes still. Have you been paying attention to them?</p></div>
+      `},
+      { title: "Pariksit's Questions &mdash; The Arrow Lands", texts: "Texts 32&ndash;40", content: `
+        <p class="sub-heading">Texts 32&ndash;36 &mdash; Pariksit Honors Sukadeva</p>
+        <p>Pariksit's opening words to Sukadeva are a teaching in how to approach the spiritual master. He does not begin with his questions. He begins with gratitude:</p>
+        <div class="quote-block"><p>O brahmana, by your mercy only, you have sanctified us, making us like unto places of pilgrimage, all by your presence here as my guest. Simply by our remembering you, our houses become instantly sanctified.</p></div>
+        <p>And then, with extraordinary humility, he acknowledges why Sukadeva has come &mdash; attributing it entirely to Krsna's love for the Pandavas. Even at the moment of his greatest spiritual achievement &mdash; sitting on the Ganges, surrounded by the universe's greatest sages, about to receive the full Bhagavatam &mdash; <strong>he does not claim credit. He gives it to Krsna. He gives it to the grace that has protected him since before he was born.</strong></p>
+        <p class="sub-heading">Texts 37&ndash;39 &mdash; The Questions</p>
+        <p>And then &mdash; finally, humbly, with folded hands &mdash; Pariksit asks the questions. The questions that are the real purpose of the entire first canto:</p>
+        <div class="quote-block"><p>You are the spiritual master of great saints and devotees. I am therefore begging you to show the way of perfection for all persons, and especially for one who is about to die. Please let me know what a man should hear, chant, remember and worship, and also what he should not do. Please explain all this to me.</p></div>
+        <p>What should a man hear. What should he chant. What should he remember. What should he worship. These are not complex philosophical questions. They are the simplest possible questions about the most important possible subject &mdash; <em>how to use a human life well, and how to leave it well.</em> And then the most charming verse in all of Canto 1 &mdash; O powerful brahmana, it is said that you hardly stay in the houses of men long enough to milk a cow. Sukadeva is known for staying no longer than it takes to milk a cow. And yet here &mdash; he is going to stay for seven full days. <strong>The one who never stays is going to stay. Because what is being asked here is too important to be hurried.</strong></p>
+        <p class="sub-heading">Text 40 &mdash; The Beginning</p>
+        <p>The King thus spoke and questioned the sage, using sweet language. Then the great and powerful personality, the son of Vyasadeva, who knew the principles of religion, began his reply. And with those words &mdash; Canto 1 ends. Not with an answer. With the beginning of the answer. With a door opening. With a king on straw and a sage on the bank of the Ganges, and the greatest teaching in human history about to pour forth across seven days. The sages at Naimisharanya asked the question in Chapter 1. Sukadeva Gosvami is about to answer it in Chapter 19. And everything in between &mdash; all nineteen chapters, all the grief and grace and battle and renunciation and love and departure &mdash; has been the preparation. The preparation of the question. The preparation of the questioner. <em>The preparation of us, the readers, to receive the answer when it comes. The arrow has landed.</em></p>
+        <div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Pariksit asked Sukadeva: please let me know what a man should hear, chant, remember and worship. These are the questions he asked with seven days to live, on the bank of the Ganges, surrounded by the universe's greatest souls. These are also your questions. Not just for the end of life but for right now. What are you hearing? What are you chanting? What are you remembering? What are you worshipping with your attention and your time and your energy? These four questions, asked and answered honestly today, will tell you everything about the direction of your life.</p></div>
+      `}
+    ]
+  }
 ];
 
 function renderHome() {
@@ -1771,21 +2498,43 @@ function openChapter(idx) {
   document.getElementById('chapterNum').textContent = 'Canto 1 \u00b7 Chapter ' + ch.num;
   document.getElementById('chapterTitle').textContent = ch.title;
   document.getElementById('breadcrumb-chapter').textContent = 'Chapter ' + ch.num;
-  document.getElementById('sectionsContainer').innerHTML = ch.sections.map((sec, i) => `
+  const chSap = sapContent[ch.num] || {};
+  document.getElementById('sectionsContainer').innerHTML = ch.sections.map((sec, i) => {
+    const hasSap = !!chSap[i];
+    const sapToggle = hasSap ? `
+      <div class="sap-toggle-wrap" id="sap-wrap-${i}">
+        <div class="sap-toggle-header" onclick="event.stopPropagation();toggleSap(${i})">
+          <div class="sap-toggle-left">
+            <span class="sap-toggle-label">Layer 2 &middot; S &middot; A &middot; P</span>
+            <span class="sap-toggle-title">Go Deeper</span>
+            <span class="sap-toggle-sub">Sambandha &middot; Abhideya &middot; Prayojana</span>
+          </div>
+          <span class="sap-toggle-chevron">&#9660;</span>
+        </div>
+        <div class="sap-toggle-body">
+          <div class="sap-layer">${chSap[i]}</div>
+        </div>
+      </div>` : '';
+    return `
     <div class="section-block" id="sec-${i}">
       <div class="section-header" onclick="toggleSection(${i})">
         <div class="section-header-left">
           <div class="section-num">Section ${i+1}</div>
           <div class="section-name">${sec.title}</div>
-          <div class="section-texts">${sec.texts}</div>
+          <div class="section-texts">${sec.texts}${hasSap ? '<span class="sap-indicator"> &nbsp;&#9670; Go Deeper</span>' : ''}</div>
         </div>
         <div class="section-chevron">&#9660;</div>
       </div>
-      <div class="section-body">${sec.content}</div>
-    </div>
-  `).join('');
+      <div class="section-body">${sec.content}${sapToggle}</div>
+    </div>`;
+  }).join('');
   showScreen('chapter');
   window.scrollTo(0, 0);
+}
+
+function toggleSap(secIdx) {
+  var wrap = document.getElementById('sap-wrap-' + secIdx);
+  if (wrap) wrap.classList.toggle('open');
 }
 
 function toggleSection(idx) {
