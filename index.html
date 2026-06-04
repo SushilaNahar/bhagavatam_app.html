@@ -921,7 +921,17 @@
     <div class="progress-bar-wrap"><div class="progress-bar-fill"></div></div>
     <span class="progress-count">Canto 1 complete &nbsp;&middot;&nbsp; 32 of 335 chapters</span>
   </div>
-  <div class="cantos-grid">
+  <div id="continue-banner" onclick="continueReading()" style="display:none;">
+    <div class="continue-inner">
+      <div class="continue-left">
+        <span class="continue-label">Continue Reading</span>
+        <span class="continue-title" id="continue-text"></span>
+      </div>
+      <span class="continue-arrow">&#8250;</span>
+    </div>
+  </div>
+
+    <div class="cantos-grid">
 
     <div class="canto-card available" onclick="openCanto(1)">
       <div class="canto-card-header">
@@ -3424,6 +3434,9 @@ function continueReading() {
     } else if (canto === 2) {
       openCanto(2);
       openC2Chapter(chapter);
+    } else if (canto === 3) {
+      openCanto(3);
+      openC3Chapter(chapter);
     }
   } catch(e) {}
 }
