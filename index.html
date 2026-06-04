@@ -871,6 +871,24 @@
     flex-shrink: 0;
   }
 
+
+  /* ── BOOKMARK ─────────────────────────────────── */
+  .bookmark-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px 8px;
+    font-size: 20px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+    transition: color 0.2s, transform 0.15s;
+    line-height: 1;
+    opacity: 0.6;
+  }
+  .bookmark-btn:hover { opacity: 1; }
+  .bookmark-btn:active { transform: scale(1.2); }
+  .bookmark-btn.bookmarked { color: var(--maroon); opacity: 1; }
+
 </style>
 </head>
 <body>
@@ -3126,6 +3144,8 @@ function openChapter(idx) {
   document.getElementById('breadcrumb-chapter').textContent = 'Chapter ' + ch.num;
   var chSap = (activeCanto.num === 1) ? (sapContent[ch.num] || {}) : {};
   var html = '';
+  var bmSec = -1;
+  try { var bm = localStorage.getItem('sb_bm_' + activeCanto.num + '_' + ch.num); if(bm!==null) bmSec=parseInt(bm); } catch(e){}
   for (var i = 0; i < ch.sections.length; i++) {
     var sec = ch.sections[i];
     var hasSap = !!chSap[i];
@@ -3147,7 +3167,11 @@ function openChapter(idx) {
       '<div class="section-num">Section ' + (i+1) + '</div>' +
       '<div class="section-name">' + sec.title + '</div>' +
       '<div class="section-texts">' + sec.texts + sapInd + '</div>' +
-      '</div><div class="section-chevron">&#9660;</div></div>' +
+      '</div>' +
+      '<button class="bookmark-btn' + (i === bmSec ? ' bookmarked' : '') + '" data-sec="' + i + '" ' +
+        'onclick="event.stopPropagation();bookmarkSection(' + activeCanto.num + ',' + ch.num + ',' + i + ')">' +
+        (i === bmSec ? '\u2665' : '\u2661') + '</button>' +
+      '<div class="section-chevron">&#9660;</div></div>' +
       '<div class="section-body">' + sec.content + sapToggle + '</div></div>';
   }
   document.getElementById('sectionsContainer').innerHTML = html;
@@ -3193,6 +3217,54 @@ function toggleIdxChapter(el) {
   el.classList.toggle('idx-ch-open');
 }
 
+
+
+function bookmarkSection(cantoNum, chapterNum, secIdx) {
+  try {
+    var key = 'sb_bm_' + cantoNum + '_' + chapterNum;
+    var current = localStorage.getItem(key);
+    // Toggle off if same section tapped again
+    if (current !== null && parseInt(current) === secIdx) {
+      localStorage.removeItem(key);
+      updateBookmarkIcons(cantoNum, chapterNum, -1);
+    } else {
+      localStorage.setItem(key, secIdx);
+      updateBookmarkIcons(cantoNum, chapterNum, secIdx);
+    }
+  } catch(e) {}
+}
+
+function updateBookmarkIcons(cantoNum, chapterNum, activeIdx) {
+  var btns = document.querySelectorAll('.bookmark-btn');
+  btns.forEach(function(btn) {
+    var idx = parseInt(btn.getAttribute('data-sec'));
+    if (idx === activeIdx) {
+      btn.classList.add('bookmarked');
+      btn.textContent = '\u2665'; // filled heart/bookmark
+    } else {
+      btn.classList.remove('bookmarked');
+      btn.textContent = '\u2661'; // empty
+    }
+  });
+}
+
+function restoreBookmark(cantoNum, chapterNum) {
+  try {
+    var key = 'sb_bm_' + cantoNum + '_' + chapterNum;
+    var saved = localStorage.getItem(key);
+    if (saved === null) return;
+    var secIdx = parseInt(saved);
+    // Open the bookmarked section
+    var secEl = document.getElementById('sec-' + secIdx);
+    if (secEl) {
+      secEl.classList.add('open');
+      updateBookmarkIcons(cantoNum, chapterNum, secIdx);
+      setTimeout(function() {
+        secEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 150);
+    }
+  } catch(e) {}
+}
 
 function saveReading(cantoNum, chapterNum, chapterTitle) {
   try {
@@ -3270,13 +3342,22 @@ function openC2Chapter(num) {
   var html = '';
   for (var i = 0; i < ch.sections.length; i++) {
     var sec = ch.sections[i];
+    var bmKey2 = 'sb_bm_2_' + ch.num;
+    var bmSec2 = -1;
+    try { var bms2 = localStorage.getItem(bmKey2); if(bms2!==null) bmSec2=parseInt(bms2); } catch(e){}
+    var bmActive2 = (i === bmSec2) ? ' bookmarked' : '';
+    var bmIcon2 = (i === bmSec2) ? '\u2665' : '\u2661';
     html += '<div class="section-block" id="sec-' + i + '">' +
       '<div class="section-header" onclick="toggleSection(' + i + ')">' +
       '<div class="section-header-left">' +
       '<div class="section-num">Section ' + (i+1) + '</div>' +
       '<div class="section-name">' + sec.title + '</div>' +
       '<div class="section-texts">' + sec.texts + '</div>' +
-      '</div><div class="section-chevron">&#9660;</div></div>' +
+      '</div>' +
+      '<button class="bookmark-btn' + bmActive2 + '" data-sec="' + i + '" ' +
+        'onclick="event.stopPropagation();bookmarkSection(2,' + ch.num + ',' + i + ')" ' +
+        'title="Bookmark this section">' + bmIcon2 + '</button>' +
+      '<div class="section-chevron">&#9660;</div></div>' +
       '<div class="section-body">' + sec.content + '</div></div>';
   }
   document.getElementById('sectionsContainer').innerHTML = html;
