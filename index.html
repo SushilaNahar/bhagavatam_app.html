@@ -23,6 +23,33 @@
     --sit-border:   #9c2a18;
   }
 
+  /* ── NIGHT READING MODE ───────────────────────── */
+  html.night {
+    --bg:           #1c1c1e;
+    --bg-darker:    #2c2c2e;
+    --bg-darkest:   #3a3a3c;
+    --maroon:       #ffd60a;
+    --maroon-dark:  #e6b800;
+    --text:         #f2f2f7;
+    --text-mid:     #c7c7cc;
+    --text-muted:   #8e8e93;
+    --gold:         #ffd60a;
+    --gold-dark:    #e6b800;
+    --border:       #38383a;
+    --border-light: #2c2c2e;
+    --sit-bg:       #2c2c2e;
+    --sit-border:   #ffd60a;
+  }
+  html.night, html.night body { background: #1c1c1e; }
+  /* Hero uses Apple's elevated dark surface with the Notes gold accent in night mode */
+  html.night .cantos-hero { background: #2c2c2e; border-bottom-color: #38383a; }
+  html.night .cantos-hero-om { color: #ffd60a; }
+  html.night .cantos-hero-title { color: #f2f2f7; }
+  html.night .cantos-hero-subtitle { color: #ffd60a; }
+  html.night .cantos-hero-mantra { color: #e6b800; }
+  html.night .cantos-hero [onclick] { color: #f2f2f7 !important; border-color: #f2f2f7 !important; }
+  html.night .translation-header:hover { background: rgba(255,255,255,0.04); }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { background: #e9c89a; }
 
@@ -98,6 +125,122 @@
     font-family: 'EB Garamond', serif;
   }
 
+  .header-saved {
+    flex-shrink: 0;
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    background: var(--bg-darker);
+    border: 1px solid var(--border);
+    padding: 8px 14px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .header-saved:hover { background: var(--bg-darkest); color: var(--maroon); border-color: var(--maroon); }
+
+  .header-night {
+    flex-shrink: 0;
+    font-size: 16px;
+    line-height: 1;
+    color: var(--gold-dark);
+    background: var(--bg-darker);
+    border: 1px solid var(--border);
+    padding: 6px 10px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .header-night:hover { background: var(--bg-darkest); color: var(--maroon); border-color: var(--maroon); }
+
+  /* ── SAVED SECTIONS SCREEN ────────────────────── */
+  #saved-body { max-width: 780px; margin: 0 auto; padding: 36px 20px 80px; }
+  .saved-intro { text-align: center; margin-bottom: 28px; }
+  .saved-count {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 6px;
+  }
+  .saved-heading {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(24px, 5vw, 34px);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.25;
+  }
+  .saved-canto-label {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin: 26px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .saved-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--bg-darker);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--maroon);
+    padding: 16px 20px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .saved-item:hover { background: var(--bg-darkest); }
+  .saved-item-ref {
+    flex-shrink: 0;
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    color: var(--maroon);
+    font-weight: 600;
+    min-width: 56px;
+  }
+  .saved-item-text { flex: 1; min-width: 0; }
+  .saved-item-section {
+    font-family: 'EB Garamond', serif;
+    font-size: 19px;
+    color: var(--text);
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  .saved-item-chapter {
+    font-family: 'EB Garamond', serif;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  .saved-item-remove {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    color: var(--maroon);
+    font-size: 22px;
+    cursor: pointer;
+    line-height: 1;
+    opacity: 0.7;
+    transition: opacity 0.15s, transform 0.1s;
+  }
+  .saved-item-remove:hover { opacity: 1; }
+  .saved-item-remove:active { transform: scale(1.2); }
+  .saved-empty {
+    text-align: center;
+    padding: 50px 20px;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .saved-empty .saved-empty-hint { font-size: 16px; margin-top: 10px; }
+
   .breadcrumb {
     background: var(--bg-darker);
     border-bottom: 1px solid var(--border);
@@ -111,9 +254,11 @@
     color: var(--text-muted);
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 6px;
     font-family: 'EB Garamond', serif;
   }
+  .breadcrumb-inner > span { white-space: nowrap; }
 
   .bc-link { color: var(--maroon); cursor: pointer; font-weight: 500; }
   .bc-link:hover { text-decoration: underline; }
@@ -128,6 +273,85 @@
   }
   .bc-back:hover { color: var(--maroon); }
   .bc-sep { color: var(--border); }
+
+  /* Sequential chapter navigation at the foot of each chapter */
+  .chapter-nav {
+    max-width: 780px;
+    margin: 30px auto 0;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .chnav {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: left;
+    background: var(--bg-darker);
+    border: 1px solid var(--border);
+    padding: 16px 20px;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--text);
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .chnav:hover { background: var(--bg-darkest); border-color: var(--maroon); }
+  .chnav.next { text-align: right; align-items: flex-end; }
+  .chnav-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+  }
+  .chnav-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 18px;
+    color: var(--maroon);
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  /* In-flow "continue to next section" control at the end of each open section */
+  .section-continue { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--border-light); }
+  .sec-next {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--text);
+    background: var(--bg-darker);
+    border: 1px solid var(--border);
+    padding: 15px 20px;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .sec-next:hover { background: var(--bg-darkest); border-color: var(--maroon); }
+  .sec-next-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+  }
+  .sec-next-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 18px;
+    color: var(--maroon);
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  .sec-next.end { background: var(--maroon); border-color: var(--maroon-dark); }
+  .sec-next.end:hover { background: var(--maroon-dark); border-color: var(--maroon-dark); }
+  .sec-next.end .sec-next-label { color: var(--bg-darker); }
+  .sec-next.end .sec-next-title { color: #fff; }
+  @media (max-width: 480px) {
+    .chapter-nav { grid-template-columns: 1fr; margin-top: 22px; }
+    .chnav.next { text-align: left; align-items: flex-start; }
+  }
 
   #home-body {
     max-width: 780px;
@@ -402,12 +626,13 @@
     background: var(--bg);
     padding: 30px 26px 26px;
     border-left: 3px solid var(--maroon);
-    animation: fadeIn 0.25s ease;
   }
 
-  .section-block.open .section-body { display: block; }
+  .section-block.open .section-body { display: block; animation: sectionReveal 0.25s ease both; }
 
   @keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+  /* Reveal animates transform only — never opacity — so content stays visible even if the animation stalls. */
+  @keyframes sectionReveal { from { transform: translateY(-5px); } to { transform: translateY(0); } }
 
   .section-body p {
     font-size: 22px;
@@ -909,6 +1134,61 @@
   .bookmark-btn:active { transform: scale(1.2); }
   .bookmark-btn.bookmarked { color: var(--maroon); opacity: 1; }
 
+  /* ── SEARCH / JUMP BOX (cantos screen) ────────── */
+  .cantos-search { max-width: 620px; margin: 4px auto 0; padding: 0 24px; position: relative; }
+  .cantos-search input {
+    width: 100%;
+    font-family: 'EB Garamond', serif;
+    font-size: 17px;
+    color: var(--text);
+    background: var(--bg-darker);
+    border: 1px solid var(--border);
+    padding: 13px 18px;
+    outline: none;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .cantos-search input::placeholder { color: var(--text-muted); font-style: italic; opacity: 0.85; }
+  .cantos-search input:focus { border-color: var(--maroon); }
+  .search-results {
+    position: absolute;
+    left: 24px; right: 24px;
+    top: 100%;
+    z-index: 30;
+    background: var(--bg);
+    border: 1px solid var(--maroon);
+    border-top: none;
+    box-shadow: 0 10px 28px rgba(90,40,0,0.22);
+    max-height: 370px;
+    overflow-y: auto;
+  }
+  .search-results:empty { display: none; }
+  .search-result {
+    display: flex; align-items: center; gap: 14px;
+    padding: 12px 18px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-light);
+    text-align: left;
+  }
+  .search-result:last-child { border-bottom: none; }
+  .search-result:hover, .search-result.active { background: var(--bg-darker); }
+  .search-result-ref {
+    flex-shrink: 0;
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    color: var(--maroon);
+    font-weight: 600;
+    min-width: 52px;
+  }
+  .search-result-text { flex: 1; min-width: 0; }
+  .search-result-title { font-family: 'EB Garamond', serif; font-size: 17px; color: var(--text); line-height: 1.3; }
+  .search-result-sub { font-family: 'EB Garamond', serif; font-size: 13px; font-style: italic; color: var(--text-muted); margin-top: 1px; }
+  .search-result-kind {
+    flex-shrink: 0;
+    font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--gold-dark);
+  }
+  .search-no-results { padding: 16px 18px; font-family: 'EB Garamond', serif; font-style: italic; color: var(--text-muted); }
+
 
   /* ── TRANSLATION BLOCK ────────────────────────── */
   .translation-block {
@@ -995,6 +1275,8 @@
       <div class="header-main">Srimad Bhagavatam</div>
       <div class="header-sub" id="header-sub">Srimad Bhagavatam &middot; Study Guide</div>
     </div>
+    <button class="header-night" id="nightToggle" onclick="toggleNight()" title="Night reading mode" aria-label="Toggle night reading mode">&#9790;</button>
+    <button class="header-saved" onclick="showSaved()" title="Your saved sections">&#9829;&nbsp; Saved</button>
     <div class="header-right">Translation &amp; Purports by<br>Srila Prabhupada</div>
   </div>
 </header>
@@ -1010,10 +1292,14 @@
   <div class="cantos-intro">
     <p>Spoken by Sukadeva Gosvami to Maharaja Pariksit on the bank of the Ganges, seven days before the King&rsquo;s death. Presented section by section, with reflections for the sincere practitioner.</p>
   </div>
+  <div class="cantos-search">
+    <input id="searchInput" type="text" autocomplete="off" spellcheck="false" placeholder="Search chapters &amp; sections, or jump to a verse (e.g. 1.19)&hellip;" oninput="onSearchInput()" onkeydown="onSearchKey(event)">
+    <div id="searchResults" class="search-results"></div>
+  </div>
   <div class="progress-band">
     <span class="progress-label">Progress</span>
     <div class="progress-bar-wrap"><div class="progress-bar-fill"></div></div>
-    <span class="progress-count">Cantos 1 &amp; 2 complete &nbsp;&middot;&nbsp; Canto 3 complete Canto 3 in progress &nbsp;&middot;&nbsp; nbsp;Canto 3 in progress &nbsp;&middot;&nbsp; middot;Canto 3 in progress &nbsp;&middot;&nbsp; nbsp; 62 of 335 chapters</span>
+    <span class="progress-count">Cantos 1 &amp; 2 complete &nbsp;&middot;&nbsp; Canto 3 in progress &nbsp;&middot;&nbsp; 62 of 335 chapters</span>
   </div>
   <div id="continue-banner" onclick="continueReading()" style="display:none;">
     <div class="continue-inner">
@@ -1249,6 +1535,7 @@
     </div>
     <div class="chapter-ornament">* * *</div>
     <div id="sectionsContainer"></div>
+    <div class="chapter-nav" id="chapterNav"></div>
   </div>
   <footer class="site-footer">Hare Krsna &nbsp;&middot;&nbsp; For the sincere seeker</footer>
 </div>
@@ -1273,6 +1560,25 @@
     </div>
     <div class="chapter-ornament">* * *</div>
     <div id="architectureContent"></div>
+  </div>
+  <footer class="site-footer">Hare Krsna &nbsp;&middot;&nbsp; For the sincere seeker</footer>
+</div>
+
+<!-- SAVED SECTIONS SCREEN -->
+<div id="saved" class="screen">
+  <div class="breadcrumb">
+    <div class="breadcrumb-inner">
+      <span class="bc-back" onclick="showCantos()">&#8592; All Cantos</span>
+      <span class="bc-sep">&rsaquo;</span>
+      <span>Saved</span>
+    </div>
+  </div>
+  <div id="saved-body">
+    <div class="saved-intro">
+      <div class="saved-count">Your Library</div>
+      <div class="saved-heading">Saved Sections</div>
+    </div>
+    <div id="savedList"></div>
   </div>
   <footer class="site-footer">Hare Krsna &nbsp;&middot;&nbsp; For the sincere seeker</footer>
 </div>
@@ -1867,7 +2173,7 @@ const canto2Chapters = [
 
 
 const archContent = `
-  <div style="background:#deba85;border-left:4px solid #9c2a18;padding:20px 24px;margin-bottom:28px;font-size:19px;line-height:1.85;color:#2a1508;font-style:italic;">
+  <div style="background:var(--bg-darker);border-left:4px solid var(--maroon);padding:20px 24px;margin-bottom:28px;font-size:19px;line-height:1.85;color:var(--text-mid);font-style:italic;">
     Canto 1 appears at first to jump from one topic to something entirely unrelated &mdash; from cosmic philosophy to a battlefield, from a wandering sage to a dying king. But nothing is accidental. Every chapter is a stone placed precisely where it must be. Once you see the architecture, the whole of Canto 1 reveals itself as one of the most elegantly constructed narratives in all of literature.
   </div>
 
@@ -2010,7 +2316,7 @@ const archContent = `
 `;
 
 const arch2Content = `
-  <div style="background:#deba85;border-left:4px solid #9c2a18;padding:20px 24px;margin-bottom:28px;font-size:19px;line-height:1.85;color:#2a1508;font-style:italic;">
+  <div style="background:var(--bg-darker);border-left:4px solid var(--maroon);padding:20px 24px;margin-bottom:28px;font-size:19px;line-height:1.85;color:var(--text-mid);font-style:italic;">
     A king sits on the bank of the Ganges with seven days to live. He has asked one question. Everything in Canto 2 is the answer.
   </div>
 
@@ -2082,7 +2388,7 @@ const arch2Content = `
 `;
 
 const arch3Content = `
-  <div style="background:#deba85;border-left:4px solid #9c2a18;padding:20px 24px;margin-bottom:28px;font-size:19px;line-height:1.85;color:#2a1508;font-style:italic;">
+  <div style="background:var(--bg-darker);border-left:4px solid var(--maroon);padding:20px 24px;margin-bottom:28px;font-size:19px;line-height:1.85;color:var(--text-mid);font-style:italic;">
     Canto 3 is the Bhagavatam expanding outward from Pariksit's eighteen questions. It answers the first question &mdash; how did creation happen? &mdash; in extraordinary depth, and then turns to the most intimate story in the first three cantos: a mother, her son, and the knowledge that liberates.
   </div>
 
@@ -4856,6 +5162,7 @@ function openC3Chapter(num) {
   showScreen('chapter');
   window.scrollTo(0, 0);
   restoreBookmark(3, ch.num);
+  renderChapterNav(3, ch.num);
 }
 
 function renderHome() {
@@ -4928,6 +5235,7 @@ function openChapter(idx) {
   showScreen('chapter');
   window.scrollTo(0, 0);
   restoreBookmark(activeCanto.num, ch.num);
+  renderChapterNav(activeCanto.num, ch.num);
 }
 
 
@@ -5039,6 +5347,98 @@ function renderIdxCanto1() {
 
 function renderIdxCanto2() {
   renderIdxCantoGeneric('idx-canto2-block', 2, 'The Cosmic Manifestation', canto2Chapters);
+}
+
+var searchIndex = null;
+function buildSearchIndex() {
+  if (searchIndex) return searchIndex;
+  searchIndex = [];
+  var tmp = document.createElement('div');
+  function strip(s) { tmp.innerHTML = s || ''; return (tmp.textContent || '').trim(); }
+  [1, 2, 3].forEach(function(canto) {
+    var chapters = getCantoChapters(canto);
+    chapters.forEach(function(ch) {
+      if (!ch.sections) return;
+      searchIndex.push({ type: 'chapter', canto: canto, chap: ch.num, secIdx: null, title: ch.title, titleText: strip(ch.title).toLowerCase(), ref: 'SB ' + canto + '.' + ch.num });
+      ch.sections.forEach(function(sec, i) {
+        searchIndex.push({ type: 'section', canto: canto, chap: ch.num, secIdx: i, title: sec.title, titleText: strip(sec.title).toLowerCase(), chTitle: ch.title, ref: 'SB ' + canto + '.' + ch.num });
+      });
+    });
+  });
+  return searchIndex;
+}
+
+function escapeHtml(s) { return String(s).replace(/[&<>"]/g, function(c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+var searchActiveIdx = -1;
+function onSearchInput() {
+  var q = document.getElementById('searchInput').value.trim();
+  var box = document.getElementById('searchResults');
+  searchActiveIdx = -1;
+  if (!q) { box.innerHTML = ''; return; }
+  var idx = buildSearchIndex();
+  var results = [];
+  var m = q.match(/^(\d+)\s*[.\-:\s]\s*(\d+)$/);
+  var mc = null, mch = null;
+  if (m) {
+    mc = parseInt(m[1]); mch = parseInt(m[2]);
+    var chObj = getChapterObj(mc, mch);
+    if (chObj && chObj.sections) {
+      results.push({ type: 'chapter', canto: mc, chap: mch, secIdx: null, title: chObj.title, ref: 'SB ' + mc + '.' + mch, jump: true });
+    }
+  }
+  var ql = q.toLowerCase();
+  for (var i = 0; i < idx.length && results.length < 14; i++) {
+    var e = idx[i];
+    if (e.titleText.indexOf(ql) !== -1 || e.ref.toLowerCase().indexOf(ql) !== -1) {
+      if (m && e.type === 'chapter' && e.canto === mc && e.chap === mch) continue;
+      results.push(e);
+    }
+  }
+  if (!results.length) { box.innerHTML = '<div class="search-no-results">No matches for &ldquo;' + escapeHtml(q) + '&rdquo;</div>'; return; }
+  box.innerHTML = results.map(function(r) {
+    var kind = r.jump ? 'Jump to' : (r.type === 'chapter' ? 'Chapter' : 'Section');
+    var sub = r.type === 'section' ? ('Chapter ' + r.chap + ' &middot; ' + r.chTitle) : ('Canto ' + r.canto);
+    return '<button class="search-result" onclick="openTo(' + r.canto + ',' + r.chap + ',' + (r.secIdx === null ? 'null' : r.secIdx) + ')">' +
+      '<div class="search-result-ref">' + r.ref + '</div>' +
+      '<div class="search-result-text">' +
+        '<div class="search-result-title">' + r.title + '</div>' +
+        '<div class="search-result-sub">' + sub + '</div>' +
+      '</div>' +
+      '<div class="search-result-kind">' + kind + '</div>' +
+    '</button>';
+  }).join('');
+}
+
+function onSearchKey(e) {
+  var box = document.getElementById('searchResults');
+  var items = box.querySelectorAll('.search-result');
+  if (e.key === 'Escape') { document.getElementById('searchInput').value = ''; box.innerHTML = ''; searchActiveIdx = -1; return; }
+  if (!items.length) return;
+  if (e.key === 'ArrowDown') { e.preventDefault(); searchActiveIdx = Math.min(searchActiveIdx + 1, items.length - 1); updateSearchActive(items); }
+  else if (e.key === 'ArrowUp') { e.preventDefault(); searchActiveIdx = Math.max(searchActiveIdx - 1, 0); updateSearchActive(items); }
+  else if (e.key === 'Enter') { e.preventDefault(); var t = searchActiveIdx >= 0 ? items[searchActiveIdx] : items[0]; if (t) t.click(); }
+}
+
+function updateSearchActive(items) {
+  items.forEach(function(it, i) { it.classList.toggle('active', i === searchActiveIdx); });
+  if (searchActiveIdx >= 0) items[searchActiveIdx].scrollIntoView({ block: 'nearest' });
+}
+
+function openTo(canto, chap, secIdx) {
+  var si = document.getElementById('searchInput'); if (si) si.value = '';
+  var sr = document.getElementById('searchResults'); if (sr) sr.innerHTML = '';
+  searchActiveIdx = -1;
+  if (canto === 1) { openCanto(1); openChapter(chap - 1); }
+  else if (canto === 2) { openCanto(2); openC2Chapter(chap); }
+  else if (canto === 3) { openCanto(3); openC3Chapter(chap); }
+  if (secIdx !== null && secIdx >= 0) {
+    setTimeout(function() {
+      document.querySelectorAll('.section-block').forEach(function(b) { b.classList.remove('open'); });
+      var el = document.getElementById('sec-' + secIdx);
+      if (el) { el.classList.add('open'); el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    }, 90);
+  }
 }
 
 function openIndex() {
@@ -5219,6 +5619,7 @@ function openC2Chapter(num) {
   showScreen('chapter');
   window.scrollTo(0, 0);
   restoreBookmark(2, ch.num);
+  renderChapterNav(2, ch.num);
 }
 
 function showScreen(id) {
@@ -5243,6 +5644,124 @@ function openArchitecture() {
   window.scrollTo(0, 0);
 }
 
+function getChapterObj(canto, num) {
+  var arr = getCantoChapters(canto);
+  for (var i = 0; i < arr.length; i++) { if (arr[i].num === num) return arr[i]; }
+  return null;
+}
+
+function showSaved() {
+  var items = [];
+  try {
+    for (var i = 0; i < localStorage.length; i++) {
+      var k = localStorage.key(i);
+      if (k && k.indexOf('sb_bm_') === 0) {
+        var rest = k.substring(6);
+        var us = rest.indexOf('_');
+        if (us < 0) continue;
+        var canto = parseInt(rest.substring(0, us));
+        var chap = parseInt(rest.substring(us + 1));
+        var secIdx = parseInt(localStorage.getItem(k));
+        if (isNaN(canto) || isNaN(chap) || isNaN(secIdx)) continue;
+        var chObj = getChapterObj(canto, chap);
+        if (!chObj || !chObj.sections || !chObj.sections[secIdx]) continue;
+        items.push({ canto: canto, chap: chap, secIdx: secIdx, chTitle: chObj.title, secTitle: chObj.sections[secIdx].title });
+      }
+    }
+  } catch(e) {}
+  items.sort(function(a, b) { return a.canto - b.canto || a.chap - b.chap; });
+  var list = document.getElementById('savedList');
+  if (!items.length) {
+    list.innerHTML = '<div class="saved-empty">You haven\'t saved any sections yet.' +
+      '<div class="saved-empty-hint">Tap the &#9825; beside any section while reading to save it here.</div></div>';
+  } else {
+    var html = '';
+    var lastCanto = null;
+    for (var j = 0; j < items.length; j++) {
+      var it = items[j];
+      if (it.canto !== lastCanto) {
+        html += '<div class="saved-canto-label">Canto ' + it.canto + '</div>';
+        lastCanto = it.canto;
+      }
+      html += '<div class="saved-item" onclick="openSavedItem(' + it.canto + ',' + it.chap + ')">' +
+        '<div class="saved-item-ref">SB ' + it.canto + '.' + it.chap + '</div>' +
+        '<div class="saved-item-text">' +
+          '<div class="saved-item-section">' + it.secTitle + '</div>' +
+          '<div class="saved-item-chapter">Chapter ' + it.chap + ' &middot; ' + it.chTitle + '</div>' +
+        '</div>' +
+        '<button class="saved-item-remove" title="Remove from saved" onclick="event.stopPropagation();removeSaved(' + it.canto + ',' + it.chap + ')">&#9829;</button>' +
+        '</div>';
+    }
+    list.innerHTML = html;
+  }
+  showScreen('saved');
+  window.scrollTo(0, 0);
+}
+
+function openSavedItem(canto, num) {
+  if (canto === 1) { openCanto(1); openChapter(num - 1); }
+  else if (canto === 2) { openCanto(2); openC2Chapter(num); }
+  else if (canto === 3) { openCanto(3); openC3Chapter(num); }
+}
+
+function removeSaved(canto, num) {
+  try { localStorage.removeItem('sb_bm_' + canto + '_' + num); } catch(e) {}
+  showSaved();
+}
+
+function getCantoChapters(canto) {
+  return canto === 2 ? canto2Chapters : canto === 3 ? canto3Chapters : canto1Chapters;
+}
+
+function goToChapter(canto, num) {
+  if (canto === 2) { openC2Chapter(num); }
+  else if (canto === 3) { openC3Chapter(num); }
+  else { openChapter(num - 1); }
+}
+
+var chapterNavState = { canto: null, prevNum: null, nextNum: null };
+
+function renderChapterNav(canto, num) {
+  var nav = document.getElementById('chapterNav');
+  if (!nav) return;
+  var chapters = getCantoChapters(canto);
+  var idx = -1;
+  for (var i = 0; i < chapters.length; i++) { if (chapters[i].num === num) { idx = i; break; } }
+  var prev = null, next = null;
+  for (var p = idx - 1; p >= 0; p--) { if (chapters[p].sections) { prev = chapters[p]; break; } }
+  for (var n = idx + 1; n < chapters.length; n++) { if (chapters[n].sections) { next = chapters[n]; break; } }
+  chapterNavState = { canto: canto, prevNum: prev ? prev.num : null, nextNum: next ? next.num : null };
+  function card(ch, dir) {
+    if (ch) {
+      var label = dir === 'prev' ? '&#8249;&nbsp; Previous Chapter' : 'Next Chapter &nbsp;&#8250;';
+      return '<button class="chnav ' + dir + '" onclick="goToChapter(' + canto + ',' + ch.num + ')">' +
+        '<span class="chnav-label">' + label + '</span>' +
+        '<span class="chnav-title">Chapter ' + ch.num + ' &middot; ' + ch.title + '</span></button>';
+    }
+    var endLabel = dir === 'prev' ? '&#8249;&nbsp; Back' : 'Back &nbsp;&#8250;';
+    return '<button class="chnav ' + dir + '" onclick="goHome()">' +
+      '<span class="chnav-label">' + endLabel + '</span>' +
+      '<span class="chnav-title">All Chapters</span></button>';
+  }
+  nav.innerHTML = card(prev, 'prev') + card(next, 'next');
+}
+
+// Arrow keys navigate between chapters while reading.
+document.addEventListener('keydown', function(e) {
+  if (e.metaKey || e.ctrlKey || e.altKey || e.shiftKey) return;
+  var tag = (e.target && e.target.tagName) || '';
+  if (tag === 'INPUT' || tag === 'TEXTAREA' || (e.target && e.target.isContentEditable)) return;
+  var chapterScreen = document.getElementById('chapter');
+  if (!chapterScreen || !chapterScreen.classList.contains('active')) return;
+  if (e.key === 'ArrowRight' && chapterNavState.nextNum != null) {
+    e.preventDefault();
+    goToChapter(chapterNavState.canto, chapterNavState.nextNum);
+  } else if (e.key === 'ArrowLeft' && chapterNavState.prevNum != null) {
+    e.preventDefault();
+    goToChapter(chapterNavState.canto, chapterNavState.prevNum);
+  }
+});
+
 function goHome() {
   if (activeCanto && activeCanto.num === 2) {
     showScreen('canto2home');
@@ -5254,6 +5773,16 @@ function goHome() {
   window.scrollTo(0, 0);
 }
 
+function applyNight(on) {
+  document.documentElement.classList.toggle('night', on);
+  var btn = document.getElementById('nightToggle');
+  if (btn) { btn.innerHTML = on ? '&#9728;' : '&#9790;'; btn.title = on ? 'Day mode' : 'Night reading mode'; }
+  try { localStorage.setItem('sb_night', on ? '1' : '0'); } catch(e) {}
+}
+function toggleNight() { applyNight(!document.documentElement.classList.contains('night')); }
+function loadNight() { try { applyNight(localStorage.getItem('sb_night') === '1'); } catch(e) {} }
+
+loadNight();
 renderHome();
 loadContinueBanner();
 </script>
