@@ -376,6 +376,49 @@
     border-color: var(--maroon-dark);
   }
 
+  .chapter-nav-bar {
+    display: flex;
+    margin-top: 30px;
+    background: var(--bg-darker);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .chapter-nav-btn {
+    flex: 1;
+    padding: 16px 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'EB Garamond', serif;
+    color: var(--text-mid);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.3;
+    transition: background 0.2s;
+  }
+  .chapter-nav-btn:hover { background: var(--bg-darkest); }
+  .chapter-nav-btn.next { align-items: flex-end; text-align: right; border-left: 1px solid var(--border); }
+  .chapter-nav-btn:disabled { opacity: 0.35; cursor: default; }
+  .chapter-nav-btn:disabled:hover { background: none; }
+  .chapter-nav-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 2px;
+  }
+  .chapter-nav-title {
+    font-size: 14px;
+    color: var(--maroon);
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .chapter-num-label {
     font-family: 'Cinzel', serif;
     font-size: 12px;
@@ -6823,6 +6866,61 @@ function setVedabaseLink(cantoNum, chNum) {
   el.style.display = 'inline-block';
 }
 
+function getCantoChapters(cantoNum) {
+  if (cantoNum === 1) return canto1Chapters;
+  if (cantoNum === 2) return canto2Chapters;
+  if (cantoNum === 3) return canto3Chapters;
+  if (cantoNum === 4) return canto4Chapters;
+  return null;
+}
+
+function findChapterTarget(cantoNum, chNum, direction) {
+  var chapters = getCantoChapters(cantoNum);
+  if (!chapters) return null;
+  var targetNum = chNum + direction;
+  if (targetNum >= 1 && targetNum <= chapters.length) {
+    var ch = chapters[targetNum - 1];
+    if (ch && ch.available) return { canto: cantoNum, num: ch.num, title: ch.title };
+    return null;
+  }
+  var nextCanto = cantoNum + direction;
+  var nextChapters = getCantoChapters(nextCanto);
+  if (!nextChapters) return null;
+  var edgeNum = direction === 1 ? 1 : nextChapters.length;
+  var ch2 = nextChapters[edgeNum - 1];
+  if (ch2 && ch2.available) return { canto: nextCanto, num: ch2.num, title: ch2.title };
+  return null;
+}
+
+function goToChapter(cantoNum, chNum) {
+  if (cantoNum === 1) { openChapter(chNum); return; }
+  if (cantoNum === 2) { openC2Chapter(chNum); return; }
+  if (cantoNum === 3) { openC3Chapter(chNum); return; }
+  if (cantoNum === 4) { openC4Chapter(chNum); return; }
+}
+
+function renderChapterNav(cantoNum, chNum) {
+  var prev = findChapterTarget(cantoNum, chNum, -1);
+  var next = findChapterTarget(cantoNum, chNum, 1);
+  var prevHtml = prev
+    ? '<button class="chapter-nav-btn prev" onclick="goToChapter(' + prev.canto + ',' + prev.num + ')">' +
+        '<span class="chapter-nav-label">&larr; Canto ' + prev.canto + ' &middot; Ch ' + prev.num + '</span>' +
+        '<span class="chapter-nav-title">' + prev.title + '</span></button>'
+    : '<button class="chapter-nav-btn prev" disabled><span class="chapter-nav-label">&larr; Previous</span></button>';
+  var nextHtml = next
+    ? '<button class="chapter-nav-btn next" onclick="goToChapter(' + next.canto + ',' + next.num + ')">' +
+        '<span class="chapter-nav-label">Canto ' + next.canto + ' &middot; Ch ' + next.num + ' &rarr;</span>' +
+        '<span class="chapter-nav-title">' + next.title + '</span></button>'
+    : '<button class="chapter-nav-btn next" disabled><span class="chapter-nav-label">Next &rarr;</span></button>';
+  var container = document.getElementById('sectionsContainer');
+  if (!container) return;
+  var bar = document.createElement('div');
+  bar.id = 'chapterNavBar';
+  bar.className = 'chapter-nav-bar';
+  bar.innerHTML = prevHtml + nextHtml;
+  container.appendChild(bar);
+}
+
 function openC3Chapter(num) {
   var ch = null;
   for (var i = 0; i < canto3Chapters.length; i++) {
@@ -6860,6 +6958,7 @@ function openC3Chapter(num) {
   showScreen('chapter');
   window.scrollTo(0, 0);
   restoreBookmark(3, ch.num);
+  renderChapterNav(3, ch.num);
 }
 
 function renderCanto4Home() {
@@ -6911,6 +7010,7 @@ function openC4Chapter(num) {
   showScreen('chapter');
   window.scrollTo(0, 0);
   restoreBookmark(4, ch.num);
+  renderChapterNav(4, ch.num);
 }
 
 function renderHome() {
@@ -6983,6 +7083,7 @@ function openChapter(idx) {
   showScreen('chapter');
   window.scrollTo(0, 0);
   restoreBookmark(activeCanto.num, ch.num);
+  renderChapterNav(activeCanto.num, ch.num);
 }
 
 
@@ -7213,6 +7314,8 @@ function loadContinueBanner() {
 }
 
 function showCantos() {
+  var navBar = document.getElementById('chapterNavBar');
+  if (navBar) navBar.remove();
   showScreen('cantos');
   document.getElementById('header-sub').textContent = 'Srimad Bhagavatam · Study Guide';
   loadContinueBanner();
@@ -7288,6 +7391,7 @@ function openC2Chapter(num) {
   showScreen('chapter');
   window.scrollTo(0, 0);
   restoreBookmark(2, ch.num);
+  renderChapterNav(2, ch.num);
 }
 
 function showScreen(id) {
@@ -7316,6 +7420,8 @@ function openArchitecture() {
 }
 
 function goHome() {
+  var navBar = document.getElementById('chapterNavBar');
+  if (navBar) navBar.remove();
   if (activeCanto && activeCanto.num === 2) {
     showScreen('canto2home');
   } else if (activeCanto && activeCanto.num === 3) {
