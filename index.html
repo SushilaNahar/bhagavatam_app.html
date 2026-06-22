@@ -55,6 +55,28 @@
   html.night .continue-title { color: #f2f2f7; }
   html.night .continue-arrow { color: #ffd60a; }
 
+  /* ── Refined night accents: gold as accent, not fill ── */
+  /* Chapter list: near-white titles, gold reserved for the number/hover */
+  html.night .chapter-title-text { color: #f2f2f7; }
+  html.night .chapter-item.available:hover .chapter-title-text { color: #ffd60a; }
+  html.night .chapter-item.available:hover .chapter-num-col { background: #ffd60a; color: #1c1c1e; }
+
+  /* "Guide" / Architecture card: dark surface, gold label accent */
+  html.night .chapter-item.architecture .chapter-num-col { background: #3a3a3c; color: #ffd60a; }
+  html.night .chapter-item.architecture:hover { background: #2c2c2e; border-color: #ffd60a; }
+  html.night .chapter-item.architecture:hover .chapter-num-col { background: #ffd60a; color: #1c1c1e; }
+  html.night .chapter-item.architecture:hover .chapter-title-text { color: #f2f2f7; }
+  html.night .chapter-item.architecture:hover .chapter-meta { color: #c7c7cc; }
+  html.night .chapter-item.architecture:hover .chapter-arrow { color: #ffd60a; }
+
+  /* Complete Index canto bars: elevated dark surface with a gold left accent */
+  html.night .idx-canto { border-left: 3px solid #ffd60a; }
+  html.night .idx-canto-hdr { background: #2c2c2e; }
+  html.night .idx-canto-hdr:hover { background: #3a3a3c; }
+  html.night .idx-canto-num { color: #ffd60a; }
+  html.night .idx-canto-name { color: #f2f2f7; }
+  html.night .idx-chevron { color: #ffd60a; }
+
   /* Night-mode toggle button */
   .night-toggle {
     flex-shrink: 0;
@@ -71,6 +93,63 @@
   }
   .night-toggle:hover { background: var(--bg-darker); }
   html.night .night-toggle { color: #ffd60a; border-color: #ffd60a; }
+
+  /* Header action buttons (search + night) */
+  .header-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+  .search-toggle {
+    flex-shrink: 0;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--maroon-dark);
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .search-toggle:hover { background: var(--bg-darker); }
+  .search-toggle svg { width: 17px; height: 17px; }
+  html.night .search-toggle { color: #ffd60a; border-color: #ffd60a; }
+
+  /* ── SEARCH SCREEN ─────────────────── */
+  .search-body { max-width: 780px; margin: 0 auto; padding: 28px 16px 80px; }
+  .search-input-wrap {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--bg-darker); border: 1px solid var(--border);
+    border-radius: 10px; padding: 13px 15px;
+  }
+  .search-input-wrap > svg { width: 19px; height: 19px; color: var(--maroon); flex-shrink: 0; opacity: 0.85; }
+  #searchInput {
+    flex: 1; border: none; background: transparent; outline: none;
+    font-family: 'EB Garamond', serif; font-size: 18px; color: var(--text);
+  }
+  #searchInput::placeholder { color: var(--text-muted); }
+  .search-clear { background: none; border: none; color: var(--text-muted); font-size: 24px; cursor: pointer; line-height: 1; display: none; padding: 0 2px; }
+  .search-clear.show { display: block; }
+  .search-hint { margin: 18px 2px; color: var(--text-muted); font-size: 14px; font-style: italic; }
+  .search-results { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+  .search-result {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 12px 14px; border: 1px solid var(--border-light);
+    border-radius: 8px; cursor: pointer; background: var(--bg);
+    transition: background 0.12s, border-color 0.12s;
+  }
+  .search-result:hover { background: var(--bg-darker); border-color: var(--border); }
+  .search-result-kind {
+    font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.13em;
+    text-transform: uppercase; color: var(--gold-dark);
+    border: 1px solid var(--border); border-radius: 3px;
+    padding: 4px 6px; flex-shrink: 0; margin-top: 2px; min-width: 56px; text-align: center;
+  }
+  .search-result-main { flex: 1; min-width: 0; }
+  .search-result-title { font-family: 'EB Garamond', serif; font-size: 18px; color: var(--maroon); line-height: 1.3; }
+  .search-result-sub { font-size: 12.5px; color: var(--text-muted); margin-top: 3px; font-style: italic; }
+  .search-result mark { background: rgba(156,42,24,0.16); color: inherit; padding: 0 1px; border-radius: 2px; }
+  html.night .search-result-title { color: #f2f2f7; }
+  html.night .search-result mark { background: rgba(255,214,10,0.22); color: #ffd60a; }
+  .search-empty { color: var(--text-muted); font-style: italic; padding: 26px 4px; text-align: center; }
+  .search-count { color: var(--text-muted); font-size: 12.5px; margin: 4px 2px 10px; font-style: italic; }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { background: #e9c89a; }
@@ -840,7 +919,7 @@
   }
   .progress-bar-fill {
     height: 100%; background: var(--maroon);
-    border-radius: 3px; width: 23.6%;
+    border-radius: 3px; width: 24.8%;
   }
   .progress-count {
     font-family: 'EB Garamond', serif;
@@ -1088,7 +1167,10 @@
       <div class="header-sub" id="header-sub">Srimad Bhagavatam &middot; Study Guide</div>
     </div>
     <div class="header-right">Translation &amp; Purports by<br>Srila Prabhupada</div>
-    <button class="night-toggle" onclick="toggleNight()" aria-label="Toggle night mode" title="Toggle night mode">&#9789;</button>
+    <div class="header-actions">
+      <button class="search-toggle" onclick="openSearch()" aria-label="Search" title="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg></button>
+      <button class="night-toggle" onclick="toggleNight()" aria-label="Toggle night mode" title="Toggle night mode">&#9789;</button>
+    </div>
   </div>
 </header>
 
@@ -1106,7 +1188,7 @@
   <div class="progress-band">
     <span class="progress-label">Progress</span>
     <div class="progress-bar-wrap"><div class="progress-bar-fill"></div></div>
-    <span class="progress-count">Cantos 1&ndash;3 complete &nbsp;&middot;&nbsp; Canto 4 in progress &nbsp;&middot;&nbsp; 79 of 335 chapters</span>
+    <span class="progress-count">Cantos 1&ndash;3 complete &nbsp;&middot;&nbsp; Canto 4 in progress &nbsp;&middot;&nbsp; 83 of 335 chapters</span>
   </div>
   <div id="continue-banner" onclick="continueReading()" style="display:none;">
     <div class="continue-inner">
@@ -1138,7 +1220,7 @@
 
     <div class="canto-card available" onclick="openCanto(3)"><div class="canto-card-header"><div class="canto-number">Canto Three</div><div class="canto-card-name">The Status Quo</div></div><div class="canto-card-body"><div class="canto-meta"><span class="canto-ch-count">33 chapters</span><span class="canto-desc">Vidura&rsquo;s pilgrimage. Conversations with Maitreya. The creation of the material world. The incarnation of Kapila and the teachings of Sankhya.</span></div><span class="canto-badge badge-complete">Complete</span></div></div>
 
-    <div class="canto-card available" onclick="openCanto(4)"><div class="canto-card-header"><div class="canto-number">Canto Four</div><div class="canto-card-name">The Creation of the Fourth Order</div></div><div class="canto-card-body"><div class="canto-meta"><span class="canto-ch-count">31 chapters &mdash; 17 of 31 complete</span><span class="canto-desc">The story of Dhruva. The story of Prithu. The Pracetas. The progressive development of human civilization and its relationship with the Lord.</span></div><span class="canto-badge badge-progress">In Progress</span></div></div>
+    <div class="canto-card available" onclick="openCanto(4)"><div class="canto-card-header"><div class="canto-number">Canto Four</div><div class="canto-card-name">The Creation of the Fourth Order</div></div><div class="canto-card-body"><div class="canto-meta"><span class="canto-ch-count">31 chapters &mdash; 21 of 31 complete</span><span class="canto-desc">The story of Dhruva. The story of Prithu. The Pracetas. The progressive development of human civilization and its relationship with the Lord.</span></div><span class="canto-badge badge-progress">In Progress</span></div></div>
 
     <div class="canto-card"><div class="canto-card-header"><div class="canto-number">Canto Five</div><div class="canto-card-name">The Creative Impetus</div></div><div class="canto-card-body"><div class="canto-meta"><span class="canto-ch-count">26 chapters</span><span class="canto-desc">The activities of Priyavrata and Rishabhadeva. The description of the universe. The hellish planets and the nature of material existence.</span></div><span class="canto-badge badge-coming">Coming</span></div></div>
 
@@ -1366,6 +1448,25 @@
   <footer class="site-footer">Hare Krsna &nbsp;&middot;&nbsp; For the sincere seeker</footer>
 </div>
 
+</div>
+
+<div id="search" class="screen">
+  <div class="breadcrumb">
+    <div class="breadcrumb-inner">
+      <span class="bc-back" onclick="showCantos()">&#8592; All Cantos</span>
+      <span class="bc-sep">&rsaquo;</span>
+      <span>Search</span>
+    </div>
+  </div>
+  <div class="search-body">
+    <div class="search-input-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
+      <input id="searchInput" type="text" placeholder="Search chapters &amp; sections…" autocomplete="off" spellcheck="false" oninput="runSearch()" onkeydown="if(event.key==='Enter'){var f=document.querySelector('.search-result'); if(f) f.click();}">
+      <button class="search-clear" onclick="clearSearch()" aria-label="Clear">&times;</button>
+    </div>
+    <div id="searchHint" class="search-hint">Search across all 79 chapters and their sections by title or theme.</div>
+    <div id="searchResults" class="search-results"></div>
+  </div>
 </div>
 
 <!-- ARCHITECTURE SCREEN -->
@@ -6816,13 +6917,295 @@ const canto4Chapters = [
     ]
   },
   
-  { num: 18, title: "Prthu Maharaja Milks the Earth Planet", available: false, sections: [] },
+{ num: 18, title: "Prthu Maharaja Milks the Earth Planet", available: true,
+    sections: [
+{ title: "Earth Speaks Again", texts: "Texts 1–8",
+        gist: "Still trembling before the furious Prithu, the earth makes her case — naming the ancient seers whose instructions govern how grains are properly used, explaining why she hid the seeds, and asking the King to listen before acting.",
+        content: `<p>Chapter 17 ended with the earth recognizing Prithu as the Supreme Personality of Godhead Himself and falling into a prayer of complete surrender, her own bewilderment fully admitted. Chapter 18 opens with that surrender not yet enough — Prithu's lips are still trembling in anger, and the earth has more to say.</p>
+<p class="sub-heading">Texts 1–2 — Asking for a Hearing</p>
+<p>Frightened but resolute, the earth makes up her mind to speak once more. My dear Lord, she says, please pacify your anger completely and hear me patiently — I may be very poor, but a learned person takes the essence of knowledge from every place, just as a bumblebee draws honey from each and every flower without preference. <em>She is not appealing to sentiment. She is appealing to his intelligence.</em></p>
+<p class="sub-heading">Texts 3–5 — The Ancient Standard</p>
+<p>To benefit human society not only in this life but in the next, she continues, the great seers and sages of the past prescribed specific methods for the prosperity of people in general. One who follows these instructions — using them practically, as they were intended — can enjoy life and real pleasure. <strong>But a foolish person who manufactures his own ways through mental speculation, ignoring the authority of the sages who laid down unimpeachable directions, simply fails again and again.</strong> The earth is setting up her defense carefully: what she did had a standard behind it.</p>
+<p class="sub-heading">Texts 6–7 — The Actual Cause</p>
+<p>The seeds and grains and herbs created by Brahma in the beginning, she says, are now being consumed by nondevotees — persons devoid of all spiritual understanding — for mere sense gratification. And she herself has been neglected by kings who failed to punish these thieves. <em>Because no one protected the proper use of grain, and because the seeds were being used without reference to the sacrifice they were meant for, she took the only action available to her: she hid them.</em></p>
+<p class="sub-heading">Text 8 — What Needs to Happen Now</p>
+<p>Due to being stored within her for so long, all these seed-grains have deteriorated, she tells Prithu. Therefore he should immediately arrange to extract them by the standard process — the method recommended by the acharyas and the scriptures. <strong>She is not refusing to give what she holds. She is telling him, precisely, how to take it properly.</strong></p>
+<div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>The earth's case here is surprisingly simple: the grains were being used for sense gratification instead of sacrifice, so she hid them — not in malice, but because their proper use had been abandoned. Sacred things withheld from misuse, preserved until someone who knows their purpose arrives to claim them. Is there something you carry — a quality, a practice, a piece of understanding — that you've held quietly back, waiting for the right conditions or the right person to offer it to? 🙏</p></div>` },
+      { title: "The Terms", texts: "Texts 9–12",
+        gist: "The earth names exactly what she needs — a proper calf, a pot, a milkman who understands the work, and a leveled surface for rainfall to be retained — and Prithu, his anger finally settling, accepts these terms and becomes the first to actually milk her.",
+        content: `<p>Having made her case, the earth now turns from defense to instruction — telling Prithu plainly what the process actually requires.</p>
+<p class="sub-heading">Texts 9–10 — The Conditions</p>
+<p>O great hero, protector of living entities, the earth says, if you truly desire to relieve the living beings by supplying sufficient grain, and to nourish them by taking milk from me, then arrange for a suitable calf, a proper pot to hold the milk, and a milkman who understands the work. <em>Since I will be deeply affectionate toward my calf, your desire to take milk from me will naturally be fulfilled.</em></p>
+<div class="quote-block"><p>Since I will be affectionate toward my calf, my milk will flow freely for you.</p></div>
+<p>The process she describes is entirely dependent on relationship — the cow gives freely out of love for her calf, not by force.</p>
+<p class="sub-heading">Text 11 — The Leveling First</p>
+<p>One practical requirement remains: Prithu must level the entire surface of the globe before anything else. This, she explains, will allow rainfall to remain on the surface even after the rains have ceased — keeping the earth moistened, auspicious for every kind of production. <strong>What follows the milking will only work if the ground itself is prepared to hold what falls on it.</strong></p>
+<p class="sub-heading">Text 12 — Prithu Milks the Earth</p>
+<p>After hearing these words — auspicious and pleasing, Maitreya calls them — King Prithu's anger finally subsides. He accepts the earth's terms completely. He transforms Svayambhuva Manu into a calf, cups his own hands as the vessel, and milks all the herbs and grains out of the earth himself, in the form of a cow. <em>The King who had come to destroy the earth becomes the first to milk her gently.</em></p>
+<div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>The earth's one condition for giving is relationship — she gives freely out of affection for her calf, not under compulsion. The same resource that refused to yield under threat opens fully under love. Is there something in your own life you've tried to extract by force or will-power that might open more freely if you approached it through genuine relationship and care? 🙏</p></div>` },
+      { title: "Everyone Follows", texts: "Texts 13–25",
+        gist: "Once Prithu has milked the earth, every other order of being follows his example — sages, demigods, demons, Gandharvas, ancestors, Siddhas, Yakshas, serpents, animals, trees and mountains — each with their own calf and pot, each drawing from the earth the specific sustenance their nature requires.",
+        content: `<p>What begins as one king's act of restoration becomes, almost immediately, a cosmic template — every order of being repeating the same gesture in their own form.</p>
+<p class="sub-heading">Texts 13–14 — The Sages Follow</p>
+<p>Others as intelligent as Prithu see what he has done and follow. The great sages transform Brihaspati — lord of divine intelligence — into a calf, use the senses themselves as a milking pot, and draw out all kinds of Vedic knowledge from the earth, purifying word, mind and hearing in the process. <em>The sages' milk is not food but understanding.</em></p>
+<p class="sub-heading">Texts 15–16 — Demigods and Demons</p>
+<p>The demigods make Indra, king of heaven, into a calf and milk out the soma beverage — nectar — becoming powerful in mental speculation and bodily strength. The sons of Diti, the asuras, transform Prahlada Maharaja into a calf and extract various kinds of liquor and beer into an iron pot. <strong>The same earth, the same act of milking, yields something completely different depending on who is doing it and what they are reaching for.</strong></p>
+<p class="sub-heading">Texts 17–20 — Gandharvas, Ancestors, Siddhas, Kimpurushas</p>
+<p>The inhabitants of Gandharvaloka and Apsaroloka make Vishvavasu their calf and draw sweet musical art and beauty into a lotus-flower pot. The Pitaloka inhabitants make Aryama their calf and carefully milk kavya — the food offered to ancestors — into an unbaked earthen pot. The Siddhas and Vidyadharas make the sage Kapila into a calf, use the entire sky as their vessel, and draw out specific yogic mystic powers including anima — the ability to become infinitely small — while the Vidyadharas acquire the art of flying through the sky itself. The Kimpurushas make the demon Maya their calf and extract the mystic power to disappear from one's place and reappear elsewhere.</p>
+<p class="sub-heading">Texts 21–22 — Yakshas, Ghosts, and Serpents</p>
+<p>The Yakshas, Rakshasas, ghosts and witches — beings habituated to eating flesh — transform Lord Shiva's incarnation Rudra into a calf and draw out beverages made of blood into pots fashioned from skulls. Cobras, serpents, scorpions and other poisonous creatures make Takshaka their calf and take poison from the earth as their milk, storing it in snake holes.</p>
+<p class="sub-heading">Texts 23–25 — Animals, Birds, Trees, Mountains</p>
+<p>Four-legged animals make the bull who carries Lord Shiva into a calf, use the forest as their vessel, and receive fresh green grasses. Ferocious animals make a lion their calf and receive flesh. Birds make Garuda their calf and draw moving insects and plants as their milk. Trees make the banyan tree their calf and derive many delicious juices. And the mountains themselves — making the Himalayas into a calf, using the peaks of hills as their pot — draw a variety of minerals from the earth.</p>
+<div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Each order of being milks exactly what corresponds to its own nature — the sages get Vedic knowledge, the demons get liquor, the ancestors get food for the dead, the birds get insects. The earth gives to each precisely what that being is equipped to receive. What does that say about what we actually draw from the world? That what we extract from life may reveal more about our own nature than about the source we are drawing from? 🙏</p></div>` },
+      { title: "The Earth Supplies All", texts: "Texts 26–27",
+        gist: "With every order of being having milked the earth in their own way, the chapter pauses to note that the earth — now fully under Prithu's control — supplied each creature the food suited to its nature, and that Prithu himself received what was needed for the sustenance of all.",
+        content: `<p>After the long procession of milkings, Maitreya pauses to state what the whole sequence amounted to.</p>
+<p class="sub-heading">Texts 26–27 — The Full Supply, Completed</p>
+<p>The planet earth, Maitreya tells Vidura, supplied everyone their respective food during the time of King Prithu. <em>The earth was fully under the King's control — not by conquest, but by the process being correctly established.</em> All the inhabitants could get their particular food supply by creating the right kind of calf, using the right pot, drawing from the same mother source. And Prithu himself — the first to milk, the one whose righteousness made all the others possible — received what was needed for the sustenance of all living entities under his protection.</p>
+<div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>The earth gave everything — to the sages and to the demons, to the birds and the mountains — without preference, simply responding to the right relationship being established in each case. What she withheld before wasn't possession; it was waiting for the proper conditions. Is there abundance in your own life that remains locked until a right relationship or a right approach is established — not through force but through understanding? 🙏</p></div>` },
+      { title: "A Father's Affection, a Kingdom's Foundation", texts: "Texts 28–32",
+        gist: "Satisfied with the earth's generous supply, Prithu's anger transforms entirely into paternal affection — and he turns next to the practical work of civilization itself: leveling the uneven globe, founding cities, towns, villages, forts and farms, establishing for the first time the planned human settlement of the world.",
+        content: `<p>What began in fury ends in something entirely different — and then immediately turns to the long, unglamorous work of building a world.</p>
+<p class="sub-heading">Texts 28–29 — Anger Into Affection</p>
+<p>After the earth has supplied everyone fully, Prithu becomes deeply satisfied with her — and in that satisfaction, he develops an affection for the earth as great as if she were his own daughter. <strong>The same being he was prepared to cut into pieces with his arrows, he now regards with fatherly love.</strong> He then turns to the practical task the earth had asked of him: he levels the rough and uneven surface of the globe by breaking apart hills with the strength of his bow, until the surface becomes almost entirely flat.</p>
+<p class="sub-heading">Texts 30–31 — The Founding of Civilization</p>
+<p>Just as a father provides his children with proper subsistence and proper employment, Prithu engages visibly and practically in doing the same for all his citizens. He earmarks different parts of the leveled globe for different purposes — residential quarters, desirable settlements, cities and towns, forts and cowherd residences, stables for animals, royal camping grounds, mining places, agricultural towns and mountain villages. Everything planned. Everything placed.</p>
+<p class="sub-heading">Text 32 — The World Before, Named</p>
+<p>And here Maitreya draws the sharpest line of the chapter: before the reign of King Prithu, there was no planned arrangement for cities, villages, pasturing grounds or any designated space. Everything was scattered. Everyone constructed their dwelling according to their own personal convenience, without any larger order to live within.</p>
+<div class="quote-block"><p>Before Prthu, everyone built wherever they wished. From his reign onward, the earth had a plan.</p></div>
+<p><em>From the time of King Prithu onward, everything had a plan. The world Maitreya is describing to Vidura — with its cities and kingdoms and designated spaces — began here, with this king, in this reign.</em></p>
+<div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Prithu's rage at the earth — the thing that almost destroyed her — becomes the very energy that builds the world. The chapter that opened with arrows aimed at the ground ends with towns being founded on it. Intense energy that looked like destruction was, all along, the force that civilization required. Has something that felt like destruction in your own life ever turned out to be the very thing that built something new? 🙏</p></div>` }
+    ]
+  },
   
-  { num: 19, title: "King Prthu's One Hundred Horse Sacrifices", available: false, sections: [] },
+{ num: 19, title: "King Prthu's One Hundred Horse Sacrifices", available: true,
+    sections: [
+{ title: "The Arena at Brahmavarta", texts: "Texts 1–10",
+        gist: "At the sacred site of Brahmavarta, Prithu begins his hundred horse sacrifices — and Vishnu Himself arrives in person, accompanied by Brahma, Shiva, every order of celestial being, and his chief associates, while the earth itself becomes a wish-fulfilling cow producing every abundance needed.",
+        content: `<p>Chapter 18 ended with Prithu having founded civilization itself — cities, villages, towns, forts, all planned and placed where previously everything was scattered. Chapter 19 opens at the beginning of the great project the reciters had foretold in Chapter 16: the hundred horse sacrifices.</p>
+<p class="sub-heading">Text 1 — The Place and the Beginning</p>
+<p>Prithu initiates the hundred ashvamedha sacrifices at Brahmavarta — the land where the river Sarasvati flows eastward, once controlled by Svayambhuva Manu. The choice of location is not incidental: Brahmavarta is among the most sacred territories on earth, and the eastward flow of the Sarasvati marks it as a site charged with particular sanctity.</p>
+<p class="sub-heading">Texts 2–3 — Indra Watches, Vishnu Arrives</p>
+<p>The King of heaven, Indra, sees this and immediately recognizes that Prithu's fruitive activities will exceed his own. He cannot tolerate it. Meanwhile, Lord Vishnu — present as Supersoul in every heart, proprietor of all planets, enjoyer of every sacrifice's results — arrives in person at the sacrificial arena.</p>
+<p class="sub-heading">Texts 4–6 — An Assembled Universe</p>
+<p>When Vishnu appears, the entire cosmos comes with Him. Lord Brahma and Lord Shiva arrive, along with the presiding deities of every planet and their followers. Gandharvas, great sages, Apsaras singing praises. The Siddhas and Vidyadharas, the descendants of Diti, demons, Yakshas, and the Lord's own chief associates Sunanda and Nanda. And accompanying them — the great devotees always engaged in the Lord's service, the sages Kapila, Narada and Dattatreya, and the masters of mystic power headed by Sanaka Kumara. <em>No order of being is absent.</em></p>
+<p class="sub-heading">Texts 7–9 — The Earth as Kamadhenu</p>
+<p>At this great sacrifice the entire land becomes like the kamadhenu — the wish-fulfilling cow — producing everything needed simply through the performance of yajna. Rivers supply every taste in abundance. Trees yield fruit and honey freely. Cows, having grazed on sufficient green grass, pour out profuse quantities of milk, curd and clarified butter. The general populace and the presiding deities of every planet present Prithu with gifts; the oceans fill with jewels and pearls; the hills overflow with minerals and fertilizers. <strong>The earth itself is responding to the righteousness of the sacrifice.</strong></p>
+<p class="sub-heading">Text 10 — What Powered It, and What Threatened It</p>
+<p>Prithu's opulence, Maitreya makes clear, comes entirely from his dependence on the Supreme Personality of Godhead — Adhokshaja, the one who is beyond the reach of material senses. It is by the Lord's mercy that Prithu is superhumanly enhanced. And it is precisely this enhancement — this visible, undeniable prosperity — that Indra cannot tolerate, and that he now prepares to undermine.</p>
+<div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>When Vishnu arrives at Prithu's sacrifice, the entire universe comes with Him — not because they were separately invited, but because where He is, everything that exists is naturally drawn. Have you ever been in the presence of someone whose inner quality was so genuine that it simply gathered people around it, without effort or invitation? What was it about that quality that did the drawing? 🙏</p></div>` },
+      { title: "The First Theft", texts: "Texts 11–18",
+        gist: "Indra steals the sacrificial horse by disguising himself as a sannyasi — and when Prithu's son chases him, he holds back twice out of respect for what looks like a renunciant, before finally recovering the horse, earning the name Vijitashva.",
+        content: `<p>Everything at the sacrifice is abundant, auspicious, and filled with the Lord's own presence. It is into this scene that Indra makes his move.</p>
+<p class="sub-heading">Text 11 — The Theft</p>
+<p>During the last horse sacrifice of the hundred, Indra — invisible to everyone present — steals the sacrificial horse chained near the wooden slaughter post. The theft is born entirely of envy.</p>
+<p class="sub-heading">Texts 12–13 — A Dress That Deceives</p>
+<p>As he flees into outer space, Indra is wearing a disguise — dressed to appear as a liberated person, with knotted hair and ash-smeared body. The great sage Atri spots him from the ground, reads the situation instantly, and alerts Prithu's son, who immediately gives chase, calling out: <em>Wait! Wait!</em></p>
+<p class="sub-heading">Texts 14–15 — Why He Stopped</p>
+<p>When Prithu's son catches up to Indra and sees the sannyasi's dress — the knotted hair, the ash-smeared body, all the outward signs of renunciation — he holds back. He cannot bring himself to release his arrow against what looks like a pious, renounced man. <em>He mistakes the costume for the reality.</em> Atri, watching, is frustrated: he instructs the prince again to strike, pointing out that Indra has made himself the lowest of all demigods by this interference.</p>
+<p class="sub-heading">Texts 16–17 — The Chase, and Indra's Retreat</p>
+<p>Energized by Atri's second instruction, the prince gives chase through the sky with real fury, like the king of the vultures pursuing Ravana. When Indra sees him coming with full determination, he abandons the false dress immediately, drops the horse, and disappears from the spot entirely. Prithu's son returns the horse to his father's sacrificial arena.</p>
+<p class="sub-heading">Text 18 — A Name Earned</p>
+<p>Observing the prince's prowess — the courage of the chase, the final success — all the great sages present confer a name on him: Vijitashva, <em>he who has conquered the horse.</em></p>
+<div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Prithu's son stops twice before Indra's disguise — not from weakness but from genuine respect for what he thinks he sees. The same quality that makes him hold back (reverence for a renunciant) is also what Indra is deliberately exploiting. Our best instincts, it turns out, can be weaponized against us by those who know how they work. Has a quality you're genuinely proud of — generosity, trust, respect — ever been used against you by someone who understood it well enough to exploit it? 🙏</p></div>` },
+      { title: "The Second Theft, and What It Established", texts: "Texts 19–25",
+        gist: "Indra steals the horse a second time under cover of darkness, again in sannyasi disguise, and though finally driven off by Vijitashva's drawn bow, the disguises he wore — naked wanderer, skull-carrying mendicant — enter the world as the templates for false religious orders that will mislead people for generations.",
+        content: `<p>Indra, undeterred by his first failure, attempts the same theft again — this time under cover of a dense darkness he himself produces over the sacrificial arena.</p>
+<p class="sub-heading">Text 19 — Darkness, and a Second Theft</p>
+<p>Indra brings a thick darkness down over the entire arena, covers the scene completely, and steals the horse again from its golden chains beside the sacrifice post. The same horse, the same theft — only the cover differs this time.</p>
+<p class="sub-heading">Texts 20–21 — The Second Chase</p>
+<p>Atri again spots Indra fleeing through the sky and alerts Vijitashva. This time Indra carries a skull-topped staff and again wears sannyasi dress. Again, Vijitashva hesitates. But when Atri instructs him a second time and Vijitashva places an arrow on his bow, Indra abandons the disguise instantly — drops both the horse and the false identity — and makes himself invisible.</p>
+<p class="sub-heading">Text 22 — What This Established in the World</p>
+<p>And here Maitreya names what these two episodes actually created. <em>From that time onward,</em> he says, <em>certain men with a poor fund of knowledge have adopted the dress of a false sannyasi.</em> It was King Indra who introduced this. The imitation renunciant — ash-smeared, knotted-haired, carrying a skull-staff, performing the appearance of austerity without its substance — traces its lineage directly to Indra's tactical disguises in this chapter. <strong>A convenience invented to steal a sacred horse became a tradition.</strong></p>
+<div class="quote-block"><p>It was King Indra who first introduced the dress of a false sannyasi into the world.</p></div>
+<p class="sub-heading">Texts 23–25 — What the Disguises Represented</p>
+<p>Whatever forms Indra assumed as a mendicant during this theft, Maitreya explains, were symbols of atheistic philosophy. Going naked, smearing ash, carrying skulls, wearing red garments, passing under various names — these were all simply the outer costume of sinful activity. Such so-called sannyasis, Maitreya notes, are appreciated by sinful men precisely because they are godless and expert at constructing arguments to justify what they do. <em>They pass as adherents of religion and are not so in fact.</em> And bewildered persons, accepting them as religious, are attracted — and in being attracted, spoil their own lives.</p>
+<div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Maitreya's teaching here is pointed: the outward signs of spiritual life can be, and have been, adopted precisely to deceive — and those who adopted them were expert at making arguments that sounded like wisdom. The fact that something looks like renunciation, or sounds like philosophy, is no guarantee of what it actually is. What signs do you actually trust as evidence of genuine spiritual life in someone, rather than its convincing performance? 🙏</p></div>` },
+      { title: "Prithu's Fury and Brahma's Arrival", texts: "Texts 26–31",
+        gist: "Enraged that Indra has not only disrupted his sacrifice but introduced false religious forms into the world, Prithu picks up his bow to kill Indra himself — but the priests stop him, proposing instead to summon Indra into the sacrificial fire by mantra, before Brahma himself arrives to stop everything.",
+        content: `<p>Prithu has tolerated the interference twice. With its cause now named and understood, his patience reaches its limit.</p>
+<p class="sub-heading">Texts 26–27 — Prithu Takes Up the Bow</p>
+<p>Celebrated as immensely powerful, Prithu takes up his bow and arrows and prepares to kill Indra outright for having introduced these irregular sannyasa orders into the world. The priests around him see his fury and intervene immediately — reminding him that only sacrificial animals can properly be killed within the arena, per the directions of shastra. <em>Killing a demigod at a sacrifice, they tell him, is outside the bounds of what is sanctioned.</em></p>
+<p class="sub-heading">Text 28 — A Different Proposal</p>
+<p>The priests offer an alternative: Indra's powers are already diminished by his interference. They will call him using Vedic mantras never before employed, and when he comes, they will cast him into the fire through the power of those mantras alone. The enemy will be defeated not by a king's arrow but by the spiritual force of the yajna itself — and the sacrifice will remain unpolluted.</p>
+<p class="sub-heading">Texts 29–31 — Brahma Arrives and Stops Everything</p>
+<p>The priests, burning with anger, begin preparing the oblation. Just as they are ready to pour it into the fire, Lord Brahma himself appears on the scene. <strong>He forbids the sacrifice to continue.</strong> You cannot kill Indra, Brahma tells them plainly — he is as good as the Supreme Personality of Godhead, one of the most powerful assistants of the Lord. All the demigods you are trying to honor through this very yajna are nothing but parts and parcels of Indra himself. How can you cast into the fire the very one you came to honor?</p>
+<div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Prithu's anger here is arguably just — Indra disrupted a sacred ceremony, introduced false religious forms, and stole from the sacrifice twice. And yet the very priests performing the ceremony hold him back, and then Brahma himself arrives to stop the response. Sometimes the most righteous anger still gets stopped — not because it's wrong about the offense, but because the response being contemplated would create worse damage than the original harm. Has there been a moment when you were completely right about a wrong done to you, but still had to be stopped from the response you felt entirely justified in making? 🙏</p></div>` },
+      { title: "Brahma's Counsel", texts: "Texts 32–38",
+        gist: "Brahma addresses both parties — telling Prithu directly to stop the sacrifice at ninety-nine, explaining that providential reversals should not be resisted, that Indra and Prithu are both parts of the same Supreme Lord, and warning that further opposition will only multiply Indra's introduction of false religious paths.",
+        content: `<p>Brahma has stopped the action. Now he addresses its causes, speaking directly to Prithu himself.</p>
+<p class="sub-heading">Texts 32–33 — Ninety-Nine Is Enough</p>
+<p>Let there be ninety-nine sacrificial performances for Prithu, Brahma says — and since the King is already thoroughly aware of the path of liberation, what is the actual use of performing more sacrifices anyway? And then the teaching underneath the instruction: both you and Indra are parts and parcels of the same Supreme Personality of Godhead. <em>You should not be angry with someone who is nondifferent from you.</em></p>
+<p class="sub-heading">Texts 34–35 — On Providential Reversals</p>
+<p>My dear King, Brahma continues, do not be agitated by the fact that your sacrifices were not fully completed due to Indra's interference. These were providential arrangements. <em>The more we try to rectify such reversals,</em> he says, <em>the more we enter into the darkest region of materialistic thought.</em> Stop the performance of these sacrifices — they have already induced Indra to introduce so many irreligious aspects. Even among the demigods, Brahma admits plainly, there are unwanted desires at work.</p>
+<p class="sub-heading">Texts 36–38 — The Real Purpose of This Incarnation</p>
+<p>Look at what Indra has already done, Brahma tells him — the sinful activities he has introduced will now be carried out by people in general. They become attractive. They spread. And you, O King Prithu, son of Vena — you are a plenary expansion of Lord Vishnu Himself, descended specifically because the religious principles were almost lost during Vena's reign. <em>You appeared from Vena's own body to protect dharma.</em> Consider the purpose of that incarnation: the irreligious principles Indra has introduced are mothers of countless further irreligious paths. <strong>Stop them now, by stopping the fuel that has been feeding them.</strong></p>
+<div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Brahma's advice — stop trying to correct this, because the correction is feeding the very problem — is genuinely counterintuitive. Sometimes responding to a provocation, even rightly, gives it the energy to spread further. Is there a situation in your own life where your response to someone's wrong behavior has actually amplified it — where withdrawal or silence might have been more effective than any amount of justified pushback? 🙏</p></div>` },
+      { title: "The Sacrifice Completed", texts: "Texts 39–42",
+        gist: "Advised by Brahma himself, Prithu releases his eagerness for the final sacrifice and makes peace with Indra — then takes the post-yajna bath, receives the demigods' blessings, honors the brahmanas with gifts, and accepts the gratitude of every class of being that has gathered from across creation.",
+        content: `<p>What could have ended in destruction — the killing of a demigod, the establishment of more false religious paths — ends instead in something quieter and more durable.</p>
+<p class="sub-heading">Text 39 — Prithu Accepts the Counsel</p>
+<p>When the supreme teacher, Lord Brahma, gives this instruction, Prithu abandons his eagerness to complete the hundred sacrifices. <em>With great affection,</em> Maitreya says — not resentment, not grudging acceptance, but real affection — <strong>he concludes a peace with King Indra.</strong></p>
+<p class="sub-heading">Texts 40–41 — The Ritual Completion</p>
+<p>Prithu then takes the avabhrita bath — the purifying bath taken after a completed yajna — and receives the benedictions and due blessings of all the demigods, who are genuinely pleased by his glorious activities. He then honors all the brahmanas present at the sacrifice with every kind of reward, offered with full respect. The brahmanas, deeply satisfied, give the King their heartfelt blessings in return.</p>
+<p class="sub-heading">Text 42 — The Gratitude of All</p>
+<p>The great sages and brahmanas address Prithu collectively at the close: O mighty King, by your invitation every class of living entity has attended this assembly — beings from Pitrloka, from the heavenly planets, great sages and ordinary people alike. <em>All of them, without exception, are very much satisfied by your dealings and your charity toward them.</em></p>
+<div class="quote-block"><p>All of them — from the heavenly planets to the common people — were satisfied by his dealings and his charity.</p></div>
+<p>The sacrifice that began with a theft and an interference, that almost ended in a demigod's execution, closes with universal satisfaction — not the triumphant completion of a hundred sacrifices, but something the reciters of Chapter 16 had never actually foretold: the peace of ninety-nine, and the blessing of every order of creation present to witness it.</p>
+<div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Prithu releases his agenda — the hundredth sacrifice, the full completion, the correction of every wrong — and what replaces it is peace with his adversary and the heartfelt blessing of every being who witnessed his ninety-nine. Sometimes what we imagined as the full version of success turns out to be smaller than the incomplete version that arrives when we finally let go. Has an unfinished goal ever turned out to produce something more meaningful than the finished version would have? 🙏</p></div>` }
+    ]
+  },
   
-  { num: 20, title: "Lord Visnu's Appearance in the Sacrificial Arena of Maharaja Prthu", available: false, sections: [] },
+{ num: 20, title: "Lord Visnu's Appearance in the Sacrificial Arena of Maharaja Prthu", available: true,
+    sections: [
+{ title: "Vishnu Arrives, and Asks a Favour", texts: "Texts 1–2",
+        gist: "Satisfied by ninety-nine horse sacrifices, the Supreme Personality of Godhead appears in the sacrificial arena — accompanied by Indra himself — and immediately asks Prithu to forgive the King of heaven for what he has done.",
+        content: `<p>Chapter 19 ended with Prithu releasing his eagerness for the hundredth sacrifice and making peace with Indra at Brahma's instruction. Chapter 20 opens with what that peace actually looks like in person.</p>
+<p class="sub-heading">Text 1 — The Lord Appears</p>
+<p>Satisfied by the ninety-nine horse sacrifices, Lord Vishnu appears in the sacrificial arena — and he does not arrive alone. King Indra, the very one who stole the horse twice and introduced false religious forms into the world, comes with Him. Lord Vishnu begins to speak.</p>
+<p class="sub-heading">Text 2 — The Request</p>
+<p>My dear King Prithu, the Lord says, Indra disturbed your execution of one hundred sacrifices. He has now come with Me in order to be forgiven by you. <em>Therefore excuse him.</em> <strong>The Supreme Personality of Godhead, whose arrival is the crowning moment of the entire sacrifice, uses that moment first not to receive worship but to ask a favour — for someone who wronged the one He is asking.</strong></p>
+<div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>The Lord arrives at the peak of Prithu's entire life's work — ninety-nine great sacrifices, His own personal presence — and His first act is to advocate for the person who caused the disruption. The most powerful being in the universe uses His position to extend mercy to an offender. Has someone with genuine power or standing ever used it on your behalf, not to benefit themselves, but to bring about forgiveness for someone who wronged you? How did that change how you saw both the powerful person and the offender? 🙏</p></div>` },
+      { title: "What the Lord Taught Him", texts: "Texts 3–16",
+        gist: "Before receiving Prithu's worship, Vishnu first gives him a complete philosophical teaching — from the distinction between body and soul, through the nature of devotional service and inner peace, to the specific duties of a king, and finally the highest benediction: that the four Kumaras themselves will come to visit him.",
+        content: `<p>Before accepting any worship, Vishnu teaches. The order itself is significant — instruction precedes honor in the Lord's visit to the righteous king.</p>
+<p class="sub-heading">Texts 3–6 — Body, Soul, and What Advanced Intelligence Looks Like</p>
+<p>One who is advanced in intelligence and eager for the welfare of others is considered the best among human beings, the Lord begins — and an advanced person is never malicious. Those with real intelligence are always conscious that the material body is different from the soul itself. <em>If someone like you, Prithu — so advanced through executing the instructions of the acharyas — is carried away by the influence of My material energy, then all that advancement is simply a waste of time.</em> Those truly in knowledge of the body as composed of nescience, desires and illusion do not become addicted to it. How can a highly learned person be affected, in his understanding of house, children and wealth, by the same bodily conception he understands to be false?</p>
+<p class="sub-heading">Texts 7–8 — What the Individual Soul Actually Is</p>
+<p>The individual soul, the Lord continues, is one, pure, nonmaterial and self-effulgent — the reservoir of all good qualities, all-pervading, without material covering, the witness of all activities, completely distinct from other living entities, transcendental to all embodied souls. <strong>One situated in full knowledge of both Paramatma and atma is never affected by the modes of material nature — because such a person is always situated in My transcendental loving service.</strong></p>
+<p class="sub-heading">Text 9–10 — The Inner Path</p>
+<p>When one situated in occupational duty engages in the Lord's loving service without motive for material gain, the Lord says, he gradually becomes very satisfied within. And when the heart is cleansed of all material contamination, the devotee's mind becomes broader and transparent — he can see things equally. At that stage there is real peace, and one is situated equally with the Lord as sat-chid-ananda-vigraha.</p>
+<p class="sub-heading">Texts 11–12 — The Knowledge That Liberates</p>
+<p>Anyone who understands that this material body — made of five gross elements, sense organs, working senses and mind — is only supervised by the fixed soul, is eligible to be liberated from material bondage. The constant change of this material world is due to the three modes, the Lord continues; the five elements, the senses, the controlling demigods, and the mind agitated by the spirit soul — all taken together compose the body. Since the spirit soul is completely different from this combination, My devotee who is connected with Me in intense friendship and affection, being fully in knowledge, is never agitated by material happiness or distress.</p>
+<p class="sub-heading">Text 13 — The Instruction for a King</p>
+<p>My dear heroic King, the Lord concludes His philosophical teaching with something immediate and practical: keep yourself always equipoised, treat every person equally regardless of their position, do not be disturbed by temporary distress or happiness, fully control your mind and senses — and in this transcendental position, execute your duty as king in whatever condition I arrange for you. <em>Your only duty here is to give protection to your citizens.</em></p>
+<p class="sub-heading">Texts 14–15 — The King's Share, and the Promise</p>
+<p>A king who gives proper protection shares, in his next life, one sixth of the result of every pious activity performed by his citizens. But a king who merely collects taxes without protecting those citizens has his own pious results taken away by them instead, and becomes liable for their impious acts. Follow the instructions of the learned brahminical authorities, the Lord says, received through the disciplic succession — by hearing, master to disciple — without attachment to ideas manufactured by mental speculation, and every one of your citizens will be happy and love you. <em>And you will very soon see such already-liberated personalities as the four Kumaras themselves.</em></p>
+<p class="sub-heading">Text 16 — The Benediction Offered</p>
+<p>My dear King, the Lord finishes, I am very captivated by your elevated qualities and excellent behavior, and thus I am very favorably inclined toward you. You may therefore ask from Me any benediction you like. <strong>One who lacks elevated qualities and behavior cannot achieve My favor by sacrifices, austerities or mystic yoga alone — but I always remain equipoised in the heart of one who is himself equipoised in all circumstances.</strong></p>
+<div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>The Lord's entire teaching in this section comes down to one pivot: see the soul as distinct from the body, and everything else — equanimity, devotion, freedom from agitation, the capacity to protect others — follows naturally from that single recognition. Is there a teaching or principle in your own life where everything else you've learned seems to hang from it — a single understanding that, when you hold it clearly, makes other things fall into place? 🙏</p></div>` },
+      { title: "A King Overwhelmed", texts: "Texts 17–22",
+        gist: "Having received the Lord's teaching and benediction, Prithu accepts it with his whole being — while Indra falls at his feet in shame, and the Lord, captivated by the King's behavior, finds Himself unable to depart even as Prithu, tears streaming, can neither see the Lord clearly nor speak to address Him.",
+        content: `<p>The teaching is given. Now the text turns to what all of this looks like in the bodies and faces of the people present.</p>
+<p class="sub-heading">Texts 17–18 — Two Responses, One Scene</p>
+<p>Prithu accepts the Lord's instructions on his head — a gesture of complete, embodied reception. Indra, standing nearby, becomes ashamed of his own activities and falls before Prithu to touch his lotus feet. Prithu immediately embraces him in great ecstasy and releases all envy toward him for the theft of the horse. <em>The same King who was prepared to kill Indra just chapters ago now embraces him — not from weakness, but from the fullness of having just received the Lord's own instruction.</em></p>
+<p class="sub-heading">Texts 19–20 — The Lord Who Would Not Leave</p>
+<p>Prithu then worships the Lord's lotus feet abundantly, and in that worship his devotional ecstasy only increases, growing as he gives expression to it rather than diminishing. The Lord is just about to depart — and does not. Seeing Prithu's behavior with His lotus eyes, He is detained. <strong>He is always the well-wisher of His devotees, and being so much inclined toward this one in particular, He stays.</strong></p>
+<p class="sub-heading">Texts 21–22 — Unable to See, Unable to Speak</p>
+<p>Prithu, his eyes full of tears, his voice faltering and choked with emotion, can neither see the Lord clearly nor speak to address Him. He simply embraces the Lord within his heart and remains standing with folded hands. The Lord stands with His lotus feet almost touching the ground, the front of His hand resting on Garuda's raised shoulder. Prithu wipes the tears from his eyes, tries to look at the Lord — and still is not fully satisfied by what he can see. <em>So he offers prayers instead.</em></p>
+<div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Prithu has the Lord standing directly in front of him, and he still cannot see Him clearly enough — still not fully satisfied by looking. The One he has spent his life seeking is right there, and it isn't enough. Not because the Lord is insufficient, but because the devotee's love is so large that physical proximity itself cannot contain it. Has longing for something ever grown larger in the moment you were closest to it, rather than being satisfied by it? 🙏</p></div>` },
+      { title: "What Prithu Actually Asked For", texts: "Texts 23–29",
+        gist: "Given the freedom to ask for any benediction, Prithu asks not for liberation, not for merger into Brahman, not for material wealth — only for millions of ears with which to hear the glories of the Lord's lotus feet from pure devotees, and for the chance to serve alongside the goddess of fortune herself.",
+        content: `<p>Offered anything — by the one who can give anything — Prithu says what he actually wants.</p>
+<p class="sub-heading">Texts 23–24 — Not Merger, Not Liberation</p>
+<p>My dear Lord, Prithu begins, You are the best among those who give benedictions. But why should any learned person ask You for benedictions meant for living entities bewildered by the modes of nature? Such things are available automatically, even in hellish conditions. And as for merging into Your existence — I do not wish for that benediction either, since in such a state there is no longer any experience of the nectar of Your lotus feet. What I want instead: at least one million ears, so that I may hear unceasingly about the glories of Your lotus feet from the mouths of Your pure devotees.</p>
+<p class="sub-heading">Text 25 — Saffron Carried on the Breath of Devotees</p>
+<p>The glory of Your lotus feet, Prithu says, is like the particles of saffron that devotees carry on their mouths when they speak Your glories.</p>
+<div class="quote-block"><p>The saffron dust of Your lotus feet, carried on the mouths of pure devotees, awakens the forgetful soul.</p></div>
+<p><em>When that transcendental vibration — carrying the aroma of those lotus feet — reaches the forgetful living entity, he gradually begins to remember his eternal relationship with You.</em> This is how souls come to the right conclusion about the value of life. <strong>I therefore ask for no other benediction but the opportunity to hear from the mouth of Your pure devotee.</strong></p>
+<p class="sub-heading">Texts 26–27 — Never Leaving Such Association</p>
+<p>Anyone who hears even once the glories of Your activities in the association of pure devotees, Prithu says, does not leave that association unless he is nothing but an animal — no intelligent person would be so careless. Even the goddess of fortune herself desired to hear Your unlimited activities and Your transcendental glories. <em>I now wish to engage in the service of Your lotus feet just as she does — carrying the lotus flower in her hand, dwelling on Your chest.</em> I am only afraid that she and I might quarrel, both of us absorbed in the same service at the same time.</p>
+<p class="sub-heading">Texts 28–29 — The Boldness of the Ask</p>
+<p>O Lord of the universe, Prithu continues, Lakshmi is the mother of the universe — she may well be angry with me for intruding on the service she treasures most. Yet I am hopeful that even if there is misunderstanding between us, You will take my part — for You are always inclined toward the poor, and You always magnify even the most insignificant service offered to You. <em>Even if she becomes angry, You are so self-sufficient that You can do without her.</em> Great liberated sages take to Your devotional service not because they need it for liberation — they are already liberated — but simply because they are constantly thinking of Your feet and cannot stop.</p>
+<div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Prithu asks the Lord to resolve a conflict on his behalf with the goddess of fortune — one of the most extraordinary prayers in the entire Bhagavatam — and grounds the whole request in his confidence that the Lord favors those who offer sincere, even tiny, service. What does your own prayer life actually reveal about what you trust, what you want, and what you believe the Lord is like? 🙏</p></div>` },
+      { title: "What He Asked the Lord Not to Give", texts: "Texts 30–31",
+        gist: "In his final prayer, Prithu asks the Lord not to give him what the Vedas promise — the sweet allurements that bind people to fruitive action — and instead entrusts entirely to the Lord the decision of what is best for him, as a son trusts a father not to wait for the child's request.",
+        content: `<p>Prithu's prayer turns, at its close, from petition to total surrender.</p>
+<p class="sub-heading">Text 30 — The Veda's Allurements, Declined</p>
+<p>My dear Lord, Prithu says, what You have said to Your unalloyed devotees — the benedictions described in the Vedas — is certainly very much bewildering. These allurements are not suitable for pure devotees. <em>People in general, bound by the sweet words of the Vedas, engage themselves again and again in fruitive activities, enamored by the results of their actions.</em> The very scriptures meant to lead people toward liberation contain, for the general mass, an irresistible system of rewards that binds them more tightly. Prithu does not want that.</p>
+<p class="sub-heading">Text 31 — The Son's Trust in the Father</p>
+<p>My dear Lord, Prithu finishes, due to Your illusory energy, all living beings have forgotten their real constitutional position. Out of ignorance they always desire material happiness in the form of society, friendship and love. Therefore — <em>please do not ask me to choose a benediction.</em> Instead, as a father who does not wait for his son to ask but does everything for the child's benefit regardless, <strong>please bestow upon me whatever You Yourself think is best for me.</strong></p>
+<div class="quote-block"><p>As a father does not wait for his son's request but does everything for his benefit, please give me whatever You think is best.</p></div>
+<div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Prithu's final prayer refuses to choose — not from inability, but from a trust so complete that he would rather receive whatever the Lord sees fit than impose even a wise desire on the moment. This is the prayer underneath all prayers. Is there something in your own relationship with the Lord — or with any genuine source of wisdom in your life — that you have held back from that level of trust? What would it take to make the same request Prithu makes here? 🙏</p></div>` },
+      { title: "The Lord Departs, the King Returns", texts: "Texts 32–38",
+        gist: "The Lord blesses Prithu with the assurance that his own clarity of purpose will carry him across maya, adds one final instruction, then allows Himself to be properly worshiped by the King before departing — while Prithu honors every order of being assembled at the sacrifice, sending them all home satisfied before returning to his own kingdom.",
+        content: `<p>The prayer is complete. The Lord responds — and the long arc of the sacrifice finally comes to its close.</p>
+<p class="sub-heading">Texts 32–33 — The Lord's Closing Words</p>
+<p>The Lord addresses Prithu directly: may you always be blessed by engaging in My devotional service. <em>Only by such purity of purpose — exactly as you yourself have so intelligently expressed — can one cross over the insurmountable illusory energy of maya.</em> And then a simple, final instruction: henceforward be very careful to execute My orders and not be misled by anything. Anyone who lives that way — faithfully executing the Lord's orders — will always find good fortune all over the world.</p>
+<p class="sub-heading">Text 34 — The Lord Departs With His Blessing</p>
+<p>The Lord, having amply appreciated the meaningful prayers of Prithu, being properly worshiped by the King, blesses him and decides to depart. Maitreya's phrasing is careful — the Lord was satisfied with the prayers, accepted the worship, gave His blessing, <em>and then</em> departed. The sequence of receiving before departing matters; the Lord does not leave until the exchange is complete.</p>
+<p class="sub-heading">Texts 35–36 — Prithu Honors Everyone Present</p>
+<p>King Prithu then worships, with folded hands and as much wealth as he can offer, every order of being assembled in the sacrificial arena: demigods, great sages, inhabitants of Pitrloka, Gandharvaloka, Siddhaloka, Cāraṇaloka, Pannagaloka, Kinnaraloka, Apsaroloka, the earthly planets, the planets of the birds. He offers sweet words and gifts to all of them — and every one of them departs, following in the footsteps of Lord Vishnu.</p>
+<p class="sub-heading">Texts 37–38 — The Return</p>
+<p>The infallible Lord, having captivated the minds of the King and all the priests present, returns to His abode in the spiritual sky. And King Prithu — who had just seen the form of the Supreme Personality of Godhead directly, a Lord not ordinarily available to material vision — offers final obeisances and returns, at last, to his home. <em>The sacrifice is complete. The King who began in fury at the earth, who gave civilization its plan, who performed ninety-nine great sacrifices and received the Lord's personal visit — goes home.</em></p>
+<div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Prithu sees the Lord directly — something rare enough that Maitreya specifically notes the Lord is "not an object of material vision" — and then simply returns home. No extended ecstasy described, no prolonged ceremony. He saw what he came to see, received what was given, honored everyone present, and went back to his ordinary life. Has a genuinely extraordinary experience ever left you this way — not straining to prolong it or describe it, just quietly carrying it home? 🙏</p></div>` }
+    ]
+  },
   
-  { num: 21, title: "Instructions by Maharaja Prthu", available: false, sections: [] },
+{ num: 21, title: "Instructions by Maharaja Prthu", available: true,
+    sections: [
+{ title: "The King Returns, Unmoved", texts: "Texts 1–7",
+        gist: "Prithu's city is decorated magnificently to receive him — incense, flowers, golden gates, beautiful girls, conchshells, and Vedic chanting — but Maitreya notes plainly that the King was not in the least affected by any of it, receiving every honor and bestowing every blessing with equal equanimity.",
+        content: `<p>Chapter 20 ended with Prithu returning home after seeing the Lord face to face at the sacrificial arena. Chapter 21 opens with what that return looked like from the outside.</p>
+<p class="sub-heading">Texts 1–4 — What the City Did</p>
+<p>The city is transformed to receive its King. Pearls, flower garlands, beautiful cloth and golden gates — the whole city perfumed with incense. Sandalwood and aguru water sprinkled on every lane, road and small park. Unbroken fruits, flowers, wetted grains, varied minerals and lamps arranged everywhere as auspicious offerings. At every street crossing, bunches of fruits and flowers, pillars of banana trees, betel nut branches. At the gate, citizens receive him with lamps, flowers and yogurt; beautiful ornamented girls lead the procession. It is an elaborate, sincere, joyful welcome.</p>
+<p class="sub-heading">Text 5 — The King Was Not Affected</p>
+<p>Conchshells sound. Kettledrums beat. Priests chant Vedic mantras. Professional reciters offer prayers. <em>But in spite of all this ceremony, the King was not in the least bit affected.</em> Maitreya does not pause on this — he simply states it, matter-of-factly, and moves on. <strong>The man who could not look at the Lord clearly enough through his own tears returns to a world of celebration and feels none of it reach him.</strong></p>
+<p class="sub-heading">Texts 6–7 — A Life Summarized</p>
+<p>He welcomed the citizens warmly and they received his blessings with love. And then Maitreya offers a brief summary of the entire reign — Prithu was greater than the greatest soul, worshipable by everyone, performing many glorious activities in ruling the world, always magnanimous, achieving a reputation that spread throughout the universe. <em>And after achieving all of this, he at last obtained the lotus feet of the Supreme Personality of Godhead.</em></p>
+<div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Prithu is celebrated by an entire city with extraordinary pomp, and is completely unmoved. This isn't coldness or ingratitude — it's the natural state of someone who has recently been in the presence of the Lord Himself. How does contact with what is genuinely transcendental change our relationship with even the most beautiful things the world can offer? Has an experience of something deeply real ever made the ordinary celebrations around you feel simultaneously touching and a little beside the point? 🙏</p></div>` },
+      { title: "The King in the Assembly", texts: "Texts 8–20",
+        gist: "Vidura asks Maitreya for more of Prithu's story, and Maitreya describes a great sacrificial assembly in which Prithu stands before the gathered sages, kings and demigods — his physical description given in full, his person grave and luminous and ready to speak.",
+        content: `<p>Suta Gosvami narrates to the assembled sages at Naimisharanya: after Maitreya has spoken about Prithu's activities, Vidura — the great devotee — responds not with a question about something unclear, but with a request for more.</p>
+<p class="sub-heading">Texts 8–10 — Vidura Asks for More</p>
+<p>O brahmana, Vidura says to Maitreya, it is very enlightening to hear that Prithu was enthroned by the great sages and brahmanas, received gifts from all the demigods, expanded his influence through the Lord's strength, and so greatly developed the earth. All the kings and demigods of every planet still follow in his footsteps. <em>Who is there who will not try to hear about his glorious activities?</em> I wish to hear more and more — his activities are pious and auspicious, and I am not yet satisfied.</p>
+<p class="sub-heading">Text 11–13 — A New Scene</p>
+<p>Maitreya continues: Prithu lived between the Ganges and Yamuna, surrounded by opulence so great it appeared he was simply enjoying his destined fortune — though the actual cause was his consuming the results of his pious activities through royal enjoyment. He was unrivaled in power, holding the scepter over all seven islands of the globe — his orders irrevocable to everyone <em>except</em> the saintly persons, the brahmanas and the Vaishnavas. Once he initiated a great sacrifice to which great saintly sages, brahmanas, demigods and royal sages all assembled together.</p>
+<p class="sub-heading">Texts 14–18 — The King's Appearance</p>
+<p>Prithu first worships all the respectable visitors according to their respective positions, then rises to stand in the midst of the assembly — and Maitreya describes what the assembly saw. A full moon rising among the stars. His body tall and sturdy, complexion fair, arms full and broad, eyes as bright as the rising sun, nose straight, face beautiful, personality grave, teeth set beautifully in a smiling face. His chest broad, waist thick, abdomen wrinkled with lines of skin resembling a banyan leaf, navel coiled and deep, thighs golden-hued, instep arched. Black, fine, curly hair. A neck like a conchshell, decorated with auspicious lines. A valuable dhoti, a fine wrapper for the upper body.</p>
+<p class="sub-heading">Texts 19–20 — Before He Speaks</p>
+<p>For the sacrifice, Prithu sets aside his valuable dress — and the simplicity of the black deerskin and kuśa grass ring only enhances what is already there. He glances over the assembly with eyes like stars in a sky wet with dew, just to encourage them and enhance their pleasure. Then his speech — Maitreya says before quoting it — was beautiful and full of metaphorical language, clearly understandable, very pleasing to hear, all its words grave and certain. <em>It appears that when he spoke, he expressed his personal realization of the Absolute Truth for the benefit of everyone present.</em></p>
+<div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Maitreya describes Prithu's appearance in extraordinary physical detail before describing what he said — as if the person himself were something the assembly needed to take in before the words arrived. We rarely think about the fact that the messenger's own character shapes how a teaching is received. Has a teaching that you received from someone you deeply respected ever landed differently — more deeply, more trustably — than the same words would have from someone you didn't know or trust? 🙏</p></div>` },
+      { title: "The King's Duty, Stated Plainly", texts: "Texts 21–26",
+        gist: "Prithu opens his address by explaining his own position — why he rules, what he owes his citizens, and the serious consequences for any king who simply collects taxes without actually guiding his people toward their real welfare — before turning to what he specifically asks of them in return.",
+        content: `<p>The King rises and speaks to the assembly he has worshiped. What he says first is not a teaching about liberation — it is an account of responsibility.</p>
+<p class="sub-heading">Texts 21–22 — His Position, Accepted</p>
+<p>O gentle members of the assembly, Prithu begins, may all good fortune be upon you — hear my prayer with attention. By the grace of the Supreme Lord I have been appointed king of this planet. I carry the scepter to rule the citizens, protect them from all danger, and give them employment according to their respective positions in the social order established by Vedic injunction.</p>
+<p class="sub-heading">Texts 23–24 — The Stakes of Kingship</p>
+<p>I think, he continues, that by properly executing these duties, I shall be able to achieve the desirable objectives described by experts in Vedic knowledge — and this is achieved by the pleasure of the Supreme Personality of Godhead, who is the seer of all destiny. <em>But any king who does not teach his citizens about their duties in terms of varna and ashrama, and who simply exacts taxes from them, is liable to suffer for every impious activity his citizens perform.</em> Such a king also loses his own fortune. <strong>The king and the citizen are not strangers to each other — they share, in both directions, the consequences of each other's actions.</strong></p>
+<p class="sub-heading">Texts 25–26 — What He Asks From Them</p>
+<p>Therefore, my dear citizens, Prithu says, for the welfare of your king after his death, you should execute your duties properly in terms of your varnas and ashramas, and always keep the Supreme Personality of Godhead within your hearts. By doing so you protect your own interests and bestow mercy upon your king for his welfare in the next life. He then makes a direct appeal to the demigods, forefathers and saintly persons assembled: support this proposal, he says — for after death the result of an action is equally shared by the one who does it, the one who directs it, and the one who supports it.</p>
+<div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Prithu asks the assembly to support his proposal on the grounds that supporters share equally in the result of an action — for good or ill. The same accountability that makes it sobering to support something wrong makes it genuinely powerful to support something right. Is there a person or cause you're currently standing behind, the results of which — in this framing — you would be equally sharing? Does thinking of it this way change anything about how consciously you're offering that support? 🙏</p></div>` },
+      { title: "The Only Real Bestower", texts: "Texts 27–33",
+        gist: "Prithu makes his central theological argument to the assembly — that behind all the variety of demigods and outcomes and life situations, there is one supreme authority who actually bestows all benefits, and that devotional service to Him, through the cleansing of heart that the Ganga herself symbolizes, is the only real means.",
+        content: `<p>Having stated his duties and theirs, Prithu now turns to the philosophical foundation that makes those duties matter at all.</p>
+<p class="sub-heading">Texts 27–28 — There Must Be a Supreme Authority</p>
+<p>According to the authoritative statements of shastra, Prithu says, there must be a supreme authority able to award the respective benefits of our present activities. <em>Otherwise, why should there be persons who are unusually beautiful and powerful, both in this life and the life after death?</em> The variety itself demands an explanation — and the explanation requires an arbiter. This position, he continues, is confirmed not only by the Vedas but by the personal behavior of great personalities: Manu, Uttanapada, Dhruva, Priyavrata, his grandfather Anga — and ordinary persons like Prahlada Maharaja and Bali, all of whom were theists who believed in the Supreme Personality of Godhead who carries a club.</p>
+<p class="sub-heading">Texts 29–30 — Even Through Bewilderment</p>
+<p>Although abominable persons like his own father Vena — grandson of death personified — were bewildered on the path of religion, all the great personalities agree: the only bestower of the benedictions of religion, economic development, sense gratification, liberation and elevation to the heavenly planets is the Supreme Personality of Godhead. <em>Even Vena is a data point in this argument: not a counterexample, but confirmation that the standard remains even when someone falls away from it.</em></p>
+<p class="sub-heading">Texts 31–33 — The Path That Actually Cleanses</p>
+<p>By the inclination to serve the lotus feet of the Supreme Personality of Godhead, suffering humanity can immediately cleanse the dirt accumulated in their minds across innumerable births — like the water of the Ganges, which flows from the toes of the Lord's lotus feet and cleanses the mind on contact. Gradually, spiritual consciousness increases. When a devotee takes shelter at those lotus feet, all misunderstanding and mental speculation clear, renunciation manifests, and strengthened by bhakti-yoga, such a person never returns to this world of threefold miseries. <strong>Therefore,</strong> Prithu concludes, <strong>engage your minds, words, bodies and the results of your occupational duties in devotional service to the Lord, according to your abilities and occupations — with full confidence, without reservation. You will surely achieve the final objective.</strong></p>
+<div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>Prithu's argument for the Lord's supremacy is built not on scripture alone but on observation — the sheer variety of outcomes in human life demands some explanatory authority behind it. He's inviting the assembly to reason their way to devotion, not just accept it on faith. Does the variety of life — its wildly uneven distribution of beauty, suffering, genius, dullness — ever make you think the same thing Prithu argues here: that something larger must be governing it? 🙏</p></div>` },
+      { title: "Who the Lord Loves Most", texts: "Texts 34–44",
+        gist: "Prithu turns to the brahmanas and Vaishnavas specifically — explaining that the Lord accepts offerings through them with more pleasure than through any fire sacrifice, that even the Lord Himself worshiped the brahmanas to obtain His own reputation, and that the king's greatest duty is to honor them and carry the dust of their lotus feet on his own crown.",
+        content: `<p>The teaching shifts from duty to devotion, and from duty to a specific relationship that the King considers most sacred.</p>
+<p class="sub-heading">Texts 34–35 — How the Lord Actually Receives Sacrifice</p>
+<p>The Supreme Personality of Godhead is transcendental and not contaminated by this material world — yet for the benefit of the conditioned soul He accepts different types of sacrifice performed with various elements, rituals and mantras, offered to different demigods under different names according to the intentions of the performers. He is all-pervading but manifests in different types of bodies arising from material nature, time, desires and occupational duties. Different types of consciousness develop from these — just as fire, always the same fire, blazes differently according to the shape and dimension of the wood it burns in.</p>
+<p class="sub-heading">Texts 36–37 — The King Thanks His Citizens</p>
+<p>The Supreme Personality of Godhead is the master and enjoyer of every sacrifice's results, and the supreme spiritual master as well. All of you citizens who worship Him through your own occupational duties, Prithu says, are actually bestowing your mercy upon me. <em>I therefore thank you.</em> And then a direct warning: the brahmanas and Vaishnavas are personally glorified by tolerance, penance, knowledge and education. By these spiritual assets they are more powerful than royalty. The princely order must not exhibit its material prowess before these two communities — and must be very careful not to offend them.</p>
+<p class="sub-heading">Texts 38–39 — Even the Lord Worshiped Them</p>
+<p>The Supreme Personality of Godhead — the ancient, eternal Godhead, foremost among all great personalities — obtained His own staunch reputation, which purifies the entire universe, <em>by worshiping the lotus feet of those brahmanas and Vaishnavas.</em> <strong>He who is everyone's master placed Himself in the position of a worshiper, before the brahmanas and Vaishnavas.</strong> And He who is everlastingly independent and present in everyone's heart is very pleased with those who follow in His footsteps and engage without reservation in the service of the descendants of brahmanas and Vaishnavas.</p>
+<p class="sub-heading">Texts 40–43 — The Highest Service</p>
+<p>By regular service to brahmanas and Vaishnavas, the heart's dirt is cleared and one can enjoy supreme peace and liberation from material attachment. In this world there is no fruitive activity superior to serving the brahminical class — it brings pleasure to the demigods, for whom the many sacrifices are recommended. And the Lord, Prithu explains, does not take as much pleasure in receiving offerings through fire as He does in accepting them through the mouths of learned sages and devotees — because <em>when He receives through their mouths, He does not have to leave their association.</em> In brahminical culture, the transcendental position is eternally maintained through Vedic injunctions received with faith, austerity, scriptural conclusions, full sense and mind control, and meditation — in this way the real goal of life is illuminated, just as a face is fully reflected in a clear mirror.</p>
+<p class="sub-heading">Text 44 — What He Asks For Himself</p>
+<p>O respectable personalities present here, Prithu concludes, I beg the blessings of all of you that I may perpetually carry on my crown the dust of the lotus feet of such brahmanas and Vaishnavas until the end of my life.</p>
+<div class="quote-block"><p>I wish to carry the dust of the lotus feet of the brahmanas and Vaishnavas on my crown until the end of my life.</p></div> He who carries such dust is very soon relieved of all reactions arising from sinful life, and eventually develops all good and desirable qualities. <em>I wish that the Supreme Personality of Godhead and His associates be pleased with the brahmana class, with the cows and with me.</em></p>
+<div class="quote-block"><p>The Lord takes more pleasure in receiving offerings through the mouths of His devotees than through fire — because through their mouths He does not have to leave their association.</p></div>
+<div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>The Lord who accepts offerings through fire or altar is still the same Lord — but the Lord who accepts through the mouths of His devotees is described as more pleased, because it keeps Him near them. Devotion, here, is portrayed as something the Lord enjoys, not just something we perform. Does thinking of your own practice this way — as something the Lord actually appreciates and is drawn toward — change how you feel about doing it? 🙏</p></div>` },
+      { title: "The Assembly Responds", texts: "Texts 45–52",
+        gist: "After hearing Prithu's speech, the entire assembly — demigods, ancestors, brahmanas and sages — expresses their gratitude and blessing, declaring that Vena has been delivered from hell by his son's greatness, comparing him to Prahlada who delivered Hiranyakashipu, and describing Prithu as the very representative of the Lord among his citizens.",
+        content: `<p>Prithu has spoken. The assembly now answers.</p>
+<p class="sub-heading">Texts 45–47 — A Son's Power Over His Father</p>
+<p>All the demigods, the inhabitants of Pitrloka, the brahmanas and saintly persons congratulate the King with expressions of goodwill. They declare that the Vedic teaching — a son can deliver his father — has been fulfilled here. The most sinful Vena, killed by the brahmanas' curse and fallen into the darkest hellish region, has been delivered by his son Prithu's greatness. <em>And similarly,</em> they add, Hiranyakashipu — who by his sinful activities constantly defied the Supreme Personality of Godhead and entered the darkest hellish region — was delivered by the grace of his great son Prahlada Maharaja and went back home, back to Godhead. <strong>Two fathers rescued by two sons who found what their fathers could not.</strong></p>
+<p class="sub-heading">Texts 48–49 — The Blessing of the Brahmanas</p>
+<p>The saintly brahmanas address Prithu directly: O best of the warriors, O father of this globe, may you be blessed with a long life — for you have great devotion to the infallible Supreme Personality of Godhead, the master of all the universe. Your reputation is the purest of all, they continue, for you are preaching the glories of the most glorified of all — the Supreme Personality, the Lord of the brahmanas. <em>Since, due to our great fortune, we have you as our master, we think we are living directly under the agency of the Lord Himself.</em></p>
+<p class="sub-heading">Texts 50–51 — What the Citizens Received</p>
+<p>Our dear lord, the citizens address him, your occupational duty as ruler is not in itself a wonderful task for someone of your character — you are so affectionate toward your citizens, so full of mercy, that ruling them is simply the natural expression of what you already are. And today — today you have opened our eyes. You have shown us how to cross to the other side of the ocean of darkness. <em>By our past deeds and by the arrangement of superior authority, we have been entangled in the network of fruitive activities and lost sight of life's destination — and thus we have been wandering within the universe.</em> You have, in one gathering, shown us the way out.</p>
+<p class="sub-heading">Text 52 — The Final Word</p>
+<p>The citizens conclude: Dear lord, you are situated in your pure existential position of goodness; therefore you are the perfect representative of the Supreme Lord. You are glorified by your own prowess. And thus you are maintaining the entire world — by introducing brahminical culture and protecting everyone in your line of duty as a kshatriya.</p>
+<div class="sit-with-this"><div class="sit-title">&#127 Sit With This</div><p>The assembly tells Prithu that having him as their master makes them feel they are living under the Lord's own agency. A leader so transparent to what is good that his people feel the Lord's presence through him — not despite his authority, but because of how he holds it. What does it feel like when you encounter genuine leadership of that quality, compared to leadership that is merely powerful or merely competent? 🙏</p></div>` }
+    ]
+  },
   
   { num: 22, title: "Prthu Maharaja's Meeting with the Four Kumaras", available: false, sections: [] },
   
@@ -7199,6 +7582,131 @@ function renderIdxCanto2() {
 
 function renderIdxCanto4() {
   renderIdxCantoGeneric('idx-canto4-block', 4, 'The Creation of the Fourth Order', canto4Chapters);
+}
+
+var _searchIndex = null;
+function buildSearchIndex() {
+  if (_searchIndex) return _searchIndex;
+  var idx = [];
+  var cantos = [
+    { num: 1, chapters: canto1Chapters },
+    { num: 2, chapters: canto2Chapters },
+    { num: 3, chapters: canto3Chapters },
+    { num: 4, chapters: canto4Chapters }
+  ];
+  cantos.forEach(function (c) {
+    (c.chapters || []).forEach(function (ch) {
+      if (!ch.available) return;
+      idx.push({ kind: 'Chapter', canto: c.num, chNum: ch.num, secIdx: null,
+        title: ch.title, sub: 'Canto ' + c.num + ' · Chapter ' + ch.num,
+        hay: (ch.title + ' canto ' + c.num + ' chapter ' + ch.num).toLowerCase() });
+      (ch.sections || []).forEach(function (sec, si) {
+        var gist = sec.gist || '';
+        idx.push({ kind: 'Section', canto: c.num, chNum: ch.num, secIdx: si,
+          title: sec.title, sub: 'Canto ' + c.num + ' · Ch ' + ch.num + (sec.texts ? ' · ' + sec.texts : ''),
+          hay: (sec.title + ' ' + gist).toLowerCase() });
+      });
+    });
+  });
+  _searchIndex = idx;
+  return idx;
+}
+
+function openSearch() {
+  showScreen('search');
+  buildSearchIndex();
+  window.scrollTo(0, 0);
+  var inp = document.getElementById('searchInput');
+  setTimeout(function () { try { inp.focus(); } catch (e) {} }, 50);
+  if (inp.value) runSearch();
+}
+
+function _escHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function _escReg(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+function _highlight(text, q) {
+  var safe = _escHtml(text);
+  if (!q) return safe;
+  try { return safe.replace(new RegExp('(' + _escReg(q) + ')', 'ig'), '<mark>$1</mark>'); }
+  catch (e) { return safe; }
+}
+
+function runSearch() {
+  var q = document.getElementById('searchInput').value.trim();
+  var clearBtn = document.querySelector('.search-clear');
+  if (clearBtn) clearBtn.classList.toggle('show', q.length > 0);
+  var hint = document.getElementById('searchHint');
+  var box = document.getElementById('searchResults');
+  if (q.length < 2) {
+    box.innerHTML = '';
+    if (hint) hint.style.display = 'block';
+    return;
+  }
+  if (hint) hint.style.display = 'none';
+  var ql = q.toLowerCase();
+  var matches = buildSearchIndex().filter(function (r) { return r.hay.indexOf(ql) !== -1; });
+  matches.sort(function (a, b) {
+    var aTitle = a.title.toLowerCase().indexOf(ql) !== -1;
+    var bTitle = b.title.toLowerCase().indexOf(ql) !== -1;
+    if (aTitle !== bTitle) return aTitle ? -1 : 1;
+    if (a.canto !== b.canto) return a.canto - b.canto;
+    return a.chNum - b.chNum;
+  });
+  if (!matches.length) {
+    box.innerHTML = '<div class="search-empty">No chapters or sections match “' + _escHtml(q) + '”.</div>';
+    return;
+  }
+  var capped = matches.slice(0, 60);
+  var countLine = '<div class="search-count">' + matches.length + ' result' + (matches.length === 1 ? '' : 's') +
+    (matches.length > 60 ? ' · showing first 60' : '') + '</div>';
+  box.innerHTML = countLine + capped.map(function (r) {
+    return '<div class="search-result" onclick="goToSearchResult(' + r.canto + ',' + r.chNum + ',' + (r.secIdx === null ? 'null' : r.secIdx) + ')">' +
+      '<span class="search-result-kind">' + r.kind + '</span>' +
+      '<div class="search-result-main">' +
+      '<div class="search-result-title">' + _highlight(r.title, q) + '</div>' +
+      '<div class="search-result-sub">' + r.sub + '</div>' +
+      '</div></div>';
+  }).join('');
+}
+
+function clearSearch() {
+  var inp = document.getElementById('searchInput');
+  inp.value = '';
+  runSearch();
+  try { inp.focus(); } catch (e) {}
+}
+
+function goToSearchResult(canto, chNum, secIdx) {
+  if (canto === 1) {
+    activeChapters = canto1Chapters;
+    activeCanto = { num: 1, name: 'Creation' };
+    document.getElementById('header-sub').textContent = 'Canto 1 — Creation · Study Guide';
+    openChapter(chNum - 1);
+  } else if (canto === 2) {
+    activeChapters = canto2Chapters;
+    activeCanto = { num: 2, name: 'The Cosmic Manifestation' };
+    document.getElementById('header-sub').textContent = 'Canto 2 — The Cosmic Manifestation · Study Guide';
+    openC2Chapter(chNum);
+  } else if (canto === 3) {
+    activeChapters = canto3Chapters;
+    activeCanto = { num: 3, name: 'The Status Quo' };
+    document.getElementById('header-sub').textContent = 'Canto 3 — The Status Quo · Study Guide';
+    openC3Chapter(chNum);
+  } else if (canto === 4) {
+    activeChapters = canto4Chapters;
+    activeCanto = { num: 4, name: 'The Creation of the Fourth Order' };
+    document.getElementById('header-sub').textContent = 'Canto 4 — The Creation of the Fourth Order · Study Guide';
+    openC4Chapter(chNum);
+  }
+  if (secIdx !== null && secIdx !== undefined) {
+    setTimeout(function () {
+      var el = document.getElementById('sec-' + secIdx);
+      if (el) {
+        document.querySelectorAll('.section-block').forEach(function (b) { b.classList.remove('open'); });
+        el.classList.add('open');
+        window.scrollTo(0, el.getBoundingClientRect().top + window.pageYOffset - 80);
+      }
+    }, 90);
+  }
 }
 
 function openIndex() {
